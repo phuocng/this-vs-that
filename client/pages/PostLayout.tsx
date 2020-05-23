@@ -38,15 +38,18 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                 </a>
             </div>
 
-            <div className='mb-4'>
+            <div className='mb-16'>
                 {children}
             </div>
             {index > 0 && (
                 <div className='mb-2'>
                     <Link
-                        className='text-xl sm:text-2xl'
+                        className='text-xl sm:text-2xl text-white rounded-full px-4 py-2'
                         to={`/${PostList[index - 1].slug}`}
                         title={PostList[index - 1].title}
+                        style={{
+                            backgroundColor: '#6C5CE7',
+                        }}
                     >
                         ← {PostList[index - 1].title}
                     </Link>
@@ -55,9 +58,12 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
             {index < numTasks - 1 && (
                 <div className='mb-2 text-right'>
                     <Link
-                        className='text-xl sm:text-2xl'
+                        className='text-xl sm:text-2xl text-white rounded-full px-4 py-2'
                         to={`/${PostList[index + 1].slug}`}
                         title={PostList[index + 1].title}
+                        style={{
+                            backgroundColor: '#6C5CE7',
+                        }}
                     >
                         {PostList[index + 1].title} →
                     </Link>
