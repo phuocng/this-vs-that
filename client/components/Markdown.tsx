@@ -21,12 +21,20 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
     const renderHeading = (p: any) => {
         switch (p.level) {
             case 1: return <h1 className="font-semibold text-4xl mb-8">{p.children}</h1>;
-            case 2: return <h2 className="font-semibold text-2xl sm:text-3xl mb-4">{p.children}</h2>;
+            case 2: return <h2 className="font-semibold text-2xl sm:text-3xl mt-8 mb-4">{p.children}</h2>;
             case 3: return <h3 className="text-xl sm:text-2xl mb-2">{p.children}</h3>;
             case 4: return <h4>{p.children}</h4>;
             case 5: return <h5>{p.children}</h5>;
             default: return <></>;
         }
+    };
+    const renderImage = (p: any) => {
+        return (
+            <figure className='border border-dashed border-blue-400 text-center my-4 p-2'>
+                <img className='ml-auto mr-auto mb-2' src={p.src} alt={p.alt} />
+                <figcaption className='block italic'>{p.alt}</figcaption>
+            </figure>
+        );
     };
     const renderHorizontalLine = (p: any) => {
         return <hr className="my-6" />;
@@ -60,6 +68,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
                 blockquote: renderBlockquote,
                 code: renderCode,
                 heading: renderHeading,
+                image: renderImage,
                 inlineCode: renderInlineCode,
                 link: renderLink,
                 list: renderList,
