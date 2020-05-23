@@ -22,9 +22,9 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                 <meta name='description' content={title} />
             </Helmet>
 
-            <h1 className='font-semibold mt-4 mb-4 text-center text-3xl lg:text-5xl px-1'>{title}</h1>
+            <h1 className='font-semibold mt-24 mb-4 text-center text-3xl lg:text-5xl px-1'>{title}</h1>
 
-            <div className="mb-12 text-center">
+            <div className="mb-16 text-center">
                 <a
                     className="text-2xl bg-gray-400 px-4 py-2 text-white rounded-full"
                     href={`https://github.com/phuoc-ng/this-vs-that/blob/master/client/posts/${slug}/index.tsx`}
