@@ -55,7 +55,7 @@ const HomePage = () => {
                                             transform: 'skewY(-4deg)',
                                         }}
                                     />
-                                    {unslugify(post.slug)}
+                                    {post.title}
                                 </Link>
                             </div>
                         );
