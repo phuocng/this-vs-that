@@ -3,7 +3,7 @@ import React from 'react';
 import Markdown from '../../components/Markdown';
 
 export default () => {
-    return (        
+    return (
 <Markdown
     content={`
 Imagine that a web page is constructed by a tree of nodes. Considering a common HTML page has a structure like this:
