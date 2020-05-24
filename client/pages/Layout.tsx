@@ -38,11 +38,3 @@ const Layout: React.FC<{}> = ({ children }) => {
 };
 
 export default Layout;
-
-
-/*
-<svg width="1440" height="452" viewBox="0 0 1440 452" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 76.4173L1440 0V452L0 452V76.4173Z" fill="#2D3436"/>
-</svg>
-
-*/

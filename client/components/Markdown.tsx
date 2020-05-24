@@ -16,7 +16,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
         return <SampleCode code={p.value} lang={p.language} />;
     };
     const renderInlineCode = (p: any) => {
-        return <code>{p.children}</code>;
+        return <code style={{ backgroundColor: '#FFEAA7' }}>{p.children}</code>;
     };
     const renderHeading = (p: any) => {
         switch (p.level) {
@@ -50,7 +50,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
                 : <ul className="mb-8 ml-4 list-disc">{p.children}</ul>;
     };
     const renderParagraph = (p: any) => {
-        return <p className="mb-2">{p.children}</p>;
+        return <div className="mb-2">{p.children}</div>;
     };
     const renderTable = (p: any) => {
         return <table className="border border-gray-400 mb-8">{p.children}</table>;
