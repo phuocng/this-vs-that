@@ -16,7 +16,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
         return <SampleCode code={p.value} lang={p.language} />;
     };
     const renderInlineCode = (p: any) => {
-        return <code>{p.children}</code>;
+        return <code style={{ backgroundColor: '#FFEAA7' }}>{p.children}</code>;
     };
     const renderHeading = (p: any) => {
         switch (p.level) {
