@@ -42,11 +42,11 @@ const HomePage = () => {
                         return (
                             <div
                                 key={post.slug}
-                                className='w-1/2 sm:w-1/3 px-1 mb-6 text-center'
+                                className='w-1/2 sm:w-1/3 px-3 mb-6 text-center'
                             >
                                 <Link
                                     to={`/${post.slug}`}
-                                    className='text-2xl relative flex'
+                                    className='h-full text-xl relative flex flex-col justify-center items-center p-3'
                                 >
                                     <div
                                         className='absolute h-full left-0 top-0 w-full'
@@ -55,9 +55,7 @@ const HomePage = () => {
                                             transform: 'skewY(-4deg)',
                                         }}
                                     />
-                                    <div className='p-3'>
-                                        {post.title}
-                                    </div>
+                                    <h2>{post.title}</h2>
                                 </Link>
                             </div>
                         );
