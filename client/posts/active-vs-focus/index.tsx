@@ -87,7 +87,7 @@ page in the DOM order instead of tab order.
     * Click the eye icon which is located at the right of the Filter box to create a live expression
     * Type \`document.activeElement\`
 
-    This live expression will represent the active element which has the focus currently. You can right click on the expression’s 
+    This live expression will represent the active element which has the focus currently. You can right click on the expression's 
     result and then choose _Reveal in Elements panel_ to inspect the focused element.
 
     ![Track the focused element](/assets/track-focused-element.png)
