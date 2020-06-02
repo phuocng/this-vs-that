@@ -9,6 +9,7 @@ const PostList: Post[] = [
     { slug: 'class-vs-id', title: 'class vs id', category: 'HTML' },
     { slug: 'display-none-vs-opacity-0-vs-visibility-hidden', title: 'display: none vs opacity: 0 vs visibility: hidden', category: 'CSS' },
     { slug: 'element-vs-node', title: 'Element vs Node', category: 'HTML' },
+    { slug: 'equality-operator-vs-strict-equality-operator', title: '== vs ===', category: 'JavaScript' },
     { slug: 'normalize-vs-reset-css', title: 'Normalize vs Reset CSS', category: 'CSS' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'JavaScript' },
 ];
