@@ -1,4 +1,5 @@
 interface Post {
+    category: string;
     slug: string;
     title: string;
 }
