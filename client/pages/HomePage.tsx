@@ -13,26 +13,12 @@ const HomePage = () => {
                 <meta name='description' content='What is the difference between ___ and ___ in the front-end development?' />
             </Helmet>
 
-            <h2 className='font-semibold mt-24 text-center text-2xl sm:text-4xl px-1'>
+            <h2 className='font-semibold mt-32 text-center text-2xl sm:text-4xl px-1'>
                 What is the <span className='sm:text-6xl' style={{ color: '#6C5CE7' }}>difference</span> between
             </h2>
-            <h2 className='text-2xl sm:text-4xl font-bold mb-12 text-center'>
-                <span className='sm:text-5xl' style={{ color: '#6C5CE7' }}>this</span> & <span className='sm:text-5xl' style={{ color: '#6C5CE7' }}>that?</span>
+            <h2 className='text-2xl sm:text-4xl mb-40 font-bold mb-12 text-center'>
+                <span className='sm:text-6xl' style={{ color: '#6C5CE7' }}>this</span> & <span className='sm:text-6xl' style={{ color: '#6C5CE7' }}>that?</span>
             </h2>
-
-            <div className="mb-40 text-center">
-                <a
-                    className="text-2xl text-white px-4 py-2 rounded-full"
-                    href="https://github.com/phuoc-ng/this-vs-that"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    style={{
-                        backgroundColor: '#6C5CE7',
-                    }}
-                >
-                    GitHub
-                </a>
-            </div>
 
             <div className='ml-auto mr-auto max-w-4xl'>
                 <div className='flex flex-wrap -ml-1 -mr-1'>
@@ -48,10 +34,10 @@ const HomePage = () => {
                                     className='h-full text-xl relative flex flex-col justify-center items-center p-3'
                                 >
                                     <div
-                                        className='absolute h-full left-0 top-0 w-full'
+                                        className='absolute bg-white h-full left-0 top-0 w-full shadow-2xl'
                                         style={{
-                                            boxShadow: 'rgba(38, 50, 56, 0.08) 0px 1rem 2rem, rgba(38, 50, 56, 0.1) 0px 0.5rem 1.5rem',
                                             transform: 'skewY(-4deg)',
+                                            zIndex: -1,
                                         }}
                                     />
                                     <h2>{post.title}</h2>

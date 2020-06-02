@@ -24,7 +24,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
 
             <h1 className='font-semibold mt-24 mb-4 text-center text-3xl lg:text-5xl px-1'>{title}</h1>
 
-            <div className="mb-16 text-center">
+            <div className="mb-32 text-center">
                 <a
                     className="text-2xl bg-gray-400 px-4 py-2 text-white rounded-full"
                     href={`https://github.com/phuoc-ng/this-vs-that/blob/master/client/posts/${slug}/index.tsx`}
@@ -38,7 +38,14 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                 </a>
             </div>
 
-            <div className='mb-16'>
+            <div className='mb-16 px-4 py-12 relative'>
+                <div
+                    className='absolute bg-white h-full left-0 top-0 w-full shadow-2xl'
+                    style={{
+                        transform: 'skewY(-4deg)',
+                        zIndex: -1,
+                    }}
+                />
                 {children}
             </div>
             {index > 0 && (
