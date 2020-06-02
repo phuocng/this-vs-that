@@ -32,7 +32,9 @@ sum.call(null, 1, 2, 3);        // 6
 
 You can use this mnemonic to remember the differences between \`apply\` and \`call\`: 
 
-__A__ is for __a__rray, __C__ is for __c__omma.
+__A__ is for __a__rray
+
+__C__ is for __c__omma
 `}
 />
     );
