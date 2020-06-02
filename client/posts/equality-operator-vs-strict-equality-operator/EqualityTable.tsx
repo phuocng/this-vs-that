@@ -14,6 +14,8 @@ const EqualityTable: React.FC<{}> = () => {
         'false': false,
         '1': 1,
         '0': 0,
+        '+0': +0,
+        '-0': -0,
         '"true"': 'true',
         '"false"': 'false',
         '"1"': '1',

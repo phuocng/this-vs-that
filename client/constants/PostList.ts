@@ -11,6 +11,7 @@ const PostList: Post[] = [
     { slug: 'element-vs-node', title: 'Element vs Node', category: 'HTML' },
     { slug: 'equality-operator-vs-strict-equality-operator', title: '== vs ===', category: 'JavaScript' },
     { slug: 'normalize-vs-reset-css', title: 'Normalize vs Reset CSS', category: 'CSS' },
+    { slug: 'object-is-vs-strict-equality-operator', title: 'Object.is() vs ===', category: 'JavaScript' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'JavaScript' },
 ];
 
