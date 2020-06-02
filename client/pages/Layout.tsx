@@ -14,7 +14,7 @@ const Layout: React.FC<{}> = ({ children }) => {
                 <div
                     className='absolute top-0 left-0 right-0 bottom-0'
                     style={{
-                        backgroundColor: '#00B894',
+                        backgroundColor: '#FDCB6E',
                         height: '32rem',
                         transform: 'skewY(-4deg)',
                         transformOrigin: 'top left',

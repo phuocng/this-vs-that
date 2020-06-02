@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import PostList from '../constants/PostList';
-import { unslugify } from '../helpers/slugify';
 import Layout from './Layout';
 
 const HomePage = () => {
@@ -14,11 +13,11 @@ const HomePage = () => {
                 <meta name='description' content='What is the difference between ___ and ___ in the front-end development?' />
             </Helmet>
 
-            <h2 className='font-semibold mt-32 text-center text-2xl sm:text-5xl px-1'>
-                What is the <span style={{ color: '#FFEAA7' }}>difference</span> between
+            <h2 className='font-semibold mt-24 text-center text-2xl sm:text-4xl px-1'>
+                What is the <span className='sm:text-6xl' style={{ color: '#6C5CE7' }}>difference</span> between
             </h2>
-            <h2 className='font-light mb-12 text-2xl sm:text-4xl text-center'>
-                <span className='border-b-4 border-black pb-1 px-8'>this</span> <span>&</span> <span className='border-b-4 border-black pb-1 px-8'>that</span>
+            <h2 className='text-2xl sm:text-4xl font-bold mb-12 text-center'>
+                <span className='sm:text-5xl' style={{ color: '#6C5CE7' }}>this</span> & <span className='sm:text-5xl' style={{ color: '#6C5CE7' }}>that?</span>
             </h2>
 
             <div className="mb-40 text-center">
