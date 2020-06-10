@@ -8,13 +8,17 @@ const PostList: Post[] = [
     { slug: 'argument-vs-parameter', title: 'argument vs parameter', category: 'JavaScript' },
     { slug: 'array-length-0-vs-array-[]', title: 'array = [] vs array.length = 0', category: 'JavaScript' },
     { slug: 'class-vs-id', title: 'class vs id', category: 'HTML' },
+    { slug: 'delete-object-property-vs-set-object-property-to-undefined', title: 'delete obj.property vs obj.property = undefined', category: 'JavaScript' },
     { slug: 'display-none-vs-opacity-0-vs-visibility-hidden', title: 'display: none vs opacity: 0 vs visibility: hidden', category: 'CSS' },
     { slug: 'element-vs-node', title: 'Element vs Node', category: 'HTML' },
     { slug: 'equality-operator-vs-strict-equality-operator', title: '== vs ===', category: 'JavaScript' },
     { slug: 'normalize-vs-reset-css', title: 'Normalize vs Reset CSS', category: 'CSS' },
+    { slug: 'number-constructor-vs-parse-int', title: 'Number() vs parseInt()', category: 'JavaScript' },
     { slug: 'object-get-own-property-names-vs-object-keys', title: 'Object.getOwnPropertyNames() vs Object.keys()', category: 'JavaScript' },
     { slug: 'object-is-vs-strict-equality-operator', title: 'Object.is() vs ===', category: 'JavaScript' },
+    { slug: 'object-property-with-vs-without-quotes', title: 'object.property vs object[\'property\']', category: 'JavaScript' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'JavaScript' },
+    { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
 ];
 
 export default PostList;
