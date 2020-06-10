@@ -54,7 +54,7 @@ const HomePage = () => {
                                         >
                                             <Link
                                                 to={`/${post.slug}`}
-                                                className='h-full text-xl relative flex flex-col justify-center items-center p-3'
+                                                className='break-all h-full text-xl relative flex flex-col justify-center items-center p-3'
                                             >
                                                 <div
                                                     className='absolute bg-white h-full left-0 top-0 w-full shadow-2xl'
