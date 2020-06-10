@@ -23,7 +23,7 @@ const Layout: React.FC<{}> = ({ children }) => {
                         zIndex: -1,
                     }}
                 />
-                <div className="ml-auto mr-auto max-w-3xl">
+                <div className="ml-auto mr-auto max-w-4xl">
                     <div className='flex items-center justify-between py-4'>
                         <Link to='/' className='flex items-center'>
                             <div className='font-semibold text-2xl'>this</div>

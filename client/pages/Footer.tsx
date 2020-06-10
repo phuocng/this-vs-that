@@ -14,7 +14,7 @@ const Footer: React.FC<{}> = () => {
                     zIndex: -1,
                 }}
             />
-            <div className='ml-auto mr-auto max-w-3xl px-2 lg:px-0'>
+            <div className='ml-auto mr-auto max-w-4xl px-2 lg:px-0'>
                 <SubscribeForm />
                 <div className='flex flex-wrap -ml-1 -mr-1'>
                     <div className='w-1/2 sm:w-1/3 px-1 mb-6'>
