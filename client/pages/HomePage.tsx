@@ -25,7 +25,7 @@ const HomePage = () => {
                 <span className='sm:text-6xl' style={{ color: '#6C5CE7' }}>this</span> & <span className='sm:text-6xl' style={{ color: '#6C5CE7' }}>that?</span>
             </h2>
 
-            <div className='ml-auto mr-auto max-w-4xl'>
+            <div className='ml-auto mr-auto'>
             {
                 Object.keys(groupByCategory).map(category => {
                     return (
@@ -54,7 +54,7 @@ const HomePage = () => {
                                         >
                                             <Link
                                                 to={`/${post.slug}`}
-                                                className='break-all h-full text-xl relative flex flex-col justify-center items-center p-3'
+                                                className='h-full relative flex flex-col justify-center items-center p-3'
                                             >
                                                 <div
                                                     className='absolute bg-white h-full left-0 top-0 w-full shadow-2xl'
