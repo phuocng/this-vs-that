@@ -42,6 +42,37 @@ foo.length = 0;
 // \`bar\` is affected
 console.log(bar);   // []
 ~~~
+
+## Good to know
+
+1. There is another, less popular approach to empty an array:
+
+    ~~~ javascript
+    arr.splice(0, arr.length);
+    ~~~
+
+    This method affects other references. Since \`.splice\` returns an array of removed items, you can get a copy of original array
+    by assigning the result to a new variable:
+
+    ~~~ javascript
+    let foo = ['hello', 'world'];
+
+    // Empty and create a copy of \`foo\`
+    let bar = foo.splice(0, foo.length);
+
+    console.log(foo);   // []
+    console.log(bar);   // ['hello', 'world']
+    ~~~
+
+2. If the array is declared as a constant, then you can't reassign it to \`[]\`.
+
+    ~~~ javascript
+    const foo = [1, 2, 3];
+    foo = [];   // will throw an exception of 
+                // "Assignment to constant variable"
+
+    foo.length = [];
+    ~~~
 `}
 />
     );

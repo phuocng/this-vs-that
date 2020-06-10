@@ -59,7 +59,7 @@ so Chrome adds a following style to make all children invisible:
 }
 ~~~
 
-## Fun fact
+## Good to know
 
 Nowadays, it's very easy for us to set the opacity for given element and its children with a single line of CSS:
 
