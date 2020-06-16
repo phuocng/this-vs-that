@@ -50,14 +50,14 @@ const HomePage = () => {
                                     return (
                                         <div
                                             key={post.slug}
-                                            className='w-1/2 sm:w-1/3 px-3 mb-6 text-center'
+                                            className='w-1/2 sm:w-1/3 px-3 mb-6 h-20 text-center'
                                         >
                                             <Link
                                                 to={`/${post.slug}`}
                                                 className='h-full relative flex flex-col justify-center items-center p-3'
                                             >
                                                 <div
-                                                    className='absolute bg-white h-full left-0 top-0 w-full shadow-2xl'
+                                                    className='absolute bg-white h-full left-0 top-0 w-full border-2 shadow-xl'
                                                     style={{
                                                         transform: 'skewY(-4deg)',
                                                         zIndex: -1,
