@@ -17,6 +17,7 @@ const PostList: Post[] = [
     { slug: 'equality-operator-vs-strict-equality-operator', title: '== vs ===', category: 'JavaScript' },
     { slug: 'key-vs-key-code-vs-which', title: 'key vs keyCode vs which', category: 'JavaScript' },
     { slug: 'keydown-vs-keypress-vs-keyup', title: `keydown vs keypress vs keyup`, category: 'JavaScript' },
+    { slug: 'mouseenter-vs-mouseover', title: 'mouseenter vs mouseover', category: 'JavaScript' },
     { slug: 'node-name-vs-tag-name', title: 'nodeName vs tagName', category: 'JavaScript' },
     { slug: 'normalize-vs-reset-css', title: 'Normalize vs Reset CSS', category: 'CSS' },
     { slug: 'null-vs-undefined', title: 'null vs undefined', category: 'JavaScript' },
