@@ -12,7 +12,7 @@ export default () => {
 It checks if user presses the _Enter_ key whose key code is 13:
 
 ~~~ javascript
-textBoxElement.addEventListener('keypress', function(e) {
+textBoxElement.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
     // Do something ...
     }
