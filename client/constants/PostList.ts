@@ -18,6 +18,7 @@ const PostList: Post[] = [
     { slug: 'keydown-vs-keypress-vs-keyup', title: `keydown vs keypress vs keyup`, category: 'JavaScript' },
     { slug: 'node-name-vs-tag-name', title: 'nodeName vs tagName', category: 'JavaScript' },
     { slug: 'normalize-vs-reset-css', title: 'Normalize vs Reset CSS', category: 'CSS' },
+    { slug: 'null-vs-undefined', title: 'null vs undefined', category: 'JavaScript' },
     { slug: 'number-constructor-vs-parse-int', title: 'Number() vs parseInt()', category: 'JavaScript' },
     { slug: 'object-get-own-property-names-vs-object-keys', title: 'Object.getOwnPropertyNames() vs Object.keys()', category: 'JavaScript' },
     { slug: 'object-is-vs-strict-equality-operator', title: 'Object.is() vs ===', category: 'JavaScript' },
