@@ -11,7 +11,7 @@ The default style sheet is also known as the user-agent style sheet.
 
 You can take a look at the default styles provided by:
 * [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css)
-* [Firefox](https://dxr.mozilla.org/mozilla-central/source/layout/style/res/html.css)
+* [Firefox](https://hg.mozilla.org/mozilla-central/file/tip/layout/style/res/html.css)
 * [Safari](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)
 
 Since the default styles are not the same, causing a web page will have different look and feel on each browser. 
