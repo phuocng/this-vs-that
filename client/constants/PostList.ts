@@ -8,6 +8,7 @@ const PostList: Post[] = [
     { slug: 'argument-vs-parameter', title: 'argument vs parameter', category: 'JavaScript' },
     { slug: 'array-length-0-vs-array-[]', title: 'array = [] vs array.length = 0', category: 'JavaScript' },
     { slug: 'border-vs-outline', title: 'border vs outline', category: 'CSS' },
+    { slug: 'button-vs-input-type-button', title: '<button> vs <input type="button" />', category: 'HTML' },
     { slug: 'class-vs-id', title: 'class vs id', category: 'HTML' },
     { slug: 'const-vs-let-vs-var', title: 'const vs let vs var', category: 'JavaScript' },
     { slug: 'delete-object-property-vs-set-object-property-to-undefined', title: 'delete obj.property vs obj.property = undefined', category: 'JavaScript' },
