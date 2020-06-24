@@ -28,6 +28,7 @@ const PostList: Post[] = [
     { slug: 'object-is-vs-strict-equality-operator', title: 'Object.is() vs ===', category: 'JavaScript' },
     { slug: 'object-property-with-vs-without-quotes', title: 'object.property vs object[\'property\']', category: 'JavaScript' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'JavaScript' },
+    { slug: 'stop-immediate-propagation-vs-stop-propagation', title: 'stopImmediatePropagation vs stopPropagation', category: 'JavaScript' },
     { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
 ];
 
