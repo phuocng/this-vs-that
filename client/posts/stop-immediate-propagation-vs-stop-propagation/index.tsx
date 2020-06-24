@@ -32,6 +32,10 @@ button.addEventListner('click', function() {
 ~~~
 
 Clicking the button will print \`foo\` and \`bar\` in the _Console_. We won't see \`baz\` because the last listener isn't called.
+
+## More
+
+* [event.preventDefault vs return false](/event-prevent-default-vs-return-false)
 `}
 />
     );
