@@ -17,6 +17,7 @@ const PostList: Post[] = [
     { slug: 'double-quotes-vs-single-quote', title: `double quotes vs single quote`, category: 'JavaScript' },
     { slug: 'element-vs-node', title: 'Element vs Node', category: 'HTML' },
     { slug: 'equality-operator-vs-strict-equality-operator', title: '== vs ===', category: 'JavaScript' },
+    { slug: 'event-prevent-default-vs-return-false', title: 'event.preventDefault vs return false', category: 'JavaScript' },
     { slug: 'key-vs-key-code-vs-which', title: 'key vs keyCode vs which', category: 'JavaScript' },
     { slug: 'keydown-vs-keypress-vs-keyup', title: `keydown vs keypress vs keyup`, category: 'JavaScript' },
     { slug: 'mouseenter-vs-mouseover', title: 'mouseenter vs mouseover', category: 'JavaScript' },
