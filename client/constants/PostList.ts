@@ -15,6 +15,7 @@ const PostList: Post[] = [
     { slug: 'current-target-vs-target', title: 'currentTarget vs target', category: 'JavaScript' },
     { slug: 'delete-object-property-vs-set-object-property-to-undefined', title: 'delete obj.property vs obj.property = undefined', category: 'JavaScript' },
     { slug: 'display-none-vs-opacity-0-vs-visibility-hidden', title: 'display: none vs opacity: 0 vs visibility: hidden', category: 'CSS' },
+    { slug: 'dom-content-loaded-vs-load', title: 'DOMContentLoaded vs load', category: 'JavaScript' },
     { slug: 'double-quotes-vs-single-quote', title: `double quotes vs single quote`, category: 'JavaScript' },
     { slug: 'element-vs-node', title: 'Element vs Node', category: 'HTML' },
     { slug: 'equality-operator-vs-strict-equality-operator', title: '== vs ===', category: 'JavaScript' },
