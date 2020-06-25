@@ -15,7 +15,6 @@ In both ways, \`'hello'[1]\` and \`'hello'.charAt(1)\` returns the second charac
 
 ## Differences
 
-
 1. The second way is standard of ECMA 5, and is supported in modern browsers. It is not supported in the very old browsers such as IE 6, 7.
     (I don't think we still need to support these versions of IE).
 
@@ -55,12 +54,12 @@ In both ways, \`'hello'[1]\` and \`'hello'.charAt(1)\` returns the second charac
     'hello'.charAt(100);    // ''
     ~~~
 
-> ## Good to know ##
->
-> _Why does \`'hello'.charAt(true)\` return \`e\`?_
->
-> The \`charAt(index)\` method will try to convert the index to the number first. Since \`Number(true) === 1\`, \`charAt(true)\` will
-> returns the character at the one index position, i.e, the second character.
+## Good to know
+
+_Why does \`'hello'.charAt(true)\` return \`e\`?_
+
+The \`charAt(index)\` method will try to convert the index to the number first. Since \`Number(true) === 1\`, \`charAt(true)\` will
+returns the character at the one index position, i.e, the second character.
 `}
 />
     );
