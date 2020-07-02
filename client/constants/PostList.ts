@@ -36,6 +36,7 @@ const PostList: Post[] = [
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'DOM' },
     { slug: 'stop-immediate-propagation-vs-stop-propagation', title: 'stopImmediatePropagation vs stopPropagation', category: 'DOM' },
     { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
+    { slug: 'style-width-vs-width', title: 'style="width: ___" vs width="___"', category: 'CSS' },
 ];
 
 export default PostList;
