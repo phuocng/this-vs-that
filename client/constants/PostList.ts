@@ -21,6 +21,7 @@ const PostList: Post[] = [
     { slug: 'element-vs-node', title: 'Element vs Node', category: 'HTML' },
     { slug: 'equality-operator-vs-strict-equality-operator', title: '== vs ===', category: 'JavaScript' },
     { slug: 'event-prevent-default-vs-return-false', title: 'event.preventDefault vs return false', category: 'DOM' },
+    { slug: 'has-own-property-vs-in', title: 'hasOwnProperty vs in', category: 'JavaScript' },
     { slug: 'instanceof-vs-typeof', title: 'instanceof vs typeof', category: 'JavaScript' },
     { slug: 'key-vs-key-code-vs-which', title: 'key vs keyCode vs which', category: 'DOM' },
     { slug: 'keydown-vs-keypress-vs-keyup', title: `keydown vs keypress vs keyup`, category: 'DOM' },
