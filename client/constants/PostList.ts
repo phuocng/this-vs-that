@@ -38,6 +38,7 @@ const PostList: Post[] = [
     { slug: 'stop-immediate-propagation-vs-stop-propagation', title: 'stopImmediatePropagation vs stopPropagation', category: 'DOM' },
     { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
     { slug: 'style-width-vs-width', title: 'style="width: ___" vs width="___"', category: 'CSS' },
+    { slug: 'substr-vs-substring', title: 'substr vs substring', category: 'JavaScript' },
 ];
 
 export default PostList;
