@@ -25,6 +25,7 @@ const PostList: Post[] = [
     { slug: 'instanceof-vs-typeof', title: 'instanceof vs typeof', category: 'JavaScript' },
     { slug: 'key-vs-key-code-vs-which', title: 'key vs keyCode vs which', category: 'DOM' },
     { slug: 'keydown-vs-keypress-vs-keyup', title: `keydown vs keypress vs keyup`, category: 'DOM' },
+    { slug: 'method-in-class-constructor-vs-prototype', title: 'method in class constructor vs prototype', category: 'JavaScript' },
     { slug: 'mouseenter-vs-mouseover', title: 'mouseenter vs mouseover', category: 'DOM' },
     { slug: 'natural-width-vs-width', title: 'naturalWidth vs width', category: 'DOM' },
     { slug: 'node-name-vs-tag-name', title: 'nodeName vs tagName', category: 'DOM' },
