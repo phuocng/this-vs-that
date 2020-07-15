@@ -59,7 +59,7 @@ You might be interested in my products:
                 <a href="https://fakenumbers.io">Generate fake and valid numbers</a>
             </td>
         </tr>
-        <tr>
+        <tr valign="top">
             <td align="center">
                 <h3>Form Validation</h3>
                 <a href="https://formvalidation.io">The best validation library for JavaScript</a>
