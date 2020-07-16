@@ -41,6 +41,7 @@ const PostList: Post[] = [
     { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
     { slug: 'style-width-vs-width', title: 'style="width: ___" vs width="___"', category: 'CSS' },
     { slug: 'substr-vs-substring', title: 'substr vs substring', category: 'JavaScript' },
+    { slug: 'undefined-vs-void', title: 'undefined vs void', category: 'JavaScript' },
 ];
 
 export default PostList;
