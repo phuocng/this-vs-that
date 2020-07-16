@@ -3,6 +3,11 @@ The differences between ___ and ___ in the front-end development.
 
 ![this-vs-that](public/assets/screenshot.png)
 
+* [x] Cover differences in varios topics (CSS, DOM, HTML, JavaScript)
+* [x] Include many _Good to know_ sections
+* [x] Include many good practices
+* [x] Inculde many tips and tricks
+
 ## Running it on local
 
 1. Clone the project:
@@ -43,7 +48,7 @@ You might be interested in my products:
     <tbody>
         <tr valign="top">
             <td width="25%" align="center">
-                <h3>1 LOC</h3>
+                <h3>1 LOC (3k★)</h3>
                 <a href="https://1loc.dev">Favorite JavaScript utilities in single line of code</a>
             </td>
             <td width="25%" align="center">
@@ -51,7 +56,7 @@ You might be interested in my products:
                 <a href="https://blur.page">A browser extension to hide sensitive information on a web page</a>
             </td>
             <td width="25%" align="center">
-                <h3>CSS Layout</h3>
+                <h3>CSS Layout (2.4k★)</h3>
                 <a href="https://csslayout.io">A collection of popular layouts and patterns made with CSS</a>
             </td>
             <td width="25%" align="center">
@@ -65,7 +70,7 @@ You might be interested in my products:
                 <a href="https://formvalidation.io">The best validation library for JavaScript</a>
             </td>
             <td width="25%" align="center">
-                <h3>HTML DOM</h3>
+                <h3>HTML DOM (2.9k★)</h3>
                 <a href="https://htmldom.dev">How to manage HTML DOM with vanilla JavaScript</a>
             </td>
             <td width="25%" align="center">
