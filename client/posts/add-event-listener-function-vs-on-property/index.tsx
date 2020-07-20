@@ -100,7 +100,7 @@ element.onclick = handler;
     ~~~
 
 3. The last thing is the browser compatibility.
-    The \`addEventListener\` function doesn't work before Intener Explorer (IE) 9, while \`onclick\` is supported by all browsers. 
+    The \`addEventListener\` function doesn't work before Internet Explorer (IE) 9, while \`onclick\` is supported by all browsers. 
     The IE 8 and older versions use the \`attachEvent\` function.
 
     It isn't really important thing in the web development today as most websites don't support IE 8 or 9 anymore. But if you 
