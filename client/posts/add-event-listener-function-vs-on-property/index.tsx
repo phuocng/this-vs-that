@@ -30,7 +30,7 @@ element.onclick = handler;
 
 1. You can add multiple handlers for an event with \`addEventListener\`. 
 
-    The \`on___\` property or attribute allows to register only one handler. Setting \`on___\` will remote all existing handlers.
+    The \`on___\` property or attribute allows to register only one handler. Setting \`on___\` will remove all existing handlers.
 
     In the following sample code, clicking the element will print \`onclick is used\` in _Console_ because 
     the \`onclick\` removes the original \`handler\`.
