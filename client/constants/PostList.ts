@@ -38,6 +38,7 @@ const PostList: Post[] = [
     { slug: 'object-property-with-vs-without-quotes', title: 'object.property vs object[\'property\']', category: 'JavaScript' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'DOM' },
     { slug: 'postfix-increment-vs-prefix-increment', title: '++value vs value++', category: 'JavaScript' },
+    { slug: 'slice-vs-splice', title: 'slice vs splice', category: 'JavaScript' },
     { slug: 'stop-immediate-propagation-vs-stop-propagation', title: 'stopImmediatePropagation vs stopPropagation', category: 'DOM' },
     { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
     { slug: 'style-width-vs-width', title: 'style="width: ___" vs width="___"', category: 'CSS' },
