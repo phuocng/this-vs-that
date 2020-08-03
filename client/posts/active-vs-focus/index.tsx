@@ -14,7 +14,7 @@ The \`:focus\` selector occurs when the element is ready to be interacted with. 
 * User uses the mouse to click on the element
 * On touchscreen screens, user taps on the element
 
-The \`:active:\` selector is applied when the element is being activated. It will be kept during the 
+The \`:active\` selector is applied when the element is being activated. It will be kept during the 
 time user clicks on the element and releases the mouse.
 
 There is an important notice for the Safari browser running on iOS. The \`:focus\` selector is supported, 
