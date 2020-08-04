@@ -39,7 +39,7 @@ export default () => {
     For example, both the \`id\` and \`class\` in this element defines the text color. 
 
     ~~~ css
-    header {
+    #header {
         text-color: white;
     }
     .header {
