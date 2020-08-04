@@ -44,7 +44,7 @@ export default () => {
 
     // The original array isn't modified
     array;      // [1, 2, 3, 4, 5]
-    sub;        // [3]
+    sub;        // [3, 4]
     ~~~
 
 ## Tip
