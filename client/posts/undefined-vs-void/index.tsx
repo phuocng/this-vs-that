@@ -136,6 +136,10 @@ Nowadays, using \`javascript:\` protocol isn't recommended. It can create a secu
 
 Starting from v16.9.0, React also [deprecates](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls) 
 the usage of \`javascript:\` URLs.
+
+## More
+
+* [variable === undefined vs. typeof variable === "undefined"](/variable-undefined-vs-typeof-variable-undefined)
 `}
 />
     );
