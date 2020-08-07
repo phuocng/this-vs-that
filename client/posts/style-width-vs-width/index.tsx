@@ -23,7 +23,7 @@ There are two ways to define the dimension for an element:
 ## Differences
 
 1. The \`width\` and \`height\` properties are available for all HTML elements. But the \`width\` and \`height\` attributes are only
-    available for some element such as \`canvas\`, \`image\`, etc.
+    available for some elements such as \`canvas\`, \`image\`, \`table\`, \`td\`, etc.
 
     ~~~ html
     <!-- Work -->
