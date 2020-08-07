@@ -44,6 +44,7 @@ const PostList: Post[] = [
     { slug: 'style-width-vs-width', title: 'style="width: ___" vs width="___"', category: 'CSS' },
     { slug: 'substr-vs-substring', title: 'substr vs substring', category: 'JavaScript' },
     { slug: 'undefined-vs-void', title: 'undefined vs void', category: 'JavaScript' },
+    { slug: 'variable-undefined-vs-typeof-variable-undefined', title: 'variable === undefined vs. typeof variable === "undefined"', category: 'JavaScript' },
 ];
 
 export default PostList;
