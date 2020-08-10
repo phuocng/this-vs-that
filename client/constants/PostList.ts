@@ -36,6 +36,7 @@ const PostList: Post[] = [
     { slug: 'object-get-own-property-names-vs-object-keys', title: 'Object.getOwnPropertyNames() vs Object.keys()', category: 'JavaScript' },
     { slug: 'object-is-vs-strict-equality-operator', title: 'Object.is() vs ===', category: 'JavaScript' },
     { slug: 'object-property-with-vs-without-quotes', title: 'object.property vs object[\'property\']', category: 'JavaScript' },
+    { slug: 'object-vs-map', title: 'Object vs Map', category: 'JavaScript' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'DOM' },
     { slug: 'postfix-increment-vs-prefix-increment', title: '++value vs value++', category: 'JavaScript' },
     { slug: 'slice-vs-splice', title: 'slice vs splice', category: 'JavaScript' },

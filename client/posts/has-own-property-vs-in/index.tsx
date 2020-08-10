@@ -70,6 +70,10 @@ person.hasOwnProperty('name');  // true
 ## Good practice
 
 In order to check the existence of a property, use \`hasOwnProperty\`. Use \`in\` to check the existence of a method.
+
+## More
+
+* [Object vs Map](/object-vs-map)
 `}
 />
     );
