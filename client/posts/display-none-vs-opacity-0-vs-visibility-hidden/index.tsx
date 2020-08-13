@@ -9,7 +9,7 @@ export default () => {
 There are three common CSS properties to make an element invisible:
 
 * \`display: none\`
-* \`opactity: 0\`
+* \`opacity: 0\`
 * \`visibility: hidden\`
 
 ## Differences
@@ -20,10 +20,10 @@ There are three common CSS properties to make an element invisible:
 2.  The browser will not response to any events of element which uses either display: none or  \`visibility: hidden\`.
     The \`visibility: hidden\` style behaves like a combination of \`opacity: 0\` and \`pointer-events: none\`.
 
-3. Regarding the accessibility, \`opactity: 0\` is the only property which makes the element accessible in the tab order,
+3. Regarding the accessibility, \`opacity: 0\` is the only property which makes the element accessible in the tab order,
     and the element's content can be read by screen readers.
 
-4. Applying \`display: none\` or \`opactity: 0\` will effect on child elements. \`visibility: hidden\`, on the other hand, 
+4. Applying \`display: none\` or \`opacity: 0\` will effect on child elements. \`visibility: hidden\`, on the other hand, 
     doesn't change the visibility of any children.
 
 5. It's worth noting that if you want to measure the size of element, then you can't use \`display: none\` at all.
