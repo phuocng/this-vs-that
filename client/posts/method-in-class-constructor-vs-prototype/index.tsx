@@ -76,6 +76,10 @@ Foo.prototype.anotherBigFunction = function() {
 ~~~
 
 The latter looks more readable and convenient.
+
+## More
+
+* [function vs property in interface](/function-vs-property-in-interface)
 `}
 />
     );
