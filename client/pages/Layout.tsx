@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import Footer from './Footer';
+import GitHubButton from './GitHubButton';
 
 const Layout: React.FC<{}> = ({ children }) => {
     const { pathname } = useLocation();
@@ -30,17 +31,7 @@ const Layout: React.FC<{}> = ({ children }) => {
                             <div className='mx-1 h-8 inline-flex items-center justify-center rounded-full text-white w-8' style={{ backgroundColor: '#6C5CE7' }}>vs</div>
                             <div className='font-semibold text-2xl'>that</div>
                         </Link>
-                        <a
-                            className="text-2xl text-white px-4 rounded-full"
-                            href="https://github.com/phuoc-ng/this-vs-that"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            style={{
-                                backgroundColor: '#6C5CE7',
-                            }}
-                        >
-                            GitHub
-                        </a>
+                        <GitHubButton />
                     </div>
                     {children}
                 </div>
