@@ -6,7 +6,7 @@ export default () => {
     return (
 <Markdown
     content={`
-Single quote \`'\` and double \`"\` quotes are used to present strings. There is not real difference between them except that JSON doesn't accept the single quote. 
+Single quote \`'\` and double \`"\` quotes are used to wrap strings. There is no real difference between them except that JSON doesn't accept the single quote. 
 
 Other than that, here is the list of advantages and disadvantages:
 
