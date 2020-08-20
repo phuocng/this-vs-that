@@ -13,10 +13,9 @@ export default () => {
 
 The \`mouseenter\` and \`mouseover\` events are triggered when you move the mouse over an element.
 
-The difference is that, the \`mouseenter\` event only triggers when the mouse enters the element. 
+\`mouseenter\` only triggers when the mouse enters the element on which it is set. The counterpart event is \`mouseleave\`. 
 
-Whereas, the \`mouseover\` event occurs when the mouse enters the element or any of its children.
-The similar behaviour applies for the \`mouseleave\` and \`mouseout\` events.
+\`mouseover\` triggers when the mouse enters the element *or any of its children*. Its counterpart is \`mouseout\`.
 `}
 />
 <MouseEnterDemo />
@@ -25,8 +24,7 @@ The similar behaviour applies for the \`mouseleave\` and \`mouseout\` events.
     content={`
 ## Good practice
 
-Because the \`mouseover\` event could be triggered many times when the mouse enters any child element, the screen can be flickering if 
-we change the layout or perform expensive task within event handler.
+Because the \`mouseover\` event propagates from the child element up through the hierarchy, if you're doing a resource-intensive task on the event you may notice the screen flickering.
 
 It's recommended to use the \`mouseenter\` and \`mouseleave\` events instead.
 `}
