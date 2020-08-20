@@ -6,9 +6,12 @@ export default () => {
     return (
 <Markdown
     content={`
-The \`b\`, \`strong\` tags (and the other pair of tags, \`i\` and \`em\`) look like the same to each other when we see them rendered in a webpage.
+The \`b\` and \`strong\` tags by default make text bold.
 
-Each browser has its own default styles, and it uses the same styles for the \`b\` and \`strong\` tags.
+The \`i\` and \`em\` tags by default make text italicized.
+
+Each browser has its own default styles, but result in similar appearances.
+
 Here is how they are styled in the popular browsers:
 
 [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css):
@@ -45,13 +48,11 @@ i, cite, em, var, address, dfn {
 }
 ~~~
 
-Without any custom styles, both the \`b\` and \`strong\` tags are bold, while the \`i\` and \`em\` tags are italic.
+Despite the fact that their appearances are similar, the \`strong\` and \`em\` tags add extra semantic meaning to the enclosed text, whereas \`b\` and \`i\` are purely visual.
 
-Despite the fact that their appearances are similar, the \`strong\` and \`em\` tags add extra semantic meaning to the enclosed text.
+According to the HTML 5 specifications, the [\`strong\`](https://dev.w3.org/html5/spec-LC/text-level-semantics.html#the-strong-element) and [\`em\`](https://dev.w3.org/html5/spec-LC/text-level-semantics.html#the-em-element) tags indicate importance and emphasis respectively.
 
-According to the HTML 5 specifications, the \`strong\` and \`em\` tags indicate the importances and emphasis respectively.
-On a screen reader, nothing special happens when it sees an \`i\` tag. But when it comes across an \`em\` tag, it knows that the content should be 
-emphasised to the listeners.
+As far as accessibility goes, while a particular screen reading software may or may not pronounce it differently, using \`<strong>\` or \`<em>\` at least opens the possibility, whereas a screen reader will never pronounce text within \`<b>\` or \`<i>\` differently.
 `}
 />
     );
