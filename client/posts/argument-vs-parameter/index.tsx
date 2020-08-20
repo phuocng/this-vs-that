@@ -12,7 +12,7 @@ A _parameter_ is the variable belonging to the declaration of a function.
 
 An _argument_ is the actual value of the parameter that is passed to the function.
 
-Assume that we have a function that calculate the sum of two numbers:
+Assume that we have a function that calculates the sum of two numbers:
 
 ~~~ javascript
 const sum = function(a, b) {
