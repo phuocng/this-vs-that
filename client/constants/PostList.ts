@@ -25,6 +25,7 @@ const PostList: Post[] = [
     { slug: 'function-vs-property-in-interface', title: 'function vs property in interface', category: 'TypeScript' },
     { slug: 'has-own-property-vs-in', title: 'hasOwnProperty vs in', category: 'JavaScript' },
     { slug: 'instanceof-vs-typeof', title: 'instanceof vs typeof', category: 'JavaScript' },
+    { slug: 'interface-vs-type', title: 'interface vs type', category: 'TypeScript' },
     { slug: 'key-vs-key-code-vs-which', title: 'key vs keyCode vs which', category: 'DOM' },
     { slug: 'keydown-vs-keypress-vs-keyup', title: `keydown vs keypress vs keyup`, category: 'DOM' },
     { slug: 'method-in-class-constructor-vs-prototype', title: 'method in class constructor vs prototype', category: 'JavaScript' },
