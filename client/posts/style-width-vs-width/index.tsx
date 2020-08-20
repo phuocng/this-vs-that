@@ -51,7 +51,7 @@ There are two ways to define the dimension for an element:
     <canvas style="height: 100px; width: 100px;">
     ~~~
 
-    The \`width\` and \`height\` attributes of canvas must be positive numbers without the units. \`width="100px"\` will have not affect
+    The \`width\` and \`height\` attributes of canvas must be positive numbers without the units. \`width="100px"\` will have no affect
     despite the fact that it seems to be a valid attribute declaration for other elements.
 
 3. The CSS style properties have the higher priority than the HTML properties. 

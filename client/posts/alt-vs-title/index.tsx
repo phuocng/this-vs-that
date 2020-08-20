@@ -12,30 +12,25 @@ export default () => {
 
     \`<img>\` is the most popular tag using the \`alt\` attribute.
 
-    When an image can't be loaded, the browser will display the \`alt\` attribute. It's useful because user will have an 
-    idea of what the content is.
+    When an image can't be loaded, the browser will display the \`alt\` text in its place so the user can get an 
+    idea of why the image was included.
 
-2. The \`title\` attribute is the tooltip text that user will see after hovering over the element.
+2. The \`title\` attribute is the tooltip text seen when hovering over the element.
 
 ## Good practice
 
 Always use the \`alt\` attribute for \`<img>\` tags.
 
 Google and other search engines can't read the image but they can see the \`alt\` text. 
-Setting the \`alt\` attribute will let the search engines understand what the image is.
+Setting the \`alt\` attribute is a [good practice](https://youtu.be/CV2tIFgUKW4) for SEO (search enginge optimization).
 
-By doing so, the image will have more chances to be indexed by search engine crawlers. 
-It's a good practice to make the website friendly with search engines.
-
-Unlike the search engines, user can understand what the image is about when looking at it. 
-So that we don't need to set the \`title\` attribute for \`<img>\` unless it really provides more information about the image.
+You usually won't set the \`title\` attribute for \`<img>\` unless it really provides more information about the image. But it could be argued that if you have to explain your image with title text, maybe there's a better image to use.
 
 ## Tips
 
-As mentioned in the previous section, the \`img\` tag should come with an \`alt\` attribute. 
-Here is the two tips that help you avoid the problem in the development phase.
+Here's two options for making sure you always include the \`alt\` attribute on the \`img\` tag.
 
-1. You can visually see which \`img\` missing the \`alt\` attribute by using the CSS:
+1. Use CSS to give a red outline to any \`img\` having a missing or blank \`alt\` attribute:
 
     ~~~ css
     img:not([alt]),
@@ -44,9 +39,7 @@ Here is the two tips that help you avoid the problem in the development phase.
     }
     ~~~
 
-    Doing so will add a red border to any \`img\` tag whose \`alt\` attribute is missing or empty.
-
-2. If you are using [Visual Studio Code](https://code.visualstudio.com), then I recommend to install the 
+2. If you are using [Visual Studio Code](https://code.visualstudio.com), you can install the 
 [webhint extension](https://marketplace.visualstudio.com/items?itemName=webhint.vscode-webhint).
     It will automatically detect the issue and show the details when you hover on the element.
     ![Detect the missing alternate text with webhint](/assets/webhint-alt-warning.png)
