@@ -15,6 +15,7 @@ const PostList: Post[] = [
     { slug: 'const-vs-let-vs-var', title: 'const vs let vs var', category: 'JavaScript' },
     { slug: 'const-vs-readonly', title: 'const vs readonly', category: 'TypeScript' },
     { slug: 'current-target-vs-target', title: 'currentTarget vs target', category: 'DOM' },
+    { slug: 'd-ts-vs-ts', title: '*.d.ts vs *.ts', category: 'TypeScript' },
     { slug: 'delete-object-property-vs-set-object-property-to-undefined', title: 'delete obj.property vs obj.property = undefined', category: 'JavaScript' },
     { slug: 'display-none-vs-hidden-attribute', title: 'display: none vs [hidden]', category: 'CSS' },
     { slug: 'display-none-vs-opacity-0-vs-visibility-hidden', title: 'display: none vs opacity: 0 vs visibility: hidden', category: 'CSS' },
