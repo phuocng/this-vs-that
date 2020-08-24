@@ -21,7 +21,7 @@ export default () => {
 
 ## Good practices
 
-1. The \`button\` element has is more semantic than the \`input\` with type of \`button\`. It's recommended to use the \`button\` element 
+1. The \`button\` element is more semantic than the \`input\` with type of \`button\`. It's recommended to use the \`button\` element 
     if you want to create a clickable button.
 
 2. Always specific the \`type\` attribute for the \`button\` element. The possible values are
