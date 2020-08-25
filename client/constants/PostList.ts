@@ -47,6 +47,7 @@ const PostList: Post[] = [
     { slug: 'slice-vs-splice', title: 'slice vs splice', category: 'JavaScript' },
     { slug: 'stop-immediate-propagation-vs-stop-propagation', title: 'stopImmediatePropagation vs stopPropagation', category: 'DOM' },
     { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
+    { slug: 'string-vs-string', title: 'string vs String', category: 'TypeScript' },
     { slug: 'style-width-vs-width', title: 'style="width: ___" vs width="___"', category: 'CSS' },
     { slug: 'substr-vs-substring', title: 'substr vs substring', category: 'JavaScript' },
     { slug: 'undefined-vs-void', title: 'undefined vs void', category: 'JavaScript' },
