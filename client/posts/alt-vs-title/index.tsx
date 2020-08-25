@@ -22,7 +22,7 @@ export default () => {
 Always use the \`alt\` attribute for \`<img>\` tags.
 
 Google and other search engines can't read the image but they can see the \`alt\` text. 
-Setting the \`alt\` attribute is a [good practice](https://youtu.be/CV2tIFgUKW4) for SEO (search enginge optimization).
+Setting the \`alt\` attribute is a [good practice](https://youtu.be/CV2tIFgUKW4) for SEO (search engine optimization).
 
 You usually won't set the \`title\` attribute for \`<img>\` unless it really provides more information about the image. But it could be argued that if you have to explain your image with title text, maybe there's a better image to use.
 
