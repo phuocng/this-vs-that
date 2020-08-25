@@ -71,7 +71,7 @@ console.log(bar);   // []
     foo = [];   // will throw an exception of 
                 // "Assignment to constant variable"
 
-    foo.length = [];
+    foo.length = 0;
     ~~~
 `}
 />
