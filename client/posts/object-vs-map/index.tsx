@@ -130,6 +130,7 @@ const person = {
 ## More
 
 * [hasOwnProperty vs in](/has-own-property-vs-in)
+* [Map vs WeakMap](/map-vs-weak-map)
 `}
 />
     );
