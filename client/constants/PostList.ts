@@ -1,6 +1,7 @@
 import Post from './Post';
 
 const PostList: Post[] = [
+    { slug: '<->-vs-react-fragment', title: '<> vs React.Fragment', category: 'React' },
     { slug: 'active-vs-focus', title: ':active vs :focus', category: 'CSS' },
     { slug: 'add-event-listener-function-vs-on-property', title: 'addEventListener() function vs on property', category: 'DOM' },
     { slug: 'alt-vs-title', title: 'alt vs title', category: 'HTML' },
