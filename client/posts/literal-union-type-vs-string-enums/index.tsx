@@ -128,6 +128,10 @@ enum Theme {
 console.log(Theme.DARK);                // 'Dark'
 let theme: Theme.DEFAULT = 'Default';   // ERROR
 ~~~
+
+## More
+
+* [const enum vs enum](/const-enum-vs-enum)
 `}
 />
     );
