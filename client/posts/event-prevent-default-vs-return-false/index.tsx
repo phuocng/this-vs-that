@@ -98,6 +98,7 @@ $(element).on('click', function(e) {
 
 ## More
 
+* [event bubbling vs capturing](/event-bubbling-vs-capturing)
 * [stopImmediatePropagation vs stopPropagation](/stop-immediate-propagation-vs-stop-propagation)
 `}
 />
