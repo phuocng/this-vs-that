@@ -27,7 +27,7 @@ const HomePage = () => {
 
             <div className='ml-auto mr-auto'>
             {
-                Object.keys(groupByCategory).map(category => {
+                Object.keys(groupByCategory).sort().map(category => {
                     return (
                         <div key={category} className='mb-16'>
                             <div className='mb-8 text-center'>
