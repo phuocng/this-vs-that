@@ -49,6 +49,7 @@ const PostList: Post[] = [
     { slug: 'object-vs-map', title: 'Object vs Map', category: 'JavaScript' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'DOM' },
     { slug: 'postfix-increment-vs-prefix-increment', title: '++value vs value++', category: 'JavaScript' },
+    { slug: 'script-async-vs-script-defer', title: 'script async vs script defer', category: 'HTML' },
     { slug: 'slice-vs-splice', title: 'slice vs splice', category: 'JavaScript' },
     { slug: 'stop-immediate-propagation-vs-stop-propagation', title: 'stopImmediatePropagation vs stopPropagation', category: 'DOM' },
     { slug: 'string-char-at-vs-string-bracket-notation', title: 'string.charAt(i) vs string[i]', category: 'JavaScript' },
