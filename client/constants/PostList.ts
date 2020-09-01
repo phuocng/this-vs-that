@@ -13,6 +13,7 @@ const PostList: Post[] = [
     { slug: 'button-vs-input-type-button', title: '<button> vs <input type="button" />', category: 'HTML' },
     { slug: 'class-vs-id', title: 'class vs id', category: 'HTML' },
     { slug: 'client-height-vs-offset-height-vs-scroll-height', title: 'clientHeight vs offsetHeight vs scrollHeight', category: 'DOM' },
+    { slug: 'client-y-vs-page-y', title: 'clientY vs pageY', category: 'DOM' },
     { slug: 'concat-vs-push', title: 'concat vs push', category: 'JavaScript' },
     { slug: 'const-enum-vs-enum', title: 'const enum vs enum', category: 'TypeScript' },
     { slug: 'const-vs-let-vs-var', title: 'const vs let vs var', category: 'JavaScript' },
