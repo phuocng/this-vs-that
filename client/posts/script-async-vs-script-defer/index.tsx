@@ -69,7 +69,7 @@ These attributes let browser know that the scripts can be downloaded in parallel
                                                                 └───────────────────┘
     ~~~
 
-2. The \`async\` script is executed as soon as it is download completely, hence they might not be executed at the same order as they appear in the page.
+2. The \`async\` script is executed as soon as it is downloaded completely, hence they might not be executed at the same order as they appear in the page.
     
     On the other hand, the \`defer\` scripts guarantee the order of execution.
 
