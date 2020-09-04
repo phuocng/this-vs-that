@@ -12,7 +12,7 @@ export default () => {
 
 ~~~ javascript
 element.addEventListener('click', function(e) {
-    // \`currentTarget\` and \`tagrget\` are \`e\`'s properties
+    // \`currentTarget\` and \`target\` are \`e\`'s properties
 });
 ~~~
     
