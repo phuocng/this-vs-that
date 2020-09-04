@@ -41,6 +41,7 @@ const PostList: Post[] = [
     { slug: 'keydown-vs-keypress-vs-keyup', title: `keydown vs keypress vs keyup`, category: 'DOM' },
     { slug: 'literal-union-type-vs-string-enums', title: 'literal union type vs string enums', category: 'TypeScript' },
     { slug: 'map-vs-weak-map', title: 'Map vs WeakMap', category: 'JavaScript' },
+    { slug: 'margin-vs-padding', title: 'margin vs padding', category: 'CSS' },
     { slug: 'method-in-class-constructor-vs-prototype', title: 'method in class constructor vs prototype', category: 'JavaScript' },
     { slug: 'mouseenter-vs-mouseover', title: 'mouseenter vs mouseover', category: 'DOM' },
     { slug: 'natural-width-vs-width', title: 'naturalWidth vs width', category: 'DOM' },
