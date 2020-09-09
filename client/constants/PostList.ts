@@ -65,6 +65,7 @@ const PostList: Post[] = [
     { slug: 'substr-vs-substring', title: 'substr vs substring', category: 'JavaScript' },
     { slug: 'undefined-vs-void', title: 'undefined vs void', category: 'JavaScript' },
     { slug: 'variable-undefined-vs-typeof-variable-undefined', title: 'variable === undefined vs. typeof variable === "undefined"', category: 'JavaScript' },
+    { slug: 'word-break-break-all-vs-word-wrap-break-word', title: 'word-break: break-all vs word-wrap: break-word', category: 'CSS' },
 ];
 
 export default PostList;
