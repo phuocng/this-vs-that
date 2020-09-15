@@ -6,15 +6,15 @@ export default () => {
     return (
 <Markdown
     content={`
-The \`stopImmediatePropagation()\` method prevents the event from bubble up to the parent elements like what the \`stopPropagation()\` method does. 
-Plus, it prevents the other listeners of the same event from being called.
+The \`stopImmediatePropagation()\` method prevents the event from bubbling up to the parent elements like the \`stopPropagation()\` method does. 
+However, it prevents other listeners of the same event from being called.
 
-Let's say that we attach different listeners that handles the same event of the same element. When the event occurs, 
-the listeners are executed in the same order as they're added.
+Let's say that we attach different listeners that handle the same event to the same element. When the event occurs, 
+the listeners are executed in the same order as they were added.
 
 If we call the \`stopImmediatePropagation()\` method in a given listener, then the remaining listeners will not be called.
 
-In the following sample code, there're 3 listeners that handle the click event of a button represented by \`button\`.
+In the following sample code, there are 3 listeners that handle the click event of a button represented by \`button\`.
 
 ~~~ javascript
 button.addEventListner('click', function() {
