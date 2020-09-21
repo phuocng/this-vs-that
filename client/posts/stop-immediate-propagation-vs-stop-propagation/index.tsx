@@ -17,16 +17,16 @@ If we call the \`stopImmediatePropagation()\` method in a given listener, then t
 In the following sample code, there are 3 listeners that handle the click event of a button represented by \`button\`.
 
 ~~~ javascript
-button.addEventListner('click', function() {
+button.addEventListener('click', function() {
     console.log('foo');
 });
 
-button.addEventListner('click', function(e) {
+button.addEventListener('click', function(e) {
     console.log('bar');
     e.stopImmediatePropagation();
 });
 
-button.addEventListner('click', function() {
+button.addEventListener('click', function() {
     console.log('baz');
 });
 ~~~
