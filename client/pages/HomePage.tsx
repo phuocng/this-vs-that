@@ -6,6 +6,8 @@ import Post from '../constants/Post';
 import PostList from '../constants/PostList';
 import Layout from './Layout';
 
+import './home-page.css';
+
 type Group = { [category: string]: Post[] };
 
 const HomePage = () => {
@@ -54,7 +56,7 @@ const HomePage = () => {
                                         >
                                             <Link
                                                 to={`/${post.slug}`}
-                                                className='h-full relative flex flex-col justify-center items-center p-3'
+                                                className='post-link h-full relative flex flex-col justify-center items-center p-3'
                                             >
                                                 <div
                                                     className='absolute bg-white h-full left-0 top-0 w-full border-2 shadow-xl duration-100 ease-in group-hover:border-yellow-400 group-hover:shadow-2xl'
