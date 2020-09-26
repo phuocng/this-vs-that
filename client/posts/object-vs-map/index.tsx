@@ -99,7 +99,7 @@ JSON.stringify(person);     // "{}"
 
 ## Good to know
 
-Maps keep the order of items. It means when when you loop over keys of a map, we will see the same order as when they're inserted to the map.
+Maps keep the order of items. It means when you loop over keys of a map, we will see the same order as when they're inserted to the map.
 
 It's true for objects that only consists of string and symbol keys. The order of object's keys aren't kept if there is a key 
 that needs to be converted to string.
