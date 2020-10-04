@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import PostList from '../constants/PostList';
 import Layout from './Layout';
@@ -10,10 +10,30 @@ interface PostLayoutProps {
 }
 
 const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
+    const history = useHistory();
+
     const numTasks = PostList.length;
     const post = PostList.find(post => post.slug === slug);
     const index = PostList.indexOf(post);
     const title = post.title;
+
+    const previousPage = PostList[index - 1];
+    const nextPage     = PostList[index + 1];
+    const isPreviousPageExist = index > 0;
+    const isNextPageExist     = index < numTasks - 1;
+
+    useEffect(() => {
+        function onKeyDown(e: KeyboardEvent) {
+            if (e.key === 'ArrowLeft') {
+                isPreviousPageExist && history.push(`/${previousPage.slug}`);
+            } else if (e.key === 'ArrowRight') {
+                isNextPageExist && history.push(`/${nextPage.slug}`);
+            }
+        }
+
+        document.addEventListener('keydown', onKeyDown);
+        return () => document.removeEventListener('keydown', onKeyDown);
+    }, [slug]);
 
     return (
         <Layout>
@@ -48,31 +68,33 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                 />
                 {children}
             </div>
-            {index > 0 && (
-                <div className='mb-4'>
+
+            {isPreviousPageExist && (
+                <div className='mt-10 mb-4'>
                     <Link
                         className='text-xl sm:text-2xl text-white rounded-full px-4 py-2'
-                        to={`/${PostList[index - 1].slug}`}
-                        title={PostList[index - 1].title}
+                        to={`/${previousPage.slug}`}
+                        title={previousPage.title}
                         style={{
                             backgroundColor: '#6C5CE7',
                         }}
                     >
-                        ← {PostList[index - 1].title}
+                        ← {previousPage.title}
                     </Link>
                 </div>
             )}
-            {index < numTasks - 1 && (
+
+            {isNextPageExist && (
                 <div className='mb-4 text-right'>
                     <Link
                         className='text-xl sm:text-2xl text-white rounded-full px-4 py-2'
-                        to={`/${PostList[index + 1].slug}`}
-                        title={PostList[index + 1].title}
+                        to={`/${nextPage.slug}`}
+                        title={nextPage.title}
                         style={{
                             backgroundColor: '#6C5CE7',
                         }}
                     >
-                        {PostList[index + 1].title} →
+                        {nextPage.title} →
                     </Link>
                 </div>
             )}
