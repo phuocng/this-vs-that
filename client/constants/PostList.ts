@@ -1,7 +1,6 @@
 import Post from './Post';
 
 const PostList: Post[] = [
-    { slug: '<->-vs-react-fragment', title: '<> vs React.Fragment', category: 'React' },
     { slug: 'active-vs-focus', title: ':active vs :focus', category: 'CSS' },
     { slug: 'add-event-listener-function-vs-on-property', title: 'addEventListener() function vs on property', category: 'DOM' },
     { slug: 'alt-vs-title', title: 'alt vs title', category: 'HTML' },
@@ -57,6 +56,7 @@ const PostList: Post[] = [
     { slug: 'object-vs-map', title: 'Object vs Map', category: 'JavaScript' },
     { slug: 'parent-element-vs-parent-node', title: 'parentElement vs parentNode', category: 'DOM' },
     { slug: 'postfix-increment-vs-prefix-increment', title: '++value vs value++', category: 'JavaScript' },
+    { slug: 'react-fragment-shorthand-vs-longhand', title: '<> vs React.Fragment', category: 'React' },
     { slug: 'script-async-vs-script-defer', title: 'script async vs script defer', category: 'HTML' },
     { slug: 'slice-vs-splice', title: 'slice vs splice', category: 'JavaScript' },
     { slug: 'stop-immediate-propagation-vs-stop-propagation', title: 'stopImmediatePropagation vs stopPropagation', category: 'DOM' },
