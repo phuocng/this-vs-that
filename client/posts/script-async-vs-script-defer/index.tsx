@@ -21,7 +21,7 @@ When the browser sees a normal \`script\` tag declaration, it will perform the f
 
 ~~~
 ┌───────────────────────┬───────────────────────────────────────┬───────────────────┐
-/ Parse the document    / Pause paring                          / Resume parsing    /
+/ Parse the document    / Pause parsing                         / Resume parsing    /
 └───────────────────────┼───────────────────┬───────────────────┴───────────────────┘
                         / Download script   /
                         └───────────────────┼───────────────────┐
@@ -49,7 +49,7 @@ These attributes let browser know that the scripts can be downloaded in parallel
 
     ~~~
     ┌───────────────────────────────────────────┬───────────────────┬───────────────────┐
-    / Parse the document                        / Pause paring      / Resume parsing    /
+    / Parse the document                        / Pause parsing     / Resume parsing    /
     └───────────────────────┬───────────────────┼───────────────────┴───────────────────┘
                             / Download script   /
                             └───────────────────┼───────────────────┐
