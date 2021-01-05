@@ -50,7 +50,7 @@ children clicked
 
 ## Good practice
 
-It is not recommended to registry the event handler via the element attributes such as \`onclick\`. For more details, 
+It is not recommended to register the event handler via the element attributes such as \`onclick\`. For more details, 
 check out the [addEventListener() function vs onproperty](/add-event-listener-function-vs-on-property).
 
 ## Good to know
