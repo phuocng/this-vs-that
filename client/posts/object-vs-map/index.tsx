@@ -6,7 +6,7 @@ export default () => {
     return (
 <Markdown
     content={`
-Storing the key and value pairs is a common thing we have to deal in JavaScript. The most basic approach is to use an object:
+Storing the key and value pairs is a common thing we have to deal with in JavaScript. The most basic approach is to use an object:
 
 ~~~ javascript
 const person = {};
