@@ -10,11 +10,11 @@ export default () => {
 
 1. The \`div\` element has no special meaning. It is often used as a block of children elements. 
 
-    The \`section\` element introduced in HTML5 standard is used to group related elements, such as a subsection of long article.
+    The \`section\` element introduced in HTML5 standard is used to group related elements, such as a subsection of a long article.
 
     In short, the \`section\` element provides more semantic syntax than the \`div\` element.
 
-2. Other than the the semantic differences, \`div\` has its own constructor interface \`HTMLDivElement\`.
+2. Other than the semantic differences, \`div\` has its own constructor interface \`HTMLDivElement\`.
 
     \`section\` and other HTML5 elements such as \`article\`, \`footer\`, \`header\`, \`main\`, \`navbar\` do not have this. In fact, 
     their constructors are from \`HTMLElement\`.
@@ -44,7 +44,7 @@ export default () => {
     // FOOTER: HTMLElement
     ~~~
 
-3. If your page has nested \`sections\`, then the \`h1\` element of inner section will have the smaller size than the \`h1\` element of parent section.
+3. If your page has nested \`sections\`, then the \`h1\` elements of the inner sections will have smaller font-sizez than the \`h1\` elements of the outer sections.
 
     ~~~ html
     <section>
