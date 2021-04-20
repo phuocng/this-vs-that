@@ -3,7 +3,7 @@ The differences between ___ and ___ in the front-end development.
 
 ![this-vs-that](public/assets/screenshot.png)
 
-* [x] Cover differences in varios topics (CSS, DOM, HTML, JavaScript)
+* [x] Cover differences in various topics (CSS, DOM, HTML, JavaScript)
 * [x] Include many _Good to know_ sections
 * [x] Include many good practices
 * [x] Inculde many tips and tricks
