@@ -17,7 +17,7 @@ There are three common CSS properties to make an element invisible:
 1. \`display: none\` doesn't take space when the element is rendered. 
     The other ways still take the space normally.
 
-2.  The browser will not response to any events of element which uses either display: none or  \`visibility: hidden\`.
+2.  The browser will not response to any events of element which uses either \`display: none\` or  \`visibility: hidden\`.
     The \`visibility: hidden\` style behaves like a combination of \`opacity: 0\` and \`pointer-events: none\`.
 
 3. Regarding the accessibility, \`opacity: 0\` is the only property which makes the element accessible in the tab order,
