@@ -74,10 +74,10 @@ new String('helloworld') instanceof String;     // true
     typeof message;             // 'string'
     ~~~
 
-    This type modifications are known as __boxing__ and __unboxing__. Boxing is the process that wraps a primitive value by object. 
+    These type modifications are known as __boxing__ and __unboxing__. Boxing is the process that wraps a primitive value by object. 
     Unboxing extracts the wrapped primitive value from object.
 
-3. There is a special when using \`typeof\` with \`null\`:
+3. There is a special case when using \`typeof\` with \`null\`:
 
     ~~~ javascript
     typeof null;    // 'object', not 'null'
