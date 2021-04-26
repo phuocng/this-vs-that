@@ -20,7 +20,7 @@ $ git clone https://github.com/phuoc-ng/this-vs-that
 2. Install the dependencies:
 
 ```console
-$ cd frontend-tips
+$ cd this-vs-that
 $ npm install
 ```
 
