@@ -52,6 +52,10 @@ a {
     justify-content: space-between;
     padding: 0.5rem 0;
 }
+.header__nav a {
+    color: #FFF;
+    font-size: 1.5rem;
+}
 .header__logo {
     display: flex;
     justify-content: center;
@@ -60,7 +64,7 @@ a {
 .header__heading {
     font-size: 2.5rem;
     font-weight: 600;
-    margin: 0 auto;
+    margin: 3rem auto;
     text-align: center;
     width: 75%;
 }
@@ -270,9 +274,6 @@ a {
     .home__item {
         width: 50%;
     }
-}
-@media (min-width: 768px) {
-    
 }
 @media (min-width: 1024px) {
     .home__item {
