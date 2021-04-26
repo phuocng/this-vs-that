@@ -6,45 +6,41 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<Markdown
-    content={`
 In this post, we will see the differences between declaring and accessing the object property with and without quotes:
 
-~~~ javascript
+```js
 const obj = { key: 'value' };
 obj.key;
 
 // Or
 const obj = { 'key': 'value' };
 obj['key'];
-~~~
+```
 
 ## Differences
 
 
 1. If the property name is a numeric literal, then you might to use different key to access the property value.
 
-    ~~~ javascript
+    ```js
     const obj = { 12e34: 'hello' };
 
     console.log(obj["1.2e34"]);     // undefined
     console.log(obj["1.2e+35"]);    // 'hello'
-    ~~~
+    ```
 
     Wrapping the property with quotes will help us avoid the problem:
 
-    ~~~ javascript
+    ```js
     const obj = { '12e34': 'hello' };
 
     console.log(obj['12e34']);      // 'hello'
-    ~~~
+    ```
 
 2. If the property is one of [reserved keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords), then 
     we have to use with quotes to access the property value.
 
-    ~~~ javascript
+    ```js
     const styles = { class: 'foo' };
 
     // Will throw an exception because class is a reserved keyword
@@ -52,10 +48,6 @@ obj['key'];
     
     // returns 'foo'
     styles['class'];
-    ~~~
+    ```
 
-    The same thing happens with the property contains special characters such as \`-\`.
-`}
-/>
-    );
-};
+    The same thing happens with the property contains special characters such as `-`.

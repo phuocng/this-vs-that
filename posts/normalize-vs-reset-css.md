@@ -6,10 +6,6 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (        
-<Markdown
-    content={`
 Each browser provides a set of default styles which are applied for every web pages it renders. 
 The default style sheet is also known as the user-agent style sheet.
 
@@ -24,22 +20,22 @@ Both normalizing and resetting CSS aim to fix that problem.
 1. Resetting CSS, as the name suggests, will reset all the built-in styles.
 
     The most popular CSS reset library is Meyer's reset.css which you can see the complete code [here](https://meyerweb.com/eric/tools/css/reset/reset.css).
-    For example, it resets the \`margin\` for \`body\` to 0:
+    For example, it resets the `margin` for `body` to 0:
 
-    ~~~ css
+    ```css
     body {
         margin: 0;
     }
-    ~~~
+    ```
 
     If you use the _Developer Tool_ of Chrome browser, and inspect the body element of any web page, 
     you will see that it has the margin of 8px by default which we often don't want to have at all:
 
-    ~~~ css
+    ```css
     body {
         margin: 8px;
     }
-    ~~~
+    ```
 
 2. Normalizing CSS is another alternative to resetting CSS.
 
@@ -49,9 +45,9 @@ Both normalizing and resetting CSS aim to fix that problem.
 
     * Makes some elements look like what we expect. 
 
-    For example, the Chrome, Firefox and Safari browsers use the following styles for the \`sub\` and \`sup\` tags:
+    For example, the Chrome, Firefox and Safari browsers use the following styles for the `sub` and `sup` tags:
 
-    ~~~ css
+    ```css
     sub {
         vertical-align: sub;
         font-size: smaller;
@@ -60,18 +56,18 @@ Both normalizing and resetting CSS aim to fix that problem.
         vertical-align: super;
         font-size: smaller;
     }
-    ~~~
+    ```
 
     It's not easy for us to distinguish these tags with normal one visually. normalize.css improves by declaring the position for these tags:
 
-    ~~~ css
+    ```css
     sub {
         bottom: -0.25em;
     }
     sup {
         top: -0.5em;
     }
-    ~~~
+    ```
 
     * Fix display bugs across browsers.
 
@@ -89,7 +85,3 @@ You don't need to include normalize.css if you use popular CSS libraries. It's a
 1. [water.css](https://github.com/kognise/water.css) adds more visual styles for common tags
 2. [minireset](https://github.com/jgthms/minireset.css) is another tiny modern CSS reset
 3. [This website](https://browserdefaultstyles.com) allows us to get the default styles of various rendering engines for particular element
-`}
-/>
-    );
-};

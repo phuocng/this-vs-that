@@ -6,70 +6,66 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<Markdown
-    content={`
 Because a URL can consist of standard ASCII characters only, other special characters have to be encoded. They will be replaced by a 
 sequence of different characters that represent its UTF-8 encoding.
 
-\`encodeURI\` and \`encodeURIComponent\` are used for that purpose.
+`encodeURI` and `encodeURIComponent` are used for that purpose.
 
 ## Differences
 
-1. \`encodeURI\` is used to encode a full URL.
+1. `encodeURI` is used to encode a full URL.
 
-    ~~~ javascript
+    ```js
     encodeURI('https://domain.com/path to a document.pdf');
 
     // 'https://domain.com/path%20to%20a%20document.pdf'
-    ~~~
+    ```
 
-    Whereas \`encodeURIComponent\` is used for encoding a URI component such as a query string. 
+    Whereas `encodeURIComponent` is used for encoding a URI component such as a query string. 
 
-    ~~~ javascript
-    \`http://domain.com/?search=\${encodeURIComponent('encode & decode param')}\`
+    ```js
+    `http://domain.com/?search=\${encodeURIComponent('encode & decode param')}`
 
     // 'http://domain.com/?search=encode%20%26%20decode%20param'
-    ~~~
+    ```
 
-2. There are 11 characters which are not encoded by \`encodeURI\`, but encoded by \`encodeURIComponent\`.
+2. There are 11 characters which are not encoded by `encodeURI`, but encoded by `encodeURIComponent`.
 
     The following snippet prints these characters:
 
-    ~~~ javascript
+    ```js
     const arr = Array(256)
         .fill(0)
         .map((_, i) => String.fromCharCode(i))
         .filter(c => encodeURI(c) != encodeURIComponent(c));
 
     arr.forEach(c => console.log(c, encodeURI(c), encodeURIComponent(c)));
-    ~~~
+    ```
 
     Here is the list of those characters:
 
-    | Character | \`encodeURI\` | \`encodeURIComponent\`    |
+    | Character | `encodeURI` | `encodeURIComponent`    |
     |-----------|---------------|---------------------------|
-    | \`#\`     | \`#\`         | \`%23\`                   |
-    | \`$\`     | \`$\`         | \`%24\`                   |
-    | \`&\`     | \`&\`         | \`%26\`                   |
-    | \`+\`     | \`+\`         | \`%2B\`                   |
-    | \`,\`     | \`,\`         | \`%2C\`                   |
-    | \`/\`     | \`/\`         | \`%2F\`                   |
-    | \`:\`     | \`:\`         | \`%3A\`                   |
-    | \`;\`     | \`;\`         | \`%3B\`                   |
-    | \`=\`     | \`=\`         | \`%3D\`                   |
-    | \`?\`     | \`?\`         | \`%3F\`                   |
-    | \`@\`     | \`@\`         | \`%40\`                   |
+    | `#`     | `#`         | `%23`                   |
+    | `$`     | `$`         | `%24`                   |
+    | `&`     | `&`         | `%26`                   |
+    | `+`     | `+`         | `%2B`                   |
+    | `,`     | `,`         | `%2C`                   |
+    | `/`     | `/`         | `%2F`                   |
+    | `:`     | `:`         | `%3A`                   |
+    | `;`     | `;`         | `%3B`                   |
+    | `=`     | `=`         | `%3D`                   |
+    | `?`     | `?`         | `%3F`                   |
+    | `@`     | `@`         | `%40`                   |
 
 ## Good to know
 
-1. \`decodeURI\` and \`decodeURIComponent\` are methods to decode a string that is encoded by \`encodeURI\` and \`encodeURIComponent\` respectively.
+1. `decodeURI` and `decodeURIComponent` are methods to decode a string that is encoded by `encodeURI` and `encodeURIComponent` respectively.
 
-2. \`encodeURIComponent\` does not encode \`-_.!~*'()\`. If you want to these characters are encoded, you have to replace them 
+2. `encodeURIComponent` does not encode `-_.!~*'()`. If you want to these characters are encoded, you have to replace them 
     with corresponding UTF-8 sequence of characters: 
 
-    ~~~ javascript
+    ```js
     const encode = str => encodeURIComponent(str)
         .replace(/\\-/g, '%2D')
         .replace(/\\_/g, '%5F')
@@ -82,11 +78,11 @@ sequence of different characters that represent its UTF-8 encoding.
         .replace(/\\)/g, '%29');
 
     encode("What's result of (4 + 2)?");    // "What%27s%20result%20of%20%284%20%2B%202%29%3F"
-    ~~~
+    ```
 
     The decoding function could look like as follow:
 
-    ~~~ javascript
+    ```js
     const decode = str => decodeURIComponent(
         str
         .replace(/\\%2D/g, '-')
@@ -101,8 +97,4 @@ sequence of different characters that represent its UTF-8 encoding.
     );
 
     decode('What%27s%20result%20of%20%284%20%2B%202%29%3F');    // "What's result of (4 + 2)?"
-    ~~~
-`}
-/>
-    );
-};
+    ```

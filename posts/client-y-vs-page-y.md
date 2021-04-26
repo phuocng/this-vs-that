@@ -6,15 +6,11 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<Markdown
-    content={`
-Given a point in the page, \`clientY\` and \`pageY\` are the distances in pixels from the point to the top of viewport and page.
+Given a point in the page, `clientY` and `pageY` are the distances in pixels from the point to the top of viewport and page.
 
 Here, _page_ is the whole rendered page which may have the scrollbars, whereas _viewport_ is the visible part of the page.  
 
-~~~ html
+```html
 ┌─────────────────────────────┬─┐◀︎─── Web page      ▲
 |                             | |                   |
 |                             | |                   |
@@ -38,12 +34,8 @@ Here, _page_ is the whole rendered page which may have the scrollbars, whereas _
 |                             | |
 |                             | |
 └─────────────────────────────┴─┘
-~~~
+```
 
 ## More
 
 * [clientHeight vs offsetHeight vs scrollHeight](/client-height-vs-offset-height-vs-scroll-height)
-`}
-/>
-    );
-};

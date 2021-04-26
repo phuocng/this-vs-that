@@ -6,15 +6,11 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<Markdown
-    content={`
-\`<>\` is the shorthand tag for \`React.Fragment\` which allows us to group a list of elements without wrapping them in a new node.
+`<>` is the shorthand tag for `React.Fragment` which allows us to group a list of elements without wrapping them in a new node.
 
 So we can do something like
 
-~~~ javascript
+```js
 render() {
     return (
         <>
@@ -25,13 +21,13 @@ render() {
         </>
     );
 }
-~~~
+```
     
-The only difference between them is that the shorthand version does not support the \`key\` attribute.
+The only difference between them is that the shorthand version does not support the `key` attribute.
 
-Here is a common example that inserts new line (\`br\`) tags in a multiple lines string:
+Here is a common example that inserts new line (`br`) tags in a multiple lines string:
 
-~~~ javascript
+```js
 {
     str.split('\\n').map((item, index) => {
         return (
@@ -42,8 +38,4 @@ Here is a common example that inserts new line (\`br\`) tags in a multiple lines
         )
     })
 }
-~~~  
-`}
-/>
-    );
-};
+```

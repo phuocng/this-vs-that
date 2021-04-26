@@ -6,17 +6,13 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<Markdown
-    content={`
 ## Differences
 
-1. The values iterated on the \`for ... in\` and \`for ... of\` statements are different.
+1. The values iterated on the `for ... in` and `for ... of` statements are different.
 
-    \`for ... in\` iterates over the enumerable property keys of object. Whereas \`for ... of\` iterates over the values of the numeric properties of object. 
+    `for ... in` iterates over the enumerable property keys of object. Whereas `for ... of` iterates over the values of the numeric properties of object. 
 
-    ~~~ javascript
+    ```js
     const list = ['a', 'b', 'c'];
 
     for (let i in list) {
@@ -26,26 +22,26 @@ export default () => {
     for (let i of list) {
         console.log(i);     // 'a', 'b', 'c'
     }
-    ~~~
+    ```
 
-2. Unlike \`for ... in\`, \`for ... of\` does not support plain objects:
+2. Unlike `for ... in`, `for ... of` does not support plain objects:
 
-    ~~~ javascript
+    ```js
     const person = {
         firstName: 'Foo',
         lastName: 'Bar',
         age: 42,
     };
 
-    // TypeError: \`person\` is not iterable
+    // TypeError: `person` is not iterable
     for (let k of person) {
         ...
     }
-    ~~~
+    ```
     
-    It is because a plain object is not iterable. To fix that, we can use the \`Object.keys()\` method to iterate on the object properties:
+    It is because a plain object is not iterable. To fix that, we can use the `Object.keys()` method to iterate on the object properties:
 
-    ~~~ javascript
+    ```js
     for (let k of Object.keys(person)) {    
         console.log(k, ':', person[k]);
     }
@@ -53,11 +49,11 @@ export default () => {
     // firstName: Foo
     // lastName: Bar
     // age: 42
-    ~~~
+    ```
 
-3. \`for ... of\` supports iterating over a Unicode string.
+3. `for ... of` supports iterating over a Unicode string.
 
-    ~~~ javascript
+    ```js
     const msg = 'Hell😀 W😀rld';
 
     // for ... in
@@ -75,22 +71,22 @@ export default () => {
 
     // Output:
     // 'H', 'e', 'l', 'l', '😀', ' ', 'W', '😀', 'r', 'l', 'd'
-    ~~~
+    ```
     
-4. \`for ... of\` loop can wait for an async task to complete in each iteration via the \`await\` keyword:
+4. `for ... of` loop can wait for an async task to complete in each iteration via the `await` keyword:
 
-    ~~~ javascript
+    ```js
     for await (... of ...) {
         ...
     }
-    ~~~
+    ```
 
 ## Good practices
 
-1. It is not recommended to add a custom method to primitive objects such as \`Array\`, \`Boolean\`, \`Number\`, \`String\`, etc. 
-    Since \`for ... in\` statement loops over the enumerable properties, it will include new methods which are added to the prototype. 
+1. It is not recommended to add a custom method to primitive objects such as `Array`, `Boolean`, `Number`, `String`, etc. 
+    Since `for ... in` statement loops over the enumerable properties, it will include new methods which are added to the prototype. 
 
-    ~~~ javascript
+    ```js
     Array.prototype.isEmpty = function() { 
         return this.length = 0;
     }
@@ -99,11 +95,11 @@ export default () => {
     for (let i in a) {
         console.log(i);     // '0', '1', '2', 'isEmpty'
     }
-    ~~~
+    ```
     
-2. Destructing \`for ... in\` is [deprecated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#Statements). Instead, use \`for ... of\`:
+2. Destructing `for ... in` is [deprecated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#Statements). Instead, use `for ... of`:
 
-    ~~~ javascript
+    ```js
     const addressBook = new Map();
     addressBook.set('Foo', '111-222-333');
     addressBook.set('Bar', '444-555-666');
@@ -114,14 +110,14 @@ export default () => {
 
     // Foo: 111-222-333
     // Bar: 444-555-666
-    ~~~
+    ```
 
 ## Good to know
 
-By default, all properties of an array or object will appear in \`for ... in\`. However, this behavior is avoidable. 
-Using \`Object.defineProperty\` can decide whether a property is enumerable or not.
+By default, all properties of an array or object will appear in `for ... in`. However, this behavior is avoidable. 
+Using `Object.defineProperty` can decide whether a property is enumerable or not.
 
-~~~ javascript
+```js
 let person = {
     firstName: 'Foo',
     lastName: 'Bar',
@@ -136,8 +132,4 @@ Object.defineProperty(person, 'age', {
 for (let i in person) {
     console.log(i);     // 'firstName', 'lastName'
 }
-~~~
-`}
-/>
-    );
-};
+```

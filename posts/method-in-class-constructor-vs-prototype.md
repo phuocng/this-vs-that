@@ -6,38 +6,34 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<Markdown
-    content={`
 Given a class, there are two common ways to define a method for it.
 
 * Define the method in the class constructor
 
-~~~ javascript
+```js
 function Calculator() {
     this.sum = function(a, b) {
         return a + b;
     }
 }
-~~~
+```
 
 * Or define the method in the class prototype:
 
-~~~ javascript
+```js
 function Calculator() {}
 
 Calculator.prototype.sum = function(a, b) {
     return a + b;
 }
-~~~
+```
 
 Both approaches produce the same result when the method is invoked by a class instance:
 
-~~~ javascript
+```js
 const calc = new Calculator();
 calc.sum(1, 2);                 // 3
-~~~
+```
 
 ## Differences
 
@@ -53,7 +49,7 @@ The first approach could create a huge constructor function that consists of log
 
 Consider the following huge constructor:
 
-~~~ javascript
+```js
 function Foo() {
     this.bigFunction = function() {
         // A big function here
@@ -63,11 +59,11 @@ function Foo() {
         // ...
     }
 } 
-~~~
+```
 
 versus
 
-~~~ javascript
+```js
 function Foo() {}
 
 Foo.prototype.bigFunction = function() {
@@ -77,14 +73,10 @@ Foo.prototype.bigFunction = function() {
 Foo.prototype.anotherBigFunction = function() {
     ...
 }
-~~~
+```
 
 The latter looks more readable and convenient.
 
 ## More
 
 * [function vs property in interface](/function-vs-property-in-interface)
-`}
-/>
-    );
-};

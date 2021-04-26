@@ -6,24 +6,20 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<Markdown
-    content={`
 ## Differences
 
-1. \`const\` is used for variables
+1. `const` is used for variables
 
-    ~~~ javascript
+    ```js
     const message = 'Hello';
 
     // Does not work
     message = 'World';
-    ~~~
+    ```
 
-    While \`readonly\` is used for properties. The properties can be declared as a member of class
+    While `readonly` is used for properties. The properties can be declared as a member of class
 
-    ~~~ javascript
+    ```js
     class Triangle {
         public readonly numberOfVertices = 3;
     }
@@ -32,22 +28,22 @@ export default () => {
 
     // Does not work
     triangle.numberOfVertices = 4; 
-    ~~~
+    ```
 
-    or \`type\`, \`interface\`:
+    or `type`, `interface`:
 
-    ~~~ javascript
+    ```js
     interface Person {
         firstName: string;
         lastName: string;
         readonly fullName: string;
     }
-    ~~~
+    ```
 
-2. \`const\` declarations have to be initialized, and you can't reassign their values. The \`readonly\` properties can be reassigned 
+2. `const` declarations have to be initialized, and you can't reassign their values. The `readonly` properties can be reassigned 
     in the constructor function.
 
-    ~~~ javascript
+    ```js
     class Square {
         readonly numberOfVertices: number;
 
@@ -55,25 +51,25 @@ export default () => {
             this.numberOfVertices = 4;
         }
     }
-    ~~~
+    ```
 
-    The \`readonly\` properties could be changed if we don't pass their class or interface directly but passing an alias.
+    The `readonly` properties could be changed if we don't pass their class or interface directly but passing an alias.
     
-    Let's take a look at the \`Person\` interface above, and assume that we have the following function to update the person information:
+    Let's take a look at the `Person` interface above, and assume that we have the following function to update the person information:
 
-    ~~~ javascript
+    ```js
     const updatePerson = (person: {
         firstName: string,
         lastName: string,
         fullName: string,
     }) => {
-        person.fullName = \`\${firstName}, \${lastName}\`;
+        person.fullName = `\${firstName}, \${lastName}`;
     };
-    ~~~
+    ```
 
-    We can update the \`fullName\` property because it's an property of \`person\` parameter:
+    We can update the `fullName` property because it's an property of `person` parameter:
 
-    ~~~ javascript
+    ```js
     let person: Person = {
         firstName: 'Foo',
         lastName: 'Bar',
@@ -82,23 +78,23 @@ export default () => {
 
     updatePerson(person);
 
-    person.fullName;    // \`Foo, Bar\`
-    ~~~
+    person.fullName;    // `Foo, Bar`
+    ```
 
-    Of course, the compiler will throw an error if we pass the original type \`Person\`:
+    Of course, the compiler will throw an error if we pass the original type `Person`:
 
-    ~~~ javascript
+    ```js
     const updatePerson = (person: Person) => {
         // Error: Cannot assign to 'fullName' because it is a read only property
-        person.fullName = \`\${person.firstName}, \${person.lastName}\`;
+        person.fullName = `\${person.firstName}, \${person.lastName}`;
     }
-    ~~~
+    ```
     
 ## Good to know
 
 1. In a given class, if a property has only getter method and doesn't come with setter method, it will be treated as read only.
 
-    ~~~ javascript
+    ```js
     class Square {
         side: number = 0;
 
@@ -108,17 +104,17 @@ export default () => {
     }
 
     const s = new Square();
-    ~~~
+    ```
 
-    Setting \`s.area = 100\` will throw an error because \`area\` is a ready only property.
+    Setting `s.area = 100` will throw an error because `area` is a ready only property.
 
 2. In the React library, we don't change the props and state of a component directly. Because the props are immutable and the state 
-    could be updated via \`setState()\` method.
+    could be updated via `setState()` method.
 
     React [type definitions](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts) wrap the props and 
     state in read only type.
 
-    ~~~ javascript
+    ```js
     // P, S represents the props and state respectively
     class Component<P, S> {
         constructor(props: Readonly<P>);
@@ -126,8 +122,4 @@ export default () => {
         readonly props: Readonly<P> & Readonly<{ children?: ReactNode }>;
         state: Readonly<S>;
     }
-    ~~~ 
-`}
-/>
-    );
-};
+    ```

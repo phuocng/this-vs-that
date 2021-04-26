@@ -6,16 +6,11 @@ tags:
 layout: layouts/post.njk
 ---
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## Difference
 
-\`Object.is()\` behaves the same as \`===\` (strict equality operator) except for \`NaN\`, \`+0\` and \`-0\`.
+`Object.is()` behaves the same as `===` (strict equality operator) except for `NaN`, `+0` and `-0`.
 
-~~~ javascript
+```js
 +0 === -0;                              // true
 Object.is(+0, -0);                      // false
 
@@ -27,9 +22,4 @@ Object.is(Number.NaN, Number.NaN);      // true
 
 NaN === Number.NaN;                     // false
 Object.is(NaN, Number.NaN);             // true
-~~~
-`}
-/>
-</>
-    );
-};
+```

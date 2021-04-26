@@ -13,9 +13,9 @@ The differences between ___ and ___ in the front-end development.
 
 1. Clone the project:
 
-~~~ console
+```shell
 $ git clone https://github.com/phuoc-ng/this-vs-that
-~~~
+```
 
 2. Install the dependencies:
 
