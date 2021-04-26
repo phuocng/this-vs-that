@@ -35,6 +35,12 @@ module.exports = function (eleventyConfig) {
         return posts;
     });
 
+    eleventyConfig.addCollection('postsByCategory', (collection) => {
+        const posts = collection.getFilteredByTag('posts');
+        const groups = posts.reduce((acc, item) => ((acc[item.data.category] = [...(acc[item.data.category] || []), item]), acc), {});
+        return Object.keys(groups).sort().reduce((p, c) => (p[c] = groups[c], p), {});
+    });
+
     eleventyConfig.addPairedShortcode('callout', (content) => (
 		`<div class='post__callout'>${markdownLibrary.render(content.trim())}</div>`
     ));
