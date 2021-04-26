@@ -1,5 +1,5 @@
 ---
-title: style="width: ___" vs width="___"
+title: "style="width: ___" vs width="___""
 category: CSS
 tags:
   - posts

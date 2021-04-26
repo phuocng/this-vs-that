@@ -1,5 +1,5 @@
 ---
-title: *.d.ts vs *.ts
+title: "*.d.ts vs *.ts"
 category: TypeScript
 tags:
   - posts

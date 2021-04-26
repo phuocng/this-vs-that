@@ -1,5 +1,5 @@
 ---
-title: display: none vs opacity: 0 vs visibility: hidden
+title: "display: none vs opacity: 0 vs visibility: hidden"
 category: CSS
 tags:
   - posts

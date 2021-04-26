@@ -1,5 +1,5 @@
 ---
-title: word-break: break-all vs word-wrap: break-word
+title: "word-break: break-all vs word-wrap: break-word"
 category: CSS
 tags:
   - posts

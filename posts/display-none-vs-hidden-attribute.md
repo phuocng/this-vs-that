@@ -1,5 +1,5 @@
 ---
-title: display: none vs [hidden]
+title: "display: none vs [hidden]"
 category: CSS
 tags:
   - posts
