@@ -18,26 +18,39 @@ permalink: "/{{ page.fileSlug }}/index.html"
     </div>
 </header>
 
-<div class="container">    
-        <div class="post">
-            <div class="content">
-                <main class="main">
-                    <div class="post__content">
-                        {{ content | safe }}
-                    </div>
-                    <div class="post__diagonal"></div>
-                    <div class="post__layered"></div>
-                </main>
+<div class="container">
+    <div class="post__inner">
+        <main class="post__content">
+            {{ content | safe }}
+        </main>
 
-                <div class="sidebar">
-                    <div class="sidebar__inner">
-                        {% set randomProducts = products | randomItems(5) | sortBy('name') %}
-                        {% for product in randomProducts %}
-                        {% include "_product.njk" %}
-                        {% endfor %}
-                    </div>
-                </div>
+        <div class="sidebar">
+            <div class="sidebar__inner">
+                {% set randomProducts = products | randomItems(5) | sortBy('name') %}
+                {% for product in randomProducts %}
+                {% include "_product.njk" %}
+                {% endfor %}
             </div>
+        </div>
+    </div>
+
+    <div class="post__nav">
+        <div class="post__prev">
+        {% if prevPost %}
+            <div class="card">
+                <div>←</div>
+                <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a>
+            </div>
+        {% endif %}
+        </div>
+
+        <div class="post__next">
+        {% if nextPost %}        
+            <div class="card">
+                <div>→</div>
+                <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+            </div>
+        {% endif %}
         </div>
     </div>
 </div>
