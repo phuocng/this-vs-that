@@ -49,6 +49,12 @@ module.exports = function (eleventyConfig) {
         const dt = DateTime.fromJSDate(dateObj, { zone: 'utc' });
         return !dt.isValid ? '' : dt.toISO();
     });
+    eleventyConfig.addFilter('randomItems', (arr, count) => {
+        return arr.concat().reduce((p, _, __, arr) => (p[0] < count) ? [p[0] + 1, p[1].concat(arr.splice(Math.random() * arr.length | 0, 1))] : p, [0, []])[1];
+    });
+    eleventyConfig.addFilter('sortBy', (arr, key) => {
+        return arr.sort((a, b) => (a[key] > b[key]) ? 1 : ((a[key] < b[key]) ? -1 : 0));
+    });
 
     eleventyConfig.addFilter('prefixZeros', (number, max) => {
         return String(number).padStart(`${max}`.length, '0');
