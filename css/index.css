@@ -10,6 +10,10 @@ body {
 a {
     text-decoration: none;
 }
+code {
+    background-color: #FDE68A;
+    font-size: 1rem;
+}
 
 :root {
     --theme-color: #414293;
@@ -121,9 +125,19 @@ a {
 .header__heading {
     font-size: 2.5rem;
     font-weight: 600;
-    margin: 3rem auto;
+    margin: 3rem auto 2rem auto;
     text-align: center;
     width: 75%;
+}
+.header__edit {
+    text-align: center;
+}
+.header__edit a {    
+    background-color: #FFF;
+    border-radius: 9999px;
+    color: var(--theme-color);
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
 }
 
 /* Footer */
@@ -237,7 +251,7 @@ a {
     width: 100%;
 
     /* Border */
-    background-color: rgb(255, 234, 167);
+    background-color: #e7d900;
     border-radius: 48% 16% 64%;
     transform: rotate(-3deg);
     z-index: -1;
