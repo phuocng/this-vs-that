@@ -10,8 +10,7 @@ layout: layouts/post.njk
 
 `==` (equality operator) and `===` (strict equality operator) are the operators to compare two operands.
 
-The `==` operator does type conversions before comparing the values. On the other hand, the `===` operator doesn't perform
-any type conversions.
+The `==` operator does type conversions before comparing the values. On the other hand, the `===` operator doesn't perform any type conversions.
 
 It means that the `===` operator returns `true` if two operands have the same type and same value.
 

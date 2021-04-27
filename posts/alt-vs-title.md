@@ -12,8 +12,7 @@ layout: layouts/post.njk
 
     `<img>` is the most popular tag using the `alt` attribute.
 
-    When an image can't be loaded, the browser will display the `alt` text in its place so the user can get an 
-    idea of why the image was included.
+    When an image can't be loaded, the browser will display the `alt` text in its place so the user can get an idea of why the image was included.
 
 2. The `title` attribute is the tooltip text seen when hovering over the element.
 
@@ -21,8 +20,7 @@ layout: layouts/post.njk
 
 Always use the `alt` attribute for `<img>` tags.
 
-Google and other search engines can't read the image but they can see the `alt` text. 
-Setting the `alt` attribute is a [good practice](https://youtu.be/CV2tIFgUKW4) for SEO (search engine optimization).
+Google and other search engines can't read the image but they can see the `alt` text. Setting the `alt` attribute is a [good practice](https://youtu.be/CV2tIFgUKW4) for SEO (search engine optimization).
 
 You usually won't set the `title` attribute for `<img>` unless it really provides more information about the image. But it could be argued that if you have to explain your image with title text, maybe there's a better image to use.
 
@@ -39,7 +37,8 @@ Here's two options for making sure you always include the `alt` attribute on the
     }
     ```
 
-2. If you are using [Visual Studio Code](https://code.visualstudio.com), you can install the 
-[webhint extension](https://marketplace.visualstudio.com/items?itemName=webhint.vscode-webhint).
+2. If you are using [Visual Studio Code](https://code.visualstudio.com), you can install the [webhint extension](https://marketplace.visualstudio.com/items?itemName=webhint.vscode-webhint).
+
     It will automatically detect the issue and show the details when you hover on the element.
+
     ![Detect the missing alternate text with webhint](/assets/webhint-alt-warning.png)

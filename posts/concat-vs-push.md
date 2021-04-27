@@ -41,8 +41,7 @@ or more items to a given array.
 1. If you use React or a state management library such as Redux, where we do not modify the current state and returns the new state on each reducer, 
 it's good use case for using `concat`.
 
-2. I find the following [code snippet](https://github.com/stardazed/stardazed/blob/master/src/core/buffer.ts) quite useful when you have to merge 
-    really big array. Credits to [@zenmumbler] (https://twitter.com/zenmumbler).
+2. I find the following [code snippet](https://github.com/stardazed/stardazed/blob/master/src/core/buffer.ts) quite useful when you have to merge really big array. Credits to [@zenmumbler] (https://twitter.com/zenmumbler).
 
     The function copies items from array `source` to `dest` by splitting the source array into multiple chunks and copying them one by one.
 
@@ -90,12 +89,10 @@ a.push(...b);
 a;              // [1, 2, 3, 4, 5, 6]
 ```
 
-`Array.prototype.push.apply(firstArray, secondArray)` is another option that also works in ES5. This approach however isn't 
-recommended in case the second array is very large because the maximum number of parameters in one function is limited.
+`Array.prototype.push.apply(firstArray, secondArray)` is another option that also works in ES5. This approach however isn't recommended in case the second array is very large because the maximum number of parameters in one function is limited.
 
 It's hard-coded to [65536](https://bugs.webkit.org/show_bug.cgi?id=80797) if you are curious.
 
 ## Link
 
-* This [page](https://dev.to/uilicious/javascript-array-push-is-945x-faster-than-array-concat-1oki) has a deep investigation and provides
-many benchmarks to prove why `push` is faster than `concat`.
+* This [page](https://dev.to/uilicious/javascript-array-push-is-945x-faster-than-array-concat-1oki) has a deep investigation and provides many benchmarks to prove why `push` is faster than `concat`.

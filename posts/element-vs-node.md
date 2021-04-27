@@ -24,15 +24,13 @@ Imagine that a web page is constructed by a tree of nodes. Considering a common 
 The root node of tree is a document node which has two children, the `doctype` and the `html` tag. 
 The `html` tag is constructed by its children, `head` and `body`, and so on.
 
-Each node has a property named `nodeType` which is a number to identity its type. It can be used to distinguish 
-the kind of node from other one. For example, the following `div` has only one child node whose value is `Hello`:
+Each node has a property named `nodeType` which is a number to identity its type. It can be used to distinguish the kind of node from other one. For example, the following `div` has only one child node whose value is `Hello`:
 
 ```html
 <div>Hello</div>
 ```
 
-The `div` node is an element node, while its child node (`Hello`) is a text node. The following table taken from 
-[MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType) shows the popular node types:
+The `div` node is an element node, while its child node (`Hello`) is a text node. The following table taken from [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType) shows the popular node types:
 
 * `Node.ELEMENT_NODE` (1): An element node which is a HTML tag, such as `<div>`, `<p>` , etc.
 * `Node.TEXT_NODE` (3): The actual text inside an element node

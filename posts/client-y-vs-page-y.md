@@ -10,7 +10,7 @@ Given a point in the page, `clientY` and `pageY` are the distances in pixels fro
 
 Here, _page_ is the whole rendered page which may have the scrollbars, whereas _viewport_ is the visible part of the page.  
 
-```html
+```shell
 ┌─────────────────────────────┬─┐◀︎─── Web page      ▲
 |                             | |                   |
 |                             | |                   |

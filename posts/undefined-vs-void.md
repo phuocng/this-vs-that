@@ -76,8 +76,7 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
     button.onclick = () => doSomething();
     ```
 
-    It works as usual until someone changes `doSomething`, and makes it return a `boolean` value. In the case it returns `false`,
-    the default behavior of the `click` event will be skipped, and it maybe the thing you don't want to.
+    It works as usual until someone changes `doSomething`, and makes it return a `boolean` value. In the case it returns `false`, the default behavior of the `click` event will be skipped, and it maybe the thing you don't want to.
 
     Passing the result to `void` will ensure that it doesn't change the behavior of arrow function regardless the result of executed functions:
 
@@ -90,8 +89,7 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
     These libraries allow us to execute a function right after a component mounted to the DOM. For example, 
     React [provides](https://reactjs.org/docs/hooks-reference.html#useeffect) `useEffect`, Svelte [has](https://svelte.dev/docs#onMount) `onMount`.
 
-    If we return a function inside the callback, then the function will be invoked to clean up things, free the memory before the component 
-    is removed from the screen.
+    If we return a function inside the callback, then the function will be invoked to clean up things, free the memory before the component is removed from the screen.
 
     ```js
     // React example code
@@ -134,8 +132,7 @@ Nowadays, using `javascript:` protocol isn't recommended. It can create a securi
 </a>
 ```
 
-Starting from v16.9.0, React also [deprecates](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls) 
-the usage of `javascript:` URLs.
+Starting from v16.9.0, React also [deprecates](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls) the usage of `javascript:` URLs.
 
 ## More
 

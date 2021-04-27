@@ -311,7 +311,14 @@ a {
 .post__content ol,
 .post__content ul {
     margin: 0;
-    padding: 0 0 0 1rem;
+    padding: 0 0 0 1.25rem;
+}
+.post__content table,
+.post__content th,
+.post__content td {
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-collapse: collapse;
+    padding: 0.5rem;
 }
 
 /* Previous and next post */

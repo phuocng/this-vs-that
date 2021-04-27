@@ -6,8 +6,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-Because a URL can consist of standard ASCII characters only, other special characters have to be encoded. They will be replaced by a 
-sequence of different characters that represent its UTF-8 encoding.
+Because a URL can consist of standard ASCII characters only, other special characters have to be encoded. They will be replaced by a sequence of different characters that represent its UTF-8 encoding.
 
 `encodeURI` and `encodeURIComponent` are used for that purpose.
 
@@ -45,25 +44,24 @@ sequence of different characters that represent its UTF-8 encoding.
     Here is the list of those characters:
 
     | Character | `encodeURI` | `encodeURIComponent`    |
-    |-----------|---------------|---------------------------|
-    | `#`     | `#`         | `%23`                   |
-    | `$`     | `$`         | `%24`                   |
-    | `&`     | `&`         | `%26`                   |
-    | `+`     | `+`         | `%2B`                   |
-    | `,`     | `,`         | `%2C`                   |
-    | `/`     | `/`         | `%2F`                   |
-    | `:`     | `:`         | `%3A`                   |
-    | `;`     | `;`         | `%3B`                   |
-    | `=`     | `=`         | `%3D`                   |
-    | `?`     | `?`         | `%3F`                   |
-    | `@`     | `@`         | `%40`                   |
+    |-----------|-------------|-------------------------|
+    | `#`       | `#`         | `%23`                   |
+    | `$`       | `$`         | `%24`                   |
+    | `&`       | `&`         | `%26`                   |
+    | `+`       | `+`         | `%2B`                   |
+    | `,`       | `,`         | `%2C`                   |
+    | `/`       | `/`         | `%2F`                   |
+    | `:`       | `:`         | `%3A`                   |
+    | `;`       | `;`         | `%3B`                   |
+    | `=`       | `=`         | `%3D`                   |
+    | `?`       | `?`         | `%3F`                   |
+    | `@`       | `@`         | `%40`                   |
 
 ## Good to know
 
 1. `decodeURI` and `decodeURIComponent` are methods to decode a string that is encoded by `encodeURI` and `encodeURIComponent` respectively.
 
-2. `encodeURIComponent` does not encode `-_.!~*'()`. If you want to these characters are encoded, you have to replace them 
-    with corresponding UTF-8 sequence of characters: 
+2. `encodeURIComponent` does not encode `-_.!~*'()`. If you want to these characters are encoded, you have to replace them with corresponding UTF-8 sequence of characters: 
 
     ```js
     const encode = str => encodeURIComponent(str)

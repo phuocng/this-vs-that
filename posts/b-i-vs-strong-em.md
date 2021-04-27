@@ -6,13 +6,9 @@ tags:
 layout: layouts/post.njk
 ---
 
-The `b` and `strong` tags by default make text bold.
+The `b` and `strong` tags by default make text bold. The `i` and `em` tags by default make text italicized.
 
-The `i` and `em` tags by default make text italicized.
-
-Each browser has its own default styles, but result in similar appearances.
-
-Here is how they are styled in the popular browsers:
+Each browser has its own default styles, but result in similar appearances. Here is how they are styled in the popular browsers:
 
 [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css):
 

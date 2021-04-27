@@ -40,8 +40,7 @@ layout: layouts/post.njk
     }
     ```
 
-2. `const` declarations have to be initialized, and you can't reassign their values. The `readonly` properties can be reassigned 
-    in the constructor function.
+2. `const` declarations have to be initialized, and you can't reassign their values. The `readonly` properties can be reassigned in the constructor function.
 
     ```js
     class Square {
@@ -108,11 +107,9 @@ layout: layouts/post.njk
 
     Setting `s.area = 100` will throw an error because `area` is a ready only property.
 
-2. In the React library, we don't change the props and state of a component directly. Because the props are immutable and the state 
-    could be updated via `setState()` method.
+2. In the React library, we don't change the props and state of a component directly. Because the props are immutable and the state could be updated via `setState()` method.
 
-    React [type definitions](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts) wrap the props and 
-    state in read only type.
+    React [type definitions](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts) wrap the props and state in read only type.
 
     ```js
     // P, S represents the props and state respectively

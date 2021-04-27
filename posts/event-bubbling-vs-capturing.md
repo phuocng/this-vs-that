@@ -18,8 +18,7 @@ Both elements handle the `click` event. To make it simple, we use an inline oncl
 </div>
 ```
 
-Now we have two different handlers. Clicking the child node would perform these handlers in different orders based 
-on which mode we want the event to be executed in.
+Now we have two different handlers. Clicking the child node would perform these handlers in different orders based on which mode we want the event to be executed in.
 
 * In _bubbling_ mode, which is the default mode, the event will be triggered at the deepest element. Then it will be bubbled up to the its parents.
 
@@ -50,8 +49,7 @@ children clicked
 
 ## Good practice
 
-It is not recommended to register the event handler via the element attributes such as `onclick`. For more details, 
-check out the [addEventListener() function vs onproperty](/add-event-listener-function-vs-on-property).
+It is not recommended to register the event handler via the element attributes such as `onclick`. For more details, check out the [addEventListener() function vs onproperty](/add-event-listener-function-vs-on-property).
 
 ## Good to know
 

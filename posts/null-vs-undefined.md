@@ -31,8 +31,7 @@ layout: layouts/post.njk
     console.log(typeof null);       // 'object'
     ```
     
-    Since they are different types, here are the result of [equality and identity](/equality-operator-vs-strict-equality-operator) 
-    operators when comparing them to each other:
+    Since they are different types, here are the result of [equality and identity](/equality-operator-vs-strict-equality-operator) operators when comparing them to each other:
 
     ```js
     null == undefined;      // true

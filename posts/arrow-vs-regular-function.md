@@ -75,8 +75,7 @@ layout: layouts/post.njk
     average(1, 2, 3);   // 2
     ```
 
-    Arrow functions do not have `arguments`. Calling `arguments` inside an arrow function will return the arguments 
-    of closest non-arrow parent function.
+    Arrow functions do not have `arguments`. Calling `arguments` inside an arrow function will return the arguments of closest non-arrow parent function.
 
     But it is still possible to get the list of dynamic passed parameters by using the [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 

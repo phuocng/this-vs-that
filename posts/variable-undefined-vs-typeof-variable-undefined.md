@@ -36,8 +36,7 @@ undefined = 'Foo';
 person.name === undefined;      // false
 ```
 
-In order to avoid the issue where `undefined` can be renamed or modified the value, we can wrap the code in an IFFE 
-(immediately invoked function expression) as following:
+In order to avoid the issue where `undefined` can be renamed or modified the value, we can wrap the code in an IFFE (immediately invoked function expression) as following:
 
 ```js
 (function(undefined){
@@ -50,9 +49,7 @@ In order to avoid the issue where `undefined` can be renamed or modified the val
 })(_);
 ```
 
-In the sample code above, `undefined` is a parameter of function. Since we don't pass any parameter or an undefined variable (`_`)
-to the function, the parameter will be undefined. This common pattern was used in popular libraries such as 
-[jQuery](https://jquery.com), [Backbone](https://backbonejs.org), etc.
+In the sample code above, `undefined` is a parameter of function. Since we don't pass any parameter or an undefined variable (`_`) to the function, the parameter will be undefined. This common pattern was used in popular libraries such as [jQuery](https://jquery.com), [Backbone](https://backbonejs.org), etc.
 
 It's not the case in modern browsers nowadays. From ES5, `undefined` can't be changed because its `Writable` property is set to `false`. 
 

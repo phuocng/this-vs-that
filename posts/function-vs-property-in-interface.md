@@ -52,7 +52,7 @@ interface Logger {
     }
     ```
 
-2. The \`readonly\` modifier only has effect with the property declaration.
+2. The `readonly` modifier only has effect with the property declaration.
 
     ```js
     interface Person {
@@ -68,7 +68,7 @@ interface Logger {
 
 3. TypeScript generates different output for a class that implements the interface methods.
 
-    Assume that we have a class \`ConsoleLogger\` that simply logs the message in the _Console_ window.
+    Assume that we have a class `ConsoleLogger` that simply logs the message in the _Console_ window.
 
     For the first approach:
 
@@ -118,10 +118,9 @@ interface Logger {
 
     Looking at the generated JavaScript codes, you'll see the different outputs. 
     
-    The first approach produces a property \`log\` in the constructor. It means that \`log\` will be created every time you create a new instance of class.
+    The first approach produces a property `log` in the constructor. It means that `log` will be created every time you create a new instance of class.
     
-    While the second approach produces the \`log\` method, and it exists in all instances of class. The \`log\` method also is a member of class prototype,
-    so we can extend the class to override the method if needed:
+    While the second approach produces the `log` method, and it exists in all instances of class. The `log` method also is a member of class prototype, so we can extend the class to override the method if needed:
 
     ```js
     class ConsoleLogger implements Logger {
@@ -131,7 +130,7 @@ interface Logger {
     }
 
     class ConsoleLoggerWithColor extends ConsoleLogger {
-        // Override the \`log\` method
+        // Override the `log` method
         log(message: string) {
             // Display the message in white color and blue background area
             console.log("%c%s", 'color: white; background: blue', message);

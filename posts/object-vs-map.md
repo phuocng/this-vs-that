@@ -47,8 +47,7 @@ person.set('age', 20);
     // fontSize = 12px
     ```
 
-    Objects are not iterable directly. In order to loop over the properties of an object, we have to use either 
-    `Object.keys`, `Object.values` or `Object.entries` to receives the list of keys, values or pairs of key and value. 
+    Objects are not iterable directly. In order to loop over the properties of an object, we have to use either `Object.keys`, `Object.values` or `Object.entries` to receives the list of keys, values or pairs of key and value. 
 
     ```js
     styles = {
@@ -79,30 +78,29 @@ person.set('age', 20);
 
 4. JSON supports `Object`:
 
-```js
-const person = {};
-person.name = 'Foo';
-person.age = 20;
+    ```js
+    const person = {};
+    person.name = 'Foo';
+    person.age = 20;
 
-JSON.stringify(person);     // "{"name":"Foo","age":20}"
-```
+    JSON.stringify(person);     // "{"name":"Foo","age":20}"
+    ```
 
-With `Map`, it's not possible to get the proper data when being serialized with JSON:
+    With `Map`, it's not possible to get the proper data when being serialized with JSON:
 
-```js
-const person = new Map();
-person.set('name', 'Foo');
-person.set('age', 20);
+    ```js
+    const person = new Map();
+    person.set('name', 'Foo');
+    person.set('age', 20);
 
-JSON.stringify(person);     // "{}"
-```
+    JSON.stringify(person);     // "{}"
+    ```
 
 ## Good to know
 
 Maps keep the order of items. It means when you loop over keys of a map, we will see the same order as when they're inserted to the map.
 
-It's true for objects that only consists of string and symbol keys. The order of object's keys aren't kept if there is a key 
-that needs to be converted to string.
+It's true for objects that only consists of string and symbol keys. The order of object's keys aren't kept if there is a key that needs to be converted to string.
 
 ```js
 let codes = { 'A': 65, 'B': 66, 'C': 67, 0: 48 };

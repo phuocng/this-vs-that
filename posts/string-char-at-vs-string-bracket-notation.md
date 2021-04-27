@@ -58,5 +58,4 @@ In both ways, `'hello'[1]` and `'hello'.charAt(1)` returns the second character 
 
 _Why does `'hello'.charAt(true)` return `e`?_
 
-The `charAt(index)` method will try to convert the index to the number first. Since `Number(true) === 1`, `charAt(true)` will
-returns the character at the one index position, i.e, the second character.
+The `charAt(index)` method will try to convert the index to the number first. Since `Number(true) === 1`, `charAt(true)` will returns the character at the one index position, i.e, the second character.

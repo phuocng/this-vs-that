@@ -32,8 +32,7 @@ To get around the problem, we can simply set
 
 It's included in modern CSS normalizing libraries such as [Normalize.css](https://necolas.github.io/normalize.css).
 
-Changing the value of `display` property to something else (such as `display: flex`) will override the behavior 
-of the `hidden` attribute. 
+Changing the value of `display` property to something else (such as `display: flex`) will override the behavior of the `hidden` attribute. 
 
 Popular libraries prevent it from being overridden by using `!important`:
 
@@ -43,5 +42,4 @@ Popular libraries prevent it from being overridden by using `!important`:
 }
 ```
 
-The implementation can be found in Bootstrap 4's [Reboot](https://getbootstrap.com/docs/4.1/content/reboot/#html5-hidden-attribute), 
-[PureCSS](https://purecss.io/base/).
+The implementation can be found in Bootstrap 4's [Reboot](https://getbootstrap.com/docs/4.1/content/reboot/#html5-hidden-attribute), [PureCSS](https://purecss.io/base/).

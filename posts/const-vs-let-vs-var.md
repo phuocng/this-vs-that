@@ -64,8 +64,7 @@ There are three keywords to declare a variable:
 
 5. Using `let` can avoid the problem with closures that `var` has.
 
-    To demonstrate the problem, let's assume that we have a list of rows. In each row, we have a button 
-    for removing the associate item in the row.
+    To demonstrate the problem, let's assume that we have a list of rows. In each row, we have a button for removing the associate item in the row.
 
     We loop over the items, and handle the `click` event of the button in each row:
 
@@ -137,7 +136,7 @@ The following table list out some examples:
 
 | Language  | Variable declaration      | Constant declaration          | 
 |-----------|---------------------------|-------------------------------|
-| C#        | `string s = "hello"`    | `const string s = "hello"`  |
-| Java      | `String s = "hello"`    | `final String s = "Hello"`  |
-| Scala     | `var s = "hello"`       | `val s = "hello"`           |
-| Swift     | `var s = "hello"`       | `let s = "hello"`           |
+| C#        | `string s = "hello"`      | `const string s = "hello"`    |
+| Java      | `String s = "hello"`      | `final String s = "Hello"`    |
+| Scala     | `var s = "hello"`         | `val s = "hello"`             |
+| Swift     | `var s = "hello"`         | `let s = "hello"`             |

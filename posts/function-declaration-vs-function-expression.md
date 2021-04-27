@@ -79,7 +79,7 @@ function sum(a, b) {
     // 6
     ```
 
-    Do you know that we get the same result if we omit the parentheses and put \`+\` at the beginning as follow:
+    Do you know that we get the same result if we omit the parentheses and put `+` at the beginning as follow:
 
     ```js
     +function(a, b) {
@@ -89,12 +89,11 @@ function sum(a, b) {
     // 6
     ```
 
-    It works because putting \`+\` at the beginning of function declaration will turn it to an expression, and passing the parameters with \`()\`
-    at the end will invoke the expression.
+    It works because putting `+` at the beginning of function declaration will turn it to an expression, and passing the parameters with `()` at the end will invoke the expression.
     
     It is rare to see that code in development, but it is used in the minifications to save the file size.
 
-    In addition to \`+\`, you can use other operators such as \`-\`, \`!\`, \`~\` and \`void\` in the similar way to invoke a function:
+    In addition to `+`, you can use other operators such as `-`, `!`, `~` and `void` in the similar way to invoke a function:
 
     ```js
     -function() { ... }();

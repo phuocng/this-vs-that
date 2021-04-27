@@ -19,7 +19,7 @@ When the browser sees a normal `script` tag declaration, it will perform the fol
 * Execute the script after it's downloaded completely
 * Continue parsing the document
 
-```
+```shell
 ┌───────────────────────┬───────────────────────────────────────┬───────────────────┐
 / Parse the document    / Pause parsing                         / Resume parsing    /
 └───────────────────────┼───────────────────┬───────────────────┴───────────────────┘
@@ -47,7 +47,7 @@ These attributes let browser know that the scripts can be downloaded in parallel
 
     After an `async` script is downloaded, the browser will pause the document parser, execute the script and resume parsing the document.
 
-    ```
+    ```shell
     ┌───────────────────────────────────────────┬───────────────────┬───────────────────┐
     / Parse the document                        / Pause parsing     / Resume parsing    /
     └───────────────────────┬───────────────────┼───────────────────┴───────────────────┘
@@ -59,7 +59,7 @@ These attributes let browser know that the scripts can be downloaded in parallel
 
     The `defer` script, on the other hand, will be executed only when the parser has completed its job.
 
-    ```
+    ```shell
     ┌───────────────────────────────────────────────────────────┐
     / Parse the document                                        /
     └───────────────────────┬─────────────────┬─────────────────┘

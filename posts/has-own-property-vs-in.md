@@ -19,11 +19,9 @@ person.hasOwnProperty('name');  // true
 
 ## Differences
 
-1. For inherited properties, `in` will return `true`. `hasOwnProperty`, as the name implies, will check if a property is owned by itself, 
-    and ignores the inherited properties.
+1. For inherited properties, `in` will return `true`. `hasOwnProperty`, as the name implies, will check if a property is owned by itself, and ignores the inherited properties.
 
-    Let's reuse the person object from the previous example. Since it's a JavaScript object which has built-in properties such as `constructor`,
-    `__proto__`, the following check return true:
+    Let's reuse the person object from the previous example. Since it's a JavaScript object which has built-in properties such as `constructor`, `__proto__`, the following check return true:
 
     ```js
     'constructor' in person;    // true

@@ -6,8 +6,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-`key`, `keyCode` and `which` can be used to determine which key is pressed. Following is a sample code that handles the 
-`keyPress` event of a text box. 
+`key`, `keyCode` and `which` can be used to determine which key is pressed. Following is a sample code that handles the `keyPress` event of a text box. 
 
 It checks if user presses the _Enter_ key whose key code is 13:
 
@@ -21,8 +20,7 @@ textBoxElement.addEventListener('keydown', function(e) {
 
 ## Difference
 
-According to MDN documentations, both [keyCode](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) 
-and [which](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/which) are deprecated and will be removed from the Web standards.
+According to MDN documentations, both [keyCode](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) and [which](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/which) are deprecated and will be removed from the Web standards.
 
 Apart from that, both properties are supported differently by browsers. Some browsers use `keyCode`, other use `which`.
 

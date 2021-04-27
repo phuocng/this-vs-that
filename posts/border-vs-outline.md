@@ -31,14 +31,11 @@ It's not possible to set the style for particular side with `outline`.
 
 ## Good practice
 
-The primary purpose of `outline` is to support accessibility. It provides visual feedback for links, buttons when users 
-navigate between them with the _Tab_ key.
+The primary purpose of `outline` is to support accessibility. It provides visual feedback for links, buttons when users navigate between them with the _Tab_ key.
 
-You shouldn't remove outline style from elements when they are being focused. Setting `outline: none` or `outline: 0` 
-will make the page inaccessible for the people who don't use mouse or have a visual impairment.
+You shouldn't remove outline style from elements when they are being focused. Setting `outline: none` or `outline: 0` will make the page inaccessible for the people who don't use mouse or have a visual impairment.
 
-One of the first and popular CSS reset library [removed](https://meyerweb.com/eric/tools/css/reset/reset200802.css) the outline,
-but the author leaves a comment that reminds us to define the focus styles: 
+One of the first and popular CSS reset library [removed](https://meyerweb.com/eric/tools/css/reset/reset200802.css) the outline, but the author leaves a comment that reminds us to define the focus styles:
 
 ```css
 /* remember to define focus styles! */

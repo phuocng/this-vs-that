@@ -6,8 +6,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-There are two different ways to handle an event of element. The following piece of code demonstrates how to handle the 
-`click` event with the `addEventListener` function:
+There are two different ways to handle an event of element. The following piece of code demonstrates how to handle the `click` event with the `addEventListener` function:
 
 ```js
 const handler = () => {
@@ -32,8 +31,7 @@ element.onclick = handler;
 
     The `on___` property or attribute allows to register only one handler. Setting `on___` will remove all existing handlers.
 
-    In the following sample code, clicking the element will print `onclick is used` in _Console_ because 
-    the `onclick` removes the original `handler`.
+    In the following sample code, clicking the element will print `onclick is used` in _Console_ because the `onclick` removes the original `handler`.
 
     ```js
     const handler = () => {
@@ -103,8 +101,7 @@ element.onclick = handler;
     The `addEventListener` function doesn't work before Internet Explorer (IE) 9, while `onclick` is supported by all browsers. 
     The IE 8 and older versions use the `attachEvent` function.
 
-    It isn't really important thing in the web development today as most websites don't support IE 8 or 9 anymore. But if you 
-    still need to take care of IE 8 (_really?_), then here is the small line of code that fills the gap:
+    It isn't really important thing in the web development today as most websites don't support IE 8 or 9 anymore. But if you still need to take care of IE 8 (_really?_), then here is the small line of code that fills the gap:
 
     ```js
     element.attachEvent
@@ -125,8 +122,7 @@ element.onclick = handler;
     * React: `<button onClick={sayHello}>Hello</button>`
     * Vue: `<button v-on:click="sayHello">Hello</button>`
 
-    It's designed in a declarative way, so it's easy for developers to get used to the library. Despite the fact that the declaration 
-    looks similar to the `onclick` attribute, the framework parses the code, and transpiles it to `addEventListener` method.
+    It's designed in a declarative way, so it's easy for developers to get used to the library. Despite the fact that the declaration looks similar to the `onclick` attribute, the framework parses the code, and transpiles it to `addEventListener` method.
 
 2. To avoid the memory leak issue, remember to remove the handler when it's not used anymore.
 

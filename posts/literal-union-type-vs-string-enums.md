@@ -6,8 +6,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-In TypeScript, there are a few ways to enumerate the possible values of a type. Let's consider a situation where our 
-website has to support different themes including default, light, and dark.
+In TypeScript, there are a few ways to enumerate the possible values of a type. Let's consider a situation where our website has to support different themes including default, light, and dark.
 
 They can be defined by one of the following approaches:
 
@@ -49,8 +48,7 @@ enum Theme {
     const theme: Theme = 'DEFAULT';
     ```
 
-    Popular editors like Visual Studio Code help us choose the value from the list of possible values quickly but 
-    we have to manually change the value in all places if we want to refactor the value to something else.
+    Popular editors like Visual Studio Code help us choose the value from the list of possible values quickly but we have to manually change the value in all places if we want to refactor the value to something else.
 
     On the other hand, using `enum` gives a few remarkable benefits when you refactor the code or develop a library.
     Let's take a look at a simple use case where your library provides the following function to switch the website to a given theme:
@@ -76,8 +74,7 @@ enum Theme {
 
 ## Good to know
 
-There is another approach using the [const assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions) 
-which is available from TypeScript 3.4.
+There is another approach using the [const assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions) which is available from TypeScript 3.4.
 
 ```js
 const Theme = {

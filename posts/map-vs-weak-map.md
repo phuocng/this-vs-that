@@ -26,8 +26,7 @@ layout: layouts/post.njk
 
 3. The most important difference is that `WeakMap` does not prevent the keys from being garbage collected when there is no references to the keys. 
 
-    On the other hand, `Map` maintains the references to keys and values indefinitely. Once the keys and values are created, 
-    they will take the memory and will not be garbage collected even if there is no references to them.
+    On the other hand, `Map` maintains the references to keys and values indefinitely. Once the keys and values are created, they will take the memory and will not be garbage collected even if there is no references to them.
     This could leads to a memory leak issue.
 
     Consider a simple code below where we map an unique id to particular person's information:

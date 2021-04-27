@@ -14,8 +14,7 @@ You can take a look at the default styles provided by:
 * [Firefox](https://hg.mozilla.org/mozilla-central/file/tip/layout/style/res/html.css)
 * [Safari](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)
 
-Since the default styles are not the same, causing a web page will have different look and feel on each browser. 
-Both normalizing and resetting CSS aim to fix that problem.
+Since the default styles are not the same, causing a web page will have different look and feel on each browser. Both normalizing and resetting CSS aim to fix that problem.
 
 1. Resetting CSS, as the name suggests, will reset all the built-in styles.
 
@@ -28,8 +27,7 @@ Both normalizing and resetting CSS aim to fix that problem.
     }
     ```
 
-    If you use the _Developer Tool_ of Chrome browser, and inspect the body element of any web page, 
-    you will see that it has the margin of 8px by default which we often don't want to have at all:
+    If you use the _Developer Tool_ of Chrome browser, and inspect the body element of any web page, you will see that it has the margin of 8px by default which we often don't want to have at all:
 
     ```css
     body {
@@ -39,8 +37,8 @@ Both normalizing and resetting CSS aim to fix that problem.
 
 2. Normalizing CSS is another alternative to resetting CSS.
 
-    The most popular library in this area is [normalize.css](https://necolas.github.io/normalize.css/).
-    It tries to make built-in browser styling consistent across browsers.
+    The most popular library in this area is [normalize.css](https://necolas.github.io/normalize.css/). It tries to make built-in browser styling consistent across browsers.
+
     More than that, the library also:
 
     * Makes some elements look like what we expect. 
@@ -71,8 +69,7 @@ Both normalizing and resetting CSS aim to fix that problem.
 
     * Fix display bugs across browsers.
 
-    You can look at its [source code](https://github.com/necolas/normalize.css/blob/master/normalize.css) 
-    to see there are lot of bug fixes for different browsers such as Internet Explorer, Edge, Firefox, etc.
+    You can look at its [source code](https://github.com/necolas/normalize.css/blob/master/normalize.css) to see there are lot of bug fixes for different browsers such as Internet Explorer, Edge, Firefox, etc.
 
 You don't need to include normalize.css if you use popular CSS libraries. It's already included in:
 

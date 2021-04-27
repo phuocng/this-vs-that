@@ -43,8 +43,7 @@ submitButton.addEventListener('click', function(e) {
     };
     ```
 
-2. According to the [HTML 5 specifications](https://www.w3.org/TR/2017/REC-html52-20171214/webappapis.html#the-event-handler-processing-algorithm), 
-`return false` will cancel the event except the `mouseover` event.
+2. According to the [HTML 5 specifications](https://www.w3.org/TR/2017/REC-html52-20171214/webappapis.html#the-event-handler-processing-algorithm), `return false` will cancel the event except the `mouseover` event.
 
 ## Good practices
 
@@ -59,8 +58,7 @@ submitButton.addEventListener('click', function(e) {
     });
     ```
 
-    Before returning the value of `false`, the handler would do something else.  The problem is that if there's any runtime
-    error occurring in the handler, we will not reach the `return false` statement at the end. 
+    Before returning the value of `false`, the handler would do something else.  The problem is that if there's any runtime error occurring in the handler, we will not reach the `return false` statement at the end. 
     
     In that case, the default behavior will be taken:
 

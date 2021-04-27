@@ -18,21 +18,7 @@ element.addEventListener('click', function(e) {
 
 `currentTarget` is the element that the event was bound to. It never changes. In the sample code above, `e.currentTarget` is the element.
 
-`target` is the element user clicked on, in the case of `click` event. It can be the original element or any of its 
-children depending on where user clicks on exactly.
-
-In the following demo, we attach a handler to the `click` event to the outer square. 
-
-Try to click the inner square or the area between two squares, and here is the result:
-`}
-/>
-<TargetDemo />
-<Markdown
-    content={`
-| Property          | Click the inner square    | Click outside of the inner square     |
-|-------------------|---------------------------|---------------------------------------|
-| `currentTarget` | Outer square              | Outer square                          |
-| `target`        | Inner square              | Outer square                          |
+`target` is the element user clicked on, in the case of `click` event. It can be the original element or any of its children depending on where user clicks on exactly.
 
 ## Use case
 
@@ -53,8 +39,7 @@ The markup is pretty simple as below:
 </div>
 ```
 
-It's a common experience for user to close the modal when clicking the overlay. There are two approaches to do that, 
-but first, we need to query the modal and overlay elements:
+It's a common experience for user to close the modal when clicking the overlay. There are two approaches to do that, but first, we need to query the modal and overlay elements:
 
 ```js
 const overlay = document.getElementById('overlay');
@@ -69,8 +54,7 @@ overlay.addEventListener('click', function() {
 });
 ```
 
-What happen if user clicks inside the modal? We don't want the event to bubble up to the parent element (which is overlay), 
-hence the `stopPropagation` method is called:
+What happen if user clicks inside the modal? We don't want the event to bubble up to the parent element (which is overlay), hence the `stopPropagation` method is called:
 
 ```js
 modal.addEventListener('click', function(e) {
@@ -78,8 +62,7 @@ modal.addEventListener('click', function(e) {
 });
 ```
 
-__Second approach__: To ensure that user clicks the overlay area and not inside the modal, we can simply check if 
-both the `currentTarget` and `target` properties refer to the same element:
+__Second approach__: To ensure that user clicks the overlay area and not inside the modal, we can simply check if both the `currentTarget` and `target` properties refer to the same element:
 
 ```js
 overlay.addEventListener('click', function(e) {

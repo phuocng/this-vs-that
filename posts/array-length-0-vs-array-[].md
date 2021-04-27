@@ -51,8 +51,7 @@ console.log(bar);   // []
     arr.splice(0, arr.length);
     ```
 
-    This method affects other references. Since `.splice` returns an array of removed items, you can get a copy of original array
-    by assigning the result to a new variable:
+    This method affects other references. Since `.splice` returns an array of removed items, you can get a copy of original array by assigning the result to a new variable:
 
     ```js
     let foo = ['hello', 'world'];

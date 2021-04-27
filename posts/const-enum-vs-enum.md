@@ -43,8 +43,7 @@ const enum Light {
 
     On the other hand, the `Light` enum is not transpiled at all. You will see nothing if the enum is not used. 
 
-    In the other cases, all the enum references are replaced by the inline codes. For example, `console.log(Light.Red)` is compiled as 
-    `console.log(0 /* Red */)`.
+    In the other cases, all the enum references are replaced by the inline codes. For example, `console.log(Light.Red)` is compiled as `console.log(0 /* Red */)`.
 
 2. Because there is no JavaScript object that associates with `const` enum is generated at run time, it is not possible to loop over the `const` enum values.
 

@@ -16,8 +16,7 @@ layout: layouts/post.njk
 
 2. Other than the semantic differences, `div` has its own constructor interface `HTMLDivElement`.
 
-    `section` and other HTML5 elements such as `article`, `footer`, `header`, `main`, `navbar` do not have this. In fact, 
-    their constructors are from `HTMLElement`.
+    `section` and other HTML5 elements such as `article`, `footer`, `header`, `main`, `navbar` do not have this. In fact, their constructors are from `HTMLElement`.
 
     Assume that our page is organized as following:
 
@@ -56,8 +55,7 @@ layout: layouts/post.njk
     </section>
     ```
 
-    The default CSS of browsers defines the font size for them. For example, [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css#162) 
-    defines the different font sizes for `h1` at different levels of `section`:
+    The default CSS of browsers defines the font size for them. For example, [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css#162) defines the different font sizes for `h1` at different levels of `section`:
 
     ```css
     /* First level */
@@ -108,8 +106,7 @@ We should use the heading elements (`h1 - h6`) inside section to indicate the su
 
 ## Good to know
 
-Nowadays, HTML5 standard are supported in modern browsers. But in the old days when it is required to support non-HTML5 browsers 
-such as IE 8, we have to do some additional tasks.
+Nowadays, HTML5 standard are supported in modern browsers. But in the old days when it is required to support non-HTML5 browsers such as IE 8, we have to do some additional tasks.
 
 * By default, the unknown elements are styled as `display: inline`, hence we need to reset the value for HTML5 elements:
 

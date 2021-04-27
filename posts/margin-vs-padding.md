@@ -10,20 +10,19 @@ layout: layouts/post.njk
 
 1. `margin` is the space around the element.
    
+    ```shell
+    ┌──────────────────────┐               ┌──────────────────────┐
+    |                      |               |                      |
+    |                      |               |                      |
+    |                      |◀︎── margin ───▶︎|                      |
+    |                      |               |                      |
+    |                      |               |                      |
+    └──────────────────────┘               └──────────────────────┘
     ```
-                        .
-    ┌───────────────────────────┐               ┌───────────────────────────┐
-    |                           |               |                           |
-    |                           |               |                           |
-    |                           |◀︎── margin ───▶︎|                           |
-    |                           |               |                           |
-    |                           |               |                           |
-    └───────────────────────────┘               └───────────────────────────┘
-    ```
-    
+
     Whereas `padding` is the space between an element and the content inside it. Both `margin` and `padding` do not include the border of element.
-    
-    ```
+
+    ```shell
     ┌─────────────▲─────────────┐
     |             | Padding     |
     |             |             |
@@ -40,12 +39,11 @@ layout: layouts/post.njk
     
 2. The top and bottom margins are collapsible. 
     
-    Let's consider an example where we have two elements, `A` and `B`. The `A` element has 30px margin at the bottom, 
-    and `B` has 20px margin at the top. 
-    
+    Let's consider an example where we have two elements, `A` and `B`. The `A` element has 30px margin at the bottom, and `B` has 20px margin at the top.
+
     In final, the margin between two elements are the maximum numbers of two margin values, i.e 30px, not the total sum of them.
-    
-    ```
+
+    ```shell
     ┌───────────────────────────┐
     |                           |
     |              A            |
@@ -53,8 +51,8 @@ layout: layouts/post.njk
     └───────┬───────────────────┘
             |       
             |       ▲
-     margin |       |
-     bottom |       |
+    margin |       |
+    bottom |       |
             |       | margin 
             |       | top
             |       |
@@ -64,7 +62,7 @@ layout: layouts/post.njk
     |                           |
     └───────────────────────────┘
     ```
-    
+
     This does not happen with the left, right margins and any `padding` values.
     
 3. We can set `margin: auto`, but it is not possible for `padding`. We often use `margin: auto` to center an element.

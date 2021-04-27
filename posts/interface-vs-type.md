@@ -53,8 +53,7 @@ type Person = {
 }
 ```
 
-Being able to merge the interface declarations is very useful, for example, when we provide the type definitions for an external library 
-which isn't made with TypeScript completely. 
+Being able to merge the interface declarations is very useful, for example, when we provide the type definitions for an external library which isn't made with TypeScript completely. 
 
 In that case, if there're some missing definitions, we can provide them via declaration merging.
 

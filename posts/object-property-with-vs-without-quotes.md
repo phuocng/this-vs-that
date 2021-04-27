@@ -37,8 +37,7 @@ obj['key'];
     console.log(obj['12e34']);      // 'hello'
     ```
 
-2. If the property is one of [reserved keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords), then 
-    we have to use with quotes to access the property value.
+2. If the property is one of [reserved keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords), then we have to use with quotes to access the property value.
 
     ```js
     const styles = { class: 'foo' };

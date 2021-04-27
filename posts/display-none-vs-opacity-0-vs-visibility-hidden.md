@@ -14,27 +14,22 @@ There are three common CSS properties to make an element invisible:
 
 ## Differences
 
-1. `display: none` doesn't take space when the element is rendered. 
-    The other ways still take the space normally.
+1. `display: none` doesn't take space when the element is rendered. The other ways still take the space normally.
 
 2.  The browser will not response to any events of element which uses either `display: none` or  `visibility: hidden`.
-    The `visibility: hidden` style behaves like a combination of `opacity: 0` and `pointer-events: none`.
+The `visibility: hidden` style behaves like a combination of `opacity: 0` and `pointer-events: none`.
 
-3. Regarding the accessibility, `opacity: 0` is the only property which makes the element accessible in the tab order,
-    and the element's content can be read by screen readers.
+3. Regarding the accessibility, `opacity: 0` is the only property which makes the element accessible in the tab order, and the element's content can be read by screen readers.
 
-4. Applying `display: none` or `opacity: 0` will effect on child elements. `visibility: hidden`, on the other hand, 
-    doesn't change the visibility of any children.
+4. Applying `display: none` or `opacity: 0` will effect on child elements. `visibility: hidden`, on the other hand, doesn't change the visibility of any children.
 
 5. It's worth noting that if you want to measure the size of element, then you can't use `display: none` at all.
 
-    As mentioned in the first difference, an element with `display: none` doesn't take any space on the page. 
-    Hence, all properties related to the element size, such as `clientHeight`, `clientWidth`, `height`, `offsetHeight`, 
-    `offsetWidth`, `scrollHeight`, `scrollWidth` and `width` are zero.
+As mentioned in the first difference, an element with `display: none` doesn't take any space on the page. Hence, all properties related to the element size, such as `clientHeight`, `clientWidth`, `height`, `offsetHeight`, `offsetWidth`, `scrollHeight`, `scrollWidth` and `width` are zero.
 
-    All properties returned by the `getBoundingClientRect()` method are zero as well.
+All properties returned by the `getBoundingClientRect()` method are zero as well.
 
-    Similarly, an element with `visibility: hidden` will have empty inner text (equivalent with the `innerText` property).
+Similarly, an element with `visibility: hidden` will have empty inner text (equivalent with the `innerText` property).
 
 ## Tip
 
@@ -50,8 +45,7 @@ In order to do that without breaking the layout, Chrome adds a CSS class named `
 }
 ```
 
-As mentioned above, applying the visibility style to an element doesn't effect on any children, 
-so Chrome adds a following style to make all children invisible:
+As mentioned above, applying the visibility style to an element doesn't effect on any children, so Chrome adds a following style to make all children invisible:
 
 ```css
 .__web-inspector-hide-shortcut__ * {
@@ -69,8 +63,7 @@ Nowadays, it's very easy for us to set the opacity for given element and its chi
 }
 ```
 
-Many years ago, when the web developers have to deal with the old browsers such as Internet Explorer 6, 7, 8, 
-here is what we have to do in order to support various browsers:
+Many years ago, when the web developers have to deal with the old browsers such as Internet Explorer 6, 7, 8, here is what we have to do in order to support various browsers:
 
 ```css
 .overlay {

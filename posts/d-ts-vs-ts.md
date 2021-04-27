@@ -21,8 +21,7 @@ const sum = (a, b) => a + b;
 export { sum };
 ```
 
-TypeScript doesn't have any information about the function including the name, the type of parameters. In order to use the 
-function in a TypeScript file, we provide its definition in a `d.ts` file:
+TypeScript doesn't have any information about the function including the name, the type of parameters. In order to use the function in a TypeScript file, we provide its definition in a `d.ts` file:
 
 ```js
 // math.d.ts
@@ -47,7 +46,6 @@ TypeScript provides an option named `allowJs` which allows to use plain JavaScri
 }
 ```
 
-It's very useful when we want to migrate the existing code base from plain JavaScript to TypeScript. So we can convert each 
-JavaScript file to TypeScript one by one without having to convert entire code completely.
+It's very useful when we want to migrate the existing code base from plain JavaScript to TypeScript. So we can convert each JavaScript file to TypeScript one by one without having to convert entire code completely.
 
 See the [migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html) guide for more information.

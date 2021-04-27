@@ -9,8 +9,7 @@ layout: layouts/post.njk
 The `stopImmediatePropagation()` method prevents the event from bubbling up to the parent elements like the `stopPropagation()` method does. 
 However, it prevents other listeners of the same event from being called.
 
-Let's say that we attach different listeners that handle the same event to the same element. When the event occurs, 
-the listeners are executed in the same order as they were added.
+Let's say that we attach different listeners that handle the same event to the same element. When the event occurs, the listeners are executed in the same order as they were added.
 
 If we call the `stopImmediatePropagation()` method in a given listener, then the remaining listeners will not be called.
 

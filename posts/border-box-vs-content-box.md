@@ -28,7 +28,7 @@ In the content box model, the content inside of element will have the same dimen
 }
 ```
 
-```
+```shell
 // Content box               
                     ◀︎──── 200px ────▶︎
 
@@ -52,7 +52,7 @@ In the content box model, the content inside of element will have the same dimen
 In the border box model, the content's dimension has to subtract the border and padding from the element's dimension.
 Specifically, the content's width is `200 - 5 * 2 - 10 * 2 = 170px`.
 
-```
+```shell
 // Border box
 ◀︎──────────────────────── 200px ────────────────────────▶︎
 

@@ -16,11 +16,9 @@ layout: layouts/post.njk
 
 2. These events serve different purposes.
 
-    The `keydown` and `keyup` events are often used to handle the physical keys, while the `keypress` event is used to 
-    handle characters which are being typed.
+    The `keydown` and `keyup` events are often used to handle the physical keys, while the `keypress` event is used to handle characters which are being typed.
 
-    The `keypress` ignores keys such as `delete`, `arrows`, `page up`, `page down`, `home`, `end`, `ctrl`, 
-    `alt`, `shift`, `esc`, etc.
+    The `keypress` ignores keys such as `delete`, `arrows`, `page up`, `page down`, `home`, `end`, `ctrl`, `alt`, `shift`, `esc`, etc.
     So, if we need to handle those keys, it's better to use either `keydown` or `keyup` event.
 
     The sample code below listens on the `keydown` event, and closes the modal if the _Esc_ key is pressed:

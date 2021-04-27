@@ -10,8 +10,7 @@ layout: layouts/post.njk
 
 ## Differences
 
-The `typeof` operator checks if a value has type of primitive type which can be one of `boolean`, `function`, `object`, 
-`number`, `string`, `undefined` and `symbol` (ES6).
+The `typeof` operator checks if a value has type of primitive type which can be one of `boolean`, `function`, `object`, `number`, `string`, `undefined` and `symbol` (ES6).
 
 ```js
 typeof 'helloworld';                // 'string'
@@ -85,8 +84,7 @@ new String('helloworld') instanceof String;     // true
     
 4. `instanceof` doesn't work for primitive types.
 
-    If you want to use `instanceof` all the time, then you can override the behavior of `instanceof` by implementing 
-    a static method with the key of `Symbol.hasInstance`.
+    If you want to use `instanceof` all the time, then you can override the behavior of `instanceof` by implementing a static method with the key of `Symbol.hasInstance`.
 
     In the following code, we create a class called `PrimitiveNumber` that checks if a value is a number:
 
