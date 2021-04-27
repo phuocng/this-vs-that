@@ -23,7 +23,7 @@ a {
 }
 
 .card {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     position: relative;
     text-align: center;
 }
@@ -45,7 +45,7 @@ a {
     transform-origin: right bottom;
 
     /* Misc */
-    background-color: #FFF;
+    background-color: var(--background-color, #FFF);
     border: 1px solid var(--theme-color);
 }
 .card::before {
@@ -66,7 +66,17 @@ a {
     transform-origin: right bottom;
 
     /* Misc */
-    background-color: var(--theme-color);
+    background-color: var(--layered-color, var(--theme-color));
+    border: 1px solid var(--theme-color);
+}
+.card__image {
+    height: auto;
+    width: 4rem;    
+}
+.card__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
 }
 
 /* Header */
@@ -210,7 +220,7 @@ a {
 }
 .home__category {
     display: inline;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
     position: relative;
 }

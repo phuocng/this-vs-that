@@ -6,7 +6,6 @@ permalink: /sitemap.xml
 {%- for page in collections.all %}
 <url>
     <loc>https://thisthat.dev{{ page.url | url }}</loc>
-    <lastmod>{{ page.date | sitemapDateTimeString }}</lastmod>
 </url>
 {%- endfor %}
 </urlset>

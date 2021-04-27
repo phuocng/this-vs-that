@@ -24,7 +24,11 @@ layout: layouts/base.njk
 </header>
 
 <div class="container">
-{% for category, posts in collections.postsByCategory %}
+{% set postsByCategory = collections.postsByCategory %}
+{% set numCategories = postsByCategory | countKeys %}
+{% set chunkSize = (products.length / numCategories) | round %}
+{% set productsEachCategory = products | chunk(chunkSize) %}
+{% for category, posts in postsByCategory %}
     <div class="home__separator">
         <h2 class="home__category">{{ category }}</h2>
     </div>
@@ -33,6 +37,17 @@ layout: layouts/base.njk
         <div class="home__item">
             <div class="card">
                 <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% for product in productsEachCategory[loop.index - 1] %}
+        <div class="home__item">
+            <div class="card" style="--background-color: {{ product.themeColor }}; --layered-color: #FFF">
+                <a href="{{ product.url }}" style="color: #FFF" alt="{{ product.description }}">
+                    <img class="card__image" src="/assets/{{ product.name | slug }}.png" alt="{{ product.description }}" />
+                    <h3 class="card__title">{{ product.name }}</h3>
+                    {{ product.description }}
+                </a>
             </div>
         </div>
         {% endfor %}

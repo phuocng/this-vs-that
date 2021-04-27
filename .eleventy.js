@@ -41,23 +41,20 @@ module.exports = function (eleventyConfig) {
         return Object.keys(groups).sort().reduce((p, c) => (p[c] = groups[c], p), {});
     });
 
-    eleventyConfig.addPairedShortcode('callout', (content) => (
-		`<div class='post__callout'>${markdownLibrary.render(content.trim())}</div>`
-    ));
-
-    eleventyConfig.addFilter('sitemapDateTimeString', (dateObj) => {
-        const dt = DateTime.fromJSDate(dateObj, { zone: 'utc' });
-        return !dt.isValid ? '' : dt.toISO();
+    eleventyConfig.addFilter('countKeys', (arr) => {
+        return Object.keys(arr).length;
     });
+
     eleventyConfig.addFilter('randomItems', (arr, count) => {
         return arr.concat().reduce((p, _, __, arr) => (p[0] < count) ? [p[0] + 1, p[1].concat(arr.splice(Math.random() * arr.length | 0, 1))] : p, [0, []])[1];
     });
+
     eleventyConfig.addFilter('sortBy', (arr, key) => {
         return arr.sort((a, b) => (a[key] > b[key]) ? 1 : ((a[key] < b[key]) ? -1 : 0));
     });
 
-    eleventyConfig.addFilter('prefixZeros', (number, max) => {
-        return String(number).padStart(`${max}`.length, '0');
+    eleventyConfig.addFilter('chunk', (arr, size) => {
+        return arr.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
     });
 
     // Minify HTML
