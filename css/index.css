@@ -73,10 +73,6 @@ code {
     background-color: var(--layered-color, var(--theme-color));
     border: 1px solid var(--theme-color);
 }
-.card__image {
-    height: auto;
-    width: 4rem;    
-}
 .card__title {
     font-size: 1.5rem;
     font-weight: 600;
