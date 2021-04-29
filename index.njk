@@ -37,7 +37,7 @@ layout: layouts/base.njk
         <div class="home__item">
             <div class="card" style="--background-color: {{ product.themeColor }}; --layered-color: #FFF">
                 <a href="{{ product.url }}" style="color: #FFF" alt="{{ product.description }}">
-                    <img class="card__image" src="/assets/{{ product.name | slug }}.png" alt="{{ product.description }}" />
+                    <img height="64" width="64" src="/assets/{{ product.name | slug }}.png" alt="{{ product.description }}" />
                     <h3 class="card__title">{{ product.name }}</h3>
                     {{ product.description }}
                 </a>
