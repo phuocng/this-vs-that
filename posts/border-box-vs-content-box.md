@@ -1,15 +1,12 @@
 ---
 title: border-box vs content-box
 category: CSS
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 `border-box` and `content-box` are two values of the `box-sizing` property.
 Unlike the `content-box`, the `border-box` value indicates that the dimension of an element will also include the border and padding.
 
-Let's assume that we have a div element whose size is `200px x 100px`, the border and padding are `5px` and `10px` respectively.  
+Let's assume that we have a div element whose size is `200px x 100px`, the border and padding are `5px` and `10px` respectively.
 
 ```css
 .div {
@@ -29,7 +26,7 @@ In the content box model, the content inside of element will have the same dimen
 ```
 
 ```shell
-// Content box               
+// Content box
                     ◀︎──── 200px ────▶︎
 
 ┌───────────────────────────────────────────────────────┐
@@ -45,7 +42,7 @@ In the content box model, the content inside of element will have the same dimen
 |       |           └───────────────┘           |       |
 |       |                                       |       |
 |       └───────────────────────────────────────┘       |
-|                                                       | 
+|                                                       |
 └───────────────────────────────────────────────────────┘
 ```
 
@@ -69,10 +66,10 @@ Specifically, the content's width is `200 - 5 * 2 - 10 * 2 = 170px`.
 |       |           └───────────────┘           |       |
 |       |                                       |       |
 |       └───────────────────────────────────────┘       |
-|                                                       | 
+|                                                       |
 └───────────────────────────────────────────────────────┘
 ```
 
-## More
+### See also
 
-* [margin vs padding](/margin-vs-padding)
+-   [margin vs padding](/margin-vs-padding)

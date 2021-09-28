@@ -1,12 +1,9 @@
 ---
 title: const vs readonly
 category: TypeScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-## Differences
+### Differences
 
 1. `const` is used for variables
 
@@ -27,7 +24,7 @@ layout: layouts/post.njk
     const triangle = new Triangle();
 
     // Does not work
-    triangle.numberOfVertices = 4; 
+    triangle.numberOfVertices = 4;
     ```
 
     or `type`, `interface`:
@@ -53,15 +50,11 @@ layout: layouts/post.njk
     ```
 
     The `readonly` properties could be changed if we don't pass their class or interface directly but passing an alias.
-    
+
     Let's take a look at the `Person` interface above, and assume that we have the following function to update the person information:
 
     ```js
-    const updatePerson = (person: {
-        firstName: string,
-        lastName: string,
-        fullName: string,
-    }) => {
+    const updatePerson = (person: { firstName: string, lastName: string, fullName: string }) => {
         person.fullName = `\${firstName}, \${lastName}`;
     };
     ```
@@ -73,11 +66,11 @@ layout: layouts/post.njk
         firstName: 'Foo',
         lastName: 'Bar',
         fullName: 'Foo Bar',
-    }
+    };
 
     updatePerson(person);
 
-    person.fullName;    // `Foo, Bar`
+    person.fullName; // `Foo, Bar`
     ```
 
     Of course, the compiler will throw an error if we pass the original type `Person`:
@@ -86,10 +79,10 @@ layout: layouts/post.njk
     const updatePerson = (person: Person) => {
         // Error: Cannot assign to 'fullName' because it is a read only property
         person.fullName = `\${person.firstName}, \${person.lastName}`;
-    }
+    };
     ```
-    
-## Good to know
+
+### Good to know
 
 1. In a given class, if a property has only getter method and doesn't come with setter method, it will be treated as read only.
 

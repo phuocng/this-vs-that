@@ -1,9 +1,6 @@
 ---
 title: const enum vs enum
 category: TypeScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 An enum can be declared with or without the `const` keyword. Here are the examples of a regular enum:
@@ -27,21 +24,21 @@ const enum Light {
 }
 ```
 
-## Differences
+### Differences
 
 1. TypeScript compiles regular enum to JavaScript objects. Given the `Direction` enum above, it will be transpiled to the following JavaScript code:
 
     ```js
     var Direction;
     (function (Direction) {
-        Direction[Direction["Up"] = 0] = "Up";
-        Direction[Direction["Down"] = 1] = "Down";
-        Direction[Direction["Left"] = 2] = "Left";
-        Direction[Direction["Right"] = 3] = "Right";
+        Direction[(Direction['Up'] = 0)] = 'Up';
+        Direction[(Direction['Down'] = 1)] = 'Down';
+        Direction[(Direction['Left'] = 2)] = 'Left';
+        Direction[(Direction['Right'] = 3)] = 'Right';
     })(Direction || (Direction = {}));
     ```
 
-    On the other hand, the `Light` enum is not transpiled at all. You will see nothing if the enum is not used. 
+    On the other hand, the `Light` enum is not transpiled at all. You will see nothing if the enum is not used.
 
     In the other cases, all the enum references are replaced by the inline codes. For example, `console.log(Light.Red)` is compiled as `console.log(0 /* Red */)`.
 
@@ -56,10 +53,10 @@ const enum Light {
     }
     ```
 
-## Good to know
+### Good to know
 
 If you do not want TypeScript to erase the generated code for `const` enums, you can use the `preserveConstEnums` compiler flag.
 
-## More
+### See also
 
-* [literal union type vs string enums](/literal-union-type-vs-string-enums)
+-   [literal union type vs string enums](/literal-union-type-vs-string-enums)

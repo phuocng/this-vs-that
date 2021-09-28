@@ -1,14 +1,11 @@
 ---
 title: <div> vs <section>
 category: HTML
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-## Differences
+### Differences
 
-1. The `div` element has no special meaning. It is often used as a block of children elements. 
+1. The `div` element has no special meaning. It is often used as a block of children elements.
 
     The `section` element introduced in HTML5 standard is used to group related elements, such as a subsection of a long article.
 
@@ -28,14 +25,14 @@ layout: layouts/post.njk
         <footer></footer>
     </div>
     ```
-        
+
     We can retrieve elements and print out the constructor for each of them:
 
     ```js
     document
         .getElementById('root')
         .querySelectorAll('*')
-        .forEach(e => console.log(e.tagName, ':', e.constructor.name))
+        .forEach((e) => console.log(e.tagName, ':', e.constructor.name));
 
     // HEADER: HTMLElement
     // SECTION: HTMLElement
@@ -59,29 +56,30 @@ layout: layouts/post.njk
 
     ```css
     /* First level */
-    :-webkit-any(article,aside,nav,section) h1 {
+    :-webkit-any(article, aside, nav, section) h1 {
         font-size: 1.5em;
     }
 
     /* Second level */
-    :-webkit-any(article,aside,nav,section) 
-    :-webkit-any(article,aside,nav,section) h1 {
+    :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) h1 {
         font-size: 1.17em;
     }
 
     /* Third level */
-    :-webkit-any(article,aside,nav,section) 
-    :-webkit-any(article,aside,nav,section) 
-    :-webkit-any(article,aside,nav,section) h1 {
-        font-size: 1.00em;
+    :-webkit-any(article, aside, nav, section)
+        :-webkit-any(article, aside, nav, section)
+        :-webkit-any(article, aside, nav, section)
+        h1 {
+        font-size: 1em;
     }
 
     /* Fourth level */
-    :-webkit-any(article,aside,nav,section) 
-    :-webkit-any(article,aside,nav,section) 
-    :-webkit-any(article,aside,nav,section) 
-    :-webkit-any(article,aside,nav,section) h1 {
-        font-size: .83em;
+    :-webkit-any(article, aside, nav, section)
+        :-webkit-any(article, aside, nav, section)
+        :-webkit-any(article, aside, nav, section)
+        :-webkit-any(article, aside, nav, section)
+        h1 {
+        font-size: 0.83em;
     }
     ```
 
@@ -89,9 +87,9 @@ layout: layouts/post.njk
 
     This does not happen with the `div` elements. All the `h1` elements will have the same font size no matter how their `div` containers are structured.
 
-## Good practice
+### Good practice
 
-Due to the semantic manner, the `section` elements are often used to build the outlines of the page. 
+Due to the semantic manner, the `section` elements are often used to build the outlines of the page.
 We should use the heading elements (`h1 - h6`) inside section to indicate the summary of section.
 
 ```html
@@ -104,18 +102,23 @@ We should use the heading elements (`h1 - h6`) inside section to indicate the su
 </section>
 ```
 
-## Good to know
+### Good to know
 
 Nowadays, HTML5 standard are supported in modern browsers. But in the old days when it is required to support non-HTML5 browsers such as IE 8, we have to do some additional tasks.
 
-* By default, the unknown elements are styled as `display: inline`, hence we need to reset the value for HTML5 elements:
+-   By default, the unknown elements are styled as `display: inline`, hence we need to reset the value for HTML5 elements:
 
     ```css
-    article, aside, footer, header, nav, section {
+    article,
+    aside,
+    footer,
+    header,
+    nav,
+    section {
         display: block;
     }
     ```
-    
+
     The CSS normalizing libraries, such as [normalize.css](https://necolas.github.io/normalize.css/8.0.1/normalize.css), add similar modifications:
 
     ```css
@@ -130,7 +133,7 @@ Nowadays, HTML5 standard are supported in modern browsers. But in the old days w
     }
     ```
 
-* Plus, the older versions of IE do not support styling of unknown elements unless they are available in the DOM.
+-   Plus, the older versions of IE do not support styling of unknown elements unless they are available in the DOM.
 
     As a result, we have to create them despite the fact that they are not used:
 

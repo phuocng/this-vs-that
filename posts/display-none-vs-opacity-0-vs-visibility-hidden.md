@@ -1,23 +1,20 @@
 ---
-title: "display: none vs opacity: 0 vs visibility: hidden"
+title: 'display: none vs opacity: 0 vs visibility: hidden'
 category: CSS
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 There are three common CSS properties to make an element invisible:
 
-* `display: none`
-* `opacity: 0`
-* `visibility: hidden`
+-   `display: none`
+-   `opacity: 0`
+-   `visibility: hidden`
 
-## Differences
+### Differences
 
 1. `display: none` doesn't take space when the element is rendered. The other ways still take the space normally.
 
-2.  The browser will not response to any events of element which uses either `display: none` or  `visibility: hidden`.
-The `visibility: hidden` style behaves like a combination of `opacity: 0` and `pointer-events: none`.
+2. The browser will not response to any events of element which uses either `display: none` or `visibility: hidden`.
+   The `visibility: hidden` style behaves like a combination of `opacity: 0` and `pointer-events: none`.
 
 3. Regarding the accessibility, `opacity: 0` is the only property which makes the element accessible in the tab order, and the element's content can be read by screen readers.
 
@@ -31,7 +28,7 @@ All properties returned by the `getBoundingClientRect()` method are zero as well
 
 Similarly, an element with `visibility: hidden` will have empty inner text (equivalent with the `innerText` property).
 
-## Tip
+### Tip
 
 With Chrome DevTools, you can hide any element in the page by right clicking the element, and then click _Hide element_.
 
@@ -53,7 +50,7 @@ As mentioned above, applying the visibility style to an element doesn't effect o
 }
 ```
 
-## Good to know
+### Good to know
 
 Nowadays, it's very easy for us to set the opacity for given element and its children with a single line of CSS:
 
@@ -69,16 +66,16 @@ Many years ago, when the web developers have to deal with the old browsers such 
 .overlay {
     /* For IE 5, 6, 7 */
     filter: alpha(opacity=75);
-    
+
     /* For IE 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
-    
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=75)';
+
     /* For Netscape */
     -moz-opacity: 0.75;
-    
+
     /* For Safari 1.x */
     -khtml-opacity: 0.75;
-    
+
     /* Our good friends */
     opacity: 0.75;
 }

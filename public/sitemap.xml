@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+    <loc>https://thisthat.dev/active-vs-focus/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/add-event-listener-function-vs-on-property/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/alt-vs-title/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/apply-vs-call/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/argument-vs-parameter/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/array-length-0-vs-array-[]/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/arrow-vs-regular-function/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/b-i-vs-strong-em/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/border-box-vs-content-box/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/border-vs-outline/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/button-vs-input-type-button/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/class-vs-id/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/client-height-vs-offset-height-vs-scroll-height/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/client-y-vs-page-y/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/concat-vs-push/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/const-enum-vs-enum/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/const-vs-let-vs-var/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/const-vs-readonly/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/current-target-vs-target/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/d-ts-vs-ts/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/delete-object-property-vs-set-object-property-to-undefined/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/display-none-vs-hidden-attribute/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/display-none-vs-opacity-0-vs-visibility-hidden/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/div-vs-section/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/dom-content-loaded-vs-load/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/double-quotes-vs-single-quote/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/element-vs-node/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/encode-uri-vs-encode-uri-component/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/equality-operator-vs-strict-equality-operator/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/event-bubbling-vs-capturing/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/event-prevent-default-vs-return-false/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/for-in-vs-for-of/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/function-declaration-vs-function-expression/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/function-vs-property-in-interface/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/has-own-property-vs-in/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/instanceof-vs-typeof/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/interface-vs-type/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/key-vs-key-code-vs-which/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/keydown-vs-keypress-vs-keyup/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/literal-union-type-vs-string-enums/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/map-vs-weak-map/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/margin-vs-padding/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/method-in-class-constructor-vs-prototype/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/mouseenter-vs-mouseover/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/natural-width-vs-width/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/node-name-vs-tag-name/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/normalize-vs-reset-css/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/null-vs-undefined/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/number-constructor-vs-parse-int/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/object-get-own-property-names-vs-object-keys/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/object-is-vs-strict-equality-operator/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/object-property-with-vs-without-quotes/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/object-vs-map/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/parent-element-vs-parent-node/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/postfix-increment-vs-prefix-increment/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/react-fragment-shorthand-vs-longhand/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/script-async-vs-script-defer/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/slice-vs-splice/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/stop-immediate-propagation-vs-stop-propagation/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/string-char-at-vs-string-bracket-notation/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/string-vs-string/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/style-width-vs-width/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/substr-vs-substring/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/undefined-vs-void/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/variable-undefined-vs-typeof-variable-undefined/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/word-break-break-all-vs-word-wrap-break-word/</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/sitemap.xml</loc>
+</url>
+<url>
+    <loc>https://thisthat.dev/</loc>
+</url>
+</urlset>

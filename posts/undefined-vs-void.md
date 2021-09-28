@@ -1,21 +1,18 @@
 ---
 title: undefined vs void
 category: JavaScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 `void` is an operator that evaluates a given expression and then returns `undefined`.
 
-## Difference
+### Difference
 
 In the modern browsers which supports ES5, there's no difference between using the `void` operator and the `undefined` value directly:
 
 ```js
-void 0 === undefined;       // true
-void 1 === undefined;       // true
-void 'Foo' === undefined;   // true
+void 0 === undefined; // true
+void 1 === undefined; // true
+void 'Foo' === undefined; // true
 ```
 
 However, in the old browsers which run ES3 engine, `undefined` is a global property and can be changed.
@@ -24,14 +21,14 @@ However, in the old browsers which run ES3 engine, `undefined` is a global prope
 // In ES3
 console.log(undefined);
 var undefined = 'foo';
-console.log(undefined);     // 'foo'
+console.log(undefined); // 'foo'
 ```
 
 On the other hand, it's not possible to override the `void` operator. Hence, `void` is used as a replacement for `undefined` to get the `undefined` value in a safe way.
 
 In ES5, it's impossible to override `undefined` because it's [set](http://es5.github.io/#x15.1.1.3) `Writeable` as `false`.
 
-## Good to know
+### Good to know
 
 1. `void` is an operator, not a function. So we don't need to wrap the expression in parentheses. `void 0` is equivalent to `void(0)`.
 2. There are minifiers which use `void 0` to shorten `undefined`.
@@ -48,9 +45,9 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
     then we can either use `void`
 
     ```js
-    void function run() {
+    void (function run() {
         console.log('Executed');
-    }();
+    })();
     ```
 
     or wrap the function in parentheses as below:
@@ -61,8 +58,8 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
     })();
     ```
 
-4. `void` can be used to avoid the side effect when using with arrow functions. 
-    
+4. `void` can be used to avoid the side effect when using with arrow functions.
+
     As we know, ES6 arrow functions allow to use the return value of function by omitting the braces from the function body.
 
     ```js
@@ -86,7 +83,7 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
 
 5. The advantage of using `void` with arrow functions can be seen in modern libraries such as React, Svelte.
 
-    These libraries allow us to execute a function right after a component mounted to the DOM. For example, 
+    These libraries allow us to execute a function right after a component mounted to the DOM. For example,
     React [provides](https://reactjs.org/docs/hooks-reference.html#useeffect) `useEffect`, Svelte [has](https://svelte.dev/docs#onMount) `onMount`.
 
     If we return a function inside the callback, then the function will be invoked to clean up things, free the memory before the component is removed from the screen.
@@ -95,7 +92,7 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
     // React example code
     useEffect(() => doSomething());
     ```
-        
+
     It can produce bugs at run time. To avoid that, we can either use `void`
 
     ```js
@@ -110,7 +107,7 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
     });
     ```
 
-## Good practice
+### Good practice
 
 The `void` operator has been used in the URL prefixed with `javascript:`.
 
@@ -127,13 +124,11 @@ To prevent the default behavior, the code must return `undefined`. That's why we
 Nowadays, using `javascript:` protocol isn't recommended. It can create a security issue since user can put unsanitized input in the event handler:
 
 ```js
-<a href="javascript: alert('unsanitized input')">
-    ...
-</a>
+<a href="javascript: alert('unsanitized input')">...</a>
 ```
 
 Starting from v16.9.0, React also [deprecates](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls) the usage of `javascript:` URLs.
 
-## More
+### See also
 
-* [variable === undefined vs. typeof variable === "undefined"](/variable-undefined-vs-typeof-variable-undefined)
+-   [variable === undefined vs. typeof variable === "undefined"](/variable-undefined-vs-typeof-variable-undefined)

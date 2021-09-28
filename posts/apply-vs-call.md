@@ -1,14 +1,11 @@
 ---
 title: apply vs call
 category: JavaScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 `apply()` and `call()` are common methods to invoke a function.
 
-## Difference
+### Difference
 
 Following is the syntax of these methods, where `fn` represents a given function:
 
@@ -24,14 +21,14 @@ For example, the following function returns the sum of three numbers.
 ```js
 const sum = (a, b, c) => a + b + c;
 
-sum.apply(null, [1, 2, 3]);     // 6
-sum.call(null, 1, 2, 3);        // 6
+sum.apply(null, [1, 2, 3]); // 6
+sum.call(null, 1, 2, 3); // 6
 ```
 
-## Tip
+### Tip
 
-You can use this mnemonic to remember the differences between `apply` and `call`: 
+You can use this mnemonic to remember the differences between `apply` and `call`:
 
-__A__ is for __a__rray
+**A** is for **a**rray
 
-__C__ is for __c__omma
+**C** is for **c**omma

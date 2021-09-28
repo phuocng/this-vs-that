@@ -1,9 +1,6 @@
 ---
 title: array = [] vs array.length = 0
 category: JavaScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 There are two ways to empty an array:
@@ -15,7 +12,7 @@ arr.length = 0;
 arr = [];
 ```
 
-## Difference
+### Difference
 
 Setting `arr = []` creates a new array and doesn't affect other references.
 
@@ -28,7 +25,7 @@ let bar = foo;
 foo = [];
 
 // `bar` isn't affected
-console.log(bar);   // ['hello', 'world']
+console.log(bar); // ['hello', 'world']
 ```
 
 On the other hand, `arr.length = 0` modifies the array. All references are affected.
@@ -40,10 +37,10 @@ let bar = foo;
 foo.length = 0;
 
 // `bar` is affected
-console.log(bar);   // []
+console.log(bar); // []
 ```
 
-## Good to know
+### Good to know
 
 1. There is another, less popular approach to empty an array:
 
@@ -59,16 +56,16 @@ console.log(bar);   // []
     // Empty and create a copy of `foo`
     let bar = foo.splice(0, foo.length);
 
-    console.log(foo);   // []
-    console.log(bar);   // ['hello', 'world']
+    console.log(foo); // []
+    console.log(bar); // ['hello', 'world']
     ```
 
 2. If the array is declared as a constant, then you can't reassign it to `[]`.
 
     ```js
     const foo = [1, 2, 3];
-    foo = [];   // will throw an exception of 
-                // "Assignment to constant variable"
+    foo = []; // will throw an exception of
+    // "Assignment to constant variable"
 
     foo.length = 0;
     ```

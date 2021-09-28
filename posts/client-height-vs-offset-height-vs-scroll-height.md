@@ -1,9 +1,6 @@
 ---
 title: clientHeight vs offsetHeight vs scrollHeight
 category: DOM
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 `clientHeight` = the height of an element + the vertical padding.
@@ -12,6 +9,6 @@ layout: layouts/post.njk
 
 `scrollHeight` = the height of element's content (including the content which isn't visible on the screen) + the vertical padding.
 
-## More
+### See also
 
-* [clientY vs pageY](/client-y-vs-page-y)
+-   [clientY vs pageY](/client-y-vs-page-y)
