@@ -1,12 +1,9 @@
 ---
 title: == vs ===
 category: JavaScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-## Difference
+### Difference
 
 `==` (equality operator) and `===` (strict equality operator) are the operators to compare two operands.
 
@@ -18,12 +15,12 @@ For example:
 
 ```js
 // `true` is converted to 1 and then compared to 1
-true == 1;      // true
-true === 1;     // false
+true == 1; // true
+true === 1; // false
 ```
 
 The following table demonstrates the result of these operators:
 
-## Good practice
+### Good practice
 
 Always use `===` to compare values.

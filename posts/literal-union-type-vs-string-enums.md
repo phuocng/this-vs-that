@@ -1,22 +1,19 @@
 ---
 title: literal union type vs string enums
 category: TypeScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 In TypeScript, there are a few ways to enumerate the possible values of a type. Let's consider a situation where our website has to support different themes including default, light, and dark.
 
 They can be defined by one of the following approaches:
 
-* Using a union of string literal types
+-   Using a union of string literal types
 
 ```js
 type Theme = 'DEFAULT' | 'LIGHT' | 'DARK';
 ```
-    
-* Using an enum
+
+-   Using an enum
 
 ```js
 enum Theme {
@@ -26,7 +23,7 @@ enum Theme {
 }
 ```
 
-## Differences
+### Differences
 
 1. TypeScript does not generate code for the union of string literals. As a result, the generated code will have a smaller size.
 
@@ -35,9 +32,9 @@ enum Theme {
     ```js
     var Theme;
     (function (Theme) {
-        Theme[Theme["DEFAULT"] = 0] = "DEFAULT";
-        Theme[Theme["LIGHT"] = 1] = "LIGHT";
-        Theme[Theme["DARK"] = 2] = "DARK";
+        Theme[(Theme['DEFAULT'] = 0)] = 'DEFAULT';
+        Theme[(Theme['LIGHT'] = 1)] = 'LIGHT';
+        Theme[(Theme['DARK'] = 2)] = 'DARK';
     })(Theme || (Theme = {}));
     ```
 
@@ -69,10 +66,10 @@ enum Theme {
 
     switchTheme(Theme.DARK);
     ```
-        
+
     In comparison to `switchTheme('DARK')`, how convenient and safe the invoke above is.
 
-## Good to know
+### Good to know
 
 There is another approach using the [const assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions) which is available from TypeScript 3.4.
 
@@ -90,14 +87,14 @@ let lightTheme: Theme = 'Light';
 const invalidTheme: Theme = 'Blue';     // ERROR
 ```
 
-## Good practice
+### Good practice
 
 If you don't set the values for enum, they will be set to incremental numbers by default.
 
 So `Theme.DEFAULT`, `Theme.LIGHT` and `Theme.DARK` will take the value of 0, 1, 2, respectively. It is more hard to debug:
 
 ```js
-console.log(Theme.DARK);    // 2
+console.log(Theme.DARK); // 2
 ```
 
 Even if we set the number for enum values, it's still possible for us to set an invalid value for a variable whose type is the enum:
@@ -126,6 +123,6 @@ console.log(Theme.DARK);                // 'Dark'
 let theme: Theme.DEFAULT = 'Default';   // ERROR
 ```
 
-## More
+### See also
 
-* [const enum vs enum](/const-enum-vs-enum)
+-   [const enum vs enum](/const-enum-vs-enum)

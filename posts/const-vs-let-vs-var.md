@@ -1,16 +1,14 @@
 ---
 title: const vs let vs var
 category: JavaScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 There are three keywords to declare a variable:
-* `var`
-* `let` and `const` which are only available in ES6
 
-## Differences
+-   `var`
+-   `let` and `const` which are only available in ES6
+
+### Differences
 
 1. It's not possible to access the `let` variable outside of the nearest enclosing block where it is declared.
 
@@ -23,7 +21,7 @@ There are three keywords to declare a variable:
     console.log(foo);
     ```
 
-    The sample code above works if we replace the `let` with `var` declaration. 
+    The sample code above works if we replace the `let` with `var` declaration.
 
 2. A `let` variable can't be used before it's declared. The sample code below throws a `ReferenceError`:
 
@@ -51,15 +49,15 @@ There are three keywords to declare a variable:
     // Throw the following error
     // SyntaxError: Identifier 'baz' has already been declared
     ```
-    
+
 4. At the top level, global `let` variables aren't attached to the global `window` object.
 
     ```js
     let foo = 'hello';
-    window.foo;     // undefined
+    window.foo; // undefined
 
     var bar = 'world';
-    window.bar;     // 'world'
+    window.bar; // 'world'
     ```
 
 5. Using `let` can avoid the problem with closures that `var` has.
@@ -70,7 +68,7 @@ There are three keywords to declare a variable:
 
     ```js
     for (var i = 0; i < 10; i++) {
-        document.getElementById(`button-\${i}`).addEventListener('click', function() {
+        document.getElementById(`button-\${i}`).addEventListener('click', function () {
             // Remove the item
             console.log(i);
         });
@@ -84,7 +82,7 @@ There are three keywords to declare a variable:
 
     ```js
     for (let i = 0; i < 10; i++) {
-        document.getElementById(`button-\${i}`).addEventListener('click', function() {
+        document.getElementById(`button-\${i}`).addEventListener('click', function () {
             // It's safe to use the index `i` here
             console.log(i);
         });
@@ -115,28 +113,28 @@ There are three keywords to declare a variable:
     const person = {};
     person.age = 20;
     ```
-    
+
     And add more items to an array:
 
     ```js
     const arr = [];
     arr.push('foo');
     arr[1] = 'bar';
-    console.log(arr);       // ['foo', 'bar']
+    console.log(arr); // ['foo', 'bar']
     ```
 
-## Good practice
+### Good practice
 
 Don't use `var` unless you have to support old browsers which don't support `let` and `const` keywords.
 
-## Good to know
+### Good to know
 
 Each programming language use different keywords to declare a variable and constant.
 The following table list out some examples:
 
-| Language  | Variable declaration      | Constant declaration          | 
-|-----------|---------------------------|-------------------------------|
-| C#        | `string s = "hello"`      | `const string s = "hello"`    |
-| Java      | `String s = "hello"`      | `final String s = "Hello"`    |
-| Scala     | `var s = "hello"`         | `val s = "hello"`             |
-| Swift     | `var s = "hello"`         | `let s = "hello"`             |
+| Language | Variable declaration | Constant declaration       |
+| -------- | -------------------- | -------------------------- |
+| C#       | `string s = "hello"` | `const string s = "hello"` |
+| Java     | `String s = "hello"` | `final String s = "Hello"` |
+| Scala    | `var s = "hello"`    | `val s = "hello"`          |
+| Swift    | `var s = "hello"`    | `let s = "hello"`          |

@@ -1,9 +1,6 @@
 ---
 title: ++value vs value++
 category: JavaScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 `++` is the increment operator adding one to the operand.
@@ -22,30 +19,30 @@ for (let i = 0; i < 5; ++i) {
 }
 ```
 
-## Differences 
+### Differences
 
 When returning a value, `return value++` returns the original value before the value is increased. While `return ++value` increases the value and returns the updated value.
 
 The following `foo` and `bar` functions returns different results:
 
 ```js
-const foo = x => x++;
-const bar = x => ++x;
+const foo = (x) => x++;
+const bar = (x) => ++x;
 
-foo(1);     // 1
-bar(1);     // 2
+foo(1); // 1
+bar(1); // 2
 ```
 
-## Good to know
+### Good to know
 
-`value += 1` is another alternative of the postfix increment `value++`. It's worth noting that they can provide different result when using with strings. 
+`value += 1` is another alternative of the postfix increment `value++`. It's worth noting that they can provide different result when using with strings.
 
 The postfix increment `value++` will convert the value to number first, and then increase the value:
 
 ```js
 let value = '5';
 value++;
-value;          // 6
+value; // 6
 ```
 
 On the other hand, if value is a string, `value += 1` converts the second argument (`1`) to string first, and then concatenate them together.
@@ -53,5 +50,5 @@ On the other hand, if value is a string, `value += 1` converts the second argume
 ```js
 let value = '5';
 value += 1;
-value;          // '51'
+value; // '51'
 ```

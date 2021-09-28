@@ -1,9 +1,6 @@
 ---
 title: script async vs script defer
 category: HTML
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 We often use the `script` tag to insert a regular JavaScript file to page:
@@ -14,10 +11,10 @@ We often use the `script` tag to insert a regular JavaScript file to page:
 
 When the browser sees a normal `script` tag declaration, it will perform the following steps:
 
-* Pause the document parser
-* Create a new request to download the script
-* Execute the script after it's downloaded completely
-* Continue parsing the document
+-   Pause the document parser
+-   Create a new request to download the script
+-   Execute the script after it's downloaded completely
+-   Continue parsing the document
 
 ```shell
 ┌───────────────────────┬───────────────────────────────────────┬───────────────────┐
@@ -29,7 +26,7 @@ When the browser sees a normal `script` tag declaration, it will perform the fol
                                             └───────────────────┘
 ```
 
-This flow gives a bad user experience because users can not interact with the page while the script is being downloaded. 
+This flow gives a bad user experience because users can not interact with the page while the script is being downloaded.
 They have to wait for all scripts to be downloaded and executed completely before seeing the entire page is parsed.
 
 To fix that problem, HTML 5 provides two attributes for the script tag. They are `async` and `defer`:
@@ -39,9 +36,9 @@ To fix that problem, HTML 5 provides two attributes for the script tag. They are
 <script src="/path/to/script.js" defer></script>
 ```
 
-These attributes let browser know that the scripts can be downloaded in parallel with the document parser process. 
+These attributes let browser know that the scripts can be downloaded in parallel with the document parser process.
 
-## Differences
+### Differences
 
 1. The `async` and `defer` scripts are executed at different moments.
 
@@ -70,10 +67,10 @@ These attributes let browser know that the scripts can be downloaded in parallel
     ```
 
 2. The `async` script is executed as soon as it is downloaded completely, hence they might not be executed at the same order as they appear in the page.
-    
+
     On the other hand, the `defer` scripts guarantee the order of execution.
 
-## Good practices
+### Good practices
 
 1. Use `async` for a script that does not depend on other scripts. A statistic script (Google Analytic script, for example) would be fit in this use case.
 
@@ -87,10 +84,10 @@ These attributes let browser know that the scripts can be downloaded in parallel
         <script src="..."></script>
     </body>
     ```
-    
-## Good to know
 
-Scripts that are injected to the page [dynamically](https://htmldom.dev/load-a-javascript-file-dynamically) are `async` by default. 
+### Good to know
+
+Scripts that are injected to the page [dynamically](https://htmldom.dev/load-a-javascript-file-dynamically) are `async` by default.
 However, you can set the `async` attribute to `false` if you want.
 
 ```js

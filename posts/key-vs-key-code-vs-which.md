@@ -1,24 +1,21 @@
 ---
 title: key vs keyCode vs which
 category: DOM
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-`key`, `keyCode` and `which` can be used to determine which key is pressed. Following is a sample code that handles the `keyPress` event of a text box. 
+`key`, `keyCode` and `which` can be used to determine which key is pressed. Following is a sample code that handles the `keyPress` event of a text box.
 
 It checks if user presses the _Enter_ key whose key code is 13:
 
 ```js
-textBoxElement.addEventListener('keydown', function(e) {
+textBoxElement.addEventListener('keydown', function (e) {
     if (e.keyCode === 13) {
-    // Do something ...
+        // Do something ...
     }
 });
 ```
 
-## Difference
+### Difference
 
 According to MDN documentations, both [keyCode](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) and [which](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/which) are deprecated and will be removed from the Web standards.
 
@@ -33,10 +30,10 @@ const key = 'which' in e ? e.which : e.keyCode;
 const key = e.which || e.keyCode || 0;
 ```
 
-## Good practice
+### Good practice
 
 It's recommended to use the [key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) property.
-The sample code above can be rewritten as 
+The sample code above can be rewritten as
 
 ```js
 if (e.key === 'Enter') {

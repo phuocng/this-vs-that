@@ -1,9 +1,6 @@
 ---
 title: <b>, <i> vs <strong>, <em>
 category: HTML
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 The `b` and `strong` tags by default make text bold. The `i` and `em` tags by default make text italicized.
@@ -13,22 +10,33 @@ Each browser has its own default styles, but result in similar appearances. Here
 [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css):
 
 ```css
-strong, b {
-    font-weight: bold
+strong,
+b {
+    font-weight: bold;
 }
-i, cite, em, var, address, dfn {
-    font-style: italic
+i,
+cite,
+em,
+var,
+address,
+dfn {
+    font-style: italic;
 }
 ```
 
 [Firefox](https://hg.mozilla.org/mozilla-central/file/tip/layout/style/res/html.css):
 
 ```css
-b, strong {
+b,
+strong {
     font-weight: bolder;
 }
 
-i, cite, em, var, dfn {
+i,
+cite,
+em,
+var,
+dfn {
     font-style: italic;
 }
 ```
@@ -36,10 +44,16 @@ i, cite, em, var, dfn {
 [Safari](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css):
 
 ```css
-strong, b {
+strong,
+b {
     font-weight: bold;
 }
-i, cite, em, var, address, dfn {
+i,
+cite,
+em,
+var,
+address,
+dfn {
     font-style: italic;
 }
 ```

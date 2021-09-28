@@ -1,18 +1,16 @@
 ---
 title: Normalize vs Reset CSS
 category: CSS
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-Each browser provides a set of default styles which are applied for every web pages it renders. 
+Each browser provides a set of default styles which are applied for every web pages it renders.
 The default style sheet is also known as the user-agent style sheet.
 
 You can take a look at the default styles provided by:
-* [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css)
-* [Firefox](https://hg.mozilla.org/mozilla-central/file/tip/layout/style/res/html.css)
-* [Safari](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)
+
+-   [Chrome](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/css/html.css)
+-   [Firefox](https://hg.mozilla.org/mozilla-central/file/tip/layout/style/res/html.css)
+-   [Safari](https://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css)
 
 Since the default styles are not the same, causing a web page will have different look and feel on each browser. Both normalizing and resetting CSS aim to fix that problem.
 
@@ -41,7 +39,7 @@ Since the default styles are not the same, causing a web page will have differen
 
     More than that, the library also:
 
-    * Makes some elements look like what we expect. 
+    - Makes some elements look like what we expect.
 
     For example, the Chrome, Firefox and Safari browsers use the following styles for the `sub` and `sup` tags:
 
@@ -67,17 +65,17 @@ Since the default styles are not the same, causing a web page will have differen
     }
     ```
 
-    * Fix display bugs across browsers.
+    - Fix display bugs across browsers.
 
     You can look at its [source code](https://github.com/necolas/normalize.css/blob/master/normalize.css) to see there are lot of bug fixes for different browsers such as Internet Explorer, Edge, Firefox, etc.
 
 You don't need to include normalize.css if you use popular CSS libraries. It's already included in:
 
-* [Bootstrap's reboot](https://github.com/twbs/bootstrap/blob/master/scss/_reboot.scss#L3)
-* [Tachyons](https://github.com/tachyons-css/tachyons/blob/master/src/_normalize.css)
-* [Tailwindcss](https://unpkg.com/tailwindcss@1.1.4/dist/base.css)
+-   [Bootstrap's reboot](https://github.com/twbs/bootstrap/blob/master/scss/_reboot.scss#L3)
+-   [Tachyons](https://github.com/tachyons-css/tachyons/blob/master/src/_normalize.css)
+-   [Tailwindcss](https://unpkg.com/tailwindcss@1.1.4/dist/base.css)
 
-## Resources
+### Resources
 
 1. [water.css](https://github.com/kognise/water.css) adds more visual styles for common tags
 2. [minireset](https://github.com/jgthms/minireset.css) is another tiny modern CSS reset

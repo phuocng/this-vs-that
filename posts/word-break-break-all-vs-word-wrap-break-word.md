@@ -1,12 +1,9 @@
 ---
-title: "word-break: break-all vs word-wrap: break-word"
+title: 'word-break: break-all vs word-wrap: break-word'
 category: CSS
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-## Difference
+### Difference
 
 Assume that we have a string of `This is a sample text in a paragraph` displayed in a container that has limited width such as it can display 9 characters at maximum.
 
@@ -22,7 +19,7 @@ Assume that we have a string of `This is a sample text in a paragraph` displayed
 └───────────┘
 ```
 
-On the other hand, `word-wrap: break-word` does not break the words that are able to fit in each line. So the _text_ and  _paragraph_ words are not split in different lines.
+On the other hand, `word-wrap: break-word` does not break the words that are able to fit in each line. So the _text_ and _paragraph_ words are not split in different lines.
 
 ```shell
 /* word-wrap: break-word */
@@ -45,11 +42,11 @@ If each line can contains a less number of characters, then `break-word` will br
 | text in |
 | a       |
 | paragrap|
-| h.      | 
+| h.      |
 └─────────┘
 ```
 
-## Good to know
+### Good to know
 
 1. `word-wrap` was a non standard and unprefixed Microsoft extension. It was renamed to `overflow-wrap`.
 
@@ -69,13 +66,7 @@ If each line can contains a less number of characters, then `break-word` will br
     Getting back to the example above. If we use `<wbr>` elements right before each path separator (`/`) as follow:
 
     ```html
-    Copy your file to the folder:
-    <wbr>/this
-    <wbr>/is
-    <wbr>/a
-    ...
-    <wbr>/destination
-    <wbr>/folder
+    Copy your file to the folder: <wbr />/this <wbr />/is <wbr />/a ... <wbr />/destination <wbr />/folder
     ```
 
     The browser will break the paths in between the directory names:

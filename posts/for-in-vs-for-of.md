@@ -1,26 +1,23 @@
 ---
 title: for ... in vs for ... of
 category: JavaScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-## Differences
+### Differences
 
 1. The values iterated on the `for ... in` and `for ... of` statements are different.
 
-    `for ... in` iterates over the enumerable property keys of object. Whereas `for ... of` iterates over the values of the numeric properties of object. 
+    `for ... in` iterates over the enumerable property keys of object. Whereas `for ... of` iterates over the values of the numeric properties of object.
 
     ```js
     const list = ['a', 'b', 'c'];
 
     for (let i in list) {
-        console.log(i);     // '0', '1', '2'
+        console.log(i); // '0', '1', '2'
     }
 
     for (let i of list) {
-        console.log(i);     // 'a', 'b', 'c'
+        console.log(i); // 'a', 'b', 'c'
     }
     ```
 
@@ -38,11 +35,11 @@ layout: layouts/post.njk
         ...
     }
     ```
-    
+
     It is because a plain object is not iterable. To fix that, we can use the `Object.keys()` method to iterate on the object properties:
 
     ```js
-    for (let k of Object.keys(person)) {    
+    for (let k of Object.keys(person)) {
         console.log(k, ':', person[k]);
     }
 
@@ -66,13 +63,13 @@ layout: layouts/post.njk
 
     // for ... of
     for (let c of msg) {
-        console.log(c)
+        console.log(c);
     }
 
     // Output:
     // 'H', 'e', 'l', 'l', '😀', ' ', 'W', '😀', 'r', 'l', 'd'
     ```
-    
+
 4. `for ... of` loop can wait for an async task to complete in each iteration via the `await` keyword:
 
     ```js
@@ -81,22 +78,22 @@ layout: layouts/post.njk
     }
     ```
 
-## Good practices
+### Good practices
 
-1. It is not recommended to add a custom method to primitive objects such as `Array`, `Boolean`, `Number`, `String`, etc. 
-    Since `for ... in` statement loops over the enumerable properties, it will include new methods which are added to the prototype. 
+1. It is not recommended to add a custom method to primitive objects such as `Array`, `Boolean`, `Number`, `String`, etc.
+   Since `for ... in` statement loops over the enumerable properties, it will include new methods which are added to the prototype.
 
     ```js
-    Array.prototype.isEmpty = function() { 
-        return this.length = 0;
-    }
+    Array.prototype.isEmpty = function () {
+        return (this.length = 0);
+    };
 
     const a = ['cat', 'dog', 'mouse'];
     for (let i in a) {
-        console.log(i);     // '0', '1', '2', 'isEmpty'
+        console.log(i); // '0', '1', '2', 'isEmpty'
     }
     ```
-    
+
 2. Destructing `for ... in` is [deprecated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#Statements). Instead, use `for ... of`:
 
     ```js
@@ -105,16 +102,16 @@ layout: layouts/post.njk
     addressBook.set('Bar', '444-555-666');
 
     for (const [name, phone] of addressBook) {
-        console.log(name, ':', phone)
+        console.log(name, ':', phone);
     }
 
     // Foo: 111-222-333
     // Bar: 444-555-666
     ```
 
-## Good to know
+### Good to know
 
-By default, all properties of an array or object will appear in `for ... in`. However, this behavior is avoidable. 
+By default, all properties of an array or object will appear in `for ... in`. However, this behavior is avoidable.
 Using `Object.defineProperty` can decide whether a property is enumerable or not.
 
 ```js
@@ -124,12 +121,12 @@ let person = {
 };
 
 // The 'age' property is not enumerable
-Object.defineProperty(person, 'age', { 
+Object.defineProperty(person, 'age', {
     value: 42,
-    enumerable: false
+    enumerable: false,
 });
 
 for (let i in person) {
-    console.log(i);     // 'firstName', 'lastName'
+    console.log(i); // 'firstName', 'lastName'
 }
 ```

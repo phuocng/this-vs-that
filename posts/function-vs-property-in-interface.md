@@ -1,14 +1,11 @@
 ---
 title: function vs property in interface
 category: TypeScript
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
 There are two ways to define a method in an interface.
 
-* Declare as a property whose type is function
+-   Declare as a property whose type is function
 
 ```js
 interface Logger {
@@ -16,7 +13,7 @@ interface Logger {
 }
 ```
 
-* Declare as a normal function
+-   Declare as a normal function
 
 ```js
 interface Logger {
@@ -24,7 +21,7 @@ interface Logger {
 }
 ```
 
-## Differences
+### Differences
 
 1. If the method is declared as a interface function, then it's possible for you to add more overload versions.
 
@@ -80,11 +77,11 @@ interface Logger {
     class ConsoleLogger implements Logger {
         log = (message: string) => {
             console.log(message);
-        }
+        };
     }
 
     // Generated JavaScript code:
-    // 
+    //
     // class ConsoleLogger {
     //    constructor() {
     //        this.log = (message) => {
@@ -116,10 +113,10 @@ interface Logger {
     // }
     ```
 
-    Looking at the generated JavaScript codes, you'll see the different outputs. 
-    
+    Looking at the generated JavaScript codes, you'll see the different outputs.
+
     The first approach produces a property `log` in the constructor. It means that `log` will be created every time you create a new instance of class.
-    
+
     While the second approach produces the `log` method, and it exists in all instances of class. The `log` method also is a member of class prototype, so we can extend the class to override the method if needed:
 
     ```js
@@ -133,7 +130,7 @@ interface Logger {
         // Override the `log` method
         log(message: string) {
             // Display the message in white color and blue background area
-            console.log("%c%s", 'color: white; background: blue', message);
+            console.log('%c%s', 'color: white; background: blue', message);
         }
     }
     ```

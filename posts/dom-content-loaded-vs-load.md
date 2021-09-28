@@ -1,31 +1,28 @@
 ---
 title: DOMContentLoaded vs load
 category: DOM
-tags:
-  - posts
-layout: layouts/post.njk
 ---
 
-## Differences
+### Differences
 
 The `DOMContentLoaded` event fires when all the nodes in the page have been constructed in the DOM tree.
 The `load` event fires when all resources such as images and sub-frames are loaded completely.
 
-## Good to know
+### Good to know
 
-The `DOMContentLoaded` event isn't supported in IE 8 and the older versions of IE. 
+The `DOMContentLoaded` event isn't supported in IE 8 and the older versions of IE.
 
 To support the behavior in the old versions of IE, we can use the `readyState` property to check if the document is loaded completely or not:
 
 ```js
 const ready = function (cb) {
     document.readyState === 'loading'
-    // The document is still loading
-    ? document.addEventListener('DOMContentLoaded', function (e) {
-        cb();
-    })
-    // The document is loaded completely
-    : cb();
+        ? // The document is still loading
+          document.addEventListener('DOMContentLoaded', function (e) {
+              cb();
+          })
+        : // The document is loaded completely
+          cb();
 };
 ```
 
