@@ -136,7 +136,7 @@ Looking at the two versions below, it is easy for the first variant to cause a m
 
 ```js
 // Bad
-const compareToZero = (a) => (a <= 0 ? 0 : a);
+const compareToZero = (a) => a <= 0 ? 0 : a;
 
 // Good
 const compareToZero = (a) => (a <= 0 ? 0 : a);
