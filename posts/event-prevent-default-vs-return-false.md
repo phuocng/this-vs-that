@@ -45,7 +45,7 @@ submitButton.addEventListener('click', function (e) {
 ### Good practices
 
 1. It's recommended to use the `preventDefault` method instead of `return false` inside an event handler.
-   Because the later only works with using the `onclick` attribute which will remove other handlers for the same event.
+   Because the latter only works with using the `onclick` attribute which will remove other handlers for the same event.
 
 2. If you're using jQuery to manage the events, then you're able to use `return false` within the event handler:
 
