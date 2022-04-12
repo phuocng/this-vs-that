@@ -5,7 +5,7 @@ The differences between **_ and _** in the front-end development.
 -   [x] Cover differences in various topics (CSS, DOM, HTML, JavaScript)
 -   [x] Include many _Good to know_ sections
 -   [x] Include many good practices
--   [x] Inculde many tips and tricks
+-   [x] Include many tips and tricks
 
 ## Running it on local
 
