@@ -18,7 +18,7 @@ The three declarations below create the same string:
 
 ```js
 const message = 'hello';
-const message = 'hello';
+const message = "hello";
 const message = String('hello');
 ```
 
