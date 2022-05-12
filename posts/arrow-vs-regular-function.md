@@ -12,11 +12,11 @@ category: JavaScript
         firstName: '',
         lastName: '',
         getFullName: function () {
-            return `\${this.firstName} \${this.lastName}`;
+            return `${this.firstName} ${this.lastName}`;
         },
     };
 
-    person.firtName = 'Foo';
+    person.firstName = 'Foo';
     person.lastName = 'Bar';
     person.getFullName(); // 'Foo Bar'
     ```
