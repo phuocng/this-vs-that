@@ -63,15 +63,15 @@ Because a URL can consist of standard ASCII characters only, other special chara
     ```js
     const encode = (str) =>
         encodeURIComponent(str)
-            .replace(/\\-/g, '%2D')
-            .replace(/\\_/g, '%5F')
-            .replace(/\\./g, '%2E')
-            .replace(/\\!/g, '%21')
-            .replace(/\\~/g, '%7E')
-            .replace(/\\*/g, '%2A')
-            .replace(/\\'/g, '%27')
-            .replace(/\\(/g, '%28')
-            .replace(/\\)/g, '%29');
+            .replace(/\-/g, '%2D')
+            .replace(/\_/g, '%5F')
+            .replace(/\./g, '%2E')
+            .replace(/\!/g, '%21')
+            .replace(/\~/g, '%7E')
+            .replace(/\*/g, '%2A')
+            .replace(/\'/g, '%27')
+            .replace(/\(/g, '%28')
+            .replace(/\)/g, '%29');
 
     encode("What's result of (4 + 2)?"); // "What%27s%20result%20of%20%284%20%2B%202%29%3F"
     ```
