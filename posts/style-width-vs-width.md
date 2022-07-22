@@ -39,10 +39,9 @@ There are two ways to define the dimension for an element:
 
     ```html
     <!-- Work -->
-    <canvas height="100" width="100">
-        <!-- Does NOT work -->
-        <canvas style="height: 100px; width: 100px;"></canvas
-    ></canvas>
+    <canvas height="100" width="100"></canvas>
+    <!-- Does NOT work -->
+    <canvas style="height: 100px; width: 100px;"></canvas>
     ```
 
     The `width` and `height` attributes of canvas must be positive numbers without the units. `width="100px"` will have no affect despite the fact that it seems to be a valid attribute declaration for other elements.
