@@ -6,7 +6,7 @@ category: JavaScript
 `++` is the increment operator adding one to the operand.
 There're two variables of the operator which use `++` as prefix or postfix: `++value` and `value++`.
 
-They have the same affect in for loops. The following loops print the same results which are the numbers from 0 to 4:
+They have the same effect in for loops. The following loops print the same results which are the numbers from 0 to 4:
 
 ```js
 for (let i = 0; i < 5; i++) {
