@@ -6,7 +6,7 @@ export const HeaderBlock = () => {
     const [totalStars, setTotalStars] = React.useState('');
 
     React.useEffect(() => {
-        fetch('https://api.github.com/repos/1milligram/this-vs-that')
+        fetch('https://api.github.com/repos/phuocng/this-vs-that')
             .then((res) => res.json())
             .then((data) => setTotalStars(data.stargazers_count))
             .catch(console.log);
@@ -27,7 +27,7 @@ export const HeaderBlock = () => {
                     <Link href="/" passHref>
                         <HeaderLogo />
                     </Link>
-                    <Link href="https://github.com/1milligram/this-vs-that">
+                    <Link href="https://github.com/phuocng/this-vs-that">
                         <a className="block-header__cta">GitHub {totalStars}★</a>
                     </Link>
                 </div>
