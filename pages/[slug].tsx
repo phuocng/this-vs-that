@@ -3,6 +3,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 import { NextPagination, Pagination, PrevPagination, Spacer } from '@1milligram/design';
 
+import { Follow } from '../components/Follow';
 import { Markdown } from '../components/Markdown';
 import { PostLayout } from '../layouts/PostLayout';
 
@@ -26,6 +27,8 @@ const PostPage: React.FC<PostPageProps> = ({ content, frontMatter, prevPost, nex
     return (
         <PostLayout title={frontMatter.title}>
             <Markdown>{content}</Markdown>
+            <Spacer size="medium" />
+            <Follow />
             <Spacer size="medium" />
             <Pagination>
                 {prevPost && <PrevPagination href={`/${prevPost.slug}`}>{prevPost.title}</PrevPagination>}
