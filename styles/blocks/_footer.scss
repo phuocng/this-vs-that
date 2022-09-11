@@ -30,15 +30,13 @@
 .footer__link:hover {
     text-decoration: underline;
 }
+.footer__author {
+    margin-top: 1rem;
+}
 
 @media (min-width: 640px) {
     :root {
-        --footer-num-columns: 2;
-    }
-}
-@media (min-width: 768px) {
-    :root {
-        --footer-num-columns: 4;
+        --footer-num-columns: 3;
     }
 }
 @media (min-width: 1024px) {

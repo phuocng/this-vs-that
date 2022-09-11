@@ -39,7 +39,7 @@ or more items to a given array.
 1. If you use React or a state management library such as Redux, where we do not modify the current state and returns the new state on each reducer,
    it's good use case for using `concat`.
 
-2. I find the following [code snippet](https://github.com/stardazed/stardazed/blob/master/src/core/buffer.ts) quite useful when you have to merge really big array. Credits to [@zenmumbler] (https://twitter.com/zenmumbler).
+2. I find the following [code snippet](https://github.com/stardazed/stardazed/blob/master/src/core/buffer.ts) quite useful when you have to merge really big array. Credits to [@zenmumbler](https://twitter.com/zenmumbler).
 
     The function copies items from array `source` to `dest` by splitting the source array into multiple chunks and copying them one by one.
 

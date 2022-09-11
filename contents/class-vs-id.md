@@ -82,9 +82,11 @@ layout: layouts/post.njk
 
     Most popular JavaScript frameworks support _ref_ such as:
 
-    - [React's ref](https://reactjs.org/docs/refs-and-the-dom.html)
-    - [Svelte's `bind:this`](https://svelte.dev/docs#bind_element)
-    - [Vue's `ref` attribute](https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-Child-Component-Instances-amp-Child-Elements)
+    [React's ref](https://reactjs.org/docs/refs-and-the-dom.html)
+
+    [Svelte's `bind:this`](https://svelte.dev/docs#bind_element)
+
+    [Vue's `ref` attribute](https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-Child-Component-Instances-amp-Child-Elements)
 
 4. Avoid to use colons (:) and periods (.) in id attribute despite the fact that they're allowed.
 

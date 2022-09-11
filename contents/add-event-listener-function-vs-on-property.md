@@ -108,9 +108,23 @@ element.onclick = handler;
 
     But you often see that the event handlers are set on element's attributes in modern JavaScript frameworks, such as:
 
-    - Angular: `<button (click)="sayHello()">Hello</button>`
-    - React: `<button onClick={sayHello}>Hello</button>`
-    - Vue: `<button v-on:click="sayHello">Hello</button>`
+    _Angular_:
+
+    ```html
+    <button (click)="sayHello()">Hello</button>
+    ```
+
+    _React_:
+
+    ```html
+    <button onClick="{sayHello}">Hello</button>
+    ```
+
+    _Vue_:
+
+    ```html
+    <button v-on:click="sayHello">Hello</button>
+    ```
 
     It's designed in a declarative way, so it's easy for developers to get used to the library. Despite the fact that the declaration looks similar to the `onclick` attribute, the framework parses the code, and transpiles it to `addEventListener` method.
 

@@ -8,9 +8,9 @@ layout: layouts/post.njk
 
     When user presses a key or combination of different keys, `keydown`, `keypress` and `keyup` are triggered in that order:
 
-    - The `keydown` event is triggered first when user presses a key
-    - The `keyup` event is triggered last when user releases a key
-    - In between, the `keypress` event is triggered
+    1. The `keydown` event is triggered first when user presses a key
+    2. The `keyup` event is triggered last when user releases a key
+    3. In between, the `keypress` event is triggered
 
 2. These events serve different purposes.
 
