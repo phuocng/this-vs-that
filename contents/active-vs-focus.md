@@ -1,6 +1,7 @@
 ---
 title: :active vs :focus
 category: CSS
+layout: layouts/post.njk
 ---
 
 `:active` and `:focus` selectors represents different states of an element.
