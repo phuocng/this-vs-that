@@ -34,7 +34,7 @@ The `d.ts` file doesn't contain any implementation, and isn't compiled to JavaSc
 
 TypeScript provides an option named `allowJs` which allows to use plain JavaScript code in TypeScript.
 
-```
+```json
 // tsconfig.json
 {
     "compilerOptions": {
