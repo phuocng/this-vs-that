@@ -8,7 +8,7 @@ Because a URL can consist of standard ASCII characters only, other special chara
 
 `encodeURI` and `encodeURIComponent` are used for that purpose.
 
-### Differences
+## Differences
 
 1. `encodeURI` is used to encode a full URL.
 
@@ -55,7 +55,7 @@ Because a URL can consist of standard ASCII characters only, other special chara
     | `?`       | `?`         | `%3F`                |
     | `@`       | `@`         | `%40`                |
 
-### Good to know
+## Good to know
 
 1. `decodeURI` and `decodeURIComponent` are methods to decode a string that is encoded by `encodeURI` and `encodeURIComponent` respectively.
 

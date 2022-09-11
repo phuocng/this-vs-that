@@ -4,7 +4,7 @@ category: CSS
 layout: layouts/post.njk
 ---
 
-### Difference
+## Difference
 
 Assume that we have a string of `This is a sample text in a paragraph` displayed in a container that has limited width such as it can display 9 characters at maximum.
 
@@ -47,7 +47,7 @@ If each line can contains a less number of characters, then `break-word` will br
 └─────────┘
 ```
 
-### Good to know
+## Good to know
 
 1. `word-wrap` was a non standard and unprefixed Microsoft extension. It was renamed to `overflow-wrap`.
 

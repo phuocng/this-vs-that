@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 `instanceof` and `typeof` are two operators to check the type of a value.
 
-### Differences
+## Differences
 
 The `typeof` operator checks if a value has type of primitive type which can be one of `boolean`, `function`, `object`, `number`, `string`, `undefined` and `symbol` (ES6).
 
@@ -22,7 +22,7 @@ The `instanceof` operator checks if a value is an instance of a class or constru
 new String('helloworld') instanceof String; // true
 ```
 
-### Good to know
+## Good to know
 
 1. If you want to check if a value is a primitive string or a `String` object, then you need to use both operators:
 

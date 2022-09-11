@@ -12,13 +12,13 @@ element.addEventListener('click', function (e) {
 });
 ```
 
-### Difference
+## Difference
 
 `currentTarget` is the element that the event was bound to. It never changes. In the sample code above, `e.currentTarget` is the element.
 
 `target` is the element user clicked on, in the case of `click` event. It can be the original element or any of its children depending on where user clicks on exactly.
 
-### Use case
+## Use case
 
 Here is an use case that demonstrates the usage of both properties.
 

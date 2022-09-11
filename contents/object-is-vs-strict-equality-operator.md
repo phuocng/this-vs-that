@@ -4,7 +4,7 @@ category: JavaScript
 layout: layouts/post.njk
 ---
 
-### Difference
+## Difference
 
 `Object.is()` behaves the same as `===` (strict equality operator) except for `NaN`, `+0` and `-0`.
 

@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 `apply()` and `call()` are common methods to invoke a function.
 
-### Difference
+## Difference
 
 Following is the syntax of these methods, where `fn` represents a given function:
 
@@ -26,7 +26,7 @@ sum.apply(null, [1, 2, 3]); // 6
 sum.call(null, 1, 2, 3); // 6
 ```
 
-### Tip
+## Tip
 
 You can use this mnemonic to remember the differences between `apply` and `call`:
 

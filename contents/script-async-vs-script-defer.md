@@ -39,7 +39,7 @@ To fix that problem, HTML 5 provides two attributes for the script tag. They are
 
 These attributes let browser know that the scripts can be downloaded in parallel with the document parser process.
 
-### Differences
+## Differences
 
 1. The `async` and `defer` scripts are executed at different moments.
 
@@ -71,7 +71,7 @@ These attributes let browser know that the scripts can be downloaded in parallel
 
     On the other hand, the `defer` scripts guarantee the order of execution.
 
-### Good practices
+## Good practices
 
 1. Use `async` for a script that does not depend on other scripts. A statistic script (Google Analytic script, for example) would be fit in this use case.
 
@@ -86,7 +86,7 @@ These attributes let browser know that the scripts can be downloaded in parallel
     </body>
     ```
 
-### Good to know
+## Good to know
 
 Scripts that are injected to the page [dynamically](https://htmldom.dev/load-a-javascript-file-dynamically) are `async` by default.
 However, you can set the `async` attribute to `false` if you want.

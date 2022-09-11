@@ -10,7 +10,7 @@ There are three common CSS properties to make an element invisible:
 -   `opacity: 0`
 -   `visibility: hidden`
 
-### Differences
+## Differences
 
 1. `display: none` doesn't take space when the element is rendered. The other ways still take the space normally.
 
@@ -29,7 +29,7 @@ All properties returned by the `getBoundingClientRect()` method are zero as well
 
 Similarly, an element with `visibility: hidden` will have empty inner text (equivalent with the `innerText` property).
 
-### Tip
+## Tip
 
 With Chrome DevTools, you can hide any element in the page by right clicking the element, and then click _Hide element_.
 
@@ -51,7 +51,7 @@ As mentioned above, applying the visibility style to an element doesn't effect o
 }
 ```
 
-### Good to know
+## Good to know
 
 Nowadays, it's very easy for us to set the opacity for given element and its children with a single line of CSS:
 

@@ -4,7 +4,7 @@ category: HTML
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. The `div` element has no special meaning. It is often used as a block of children elements.
 
@@ -88,7 +88,7 @@ layout: layouts/post.njk
 
     This does not happen with the `div` elements. All the `h1` elements will have the same font size no matter how their `div` containers are structured.
 
-### Good practice
+## Good practice
 
 Due to the semantic manner, the `section` elements are often used to build the outlines of the page.
 We should use the heading elements (`h1 - h6`) inside section to indicate the summary of section.
@@ -103,7 +103,7 @@ We should use the heading elements (`h1 - h6`) inside section to indicate the su
 </section>
 ```
 
-### Good to know
+## Good to know
 
 Nowadays, HTML5 standard are supported in modern browsers. But in the old days when it is required to support non-HTML5 browsers such as IE 8, we have to do some additional tasks.
 

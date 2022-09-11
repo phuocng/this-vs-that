@@ -20,7 +20,7 @@ type Point = {
 };
 ```
 
-### Difference
+## Difference
 
 It's possible to declare the same interface multiple times. They will be merged together to form a single interface definition.
 
@@ -55,6 +55,6 @@ Being able to merge the interface declarations is very useful, for example, when
 
 In that case, if there're some missing definitions, we can provide them via declaration merging.
 
-### Good practice
+## Good practice
 
 If you are author of a library or create type definitions for an external library, use `interface` for public APIs. So the consumers can extend them.

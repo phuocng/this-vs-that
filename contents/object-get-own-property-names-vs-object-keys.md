@@ -4,7 +4,7 @@ category: JavaScript
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. `Object.getOwnPropertyNames(obj)` returns all the properties of the object `obj`. `Object.keys(obj)` returns all _enumerable_ properties.
 

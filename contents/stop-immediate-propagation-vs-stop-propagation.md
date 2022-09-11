@@ -30,7 +30,7 @@ button.addEventListener('click', function () {
 
 Clicking the button will print `foo` and `bar` in the _Console_. We won't see `baz` because the last listener isn't called.
 
-### See also
+## See also
 
 -   [event bubbling vs capturing](/event-bubbling-vs-capturing)
 -   [event.preventDefault vs return false](/event-prevent-default-vs-return-false)

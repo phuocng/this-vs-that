@@ -4,7 +4,7 @@ category: TypeScript
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. `const` is used for variables
 
@@ -83,7 +83,7 @@ layout: layouts/post.njk
     };
     ```
 
-### Good to know
+## Good to know
 
 1. In a given class, if a property has only getter method and doesn't come with setter method, it will be treated as read only.
 

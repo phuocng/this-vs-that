@@ -26,7 +26,7 @@ person.set('name', 'Foo');
 person.set('age', 20);
 ```
 
-### Differences
+## Differences
 
 1. Object only accepts string and symbol keys. Another types will be converted to string automatically.
    `Map` on the other hand accepts any type of key.
@@ -94,7 +94,7 @@ person.set('age', 20);
     JSON.stringify(person); // "{}"
     ```
 
-### Good to know
+## Good to know
 
 Maps keep the order of items. It means when you loop over keys of a map, we will see the same order as when they're inserted to the map.
 
@@ -106,7 +106,7 @@ codes; // {0: 0, A: 65, B: 66, C: 67}
 Object.keys(codes); // ["0", "A", "B", "C"]
 ```
 
-### Good practice
+## Good practice
 
 If we want to store the key/value pairs without caring about serializing them in JSON, then use `Map`.
 Looping through and getting the size of a map is more comfortable than doing with an object.
@@ -123,7 +123,7 @@ const person = {
 };
 ```
 
-### See also
+## See also
 
 -   [hasOwnProperty vs in](/has-own-property-vs-in)
 -   [Map vs WeakMap](/map-vs-weak-map)

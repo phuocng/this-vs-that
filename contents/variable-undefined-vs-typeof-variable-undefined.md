@@ -11,7 +11,7 @@ variable === undefined;
 typeof variable === 'undefined';
 ```
 
-### Difference
+## Difference
 
 The `typeof` operator works with undeclared variables, while the identical operator will throw a _ReferenceError_ exception.
 
@@ -20,7 +20,7 @@ typeof undeclaredVar === 'undefined'; // true
 undeclaredVar === undefined; // throws a ReferenceError exception
 ```
 
-### Good to know
+## Good to know
 
 In the old browsers running ES3 enginee, `undefined` is a global variable name whose primitive value is undefined. The value can be changed:
 
@@ -51,10 +51,10 @@ In the sample code above, `undefined` is a parameter of function. Since we don't
 
 It's not the case in modern browsers nowadays. From ES5, `undefined` can't be changed because its `Writable` property is set to `false`.
 
-### Good practice
+## Good practice
 
 Always use `typeof`.
 
-### See also
+## See also
 
 -   [undefined vs void](/undefined-vs-void)

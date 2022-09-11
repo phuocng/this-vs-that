@@ -15,7 +15,7 @@ const person = {
 person.hasOwnProperty('name'); // true
 ```
 
-### Differences
+## Differences
 
 1. For inherited properties, `in` will return `true`. `hasOwnProperty`, as the name implies, will check if a property is owned by itself, and ignores the inherited properties.
 
@@ -63,10 +63,10 @@ person.hasOwnProperty('name'); // true
     triangle.hasOwnProperty('vertices'); // false
     ```
 
-### Good practice
+## Good practice
 
 In order to check the existence of a property, use `hasOwnProperty`. Use `in` to check the existence of a method.
 
-### See also
+## See also
 
 -   [Object vs Map](/object-vs-map)

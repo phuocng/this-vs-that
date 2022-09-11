@@ -76,7 +76,7 @@ You don't need to include normalize.css if you use popular CSS libraries. It's a
 -   [Tachyons](https://github.com/tachyons-css/tachyons/blob/master/src/_normalize.css)
 -   [Tailwindcss](https://unpkg.com/tailwindcss@1.1.4/dist/base.css)
 
-### Resources
+## Resources
 
 1. [water.css](https://github.com/kognise/water.css) adds more visual styles for common tags
 2. [minireset](https://github.com/jgthms/minireset.css) is another tiny modern CSS reset

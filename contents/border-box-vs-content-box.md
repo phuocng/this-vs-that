@@ -71,6 +71,6 @@ Specifically, the content's width is `200 - 5 * 2 - 10 * 2 = 170px`.
 └───────────────────────────────────────────────────────┘
 ```
 
-### See also
+## See also
 
 -   [margin vs padding](/margin-vs-padding)

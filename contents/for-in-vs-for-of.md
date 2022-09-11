@@ -4,7 +4,7 @@ category: JavaScript
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. The values iterated on the `for ... in` and `for ... of` statements are different.
 
@@ -79,7 +79,7 @@ layout: layouts/post.njk
     }
     ```
 
-### Good practices
+## Good practices
 
 1. It is not recommended to add a custom method to primitive objects such as `Array`, `Boolean`, `Number`, `String`, etc.
    Since `for ... in` statement loops over the enumerable properties, it will include new methods which are added to the prototype.
@@ -110,7 +110,7 @@ layout: layouts/post.njk
     // Bar: 444-555-666
     ```
 
-### Good to know
+## Good to know
 
 By default, all properties of an array or object will appear in `for ... in`. However, this behavior is avoidable.
 Using `Object.defineProperty` can decide whether a property is enumerable or not.

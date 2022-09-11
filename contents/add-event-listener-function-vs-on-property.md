@@ -23,7 +23,7 @@ element.onclick = handler;
 <div onclick="javascript: handler()" />
 ```
 
-### Differences
+## Differences
 
 1. You can add multiple handlers for an event with `addEventListener`.
 
@@ -99,7 +99,7 @@ element.onclick = handler;
     element.attachEvent ? element.attachEvent('onclick', handler) : element.addEventListener('click', handler);
     ```
 
-### Good practices
+## Good practices
 
 1. Always pick `addEventListener`
 

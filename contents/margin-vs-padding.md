@@ -4,7 +4,7 @@ category: CSS
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. `margin` is the space around the element.
 
@@ -75,6 +75,6 @@ layout: layouts/post.njk
     }
     ```
 
-### See also
+## See also
 
 -   [border-box vs content-box](/border-box-vs-content-box)

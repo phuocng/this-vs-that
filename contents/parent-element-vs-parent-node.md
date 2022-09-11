@@ -28,7 +28,7 @@ document.documentElement.parentNode;
 document.documentElement.parentElement;
 ```
 
-### Tip
+## Tip
 
 By checking whether the parent element exists or not, we can travel from a given element up to the html tag:
 

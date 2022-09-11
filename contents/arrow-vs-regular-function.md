@@ -4,7 +4,7 @@ category: JavaScript
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. Inside a regular function, the `this` value is dynamic. It depends on how the function is invoked.
 
@@ -129,7 +129,7 @@ layout: layouts/post.njk
 
     It is not possible to use the same name for different parameters in arrow functions, no matter the strict or non-strict mode is enabled.
 
-### Good practice
+## Good practice
 
 If the inline arrow function consists of the `<`, `<=`, `>` or `>=` operator, it is advised to wrap the function body in parentheses.
 
@@ -143,7 +143,7 @@ const compareToZero = (a) => a <= 0 ? 0 : a;
 const compareToZero = (a) => (a <= 0 ? 0 : a);
 ```
 
-### Tip
+## Tip
 
 You can use an underscore to name the argument which is not used in an arrow function. It makes the code more readable.
 
@@ -157,6 +157,6 @@ const range = (min, max) =>
         .map((_, i) => min + i);
 ```
 
-### Resource
+## Resource
 
 You can find many useful arrow functions that have only single line of code at [1 LOC](https://1loc.dev) website.

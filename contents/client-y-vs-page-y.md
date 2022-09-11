@@ -34,6 +34,6 @@ Here, _page_ is the whole rendered page which may have the scrollbars, whereas _
 └─────────────────────────────┴─┘
 ```
 
-### See also
+## See also
 
 -   [clientHeight vs offsetHeight vs scrollHeight](/client-height-vs-offset-height-vs-scroll-height)

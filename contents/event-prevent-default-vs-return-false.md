@@ -24,7 +24,7 @@ submitButton.addEventListener('click', function (e) {
 });
 ```
 
-### Differences
+## Differences
 
 1. `return false` doesn't have any effect on the default behavior if you use the `addEventListener` method to handle an event.
    It only works when the event handler is declared as an element's attribute:
@@ -43,7 +43,7 @@ submitButton.addEventListener('click', function (e) {
 
 2. According to the [HTML 5 specifications](https://www.w3.org/TR/2017/REC-html52-20171214/webappapis.html#the-event-handler-processing-algorithm), `return false` will cancel the event except the `mouseover` event.
 
-### Good practices
+## Good practices
 
 1. It's recommended to use the `preventDefault` method instead of `return false` inside an event handler.
    Because the latter only works with using the `onclick` attribute which will remove other handlers for the same event.
@@ -80,7 +80,7 @@ submitButton.addEventListener('click', function (e) {
     });
     ```
 
-### Good to know
+## Good to know
 
 If you're using jQuery to manage the event, then `return false` will behave same as the `preventDefault()` and `stopPropagation()` methods:
 
@@ -92,7 +92,7 @@ $(element).on('click', function (e) {
 });
 ```
 
-### See also
+## See also
 
 -   [event bubbling vs capturing](/event-bubbling-vs-capturing)
 -   [stopImmediatePropagation vs stopPropagation](/stop-immediate-propagation-vs-stop-propagation)

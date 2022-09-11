@@ -13,7 +13,7 @@ arr.length = 0;
 arr = [];
 ```
 
-### Difference
+## Difference
 
 Setting `arr = []` creates a new array and doesn't affect other references.
 
@@ -41,7 +41,7 @@ foo.length = 0;
 console.log(bar); // []
 ```
 
-### Good to know
+## Good to know
 
 1. There is another, less popular approach to empty an array:
 

@@ -4,7 +4,7 @@ category: CSS
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. Outlines don't take the space meaning that using outlines or not doesn't affect the dimension of element.
 
@@ -25,7 +25,7 @@ layout: layouts/post.njk
     </div>
     ```
 
-### Good practice
+## Good practice
 
 The primary purpose of `outline` is to support accessibility. It provides visual feedback for links, buttons when users navigate between them with the _Tab_ key.
 
@@ -130,7 +130,7 @@ document.addEventListener('keydown', (e) => {
 });
 ```
 
-### Tip
+## Tip
 
 The `outline` property is useful when you want to visualize elements on the page.
 In the following sample code, we [iterate](https://htmldom.dev/loop-over-a-nodelist) over all the elements and

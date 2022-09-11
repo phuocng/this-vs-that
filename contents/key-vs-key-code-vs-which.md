@@ -16,7 +16,7 @@ textBoxElement.addEventListener('keydown', function (e) {
 });
 ```
 
-### Difference
+## Difference
 
 According to MDN documentations, both [keyCode](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) and [which](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/which) are deprecated and will be removed from the Web standards.
 
@@ -31,7 +31,7 @@ const key = 'which' in e ? e.which : e.keyCode;
 const key = e.which || e.keyCode || 0;
 ```
 
-### Good practice
+## Good practice
 
 It's recommended to use the [key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) property.
 The sample code above can be rewritten as

@@ -50,15 +50,15 @@ If we click the child node, the listener of parent node is fired first, and then
 parent clicked children clicked
 ```
 
-### Good practice
+## Good practice
 
 It is not recommended to register the event handler via the element attributes such as `onclick`. For more details, check out the [addEventListener() function vs onproperty](/add-event-listener-function-vs-on-property).
 
-### Good to know
+## Good to know
 
 The capturing mode does not happen for some special events (`focus`, for example) and on IE < 9.
 
-### See also
+## See also
 
 -   [event.preventDefault vs return false](/event-prevent-default-vs-return-false)
 -   [stopImmediatePropagation vs stopPropagation](/stop-immediate-propagation-vs-stop-propagation)

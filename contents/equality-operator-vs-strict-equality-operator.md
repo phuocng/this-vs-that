@@ -4,7 +4,7 @@ category: JavaScript
 layout: layouts/post.njk
 ---
 
-### Difference
+## Difference
 
 `==` (equality operator) and `===` (strict equality operator) are the operators to compare two operands.
 
@@ -22,6 +22,6 @@ true === 1; // false
 
 The following table demonstrates the result of these operators:
 
-### Good practice
+## Good practice
 
 Always use `===` to compare values.

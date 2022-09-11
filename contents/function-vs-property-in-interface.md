@@ -22,7 +22,7 @@ interface Logger {
 }
 ```
 
-### Differences
+## Differences
 
 1. If the method is declared as a interface function, then it's possible for you to add more overload versions.
 

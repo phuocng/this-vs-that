@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 Both `substr` and `substring` are common functions to get a sub-string of a given string.
 
-### Differences
+## Differences
 
 1. Both methods have two parameters. The first parameters indicate the index of starting position of sub-string. The second parameters are different.
 
@@ -36,7 +36,7 @@ Both `substr` and `substring` are common functions to get a sub-string of a give
     'helloworld'.substring(0, 5); // 'hello'
     ```
 
-### Good to know
+## Good to know
 
 `slice` is another function for getting a sub-string. It's not deprecated as [substr](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr), and supports negative indices.
 

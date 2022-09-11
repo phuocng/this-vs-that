@@ -25,7 +25,7 @@ const enum Light {
 }
 ```
 
-### Differences
+## Differences
 
 1. TypeScript compiles regular enum to JavaScript objects. Given the `Direction` enum above, it will be transpiled to the following JavaScript code:
 
@@ -54,10 +54,10 @@ const enum Light {
     }
     ```
 
-### Good to know
+## Good to know
 
 If you do not want TypeScript to erase the generated code for `const` enums, you can use the `preserveConstEnums` compiler flag.
 
-### See also
+## See also
 
 -   [literal union type vs string enums](/literal-union-type-vs-string-enums)

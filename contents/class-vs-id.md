@@ -10,7 +10,7 @@ layout: layouts/post.njk
 <div id="..." class="...">...</div>
 ```
 
-### Differences
+## Differences
 
 1. In general, these attributes serve different purposes.
 
@@ -50,7 +50,7 @@ layout: layouts/post.njk
     <div id="header" class="header" />
     ```
 
-### Good practices
+## Good practices
 
 1. Access the element via the `id` attribute
 

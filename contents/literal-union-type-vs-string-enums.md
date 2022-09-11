@@ -24,7 +24,7 @@ enum Theme {
 }
 ```
 
-### Differences
+## Differences
 
 1. TypeScript does not generate code for the union of string literals. As a result, the generated code will have a smaller size.
 
@@ -70,7 +70,7 @@ enum Theme {
 
     In comparison to `switchTheme('DARK')`, how convenient and safe the invoke above is.
 
-### Good to know
+## Good to know
 
 There is another approach using the [const assertions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions) which is available from TypeScript 3.4.
 
@@ -88,7 +88,7 @@ let lightTheme: Theme = 'Light';
 const invalidTheme: Theme = 'Blue';     // ERROR
 ```
 
-### Good practice
+## Good practice
 
 If you don't set the values for enum, they will be set to incremental numbers by default.
 
@@ -124,6 +124,6 @@ console.log(Theme.DARK);                // 'Dark'
 let theme: Theme.DEFAULT = 'Default';   // ERROR
 ```
 
-### See also
+## See also
 
 -   [const enum vs enum](/const-enum-vs-enum)

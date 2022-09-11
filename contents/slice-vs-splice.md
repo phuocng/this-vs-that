@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 `slice` and `splice` are common methods to get a sub-array of a given array.
 
-### Differences
+## Differences
 
 1. The signature of methods are different.
 
@@ -45,7 +45,7 @@ layout: layouts/post.njk
     sub; // [3]
     ```
 
-### Tip
+## Tip
 
 We can [clone an array](https://1loc.dev/#clone-an-array) by ignoring the ending index:
 

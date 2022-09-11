@@ -4,7 +4,7 @@ category: HTML
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. `<button>` can contain HTML. `<input type="button" />` on the other hand is an [empty element](https://developer.mozilla.org/en-US/docs/Glossary/Empty_element) (such as `br`, `hr`, `image`), therefore it cannot contain content.
 
@@ -14,7 +14,7 @@ layout: layouts/post.njk
 
     If you want the `input` to behave as a submit button, we have to change the `type` attribute to `submit`.
 
-### Good practices
+## Good practices
 
 1. The `button` element is more semantic than the `input` with type of `button`. It's recommended to use the `button` element if you want to create a clickable button.
 

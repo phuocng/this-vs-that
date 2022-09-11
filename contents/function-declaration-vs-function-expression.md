@@ -18,7 +18,7 @@ function fn() {
 }
 ```
 
-### Difference
+## Difference
 
 A function created by using an expression is assigned to a variable at run time. We cannot invoke the function before the declaration.
 
@@ -41,7 +41,7 @@ function sum(a, b) {
 }
 ```
 
-### Good to know
+## Good to know
 
 1. In the strict mode introduced in ES5, function declaration is scoped to its enclosing block. We cannot invoke the function from outside of the block.
 

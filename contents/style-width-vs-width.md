@@ -18,7 +18,7 @@ There are two ways to define the dimension for an element:
 <img style="height: 100px" />
 ```
 
-### Differences
+## Differences
 
 1. The `width` and `height` properties are available for all HTML elements. But the `width` and `height` attributes are only available for some elements such as `canvas`, `image`, `table`, `td`, etc.
 
@@ -56,6 +56,6 @@ There are two ways to define the dimension for an element:
     <img height="100px" style="height: 200px" />
     ```
 
-### Good to know
+## Good to know
 
 The `width` and `height` attributes are still used widely in emails where we have to support multiple screen sizes (mobile, desktop) and various email clients.

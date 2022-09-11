@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 `Map` and `WeakMap` are two data structures that can be used to manipulate the relationship between keys and values.
 
-### Differences
+## Differences
 
 1. We can use object or any primitive types for both keys and values of a `Map`.
 
@@ -48,6 +48,6 @@ layout: layouts/post.njk
     Because of this difference, `WeakMap` as its name implies holds the _weak_ references to the keys.
     It explains why its keys are not enumerable which is mentioned in the previous difference.
 
-### See also
+## See also
 
 -   [Object vs Map](/object-vs-map)

@@ -15,7 +15,7 @@ An element will not be displayed if the `hidden` attribute is used regardless of
 
 Both hides the content from the screen reader as well.
 
-### Differences
+## Differences
 
 1. Both `display: none` declaration and `hidden` attribute work in the same way. But the `hidden` attribute provides better semantic.
 2. `display: none` works in the old browsers, but `hidden` [isn't supported](https://caniuse.com/#feat=hidden) natively in IE 10 and below.

@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 `void` is an operator that evaluates a given expression and then returns `undefined`.
 
-### Difference
+## Difference
 
 In the modern browsers which supports ES5, there's no difference between using the `void` operator and the `undefined` value directly:
 
@@ -29,7 +29,7 @@ On the other hand, it's not possible to override the `void` operator. Hence, `vo
 
 In ES5, it's impossible to override `undefined` because it's [set](http://es5.github.io/#x15.1.1.3) `Writeable` as `false`.
 
-### Good to know
+## Good to know
 
 1. `void` is an operator, not a function. So we don't need to wrap the expression in parentheses. `void 0` is equivalent to `void(0)`.
 2. There are minifiers which use `void 0` to shorten `undefined`.
@@ -108,7 +108,7 @@ In ES5, it's impossible to override `undefined` because it's [set](http://es5.gi
     });
     ```
 
-### Good practice
+## Good practice
 
 The `void` operator has been used in the URL prefixed with `javascript:`.
 
@@ -130,6 +130,6 @@ Nowadays, using `javascript:` protocol isn't recommended. It can create a securi
 
 Starting from v16.9.0, React also [deprecates](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#deprecating-javascript-urls) the usage of `javascript:` URLs.
 
-### See also
+## See also
 
 -   [variable === undefined vs. typeof variable === "undefined"](/variable-undefined-vs-typeof-variable-undefined)

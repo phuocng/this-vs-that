@@ -9,7 +9,7 @@ There are three keywords to declare a variable:
 -   `var`
 -   `let` and `const` which are only available in ES6
 
-### Differences
+## Differences
 
 1. It's not possible to access the `let` variable outside of the nearest enclosing block where it is declared.
 
@@ -124,11 +124,11 @@ There are three keywords to declare a variable:
     console.log(arr); // ['foo', 'bar']
     ```
 
-### Good practice
+## Good practice
 
 Don't use `var` unless you have to support old browsers which don't support `let` and `const` keywords.
 
-### Good to know
+## Good to know
 
 Each programming language use different keywords to declare a variable and constant.
 The following table list out some examples:

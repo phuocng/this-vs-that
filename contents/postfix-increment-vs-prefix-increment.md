@@ -20,7 +20,7 @@ for (let i = 0; i < 5; ++i) {
 }
 ```
 
-### Differences
+## Differences
 
 When returning a value, `return value++` returns the original value before the value is increased. While `return ++value` increases the value and returns the updated value.
 
@@ -34,7 +34,7 @@ foo(1); // 1
 bar(1); // 2
 ```
 
-### Good to know
+## Good to know
 
 `value += 1` is another alternative of the postfix increment `value++`. It's worth noting that they can provide different result when using with strings.
 

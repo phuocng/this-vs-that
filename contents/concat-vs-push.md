@@ -8,7 +8,7 @@ layout: layouts/post.njk
 [push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) are common methods to append one
 or more items to a given array.
 
-### Differences
+## Differences
 
 1. The `concat` method does not change the existing array:
 
@@ -34,7 +34,7 @@ or more items to a given array.
     For small arrays, both methods do not produce a significant difference in term of performance.
     But if you have to work with big array and performance is the critical thing to your application, then consider using `push`.
 
-### Good to know
+## Good to know
 
 1. If you use React or a state management library such as Redux, where we do not modify the current state and returns the new state on each reducer,
    it's good use case for using `concat`.
@@ -65,7 +65,7 @@ or more items to a given array.
     }
     ```
 
-### Tip
+## Tip
 
 You can use ES6 spread operator to merge different arrays into one:
 
@@ -91,6 +91,6 @@ a; // [1, 2, 3, 4, 5, 6]
 
 It's hard-coded to [65536](https://bugs.webkit.org/show_bug.cgi?id=80797) if you are curious.
 
-### See also
+## See also
 
 -   This [page](https://dev.to/uilicious/javascript-array-push-is-945x-faster-than-array-concat-1oki) has a deep investigation and provides many benchmarks to prove why `push` is faster than `concat`.

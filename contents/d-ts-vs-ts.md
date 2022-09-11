@@ -4,7 +4,7 @@ category: TypeScript
 layout: layouts/post.njk
 ---
 
-### Difference
+## Difference
 
 `.ts` is the standard TypeScript files. The content then will be compiled to JavaScript.
 
@@ -30,7 +30,7 @@ From now on, we can use the function in TypeScript without any compile errors.
 
 The `d.ts` file doesn't contain any implementation, and isn't compiled to JavaScript at all.
 
-### Good to know
+## Good to know
 
 TypeScript provides an option named `allowJs` which allows to use plain JavaScript code in TypeScript.
 

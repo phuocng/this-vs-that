@@ -16,7 +16,7 @@ The `:active` selector is applied when the element is being activated. It will b
 
 There is an important notice for the Safari browser running on iOS. The `:focus` selector is supported, while the `:active` selector is applied only if there is handler for the `touchstart` event of relevant element or the `body` element.
 
-### Good practice
+## Good practice
 
 There are people who like navigating a web page with their keyboard. By pressing the `Tab` key, users can jump to focusable elements quickly.
 Some native HTML elements (such as `<a>`, `<button>`, `<input>`, `<select>` and `<textarea>`) provide the built-in keyboard accessibility.
@@ -54,7 +54,7 @@ Here is the structure of a Bootstrap's modal:
 
 It's recommended to not set `tabindex` greater than 0 because screen readers navigate the web page in the DOM order instead of tab order.
 
-### Tips
+## Tips
 
 1. With Chrome DevTools, you can see the CSS classes used for `:active` and `:focus` states without activating the element.
 

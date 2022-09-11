@@ -18,7 +18,7 @@ const div = '<div class="message">Hello</div>';
 
 -   Double quotes are often used in other programming languages. So people will get used to it easily when switching to JavaScript.
 
-### Good practice
+## Good practice
 
 Choose and stick with one of single or double quotes. Using the same coding convention is very important, especially when you are working within a team.
 
@@ -45,7 +45,7 @@ quotes: [ERROR, 'single', {...}],
 "@typescript-eslint/quotes": ["error", "double", { ... }],
 ```
 
-### Tip
+## Tip
 
 You can use the template literal syntax in ES6 to get rid of escaping quote. For example:
 

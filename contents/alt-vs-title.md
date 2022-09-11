@@ -4,7 +4,7 @@ category: HTML
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. The `alt` attribute is the _alternate_ text to serve as the content of element when the element isn't rendered normally.
 
@@ -14,7 +14,7 @@ layout: layouts/post.njk
 
 2. The `title` attribute is the tooltip text seen when hovering over the element.
 
-### Good practice
+## Good practice
 
 Always use the `alt` attribute for `<img>` tags.
 
@@ -22,7 +22,7 @@ Google and other search engines can't read the image but they can see the `alt` 
 
 You usually won't set the `title` attribute for `<img>` unless it really provides more information about the image. But it could be argued that if you have to explain your image with title text, maybe there's a better image to use.
 
-### Tips
+## Tips
 
 Here's two options for making sure you always include the `alt` attribute on the `img` tag.
 

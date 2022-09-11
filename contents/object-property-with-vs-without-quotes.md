@@ -15,7 +15,7 @@ const obj = { key: 'value' };
 obj['key'];
 ```
 
-### Differences
+## Differences
 
 1. If the property name is a numeric literal, then you might to use different key to access the property value.
 

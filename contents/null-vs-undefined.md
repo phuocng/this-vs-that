@@ -4,7 +4,7 @@ category: JavaScript
 layout: layouts/post.njk
 ---
 
-### Differences
+## Differences
 
 1. `undefined` indicates that a variable has been declared but not been assigned to any value, including `null`.
 
@@ -36,7 +36,7 @@ layout: layouts/post.njk
     null === undefined; // false
     ```
 
-### Good to know
+## Good to know
 
 `JSON.stringify` omits `undefined`, but keeps `null`:
 

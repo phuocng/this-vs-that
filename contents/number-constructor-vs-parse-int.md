@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 Both `Number()` and `parseInt()` are often used to convert a string to number.
 
-### Differences
+## Differences
 
 1. `Number()` converts the type whereas parseInt parses the value of input.
 
@@ -46,7 +46,7 @@ Both `Number()` and `parseInt()` are often used to convert a string to number.
     Number(''); // 0
     ```
 
-### Good practices
+## Good practices
 
 1. Always pass the radix to `parseInt`.
 
@@ -104,7 +104,7 @@ Both `Number()` and `parseInt()` are often used to convert a string to number.
     a === b; // false
     ```
 
-### Tip
+## Tip
 
 Instead of using the `Number()` constructor to [convert](https://1loc.dev/#convert-a-string-to-number) a string to number, you can use the `+` operator:
 

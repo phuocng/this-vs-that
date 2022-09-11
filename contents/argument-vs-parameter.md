@@ -4,7 +4,7 @@ category: JavaScript
 layout: layouts/post.njk
 ---
 
-### Difference
+## Difference
 
 A _parameter_ is the variable belonging to the declaration of a function.
 
@@ -20,7 +20,7 @@ const sum = function (a, b) {
 
 here `a` and `b` are the parameters. If we call the function, `sum(1, 2)`, then `1` and `2` are the arguments.
 
-### Tip
+## Tip
 
 There is a handy memory hook to distinguish these terms:
 

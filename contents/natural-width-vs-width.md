@@ -9,7 +9,7 @@ For example, a 100px wide image always has `naturalWidth` of 100px even when the
 
 Whereas, `width` is the value of `width` attribute. It is subject to change and can be updated via CSS or JavaScript.
 
-### Good to know
+## Good to know
 
 It's possible to get the natural width of an image that can be loaded by given `url`:
 

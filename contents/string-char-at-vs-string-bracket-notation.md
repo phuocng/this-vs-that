@@ -11,7 +11,7 @@ There are two ways to access an individual character of a string:
 
 In both ways, `'hello'[1]` and `'hello'.charAt(1)` returns the second character `e`.
 
-### Differences
+## Differences
 
 1. The second way is standard of ECMA 5, and is supported in modern browsers. It is not supported in the very old browsers such as IE 6, 7.
    (I don't think we still need to support these versions of IE).
@@ -52,7 +52,7 @@ In both ways, `'hello'[1]` and `'hello'.charAt(1)` returns the second character 
     'hello'.charAt(100); // ''
     ```
 
-### Good to know
+## Good to know
 
 _Why does `'hello'.charAt(true)` return `e`?_
 

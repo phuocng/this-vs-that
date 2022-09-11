@@ -6,7 +6,7 @@ layout: layouts/post.njk
 
 Assume that `obj` is an object, and `property` is the name of its property.
 
-### Differences
+## Differences
 
 1. Calling `obj.property = undefined` sets the value of property to `undefined`. The property is still there and appears if we iterate the properties of the object.
 
@@ -57,7 +57,7 @@ Assume that `obj` is an object, and `property` is the name of its property.
     console.log(a4.branch); // undefined
     ```
 
-### Good to know
+## Good to know
 
 1. `delete` doesn't work with array:
 

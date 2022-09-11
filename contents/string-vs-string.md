@@ -11,7 +11,7 @@ let foo: String = 'foo';
 let bar: string = 'bar';
 ```
 
-### Difference
+## Difference
 
 `string` refers to the JavaScript's primitive types and can be created by using either literals (single or double quotes) or `String` function (without the `new` keyword).
 
@@ -39,7 +39,7 @@ if (variable instanceof String) {
 }
 ```
 
-### Good to know
+## Good to know
 
 Given the declarations at the top of this page, you can assign a `String` object to a primitive `string` variable:
 
@@ -60,7 +60,7 @@ But doing the opposite assignment will throw an error:
 bar = foo;
 ```
 
-### Good practice
+## Good practice
 
 According to the official TypeScript's [Do's and Don'ts](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html), it is recommended to not use `Number`, `String`, `Boolean`, `Symbol`, or `Object`.
 
