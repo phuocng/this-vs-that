@@ -12,7 +12,7 @@ The differences between **_ and _** in the front-end development.
 1. Clone the project:
 
 ```shell
-$ git clone https://github.com/1milligram/this-vs-that
+$ git clone https://github.com/phuocng/this-vs-that
 ```
 
 2. Install the dependencies:
@@ -25,10 +25,10 @@ $ npm install
 3. Run it on the local:
 
 ```shell
-$ npm run dev
+$ npm run start
 ```
 
-Look at the console to see the _Local URL_. Open it in your browser to see it in action.
+Open http://localhost:8081 in your browser to see it in action.
 
 ## About
 
@@ -37,5 +37,4 @@ This project is developed by _Nguyen Huu Phuoc_. I love building products and sh
 Be my friend on
 
 -   [Twitter](https://twitter.com/nghuuphuoc)
--   [dev.to](https://dev.to/phuocng)
--   [Github](https://github.com/phuoc-ng)
+-   [Github](https://github.com/phuocng)
