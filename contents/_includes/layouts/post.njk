@@ -14,8 +14,8 @@ layout: layouts/base.njk
         <div class="post__content">{{ content | safe }}</div>
     </div>
     <div class="nav">
-    {% if previousPost %}<a class="nav__item nav__item--prev" href="{{ previousPost.url }}">{{ index - 1 }}: {{ previousPost.data.title }}</a>{% endif %}
-    {% if nextPost %}<a class="nav__item nav__item--next" href="{{ nextPost.url }}">{{ index + 1 }}: {{ nextPost.data.title }}</a>{% endif %}
+    {% if previousPost %}<a class="nav__item nav__item--prev" href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}
+    {% if nextPost %}<a class="nav__item nav__item--next" href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}
     </div>
     {% include "follow.njk" %}
 </div>
