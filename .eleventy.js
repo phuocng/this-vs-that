@@ -15,6 +15,17 @@ module.exports = function(eleventyConfig) {
     });
     eleventyConfig.setLibrary('md', markdownLibrary);
 
+    eleventyConfig.addCollection('sortByTitle', function(collectionApi) {
+        return collectionApi.getAll()
+            .filter(function(item) {
+                let extension = item.inputPath.split('.').pop();
+                return extension === 'md';
+            })
+            .sort(function(a, b) {
+                return a.data.title - b.data.title;
+            });
+    });
+
     eleventyConfig.addTransform('minify-html', function(content) {
         if (this.outputPath && this.outputPath.endsWith('.html')) {
             return htmlmin.minify(content, {

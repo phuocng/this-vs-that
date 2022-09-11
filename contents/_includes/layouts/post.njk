@@ -1,8 +1,8 @@
 ---
 layout: layouts/base.njk
 ---
-{% set previousPost = collections.all | getPreviousCollectionItem(page) %}
-{% set nextPost = collections.all | getNextCollectionItem(page) %}
+{% set previousPost = collections.sortByTitle | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.sortByTitle | getNextCollectionItem(page) %}
 
 <div class="container">
     <div class="header">

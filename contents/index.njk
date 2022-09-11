@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
         <a class="hero__button" href="https://github.com/phuocng/this-vs-that">Star me on GitHub</a>
     </div>
 
-    {%- for post in collections.all -%}
+    {%- for post in collections.sortByTitle -%}
         <div class="card__item">
             <a class="card__link" href="{{ post.url }}">{{ post.data.title }}</a>
         </div>
