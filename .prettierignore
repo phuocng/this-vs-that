@@ -1,4 +1,5 @@
 .netlify
-.next
+_site
+contents/arrow-vs-regular-function.md
+contents/string-vs-string.md
 node_modules
-out
