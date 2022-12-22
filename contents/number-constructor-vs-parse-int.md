@@ -44,6 +44,7 @@ Both `Number()` and `parseInt()` are often used to convert a string to number.
     Number(null); // 0
     Number(true); // 1
     Number(''); // 0
+    Number(undefined); // NaN
     ```
 
 ## Good practices
