@@ -6,12 +6,12 @@ layout: layouts/post.njk
 
 ## Differences
 
-1. Outlines don't take the space meaning that using outlines or not doesn't affect the dimension of element.
+1. Outlines don't take up space meaning that using outlines or not doesn't affect the dimensions of the outlined element.
 
-2. `border` supports rounded corners with the `border-radius` property. Meanwhile `outline` doesn't.
+2. `border` supports rounded corners with the `border-radius` property, meanwhile `outline` doesn't.
 
 3. We can define the border style for each side via the `border-top`, `border-left`, `border-bottom` and `border-right` properties.
-   It's not possible to set the style for particular side with `outline`.
+   It's not possible to set the style for a particular side with `outline`.
 
 4. The outlines may be non-rectangular.
 
