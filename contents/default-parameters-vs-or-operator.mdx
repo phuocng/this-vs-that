@@ -1,0 +1,59 @@
+---
+category: JavaScript
+created: '2023-08-23'
+title: 'default parameters vs OR operator'
+---
+
+JavaScript offers two ways to set default values for function parameters: using default parameters or the _OR_ (`||`) operator. Although both methods achieve the same goal, they differ in some ways. Let's explore them together.
+
+## Default parameters
+
+Default parameters are a cool new feature in JavaScript that lets you set a default value for a function parameter right in the function signature. This means that if you don't pass a value for that parameter when you call the function, it'll just use the default value instead. Easy peasy!
+
+Let me give you an example:
+
+```js sayHello.js
+const sayHello = (name = 'World') => {
+  console.log(`Hello, ${name}!`);
+};
+
+sayHello();                 // `Hello, World!`
+sayHello("Phuoc Nguyen");   // `Hello, Phuoc Nguyen!`
+```
+
+In JavaScript, a parameter's default value is `undefined`. What does this mean for you? Well, if you don't pass any arguments into the function, the parameters will default to `undefined`.
+
+This is an alternative version of the `sayHello` function that doesn't use default parameters.
+
+```js sayHello.js
+const sayHello = (name) => {
+  console.log(`Hello, ${name}!`);
+};
+
+sayHello();         // `Hello, undefined!`
+sayHello("World");  // `Hello, World!`
+```
+
+## OR operator
+
+The OR (`||`) operator is not just for logical operations. It can also be used to set default values for function parameters. This operator returns the first truthy value it encounters.
+
+However, if the first value is falsy (e.g. `undefined`, `null`, `false`, `0`, `""`, or `NaN`), it will return the second value.
+
+Let's modify the `sayHello` function above using the `||` operator:
+
+```js sayHello.js
+const sayHello = (name) => {
+    const withDefaultName = name || 'World';
+    console.log(`Hello, ${withDefaultName}!`);
+};
+
+sayHello();                 // `Hello, World!`
+sayHello("Phuoc Nguyen");   // `Hello, Phuoc Nguyen!`
+```
+
+## What makes them different?
+
+One key distinction between default parameters and the `||` operator is that default parameters only work with function parameters, while the `||` operator can be utilized for any variable.
+
+Another difference to consider is that default parameters are more explicit about their intention. In the function signature, it's clear that a default value will be used if an argument isn't passed in. On the other hand, the `||` operator can be confusing, especially if it's used in a complex expression.
