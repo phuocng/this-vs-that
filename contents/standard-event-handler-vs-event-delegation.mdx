@@ -1,0 +1,275 @@
+---
+category: DOM
+created: '2023-08-23'
+title: standard event handler vs event delegation
+---
+
+There are two ways to handle events for a given element: standard event handling and event delegation.
+
+With standard event handling, we [attach an event listener](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler) directly to the element like this:
+
+```javascript
+const addButton = document.getElementById('addButton');
+addButton.addEventListner('click', function(e) {
+    // `e` represents the event instance
+});
+```
+
+It's similar to creating a dedicated function to handle the event.
+
+```javascript
+const handleAddItem = (e) => {
+    // Triggered when users click the `Add` button
+    // ...
+};
+
+addButton.addEventListener('click', handleAddItem);
+```
+
+Since each element in your application has its own set of event handlers, it's likely that you have many handlers for different elements.
+
+```javascript
+const editButton = document.getElementById('editButton');
+
+const handleEditItem = (e) => {
+    // Triggered when users click the `Edit` button
+};
+
+editButton.addEventListener('click', handleEditItem);
+```
+
+As your application logic grows, you may wonder if it's possible to have a single entry point to handle the `click` event of different elements. The good news is that **event delegation** has got you covered. This approach is simple but effective: instead of having many handlers, we can handle the `click` event of the parent element, which in this case is `document`.
+
+```javascript
+const handleDocumentClick = (e) => {
+  // ...
+};
+
+document.addEventListener('click', handleDocumentClick);
+```
+
+The `handleDocumentClick` function runs every time a user clicks on any element on the page, including the `Add` and `Edit` buttons.
+
+To check whether one of these buttons was clicked, there are several ways to do it, such as checking the `id` attribute of the event target.
+
+```javascript
+const handleDocumentClick = (e) => {
+    const id = e.target.getAttribute('id');
+    if (!id) {
+        return;
+    }
+    switch (id) {
+        case 'addButton':
+            // Users click the `Add` button ...
+            break;
+        case 'editButton':
+            // Users click the `Edit` button ...
+            break;
+        default:
+            break;
+    }
+};
+```
+
+Event delegation brings multiple benefits to your application:
+
+-   It saves memory because it avoids creating many handler functions.
+-   It makes code more readable and easier to maintain since handlers are managed in a single place.
+-   Most importantly, it allows you to handle events for elements that don't exist yet. You can write the event handler first and dynamically create the element later.
+
+The simple example above demonstrates the potential of the event delegation technique. However, let's explore a more advanced example to truly understand its power.
+
+## Advanced example
+
+Let's say we're managing a list of tasks that can be added or removed. But before we get into the nitty-gritty, let's take a look at the final demonstration.
+
+<Playground>
+```css styles.css hidden
+button {
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+input {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+.task {
+    align-items: center;
+    display: flex;
+}
+.task--done label {
+    text-decoration: line-through;
+}
+```
+
+```html index.html
+<input type="text" placeholder="New task" id="newTask" />
+
+<ul id="tasks"></ul>
+```
+
+```js script.js
+let id = 1;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tasksEle = document.getElementById('tasks');
+    const newTaskInput = document.getElementById('newTask');
+
+    const handleAddTask = (e) => {
+        const value = e.target.value;
+        if (e.key !== 'Enter' || value === '') {
+            return;
+        }
+        newTaskInput.value = '';
+
+        // Generate a new id
+        const newId = id++;
+
+        // Add new task
+        const li = document.createElement('li');
+
+        const label = document.createElement('label');
+        li.appendChild(label);
+
+        const checkboxEle = document.createElement('input');
+        checkboxEle.setAttribute('data-id', newId);
+        checkboxEle.setAttribute('type', 'checkbox');
+        label.appendChild(checkboxEle);
+
+        const taskLabel = document.createTextNode(value);
+        label.appendChild(taskLabel);
+
+        const removeButton = document.createElement('button');
+        removeButton.setAttribute('data-id', newId);
+        removeButton.innerHTML = '[remove]';
+        li.appendChild(removeButton);
+
+        tasksEle.appendChild(li);
+    };
+
+    tasksEle.addEventListener('change', (e) => {
+        const id = e.target.getAttribute('data-id');
+        if (e.target instanceof HTMLInputElement && id) {
+            const li = e.target.closest('li');
+            li.classList.toggle('task--done');
+        }
+    });
+
+    tasksEle.addEventListener('click', (e) => {
+        const id = e.target.getAttribute('data-id');
+        if (e.target instanceof HTMLButtonElement && id) {
+            const li = e.target.closest('li');
+            tasksEle.removeChild(li);
+        }
+    });
+
+    newTaskInput.addEventListener('keydown', handleAddTask);
+});
+```
+</Playground>
+
+To keep things simple, each task has two basic properties: a label and an ID. The ID is generated automatically and has to be unique so we can tell tasks apart.
+
+At first, our example only has two elements: one for entering new tasks and one for displaying the list of tasks.
+
+When users hit the _Enter_ key in the input, we generate a new ID and add the new task to the list.
+
+Each task element has three parts:
+
+-   A checkbox to mark the task as completed
+-   The task label
+-   A button to remove the task from the list
+
+```javascript
+const newTaskInput = document.getElementById('newTask');
+
+newTaskInput.addEventListener('keydown', (e) => {
+    // Check if users press Enter and value isn't empty
+    // ...
+
+    // Generate a new id
+    const newId = id++;
+
+    // Add new task
+    const li = document.createElement('li');
+
+    const label = document.createElement('label');
+    li.appendChild(label);
+
+    const checkboxEle = document.createElement('input');
+    checkboxEle.setAttribute('type', 'checkbox');
+    label.appendChild(checkboxEle);
+
+    const taskLabel = document.createTextNode(value);
+    label.appendChild(taskLabel);
+
+    const removeButton = document.createElement('button');
+    removeButton.innerHTML = '[remove]';
+    li.appendChild(removeButton);
+});
+```
+
+> **IDs generation**
+>
+> This code snippet uses a straightforward method to [generate incremental IDs](https://phuoc.ng/collection/1-loc/generate-an-unique-and-increment-id). However, there may be other approaches you can consider. Take a look at the alternatives mentioned as follows:
+>-   [Generate a random UUID](https://phuoc.ng/collection/1-loc/generate-a-random-uuid)
+>-   [Generate a random string from given characters](https://phuoc.ng/collection/1-loc/generate-a-random-string-from-given-characters)
+
+Nothing fancy here. The handler creates various parts and adds them to the newly created task element.
+
+But wait, there's more! Imagine that we need to handle the following events:
+
+-   When users click on the checkbox, mark the task as completed.
+-   When users click on the _Remove_ button, remove the task entirely.
+
+The simplest approach is to use the standard event handler.
+
+```js
+checkboxEle.addEventListener('change', (e) => {
+    ...
+});
+removeButton.addEventListener('click', (e) => {
+    ...
+});
+```
+
+However, if users keep creating new tasks, more and more event handlers will be created, which can use up memory and slow things down. To avoid this, we can handle events at the root tasks element.
+
+```js
+const tasksEle = document.getElementById('tasks');
+
+tasksEle.addEventListener('change', (e) => {
+    ...
+});
+
+tasksEle.addEventListener('click', (e) => {
+    ...
+});
+```
+
+And the best part? We can effortlessly determine which task is selected by adding a specific attribute to each task item:
+
+```js
+checkboxEle.setAttribute('data-id', newId);
+removeButton.setAttribute('data-id', newId);
+```
+
+And then requesting it from the handler:
+
+```js
+tasksEle.addEventListener('change', (e) => {
+    const id = e.target.getAttribute('data-id');
+    ...
+});
+
+tasksEle.addEventListener('click', (e) => {
+    const id = e.target.getAttribute('data-id');
+    ...
+});
+```
