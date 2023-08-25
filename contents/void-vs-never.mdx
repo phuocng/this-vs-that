@@ -1,0 +1,55 @@
+---
+category: TypeScript
+created: '2023-08-24'
+title: void vs never
+---
+
+TypeScript has two types, `never` and `void`, which represent the absence of a value. While they may seem similar, it's important to know the key differences between them. Let's dive in and explore!
+
+## void
+
+The `void` type represents the absence of a value. It's typically used as the return type for functions that don't return a value.
+
+```ts log.ts
+const log = (message: string): void {
+    console.log(message);
+};
+```
+
+In the example above, the `log` function doesn't give back any value, which means that its return type is `void`.
+
+## never
+
+The `never` type represents the absence of a value that will never occur. It's handy in two scenarios:
+
+-   When a function always throws an error.
+
+In the following example, the `throwError` function will always throw an error and never return a value.
+
+```ts throwError.ts
+const throwError = (): never => {
+    throw new Error('Something went wrong');
+};
+```
+
+-   When a function never finishes.
+
+The code inside the `infiniteLoop` function never finishes executing because it contains an endless loop.
+
+```ts infiniteLoop.ts
+const infiniteLoop = (): never => {
+    while (true) {
+        // Do something indefinitely ...
+    }
+};
+```
+
+## Differences
+
+When it comes to `void` and `never`, it's important to understand their distinctions. `void` represents the absence of a value that could happen, while `never` represents the absence of a value that will never happen.
+
+To put it simply, `void` is used when a function may or may not return a value, while `never` is used when a function will never return a value.
+
+## See also
+
+-   [any vs unknown](https://phuoc.ng/collection/this-vs-that/any-vs-unknown)
