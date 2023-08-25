@@ -1,0 +1,62 @@
+---
+category: TypeScript
+created: '2023-08-24'
+title: 'Readonly<T[]> vs ReadOnlyArray<T>'
+---
+
+TypeScript offers two ways to create arrays that cannot be modified: `ReadonlyArray<>` and `Readonly<>`. While they both serve the same purpose, their syntax and behavior differ. In this post, we'll dive into the distinctions between `ReadonlyArray<>` and `Readonly<>`.
+
+## ReadonlyArray
+
+TypeScript has a handy built-in generic type called `ReadonlyArray<>`. This type gives you an array that can't be changed once it's created. It's defined like this:
+
+```ts
+interface ReadonlyArray<T> {
+    readonly [n: number]: T;
+    readonly length: number;
+}
+```
+
+It has two properties: `length` and an indexed property that is also read-only. The indexed property is defined using square brackets and `n: number` notation, where `n` is the index of the element in the array. The `T` is the type of the elements in the array.
+
+Here's an example that shows how to create a `ReadonlyArray<>`:
+
+```ts
+const cars: ReadonlyArray<string> = ['Audi', 'BMW', 'Mercedes'];
+```
+
+This creates a read-only array of strings with the values `Audi`, `BMW`, and `Mercedes`. You can still access the elements of the array, but you can't modify the array itself.
+
+If you try to modify it, the code will not compile. For instance, the following code will not work:
+
+```ts
+cars.push('Apple');
+// Error: Property 'push' does not exist
+// on type 'ReadonlyArray<string>'
+```
+
+## Readonly
+
+`Readonly<>` is another handy tool that allows you to create a read-only version of any type. In other words, you can use it to prevent accidental modifications to your data.
+
+You can use it to create a read-only array simply by passing an array type as an argument. Check out this example:
+
+```ts
+const cars: Readonly<string[]> = ['Audi', 'BMW', 'Mercedes'];
+```
+
+The syntax for creating a read-only array is pretty similar to `ReadonlyArray<T>`. But there's a key difference: `Readonly<>` can be used to create a read-only version of any type, not just arrays.
+
+Once you've created a `Readonly<>` object, it's locked in place. If you try to modify it, your code won't even compile. Check out this example of how it won't work:
+
+```typescript
+cars.push('Apple');
+// Error: Property 'push' does not exist
+// on type 'readonly string[]'
+```
+
+## Conclusion
+
+To sum up, TypeScript has two built-in ways of creating immutable arrays: `ReadonlyArray<>` and `Readonly<>`.
+
+The former is a generic type that creates a read-only array, while the latter is a utility type that can make any type, including arrays, read-only. These tools are incredibly handy for developing immutable data structures in TypeScript.
