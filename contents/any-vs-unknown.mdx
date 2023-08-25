@@ -1,0 +1,98 @@
+---
+category: TypeScript
+created: '2023-08-24'
+title: any vs unknown
+---
+
+TypeScript is a powerful language that allows developers to specify the types of variables, functions, and other entities in their code. One of the best things about TypeScript is that it can catch errors before runtime, saving developers a lot of time and headaches.
+
+In TypeScript, there are two special types that can represent values not known at compile time: `any` and `unknown`. Although both types can assign values of any type, they have some important differences that developers should know about.
+
+## The `any` type
+
+The 'any' type in TypeScript is a powerful tool that can represent any value, no matter its type. When you declare a variable as `any`, TypeScript basically stops checking its type, letting you assign any value without error.
+
+But beware: while the `any` type can be useful at times, it's **not recommended** for production code. This is because it can be challenging to catch errors during compilation, since TypeScript won't flag any type-related errors for `any` variables.
+
+Plus, using `any` can make it harder for other developers to understand your code's intent and how to use it properly.
+
+## The `unknown` type
+
+Starting from 3.0, TypeScript introduced a new type called `unknown` to fix some of the issues with the `any` type.
+
+While `any` can represent any value, `unknown` is a bit stricter. If a variable is declared as `unknown`, it can't be assigned to other variables without first checking its type. This helps ensure that you're working with the right data types, making your code more reliable and easier to maintain.
+
+Let's take a look at some code for example:
+
+```ts
+let myVariable: unknown = 'hello';
+
+// This will throw an error:
+// `Type 'unknown' is not assignable to type 'string'`
+let myString: string = myVariable;
+```
+
+This code generates an error in TypeScript because you can't assign a variable of type `unknown` to a variable of type `string` without first checking the type of the value stored in `myVariable`.
+
+But don't worry, there are ways to check the type of a variable that's been declared as `unknown`. You can use type guards or the `typeof` operator. This helps catch errors before you even run your code and makes it easier for other developers to understand how a variable should be used.
+
+Here's an example: We have a function called `isSubscriber` that needs to determine whether an `unknown` parameter is an instance of `Subscriber`.
+
+```ts subscriber.ts
+interface Subscriber {
+    emailAddress: string;
+}
+
+const isSubscriber = (obj: unknown): obj is Subscriber => {
+    return (obj as Subscriber)?.emailAddress !== undefined &&
+        typeof (obj as Subscriber).emailAddress === 'string';
+};
+```
+
+Actually, the function could perform additional checks on many other properties of the `Subscriber` model.
+Here's an example of how you can use the snippet in a type-safe way:
+
+```ts
+const obj: unknown = {
+    emailAddress: 'foo@bar.com',
+};
+
+if (isSubscriber(obj)) {
+    // 👉️ obj has type of Subscriber
+    console.log(obj.emailAddress);  // `foo@bar.com`
+}
+```
+
+In addition to the `typeof` operator, we also have the option to use the `instanceof` operator.
+To demonstrate this, take a look at the following `log` function that takes advantage of this approach to log the value of an `unknown` value as a string:
+
+
+```ts log.ts
+const log = (value: unknown): void => {
+    if (typeof value === 'function') {
+        // It's safe to retrieve the function name
+        const functionName = value.name || '(anonymous)';
+        console.log(`[function ${functionName}]`);
+        return;
+    };
+
+    if (value instanceof Date) {
+        // Log a `Date` instance
+        console.log(value.toISOString());
+        return;
+    }
+
+    // For other cases, just pass it to String
+    console.log(String(value));
+};
+```
+
+## Wrapping it up
+
+To sum up, although `any` and `unknown` can both represent values of any type, they have distinct use cases and implications.
+
+It's best for developers to **avoid using `any`** in production code and instead opt for `unknown` when working with values of unknown type. This approach leads to safer and more maintainable code in TypeScript.
+
+## See also
+
+-   [void vs never](https://phuoc.ng/collection/this-vs-that/void-vs-never)
