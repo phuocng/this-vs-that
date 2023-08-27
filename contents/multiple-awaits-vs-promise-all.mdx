@@ -1,0 +1,57 @@
+---
+category: JavaScript
+created: '2023-08-26'
+description: The differences between multiple awaits and Promise.all() function
+openGraphCover: /og/this-vs-that/multiple-awaits.png
+title: Multiple awaits vs Promise.all()
+---
+
+In JavaScript, there are two popular methods for handling multiple asynchronous operations: using multiple `await` statements or `Promise.all()`.
+
+In this post, we will discover the main differences between them. Let's dive in!
+
+## Using multiple awaits
+
+When you use multiple `await` statements, each one will pause the function's execution until the awaited promise is resolved. Here's an example to illustrate this concept:
+
+```js
+const getData() = async () => {
+    const firstData = await fetch('/api/first');
+    const secondData = await fetch('/api/second');
+    const thirdData = await fetch('/api/third');
+
+    return [firstData, secondData, thirdData];
+};
+```
+
+The function `getData()` fetches data from three different endpoints in a row, waiting for each one to finish before moving on to the next. While this ensures that the data is fetched in order, it can also slow things down. Each `await` statement pauses the function until the data is returned, which can lead to slower performance overall.
+
+Using multiple awaits to run independent tasks is not the best choice. For example, if the first task takes a long time to complete, while the last one fails quickly, users will have to wait for all tasks to finish before seeing the error message. This is not a good user experience.
+
+## Using Promise.all()
+
+By using `Promise.all()`, you can run multiple asynchronous operations at the same time. Let's take a look at the example we used in the previous section, but this time we'll use the `Promise.all()` function.
+
+```js
+const getData() = async () => {
+    const [firstData, secondData, thirdData] = await Promise.all([
+        fetch('/api/first'),
+        fetch('/api/second'),
+        fetch('/api/third'),
+    ]);
+
+    return [firstData, secondData, thirdData];
+};
+```
+
+In this example, the `getData()` function fetches data from three different endpoints at the same time, waiting for all of them to complete before returning the data. This technique can improve performance because the function won't be paused by individual `await` statements.
+
+With Promise.all, if any of its tasks are rejected, it will immediately reject the entire operation. This is called [fail-fast behavior](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all#promise.all_fail-fast_behavior) and distinguishes it from multiple awaits.
+
+## Conclusion
+
+Both approaches, using multiple `await` statements and `Promise.all()`, have their pros and cons. The choice you make will depend on your specific use case.
+
+Using multiple `await` statements can make your code easier to read and understand, but it may not be the fastest option. On the other hand, using `Promise.all()` can lead to faster performance, but it can be more difficult to debug.
+
+In general, it's recommended to use `Promise.all()` when you need to execute independent tasks in parallel.
