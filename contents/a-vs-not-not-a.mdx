@@ -1,0 +1,34 @@
+---
+category: JavaScript
+created: '2023-08-25'
+description: The differences between !a and !!a
+openGraphCover: /og/this-vs-that/not-not.png
+title: a vs !!a
+---
+
+In JavaScript, the '!' symbol is the logical NOT operator. It returns the opposite boolean value of the operand. If the operand is `true`, it returns `false`, and if the operand is `false`, it returns `true`.
+
+However, when you use '!' twice, it becomes the logical NOT NOT operator, which is the same as using no operator at all. So, `!!a` simply returns the boolean value of `a`.
+
+Here's an example to show the difference between using `a` and `!!a`:
+
+```javascript
+const a = 0;
+console.log(a);     // 0
+console.log(!a);    // true
+console.log(!!a);   // false
+```
+
+In the example above, we set the value of `a` to 0, which is considered a **falsy value** in JavaScript.
+
+> In addition to 0, there are other values that are considered "falsy", including `false`, `NaN`, `undefined`, `null`, and `""` (an empty string).
+
+When we apply the logical NOT operator on `a`, it returns `true` because 0 is a falsy value.
+
+However, when we apply the logical NOT NOT operator on `a`, it returns `false` because the boolean value of 0 is `false`.
+
+In general, using `a` is useful when you want to check if a value is **truthy** or **falsy**. On the other hand, using `!!a` is helpful when you want to get the boolean value of a variable.
+
+## See also
+
+-   [== vs ===](https://phuoc.ng/collection/this-vs-that/equality-operator-vs-strict-equality-operator)
