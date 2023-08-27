@@ -1,0 +1,87 @@
+---
+category: HTML
+created: '2023-08-25'
+description: The differences between preload and prefetch
+openGraphCover: /og/this-vs-that/preload-vs-prefetch.png
+title: preload vs prefetch
+---
+
+`preload` and `prefetch` can be used with HTML tags that help optimize web page loading times. Although they both improve page speed, they work in different ways.
+
+## preload
+
+Let's check out a straightforward example of how to load a CSS stylesheet.
+
+```html
+<link rel="stylesheet" href="/path/to/file.css">
+```
+
+In order for users to see the content on a page display properly, they have to wait for the browser to fully download the stylesheet. However, we can improve the overall speed and performance of the page by requesting that the browser fetch and cache resources like fonts, scripts, CSS, and images as soon as possible.
+
+To put this into action, let's revisit the example above and take advantage of `preload` feature.
+
+```html
+<link rel="preload" href="/path/to/file.css" as="style">
+```
+
+`preload` tells the browser which resources are essential for the web page to work correctly. One common use is to preload Google fonts, ensuring they load quickly and smoothly when someone visits the page.
+
+```html
+<link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+    as="style"
+    crossorigin
+/>
+```
+
+If you are using a custom font that is not available on Google Fonts, but is stored on your server, you can preload the font as well.
+
+```html
+<link
+    rel="preload"
+    href="font.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+>
+```
+
+In this example, we're preloading a font file (`font.woff2`) and telling the browser what type of file it is.
+
+## prefetch
+
+`prefetch`, on other hand, lets you tell the browser to fetch and cache resources in the background that might be needed later on, but **aren't critical** for the initial page load.
+
+For instance, let's say you have a webpage with a link to another page that the user might click on. By using `prefetch`, you can start loading that linked page in the background, so if the user does click on the link, the page will load faster.
+
+Here's an example of how to use the `prefetch` attribute:
+
+```html
+<link rel="prefetch" href="/page.html">
+```
+
+In this example, we're prefetching a page (`page.html`) that the user might click on.
+
+> It's important to note that Safari browser doesn't support prefetching at the moment. For more details, visit [this page](https://caniuse.com/?search=prefetch).
+
+## Good to know
+
+The `<audio>` and `<video>` tags have a `preload` attribute that you can use. Setting it to `none` tells the browser not to load the audio or video when the page loads.
+
+```html
+<audio controls preload="none">
+</audio>
+
+<video controls preload="none">
+</video>
+```
+
+## Conclusion
+
+To sum it up, `preload` is for important resources needed during the initial page load, while `prefetch` is for resources that may be needed later, but aren't crucial for the first load.
+By combining `preload` and `prefetch`, you can speed up your web page loading times and enhance the user experience.
+
+## See also
+
+-   [script async vs script defer](https://phuoc.ng/collection/this-vs-that/script-async-vs-script-defer)
