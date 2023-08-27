@@ -1,14 +1,16 @@
 ---
 category: TypeScript
 created: '2023-08-24'
-title: keyof vs extends keyof
+description: The differences between K keyof T and K extends keyof T in TypeScript
+openGraphCover: /og/this-vs-that/keyof.png
+title: K keyof T vs K extends keyof T
 ---
 
 One of the coolest features of TypeScript is the ability to limit the keys of an object to a specific subset of values using the `keyof` operator.
 
 However, there are two similar-looking syntaxes for this operation that can be confusing for us: `K extends keyof T` and `K keyof T`. In this post, we'll explore the differences between these two syntaxes and when to use each one. Let's dive in!
 
-## `K keyof T`
+## K keyof T
 
 The syntax `K keyof T` is a way to ensure that `K` is a key of the type `T`. It's an easy way to limit the type of a variable to a particular set of keys. For instance, let's take a look at the following code:
 
@@ -42,7 +44,7 @@ In this example, we have a function called `getProperty` that takes in an object
 
 The cool thing is that TypeScript will give us an error at compile-time if we try to pass in an invalid key like `length`. This helps us catch errors early on and prevent bugs from popping up in our code.
 
-## `K extends keyof T`
+## K extends keyof T
 
 The `K extends keyof T` syntax indicates that `K` must be a valid key of the `T` type. This syntax comes in handy when we need to accept multiple keys as input to a function or define a type that can have one of several key-value pairs. We can even use a union of keys with this syntax.
 
