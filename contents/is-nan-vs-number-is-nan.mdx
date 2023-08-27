@@ -1,0 +1,51 @@
+---
+category: JavaScript
+created: '2023-08-26'
+description: The differences between isNaN and Number.isNaN functions
+openGraphCover: /og/this-vs-that/is-nan.png
+title: isNaN vs Number.isNaN
+---
+
+JavaScript has two functions to determine if a value is `NaN` (standing for _Not a Number_): `isNaN` and `Number.isNaN`. Although they may seem similar at first glance, there are some important differences between them that are worth noting.
+
+## The isNaN function
+
+The `isNaN` function in JavaScript is a handy global function that checks if the argument is `NaN`. It returns `true` if the argument is `NaN` and `false` if it's not. However, before checking if the argument is `NaN`, it first tries to convert it to a number. This can sometimes lead to unexpected results.
+
+Let's explore how the `isNaN` function operates with various values.
+
+```js
+isNaN('hello');     // true
+isNaN(undefined);   // true
+isNaN({});          // true
+isNaN([]);          // false
+isNaN(42);          // false
+```
+
+As you see, the first three examples return `true` because `isNaN` tries to convert the argument to a number, but can't.
+In contrast, the last two examples return `false` because the argument can be converted to a number.
+
+## The Number.isNaN function
+
+Introduced in ECMAScript 6, the `Number.isNaN` function is a static method of the `Number` object. It determines whether the provided argument is `NaN` and returns `true` if it is, and `false` if it is not. Unlike `isNaN`, which tries to convert the argument to a number before checking if it is `NaN`, `Number.isNaN` solely checks for `NaN` without any type coercion.
+
+Let's go back to the example we saw earlier in the previous section, specifically with the `Number.isNaN` function.
+
+```js
+Number.isNaN('hello');      // false
+Number.isNaN(undefined);    // false
+Number.isNaN({});           // false
+Number.isNaN([]);           // false
+Number.isNaN(42);           // false
+Number.isNaN(NaN);          // true
+```
+
+Can you spot the difference between `Number.isNaN` and the global `isNaN` function? In all the examples above, `Number.isNaN` returns `false` except for the last one, where it returns `true`. Why? Because `NaN` is the only value that is not equal to itself. Pretty interesting, right?
+
+## Conclusion
+
+It's generally better to use `Number.isNaN` than `isNaN` since it gives more accurate and predictable results. But, if you have to support older browsers that don't have `Number.isNaN`, then you might have to use `isNaN` instead.
+
+## See also
+
+-   [Number() vs parseInt()](https://phuoc.ng/collection/this-vs-that/number-constructor-vs-parse-int)
