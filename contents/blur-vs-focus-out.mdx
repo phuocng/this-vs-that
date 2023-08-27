@@ -1,0 +1,39 @@
+---
+category: DOM
+created: '2023-08-25'
+description: The differences between blur and focusOut events
+openGraphCover: /og/this-vs-that/blur-vs-focus-out.png
+title: blur vs focusOut
+---
+
+In JavaScript DOM, when an element loses focus, two events are triggered: `blur` and `focusOut`. While they may seem alike, there are significant differences between them that are worth noting.
+
+## The blur event
+
+The `blur` event happens when an element loses focus, like when the user clicks somewhere else or tabs away from it.
+
+```js
+input.addEventListener('blur', () => {
+    // Executed when element loses focus ...
+});
+```
+
+The `blur` event is only triggered on the element that lost focus. It doesn't bubble up the DOM tree, so it won't be triggered on any parent elements.
+
+## The focusOut event
+
+The `focusOut` event is also triggered when an element loses focus. However, it behaves slightly differently than `blur`.
+
+```js
+element.addEventListener('focusout', () => {
+  // Executed when element loses focus ...
+});
+```
+
+When an `focusOut` event occurs on an element, it bubbles up the DOM tree. This means that if the element has parent elements, those elements will also trigger the `focusOut` event.
+
+## The execution orders
+
+It's important to note other difference between the `focusOut` and `blur` events: the `focusOut` event is triggered before the focus shifts, while the `blur` event is dispatched after.
+
+The same goes for the `focusIn` and `focus` events.
