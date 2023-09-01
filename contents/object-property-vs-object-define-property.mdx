@@ -1,0 +1,216 @@
+---
+category: JavaScript
+created: '2023-08-29'
+description: The differences between object.property and Object.defineProperty()
+openGraphCover: /og/this-vs-that/property-vs-define-property.png
+title: object.property vs Object.defineProperty()
+---
+
+When defining properties on an object in JavaScript, you have two options: dot notation (`object.property`) and `Object.defineProperty`. While both methods can get the job done, there are some important differences to keep in mind.
+
+## Syntax
+
+Defining a property using dot notation is simple and straightforward:
+
+```js
+object.property = value;
+```
+
+On the other hand, `Object.defineProperty` needs three arguments. Don't worry if you're not familiar with the syntax. In the following sections, I'll demonstrate how to use them and provide some examples.
+
+```js
+Object.defineProperty(object, property, descriptor);
+```
+
+## Flexibility
+
+One key difference between the two methods is that `Object.defineProperty` provides greater flexibility when defining properties. This method allows you to define properties as read-only, write-only, or both. Let's explore some examples to illustrate this.
+
+### Read-only property
+
+Let's say we have an object that represents a square, including its size and area. We want to make sure that the area is only calculated based on the sqaure's size, and can't be set directly. Here's how we can make the `area` property read-only using `Object.defineProperty`:
+
+```js
+const square = {
+    size: 5,
+};
+
+Object.defineProperty(square, 'area', {
+    get() {
+        return Math.pow(this.size, 2);
+    },
+});
+
+console.log(square.area);   // 25
+square.area = 100;          // Doesn't do anything
+console.log(square.area);   // 25
+```
+
+As you can see, trying to set the `area` property doesn't do anything because we made it read-only.
+
+### Write-only property
+
+Now suppose we have an object representing a bank account, with properties for the account number and balance. Our top priority is to ensure the security of the account number. To achieve this, we need to ensure that the account number can only be set once during the creation of the account, and cannot be read directly. We can accomplish this by defining a write-only `accountNumber` property using `Object.defineProperty`. Here's how we do it:
+
+```js
+class BankAccount {
+    constructor(accountNumber) {
+        Object.defineProperty(this, 'accountNumber', {
+            writable: false,
+        });
+        this.accountNumber = accountNumber;
+        this.balance = 0;
+    }
+
+    deposit(amount) {
+        this.balance += amount;
+    }
+
+    withdraw(amount) {
+        if (this.balance >= amount) {
+            this.balance -= amount;
+        }
+    }
+}
+
+const account = new BankAccount('123456789');
+console.log(account.accountNumber);     // undefined
+account.accountNumber = '987654321';    // Doesn't do anything
+console.log(account.accountNumber);     // 123456789
+```
+
+As you can see, trying to read the `accountNumber` property directly will return `undefined`. This is because we specifically created it as a property that can only be written to, not read from.
+
+## Getters and setters
+
+Using `Object.defineProperty` has another advantage: it allows you to define getters and setters for a property. Getters and setters are functions that let you control access to a property.
+
+If you access the property directly using square bracket or dot notation, there's no way to prevent users from passing an invalid value.
+
+Let's consider an example. Say we have a `Person` object with an `age` property indicating the person's age.
+
+```js
+let person = {
+    age: 20,
+};
+```
+
+If the `age` property is set to a negative or excessively large number, it should be considered invalid.
+
+```js
+person.age = -5;
+person.age = 200;
+```
+
+To restrict access to a property of the `Person` class, such as `age`, you can use `Object.defineProperty`. This method adds a validation step when you set the value for the property, ensuring that it meets certain criteria.
+
+By defining a getter and/or setter for the property, we can control access to the private variable. The getter returns the value of the private `_age` variable, while the setter sets its value after validating it meets the specified criteria. This enables us to make the property unaccessible from the outside, preventing direct access or modification.
+
+```js
+function Person() {
+    let _age = 0;
+
+    Object.defineProperty(this, 'age', {
+        get() {
+            return _age;
+        },
+        set(value) {
+            if (value < 0 || value > 120) {
+                throw new Error('Invalid age');
+            }
+            _age = value;
+        },
+    });
+};
+```
+
+If you set the age property to an invalid value, an error will be thrown.
+
+```js
+const person = new Person();
+person.age = -5;
+person.age = 200;
+```
+
+> **Good to know**
+>
+> JavaScript doesn't have a built-in feature to create truly private properties on objects. But don't worry, we can still make properties that can't be accessed from outside the object by using the `Object.defineProperty` method. It's one of the ways to implement private properties in JavaScript.
+
+Besides validation, getters and setters can serve other purposes too. For instance, you can keep a log of every time a property is set.
+
+### Non-enumerable properties
+
+In addition to read-only and write-only properties, `Object.defineProperty` has another trick up its sleeve: the ability to define non-enumerable properties. These are properties that won't show up when you loop through an object's properties using a `for...in` loop or the `Object.keys()` method.
+
+Defining a property as non-enumerable can be useful for keeping sensitive information hidden from external code. For example, imagine an object representing a user profile with properties for the user's name, email address, and password. You might want to define the password property as non-enumerable so that it doesn't show up in any debugging output.
+
+To define a non-enumerable property, simply set the `enumerable` property of the descriptor object to `false`. Here's an example:
+
+```js
+const person = {
+    name: 'John Smith',
+    age: 42,
+};
+
+Object.defineProperty(person, 'ssn', {
+    value: '123-45-6789',
+    enumerable: false,
+});
+
+for (const key in person) {
+    console.log(key); //    `name`, `age`
+}
+
+console.log(Object.keys(person));   // [`name`, `age`]
+console.log(person.ssn);            // `123-45-6789`
+```
+
+As you may have noticed, the `ssn` property does not appear when we use a `for...in` loop or the `Object.keys()` method to loop through the object's properties. But don't worry, we can still access it directly by using its name.
+
+### Non-configurable properties
+
+`Object.defineProperty` not only allows you to define properties, but also non-configurable properties. Non-configurable properties cannot be deleted or redefined using `delete` or `Object.defineProperty`. They can only be modified if they are writable.
+
+Defining a property as non-configurable can be helpful when you want to prevent unintended modification of important properties on an object. For example, let's say you have an object that stores settings for your application, including an API key for making requests to a third-party service. You might want to define this property as non-configurable so that it cannot be accidentally overwritten by other parts of your code.
+
+To define a non-configurable property, you simply set the `configurable` property of the descriptor object to `false`. Let's revisit the example from the previous section, but this time, we'll also make the `ssn` property non-configurable.
+
+```js
+const person = {
+    name: 'John Smith',
+    age: 42,
+};
+
+Object.defineProperty(person, 'ssn', {
+    value: '123-45-6789',
+    enumerable: false,
+    writable: true,
+    // This is what makes the property non-configurable
+    configurable: false
+});
+
+console.log(person.ssn);    // `123-45-6789`
+
+// This will not delete the property
+delete person.ssn;
+
+// This will throw an error because
+// we're trying to redefine a non-configurable property
+Object.defineProperty(person, 'ssn', {
+    value: '987-65-4321',
+});
+```
+
+As you can see, trying to delete or redefine a non-configurable property won't work.
+
+> **Good practice**
+>
+> It's important to understand that making properties non-enumerable or non-configurable doesn't guarantee complete security against malicious code. It just makes it harder for accidental changes or access to occur. If you need real security, like protecting sensitive data from attackers, you should explore other methods instead of relying solely on defining properties with `Object.defineProperty`.
+
+## Conclusion
+
+To sum up, we have two ways to define properties on an object: `object.property` and `Object.defineProperty`. While both methods work, `Object.defineProperty` gives us more options and control over how properties are defined. If you just need a simple property that can be read and written to, dot notions work fine. But if you need a property with special characteristics, like read-only or with a getter/setter, then `Object.defineProperty` is the way to go.
+
+## See also
+
+-   [object.property vs object["property"]](https://phuoc.ng/collection/this-vs-that/object-property-with-vs-without-quotes)
