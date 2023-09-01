@@ -1,0 +1,108 @@
+---
+category: JavaScript
+created: '2023-08-31'
+description: The differences between Object constructor function and object literals in JavaScript
+openGraphCover: /og/this-vs-that/object-constructor-vs-literals.png
+title: Object constructor function vs object literals
+---
+
+JavaScript offers two primary ways of creating objects: by using the `Object` constructor function or by using object literals. In this post, we'll explore the differences between them. So, let's dive right in!
+
+## Object constructor function
+
+In JavaScript, the `Object` constructor function is a built-in function that lets you create a new object. While it's not as common as using object literals, it's still widely used in some cases. Here's an example of how you can create a new object using the `Object` constructor:
+
+```js
+let person = new Object();
+```
+
+This creates a new, empty object. You can then add properties and methods to the object using dot notation or bracket notation.
+
+```js
+person.name = 'John';
+person.age = 42;
+person.greet = () => {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+```
+
+This code adds two properties, `name` and `age`, to the object. It also includes a method called `greet`, which logs a message to the console.
+
+## Object literals
+
+On the other hand, object literals are a more common way to create objects. They're easy to use: just list a bunch of name-value pairs separated by commas, and wrap them in curly braces.
+
+To illustrate, let's rewrite our earlier example using an object literal:
+
+```js
+let person = {
+    name: 'John',
+    age: 42,
+    greet: function() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    },
+};
+```
+
+This code creates a new object that has the same properties and methods as the previous example. The only difference is that this one uses object literal syntax instead.
+
+## JavaScript primitive types
+
+JavaScript offers more than just the `Object` primitive type. You can create other primitive types using built-in constructors or literal notation. Check out these examples:
+
+```js
+// Array
+const a = new Array();
+const b = [];
+
+// Boolean
+const a = new Boolean(true);
+const b = true;
+
+// Number
+const a = new Number(42);
+const b = 42;
+
+// String
+const a = new String('hello world');
+const b = 'hello world';
+```
+
+When dealing with primitive types in JavaScript, it's better to use object literals instead of constructors. The built-in object constructor can be confusing and lead to struggles. Let's take a look at some examples, starting with creating an array.
+
+```js
+const a = new Array(4);             // [undefined, undefined, undefined, undefined]
+const b = new Array(1, 2, 3, 4);    // [1, 2, 3, 4]
+```
+
+Have you ever tried initializing an array with a single number, like `Array(4.2)`? Don't bother - it'll throw an exception. The `Array` constructor will interpret 4.2 as the length of the array, which isn't a valid input.
+
+Here's another example: creating a new `Boolean` variable.
+
+```js
+const b = new Boolean(false)
+if (b) {
+    // Do something ...
+}
+```
+
+Even though you pass the initial value of `false` to the `Boolean` constructor, the code inside the if statement will still be executed! Can you believe it?
+
+> **Good to know**
+>
+> We don't need to use the `new` operator when working with a primitive type constructor. That means we can create new instances without using `new` at all.
+>
+> ```js
+> const b = Array(1, 2, 3, 4);      // [1, 2, 3, 4]
+> const c = String('hello world');  // `hello world'
+> ```
+>
+> In my opinion, creating a new variable without using the `new` operator is not a good practice. It's important to maintain consistency in the language. Using the `new` operator for creating variables is a common practice among other classes and should be followed.
+
+## Differences
+
+When creating objects in JavaScript, you have two options: using the `Object` constructor or object literals. Object literals are more concise and easier to read. You can define an object's properties and methods in one place.
+
+Object literals are also faster to create than using the `Object` constructor because they don't require a function call. However, the performance difference is usually negligible unless you're creating a lot of objects.
+
+Overall, it's best to use object literals whenever possible because they're easier to read and write. But if you need to create an object with many properties or methods, or if you need to create objects dynamically at runtime, the `Object` constructor may be more appropriate.
