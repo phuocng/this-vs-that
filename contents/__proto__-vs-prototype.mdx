@@ -1,0 +1,45 @@
+---
+category: JavaScript
+created: '2023-08-31'
+description: The differences between __proto__ and prototype in JavaScript
+openGraphCover: /og/this-vs-that/proto-vs-prototype.png
+title: __proto__ vs prototype
+---
+
+In JavaScript, `__proto__` and `prototype` are two frequently used terms that can be confusing. While they are related, they have distinct meanings and uses. Let's clear up the confusion.
+
+## Prototype
+
+In JavaScript, when you create an object from a constructor function, it comes with a built-in property called `prototype`. This is like a blueprint for all the objects created from that constructor function. It defines the shared properties and methods that all instances of that object will have.
+
+```js
+function Circle(radius) {
+    this.radius = radius;
+}
+
+Circle.prototype.getArea = function() {
+    return Math.PI * Math.pow(this.radius, 2);
+};
+
+const circle = new Circle(5);
+circle.getArea();   // `78.53981633974483`
+```
+
+In the code above, the `getArea` method is contained in an object called `Circle.prototype`. When a new `Circle` instance is created, its `__proto__` property is set to `Circle.prototype`.
+
+## proto
+
+`__proto__` is a property of an object that points to its prototype. This property is used internally by the JavaScript engine to search for properties and methods on an object's prototype chain.
+
+```js
+const circle = new Circle(10);
+console.log(circle.__proto__ === Circle.prototype); // true
+```
+
+In the code above, `circle.__proto__` points to `Circle.prototype`.
+
+## Difference
+
+The difference between `__proto__` and `prototype` is simple: `__proto__` is a property of an object instance, while `prototype` is a property of a constructor function.
+
+When you use `__proto__`, you're looking up properties and methods on an object's prototype chain. On the other hand, `prototype` defines the shared properties and methods that all instances created from a constructor function will have.
