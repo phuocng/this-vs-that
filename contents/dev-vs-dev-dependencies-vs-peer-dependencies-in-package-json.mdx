@@ -1,0 +1,65 @@
+---
+category: JavaScript
+created: '2023-08-30'
+description: The differences between dev, devDependencies and peerDependencies in package.json
+openGraphCover: /og/this-vs-that/dependencies-package-json.png
+title: dev vs devDependencies vs peerDependencies in package.json
+---
+
+When it comes to working with Node.js packages, there are a few different types of dependencies that you'll need to include in your `package.json` file. Three of the most common types of dependencies are `dev`, `devDependencies`, and `peerDependencies`. Although these terms may sound alike, each has a unique purpose and use case. Let's take a closer look.
+
+## Dev dependencies
+
+`devDependencies` are dependencies that are only necessary during the development process, and are not required for the final production version of the code. These may include helpful tools like testing frameworks, linters, and bundlers. You can install dev dependencies by running `npm install --dev` or `npm install --only=dev`.
+
+For example, if you're using [Jest](https://jestjs.io) as your testing framework, you would include it as a dev dependency in your `package.json` file like this:
+
+```json
+"devDependencies": {
+    "jest": "^29.6.4"
+}
+```
+
+When working on a project with multiple developers, it's a good idea to include dev dependencies. This helps ensure that everyone on the team is using the same tools and configurations, which can prevent issues caused by differences between machines. In other words, it keeps everyone on the same page and avoids any unnecessary headaches.
+
+## Dependencies
+
+_Dependencies_ are essential components that must be included in your code for it to run properly. They should be included in the final production version and will be automatically installed when you run `npm install`.
+
+For instance, if you're using [underscore](https://underscorejs.org) in your code, you would add it as a dependency in your `package.json` file like this:
+
+```json
+"dependencies": {
+    "underscore": "^1.13.6"
+}
+```
+
+## Peer dependencies
+
+`peerDependencies` are dependencies that your package needs to run, but expects the consuming package to provide. Unlike regular dependencies, peer dependencies are not installed automatically when running `npm install`. Instead, the developer who is using your package must manually install them.
+
+For instance, if your package requires a specific version of React to run, you would include it as a peer dependency in your `package.json` file like this:
+
+```json
+"peerDependencies": {
+    "react": "^18.0.2"
+}
+```
+
+Using peer dependencies in your package has benefits and drawbacks.
+
+One major benefit is that it can prevent version conflicts between packages. By relying on the consuming package to provide a specific dependency, you ensure that there won't be multiple versions of the same dependency installed. This can avoid issues and make maintenance easier.
+
+Another benefit is that using peer dependencies can make your package smaller and faster to install. Since peer dependencies aren't included in your package's `node_modules` folder, it can reduce the size of your package.
+
+However, there are some drawbacks to using peer dependencies. One major drawback is that it can add complexity for the developer using your package. If they're not familiar with peer dependencies or don't understand how to manually install them, this could lead to confusion and frustration.
+
+Additionally, if a required peer dependency isn't installed correctly or at all, this could cause errors or unexpected behavior when running your code. This means you may need to provide additional documentation or support for developers who use your package.
+
+## Conclusion
+
+When developing Node.js packages, it's crucial to understand the differences between dependency types. By using the appropriate type for each scenario, you can ensure that your code is well-organized and that other developers who use your package won't run into issues.
+
+## See also
+
+-   [^a.b.c vs ~a.b.c in package.json file](https://phuoc.ng/collection/this-vs-that/caret-vs-tilde-in-package-json-file)
