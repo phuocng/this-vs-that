@@ -1,0 +1,62 @@
+---
+category: CSS
+created: '2023-08-31'
+description: The differences between pseudo-classes and pseudo-elements in CSS
+openGraphCover: /og/this-vs-that/pseudo.png
+title: pseudo-classes vs pseudo-elements
+---
+
+When it comes to styling HTML elements in CSS, we have two options: pseudo-classes and pseudo-elements. It's important to know that these two options are not the same thing. Let's take a closer look.
+
+### Pseudo-classes
+
+Pseudo-classes are a way to select and style an element based on its position or state in the document tree. They're written with a colon followed by the name of the pseudo-class. Some examples of pseudo-classes you might use are:
+
+-   `:hover` - styles an element when you hover the mouse over it
+-   `:active` - styles an element when you click on it
+-   `:first-child` - styles the first child element of a parent element
+
+Pseudo-classes let you apply styles to elements that already exist based on their position or state. They don't create new elements.
+
+### Pseudo-elements
+
+Pseudo-elements, on the other hand, are used to create new elements that are not in the HTML document tree. They are denoted by two colons followed by the name of the pseudo-element. Some common examples of pseudo-elements include:
+
+-   `::before` - adds a new element before the content of an element
+-   `::after` - adds a new element after the content of an element
+-   `::first-line` - selects the first line of text within an element
+
+Pseudo-elements are like magic tools that let you create new elements you can style separately from the original element. They're great for adding decorative touches or extra content to an element.
+
+But wait, there's more! There are some super special pseudo-elements that won't even show up in the DOM tree. Here are a few of them:
+
+-   `::selection` - style the text that is selected by the user
+-   `::placeholder` - style the placeholder text in an input field
+
+### Examples
+
+Check out these examples of how you can use pseudo-classes and pseudo-elements:
+
+```css
+/* Underline a link when the mouse cursor is over it */
+a:hover {
+    text-decoration: underline;
+}
+
+/* Remove the bottom border from the last item in a list */
+li:last-child {
+    border-bottom: none;
+}
+
+/* Adding a bullet point before a list item */
+li::before {
+    content: "•";
+}
+
+/* Styling the first character of a paragraph */
+p::first-letter {
+    font-weight: bold;
+}
+```
+
+In short, pseudo-classes and pseudo-elements are both used to style different parts of an HTML element, but they have different purposes. Pseudo-classes are used to style existing elements based on their state or position, while pseudo-elements are used to create new elements that can be styled independently.
