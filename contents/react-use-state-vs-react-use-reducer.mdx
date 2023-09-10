@@ -1,0 +1,174 @@
+---
+category: React
+created: '2023-09-08'
+description: The differences between useState() and useReducer() hooks in React
+openGraphCover: /og/this-vs-that/use-state-vs-use-reducer.png
+title: React.useState() vs React.useReducer()
+---
+
+React is a widely-used JavaScript library for creating user interfaces. One of its key features is state management, which is handled by two hooks: `useState` and `useReducer`. Although both hooks serve the same purpose, they have differences that make them more appropriate for specific use cases.
+
+## React.useState()
+
+If you're working with React, `useState` is the easiest way to manage state. It's a hook that gives you two things: the current state and a function to update it. You can set the initial state to `null`, `undefined`, or an empty string, or pass in a value of your own.
+
+Let's say you're building a table with search, filter, and pagination features. You'll need some variables to keep track of the data, search queries, filters, and page numbers.
+
+To manage all of these, you can use multiple `useState` hooks. For example, you might use `data`, `query`, `filter`, and `page` properties to keep track of each piece of state. You can use the `fetchData` function to call an API and get the data based on the search query and filter.
+
+As users interact with the table, you'll need to update the state values based on the input. You can use functions like `handleSearch`, `handleFilter`, and `handlePageChange` to update the state. Sometimes you'll need to update multiple states at once – for example, when users search for something or apply filters, you'll need to reset the page index to 1.
+
+Finally, the table will be rendered with data based on the current page and page size properties of the state using pagination functionality.
+
+Here's an example of how you can use multiple `useState` hooks to manage state in this scenario:
+
+```tsx
+import * as React from 'react';
+
+export const Table = () => {
+    const [data, setData] = React.useState([]);
+    const [query, setQuery] = React.useState('');
+    const [filter, setFilter] = React.useState({});
+    const [page, setPage] = React.useState(1);
+
+    const fetchData = () => {
+        // Make API call with query and filter
+        // update data with response
+    };
+
+    const handleSearch = (event) => {
+        setQuery(event.target.value);
+        setPage(1);
+    };
+
+    const handleFilter = (filterObj) => {
+        setFilter(filterObj);
+        setPage(1);
+    };
+
+    const handlePageChange = (pageNum) => {
+        setPage(pageNum);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, [query, filter]);
+
+    // Render table with data based
+    // on current page and page size
+    return (...);
+};
+```
+
+As you can see, the implementation can get more complex as more features are added.
+
+## React.useReducer()
+
+The `useReducer` hook is a powerful tool that helps manage complex state and actions in a predictable way. It follows the reducer pattern used in Redux, which is a well-known state management library.
+
+To use `useReducer`, you just need to provide it with two arguments: a reducer function and an initial state. The `reducer` function handles updates to the state, while `state` holds the current state. With the `useReducer` method, we only need one variable to manage all internal states.
+
+To send actions to the reducer, we use the `dispatch` function. The action object passed to `dispatch` includes a `type` property that specifies which action to perform, and a `payload` property that can be used to pass any additional data needed by the reducer function.
+
+When an action is dispatched, React calls the reducer function with the current state and the action object as arguments. The reducer function then returns a new state based on both pieces of information.
+
+Let's take a look at how we can use `useReducer` to manage state in a more predictable way. We'll be using this hook to rewrite the previous example.
+
+```tsx
+import * as React from 'react';
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'SET_DATA':
+            return { ...state, data: action.payload };
+        case 'SET_QUERY':
+            return { ...state, query: action.payload };
+        case 'SET_FILTER':
+            return { ...state, filter: action.payload };
+        case 'SET_PAGE':
+            return { ...state, page: action.payload };
+        default:
+            throw new Error();
+    }
+};
+
+const Table = () => {
+    const [state, dispatch] = React.useReducer(reducer, {
+        data: [],
+        query: '',
+        filter: {},
+        page: 1,
+        pageSize: 10
+    });
+
+    const fetchData = () => {
+        // Make API call with state.query and state.filter
+        // update state.data with response
+    };
+
+    const handleSearch = (event) => {
+        dispatch({
+            type: 'SET_QUERY',
+            payload: event.target.value,
+        });
+    };
+
+    const handleFilter = (filterObj) => {
+        dispatch({
+            type: 'SET_FILTER',
+            payload: filterObj,
+        });
+    };
+
+    const handlePageChange = (pageNum) => {
+        dispatch({
+            type: 'SET_PAGE',
+            payload: pageNum,
+        });
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, [state.query, state.filter]);
+
+    // Render table with state.data based
+    // on current page and page size
+    return (...);
+};
+```
+
+In this example, when a user searches for something or applies filters to the results, we use `dispatch` to update multiple states at once. If a user types something in the search input field and presses enter, we call the `handleSearch` method with the event value as the payload parameter.
+
+```js
+const handleSearch = (event) => {
+    dispatch({
+        type: 'SET_QUERY',
+        payload: event.target.value,
+    });
+};
+```
+
+The `dispatch` method sends an object with type `SET_QUERY` and payload equal to the event's target value. This will trigger our reducer method and update our query state.
+
+The reducer takes two parameters: the current state and an action object that has `type` and `payload` properties. In the example above, it checks if the type of the incoming action matches the string `SET_QUERY`. If it does, it updates the query property of our state with the payload parameter's value.
+
+```js
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'SET_QUERY':
+            return { ...state, query: action.payload };
+        default:
+            throw new Error();
+    }
+};
+```
+
+Using this state management technique can make your code more predictable since all changes are made through actions that are handled by a single function. This approach also simplifies debugging by allowing you to easily track which actions were performed on your state at any given time during your application's lifecycle.
+
+## Conclusion
+
+To sum up, both `useState` and `useReducer` hooks are useful for managing state in React. Which one you choose depends on your state management needs.
+
+For simple state changes that don't require much logic or coordination, `useState` is the way to go. But if you're dealing with complex state changes that require coordination between different parts of your app, `useReducer` is your best bet.
+
+Neither hook is better than the other; they simply have different strengths. By understanding these differences, you can decide which one to use in your own projects.
