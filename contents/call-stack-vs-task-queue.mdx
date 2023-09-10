@@ -1,0 +1,71 @@
+---
+category: JavaScript
+created: '2023-09-06'
+description: The differences between call stack and task queue in JavaScript
+openGraphCover: /og/this-vs-that/call-stack-vs-task-queue.png
+title: Call stack vs task queue
+---
+
+In JavaScript, there are two important concepts that are essential to asynchronous programming: the call stack and task queue. Knowing how these two work together can help you write better code that is both efficient and bug-free.
+
+## Call stack
+
+The call stack is a data structure used to track function calls in a program. It follows a **Last-In-First-Out** (LIFO) approach, meaning the latest function call is added to the top of the stack, and the currently executing function always sits at the top.
+
+When a function is called, it's added to the top of the stack. Once the function is done, it's removed from the stack. If one function calls another function, the second function gets added to the top of the stack, and the first function waits until the second function's done.
+
+But if the call stack gets too big, it can cause a stack overflow error, which can crash the whole program. Yikes!
+
+## Task queue
+
+The task queue is like a to-do list for a program. It keeps track of all the tasks that need to be done. The queue works on a **First-In-First-Out** (FIFO) basis, which means that the first task that gets added to the queue is the first one that will get done.
+
+When you add a task to the queue, it doesn't get executed right away. It waits until the call stack is empty. Once the call stack is empty, the first task in the queue gets moved to the call stack and is then executed.
+
+There are a few ways to add tasks to the task queue, such as:
+
+-   `setTimeout()`
+-   `setInterval()`
+-   `requestAnimationFrame()`
+-   `Promises`
+
+Here's an example that shows how you can use `Promises` along with task queues in JavaScript to handle asynchronous operations.
+
+When you create a `Promise`, it's added to the task queue. Once the `Promise` is resolved or rejected, it's added back to the task queue with the appropriate result. This lets other functions in the task queue keep executing while waiting for the `Promise` to resolve.
+
+Let's dive in and take a look at an example of using `Promises` in JavaScript:
+
+```js
+const fetchData = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const data = {
+                name: 'John',
+                age: 42,
+            };
+            resolve(data);
+        }, 2000);
+    });
+};
+
+fetchData()
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+```
+
+In this example, we create a function called `fetchData` that returns a `Promise`. Inside this function, we use `setTimeout` to simulate an asynchronous operation that takes two seconds to complete.
+
+After we call `fetchData`, we use the `.then()` and `.catch()` methods to handle success and error cases respectively. When `fetchData` is called, it adds a new task to the task queue. When two seconds have passed, `setTimeout` resolves the `Promise` with some mock data. Then, the resolved `Promise` is added back into the task queue with its result. This triggers the execution of the `.then()` method and logs out `{ name: 'John', age: 42 }`. It's that simple!
+
+## Call stack vs task queue
+
+The call stack and task queue work together to let JavaScript execute code asynchronously. When you call a function, it's added to the call stack. But if the function has an asynchronous operation, like a `setTimeout()` or a `Promise`, it won't execute right away. Instead, the async operation goes to the task queue.
+
+When the call stack is empty, the first task in the queue moves to the call stack and runs. This keeps going until the task queue is empty.
+
+It's super important to know the difference between the call stack and task queue so you don't get bugs or performance issues in your code. If you have a long function that blocks the call stack, it can stop other functions from running, even if they're in the task queue. To fix this, try breaking up the long function into smaller parts or using async operations to let other functions run while the long one waits.
+
+## See also
+
+-   [Microtasks vs macrotasks](https://phuoc.ng/collection/this-vs-that/microtasks-vs-macrotasks)
+-   [setInterval() vs setTimeout() vs setTimeout(0)](https://phuoc.ng/collection/this-vs-that/set-interval-vs-set-timeout-vs-set-timeout-zero)
