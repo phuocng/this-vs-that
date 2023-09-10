@@ -1,0 +1,76 @@
+---
+category: JavaScript
+created: '2023-08-28'
+description: The differences between Set and Array in JavaScript
+openGraphCover: /og/this-vs-that/set-vs-array.png
+title: Set vs Array
+---
+
+JavaScript is a powerful programming language that enables developers to manipulate data in various ways. Sets and arrays are two of the most frequently used data structures in JavaScript, each with its own unique features. Although both can store collections of data, they differ in several significant ways.
+
+In the following sections, we'll explore these differences and learn more about sets and arrays.
+
+## Arrays
+
+An array is like a container that can hold a bunch of values. Each value in an array has an index number that helps you find it. You can store all sorts of things in a JavaScript array, like numbers, words, or even whole objects.
+
+Here's how you can make your own array in JavaScript:
+
+```js
+let colors = ['red', 'green', 'blue'];
+```
+
+To get the value at a certain index in an array, you can use this simple syntax:
+
+```javascript
+colors[0];  // `red`
+colors[1];  // `green`
+```
+
+Arrays come equipped with built-in methods for managing their values. For instance, you can use methods like `push()` and `pop()` to add or remove values from the end of an array. Similarly, you can use `shift()` and `unshift()` to add or remove values from the beginning of an array.
+
+## Sets
+
+A set is a useful data structure for storing a collection of **unique** values. Unlike arrays, sets don't have indexes. Instead, each value in a set is unique and appears only once.
+
+Here's an example of how to create a set in JavaScript:
+
+```js
+let colors = new Set(['red', 'green', 'blue']);
+```
+
+> **Good to know**
+>
+> Have you ever wondered what happens when we declare a set with duplicated values? Does the browser throw an exception? The answer is no, it doesn't. Actually, it automatically removes the duplicate values for us.
+>
+> Let's take an example. If you pass the array `['red', 'green', 'blue', 'green', 'red']` to a `Set` constructor, then the final set only contains the unique values, which is `Set(['red', 'green', 'blue'])`.
+>
+> Using a `Set` is a way to [remove duplicates](https://phuoc.ng/collection/1-loc/remove-duplicate-values-in-an-array) from an array. So, if you want to get rid of duplicate values in an array, just pass it to a `Set` constructor and voila!
+
+Sets has some methods to add or remove a value. For example:
+
+```js
+colors.add('yellow');
+colors.delete('green');
+```
+
+You can also use the `has()` method to check if a value is in the set:
+
+```js
+colors.has('red');   // true
+colors.has('white'); // false
+```
+
+## Differences
+
+The main difference between sets and arrays is that arrays can contain duplicates, while sets cannot. Additionally, arrays can be accessed using an index, while sets cannot.
+
+Arrays are typically used when you need to store a list of items in a specific order, even if some items appear more than once. Sets, on the other hand, are ideal for storing a collection of unique values without worrying about their order.
+
+Arrays come with various built-in methods for manipulating data, while sets have fewer methods available. However, sets have some unique methods of their own, such as `clear()`, which removes all values from the set.
+
+```js
+colors.clear();
+```
+
+When it comes to sets and arrays, each has its own strengths and weaknesses. Choosing the right one for your project depends on the specific needs and requirements.
