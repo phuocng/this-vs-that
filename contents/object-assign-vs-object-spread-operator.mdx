@@ -1,0 +1,95 @@
+---
+category: JavaScript
+created: '2023-08-28'
+description: The differences between Object.assign() and Object spread operator
+openGraphCover: /og/this-vs-that/assign-vs-spread.png
+title: Object.assign() vs Object spread operator
+updated: '2023-08-30'
+---
+
+JavaScript has multiple ways to create and manipulate objects. Two popular methods for merging objects are `Object.assign()` and the object spread operator. In this post, we'll explore the differences between these two methods. So, let's dive right in!
+
+## Object.assign()
+
+`Object.assign()` is a handy method that lets you merge two or more objects into a single one. Here's the scoop:
+
+```js
+const obj1 = { foo: 1 };
+const obj2 = { bar: 2 };
+const obj3 = Object.assign(obj1, obj2);
+
+console.log(obj3);  // { foo: 1, bar: 2 }
+```
+
+In the example above, `Object.assign()` creates a new object by copying the properties from `obj1` and `obj2` into it, and the result is stored in `obj3`.
+
+But here's something to keep in mind about `Object.assign()`: it changes the first argument, which is the target object.
+
+```js
+console.log(obj1);  // { foo: 1, bar: 2 }
+```
+
+If you don't want to change the target object, you can pass an empty object as the first argument instead.
+
+```js
+const obj1 = { foo: 1 };
+const obj2 = { bar: 2 };
+const obj3 = Object.assign({}, obj1, obj2);
+
+console.log(obj1);  // { foo: 1 }
+console.log(obj2);  // { bar: 2 }
+console.log(obj3);  // { foo: 1, bar: 2 }
+```
+
+## Object spread operator
+
+The object spread operator is a fresh addition to ECMAScript 2018. It's a handy tool that lets you copy an object's properties into a new object.
+
+Let's take another look at the example mentioned earlier, but this time, we'll use the spread operator.
+
+```js
+const obj1 = { foo: 1 };
+const obj2 = { bar: 2 };
+const obj3 = { ...obj1, ...obj2 };
+
+console.log(obj3);  // { foo: 1, bar: 2 }
+```
+
+In the example above, we use the object spread operator to create a new object, which contains all the properties from `obj1` and `obj2`. This new object is called `obj3`.
+
+The cool thing about the object spread operator is that it creates a new object without changing any of the objects it copies from. This is different from the `Object.assign` function, which mutates the original objects.
+
+So, if you want to create a new object without changing the original ones, the object spread operator is the way to go.
+
+```js
+const obj1 = { foo: 1 };
+const obj2 = { bar: 2 };
+const obj3 = { ...obj1, ...obj2 };
+
+console.log(obj1);  // { foo: 1 }
+console.log(obj2);  // { bar: 2 }
+console.log(obj3);  // { foo: 1, bar: 2 }
+```
+
+> **Good to know**
+>
+> The spread operator works with `null` values in arrays.
+>
+> ```js
+> const x = ['foo', null, 'bar'];
+> const y = ['baz'];
+> const z = [...x, ...y];   // ['foo', null, 'bar', 'baz']
+> ```
+>
+> However, it doesn't include `null` values when spreading objects.
+>
+> ```js
+> const x = null;
+> const y = { foo: 'bar' };
+> const z = {...x, ...y};   // { foo: 'bar' }
+> ```
+
+## Conclusion
+
+JavaScript offers two methods for merging objects: `Object.assign()` and the object spread operator. While `Object.assign()` is the older and more widely used method, it has one drawback: it modifies the target object.
+On the other hand, the object spread operator is newer, shorter, and more concise. However, it's not compatible with older browsers.
