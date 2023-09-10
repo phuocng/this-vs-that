@@ -1,0 +1,107 @@
+---
+category: JavaScript
+created: '2023-08-30'
+description: The differences between Deep copy and shallow copy in JavaScript
+openGraphCover: /og/this-vs-that/deep-shallow-copy.png
+title: Deep copy vs shallow copy
+---
+
+In JavaScript, there are two ways to copy an object: **deep copy** and **shallow copy**. It's important to understand the difference between them because it can affect how your code behaves.
+
+### Shallow copy
+
+A shallow copy creates a new object that references the original object's properties. In other words, the new object points to the same memory location as the original object. This means that if you make changes to the new object, those changes will also be reflected in the original object.
+
+Here's an example of how a shallow copy works:
+
+```js
+let person1 = {
+    address: {
+        country: 'US',
+        city: 'New York',
+    },
+    name: 'John',
+    age: 42,
+};
+let person2 = Object.assign({}, person1);
+
+person2.address.country = 'France';
+person2.address.city = 'Paris';
+
+console.log(person1);
+// { address: {country: 'France', city: 'Paris'}, ... }
+
+console.log(person2);
+// { address: {country: 'France', city: 'Paris'}, ... }
+```
+
+In this example, we create a new object called `person2` by using `Object.assign()` to copy the properties of `person1`.
+
+Then, we change the values of `address.country` and `address.city` properties of `person2`. However, as you can see from the output of the `console.log()` statements, those changes are also reflected in `person1`. The same thing happens in reverse. If you change the properties of the original object, it will also update the new object.
+
+So, be careful when copying objects because the changes you make can affect both the original object and the new one.
+
+```js
+person1.address.country = 'England';
+person1.address.city = 'London';
+
+console.log(person1);
+// { address: {country: 'England', city: 'London'}, ... }
+
+console.log(person2);
+// { address: {country: 'England', city: 'London'}, ... }
+```
+
+> **Good to know**
+>
+> It's important to keep in mind that when a property is an `object` or `array`, a shallow copy only creates a new reference to the nested object or array.
+>
+> Let's test this out by attempting to modify the `age` property from the objects we created earlier. You'll notice that the property in the original object remains unchanged.
+>
+> ```js
+> person2.age = 24;
+>
+> console.log(person1.age);     // 42
+> console.log(person2.age);     // 24
+> ```
+
+### Deep copy
+
+When you make a deep copy, a whole new object is created with fresh memory locations for all of its properties. This means that any changes you make to the new object won't affect the original object.
+
+Let me show you an example of a deep copy:
+
+```js
+let person1 = {
+    address: {
+        country: 'United State',
+        city: 'New York',
+    },
+    name: 'John',
+    age: 42,
+};
+let person2 = JSON.parse(JSON.stringify(person1));
+
+person2.address.country = 'Italia';
+person2.address.city = 'Rome';
+
+// { address: {country: 'United State', city: 'New York'}, ... }
+console.log(person1);
+
+// { address: {country: 'Italia', city: 'Rome'}, ... }
+console.log(person2);
+```
+
+To create a deep copy of `person1`, we use `JSON.parse(JSON.stringify())`. This creates a new object with fresh memory locations for all of its properties. Then, we change the values of `address.country` and `address.city` to something else.
+
+But even though we made changes to `person2`, `person1` remains unchanged. Check out the `console.log()` statements to see for yourself.
+
+> It's important to mention that the sample code above is only meant to demonstrate the concept of deep copy, using `JSON.parse(JSON.stringify())`. This method may not be appropriate for large or complex objects.
+
+## Conclusion
+
+When copying objects in JavaScript, it's essential to know the difference between shallow copy and deep copy. Shallow copy makes a new object that still refers to the original object's properties, whereas deep copy creates a new object with fresh memory locations for all of its properties. Depending on what you're trying to do, one type of copy may be more useful than the other.
+
+## See also
+
+-   [Deep compare vs shallow compare](https://phuoc.ng/collection/this-vs-that/deep-compare-vs-shallow-compare)
