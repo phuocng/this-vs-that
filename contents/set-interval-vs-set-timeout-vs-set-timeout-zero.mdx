@@ -1,0 +1,99 @@
+---
+category: JavaScript
+created: '2023-09-06'
+description: The differences between setInterval(), setTimeout(), and setTimeout(0) in JavaScript
+openGraphCover: /og/this-vs-that/interval-vs-timeout.png
+title: setInterval() vs setTimeout() vs setTimeout(0)
+---
+
+JavaScript provides three methods to execute code after a delay: `setInterval`, `setTimeout`, and `setTimeout(0)`. Each of these methods has a unique purpose and behavior, and knowing how they work can help you write more efficient and effective code.
+
+In this post, we'll explore the differences between these methods.
+
+## setInterval()
+
+`setInterval` is a handy method that enables you to execute a function repeatedly with a fixed time delay between each execution. The syntax for `setInterval` is straightforward: the first parameter is the function you want to execute, and the second parameter is the delay in milliseconds between each execution.
+
+For instance, if you want to execute the `doSomething()` function every second, you can use the following code:
+
+```js
+setInterval(doSomething, 1000);
+```
+
+It's worth noting that `setInterval` will keep executing the function until you explicitly stop it using `clearInterval()`. This is crucial to prevent memory leaks and ensure that your code stops executing when you want it to.
+
+```js
+const intervalId = setInterval(doSomething, 1000);
+
+// Later ...
+clearInterval(intervalId);
+```
+
+## setTimeout()
+
+`setTimeout` is another method that lets you run a function after a certain delay. Here's how it works: you give it a function to execute as the first parameter, and the amount of time to wait (in milliseconds) as the second parameter. For example, this code will run the `doSomething()` function once after waiting for 5000 milliseconds (that's 5 seconds):
+
+```js
+setTimeout(doSomething, 5000);
+```
+
+Just remember that `setTimeout` only runs the function once. If you want to run the function repeatedly, you'll need to use `setInterval` instead.
+
+To remove a `setTimeout` before the time has elapsed, you can use the `clearTimeout()` method. This method takes a single argument: the ID of the timeout you want to cancel. For example, suppose we have a timeout that calls the `doSomething()` function after 5 seconds:
+
+```js
+const timeoutId = setTimeout(doSomething, 5000);
+```
+
+If we want to cancel this timeout before it has elapsed, we can call `clearTimeout(timeoutId)`. This will prevent the `doSomething()` function from being executed and remove any pending timeouts.
+
+## setTimeout(0)
+
+`setTimeout(0)` is a special version of `setTimeout` that can execute a function **as soon as possible**, but only after the current code has finished running. This can be helpful for delaying expensive or time-consuming operations until after other code has executed.
+
+To use `setTimeout(0)`, simply call it with the function you want to execute:
+
+```js
+setTimeout(fn, 0);
+```
+
+For example, the following code will run the `doSomething()` function as soon as possible, but only after the current code has finished running:
+
+```js
+setTimeout(doSomething, 0);
+```
+
+It's important to note that `setTimeout(0)` doesn't guarantee immediate execution of the function. The function will be added to the end of the event queue, and other events may be processed before it. However, it is guaranteed to execute before any events that are added after it.
+
+## Using a string vs function reference
+
+When using `setInterval` or `setTimeout`, you can pass either a string or a function reference as the first argument. If you pass a string, JavaScript will evaluate it as code when the timer expires. If you pass a function reference, JavaScript will execute that function.
+
+For example, let's say we want to execute the `doSomething()` function every second and log `Hello, world!` to the console. Here's how we can do it:
+
+```js
+function doSomething() {
+    console.log('Hello, world!');
+};
+
+setInterval(doSomething, 1000);
+```
+
+This code works great, but we can also achieve the same result using a string instead of a function reference:
+
+```js
+setInterval('console.log("Hello, world!");', 1000);
+```
+
+However, using strings in this way can be dangerous because it opens up your code to injection attacks. If an attacker is able to modify your string parameter before it is executed by `setInterval` or `setTimeout`, they may be able to execute arbitrary code on your page.
+
+To reduce the risk of injection attacks and make your code more readable and maintainable, it's generally safer to use function references instead of strings when calling `setInterval` or `setTimeout`.
+
+## Conclusion
+
+In JavaScript, `setInterval`, `setTimeout`, and `setTimeout(0)` are powerful tools for delaying code execution. Knowing when to use each one can help you write better code. Just remember to use `clearInterval()` to stop `setInterval` and be careful when using `setTimeout(0)` to avoid any unexpected issues.
+
+## See also
+
+-   [Call stack vs task queue](https://phuoc.ng/collection/this-vs-that/call-stack-vs-task-queue)
+-   [Microtasks vs macrotasks](https://phuoc.ng/collection/this-vs-that/microtasks-vs-macrotasks)
