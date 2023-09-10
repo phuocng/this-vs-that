@@ -1,0 +1,121 @@
+---
+category: JavaScript
+created: '2023-09-05'
+description: The differences between debouncing and throttling in JavaScript
+openGraphCover: /og/this-vs-that/debouncing-vs-throttling.png
+title: Debouncing vs throttling
+---
+
+Debouncing and throttling are two techniques used to improve web application performance by reducing the frequency of certain events like scrolling or typing. Although both techniques limit the number of times a particular event is triggered, they work differently.
+
+In this post, we'll delve into the details of each technique and highlight the differences between them. So, let's get started!
+
+## Debouncing
+
+Debouncing is a technique that prevents a function from being called multiple times in quick succession. It's super helpful when working with events that can be triggered rapidly, like typing. Debouncing ensures that a function is only called once after a certain amount of time has passed since the last event occurred.
+
+Here's an example of how it works in JavaScript:
+
+```javascript
+function debounce(func, delay) {
+    let timeoutId;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function() {
+            func.apply(context, args);
+        }, delay);
+    };
+};
+```
+
+`debounce` delays the execution of a function until a certain amount of time has passed since the last event. It takes two arguments: the function to be debounced and a delay time.
+
+When you call `debounce`, it returns a new function that waits until the specified delay time has passed before executing the original function. It clears any previously set timeout and sets a new one with `setTimeout`.
+
+If the new function is called again before the delay time has elapsed, it clears any pending timeout and sets a new one with fresh delay time. This way, the original function will only be called once after a certain amount of time has passed since the last event occurred.
+
+For instance, let's say we have a search bar on our website that uses an API to fetch results as the user types. Without debouncing, the API call would be triggered every time the user types a new character, which could result in hundreds of API calls being made in a short amount of time. With debouncing, we can delay the API call until the user has stopped typing for, say, 500 milliseconds. This way, the API call is only made once, after the user has finished typing.
+
+```js
+const searchInput = document.getElementById('search-input');
+const handleInputEvent = debounce(fetchResults, 500);
+
+searchInput.addEventListener('input', handleInputEvent);
+
+function fetchResults() {
+    // Call API to fetch search results ...
+};
+```
+
+Debouncing can be useful in various situations, such as:
+
+**Form validation:** When a user fills out a form, it's crucial to validate their input before submitting it. However, validating every time the user types a character can lead to an excessive number of API calls. By debouncing the validation function, we can ensure that it only runs when the user has finished typing. This approach can improve the user experience by reducing lag and errors.
+
+**Window resizing:** If you've ever resized your window, you might have noticed that it triggers multiple resize events in quick succession. This can cause performance issues if our code reacts to each event individually. By debouncing the resize event listener, we can ensure that our code only runs once after the user has finished resizing their window. This way, we can avoid any performance problems and keep our website running smoothly.
+
+## Throttling
+
+Throttling is a technique used to control how often a function is called. It's particularly useful when working with events that happen frequently, like scrolling or window resizing. Throttling makes sure that a function is only called once every X milliseconds, where X is a time interval that you specify.
+
+Here's an example of how throttling works in JavaScript:
+
+```js
+function throttle(func, limit) {
+    let waiting = false;
+    return function() {
+        const context = this;
+        const args = arguments;
+        if (!waiting) {
+            func.apply(context, args);
+            waiting = true;
+            setTimeout(function() {
+                waiting = false;
+            }, limit);
+        }
+    };
+};
+```
+
+The `throttle` function has two arguments: the function you want to throttle and a time interval. Here's how it works: When you call the throttled function, it checks whether it's already waiting to be executed. If it is, nothing happens. If it's not, the original function is executed with its context and arguments. Then, a timer starts, and the function sets a `waiting` flag to true. After X milliseconds (where X is the time interval you specified), the `waiting` flag is set back to false, and subsequent calls can execute again. It's like a traffic cop controlling the flow of cars on a busy road.
+
+For instance, let's say you have a scroll event listener on your website that updates the user interface as the user scrolls. Without throttling, the event listener would be triggered many times per second, which could slow down the performance of your website. But with throttling, you can limit the number of times the event listener is called to once every 500 milliseconds, for example.
+
+```js
+const handleScroll = throttle(updateUI, 500);
+
+window.addEventListener('scroll', handleScroll);
+
+function updateUI() {
+    // Update UI based on scroll position ...
+};
+```
+
+Throttling has been used in many real-life use cases, such as:
+
+**Mouse movement:** When we have an interactive web element that responds to mouse movements, we need to be careful not to overload the system. To prevent this, we can limit the frequency of those movements by throttling the mousemove event listener. This ensures that our code only runs at regular intervals, making for a smoother user experience.
+
+**Infinite scrolling:** When implementing infinite scrolling on a webpage, it's crucial to balance performance with usability. We can achieve this by using throttling on our scroll event listener, which will load new content at regular intervals without causing performance issues.
+
+## Comparing debouncing and throttling
+
+Debouncing and throttling can be confusing concepts, especially if you're new to web development. Let me help you understand them better with a simple visual comparison.
+
+Imagine you're scrolling through a long webpage. If we use both debouncing and throttling techniques on the scroll event listener, we'll see some differences in how they work.
+
+With debouncing, the scroll event listener waits until you stop scrolling for a certain amount of time before triggering an action. This means that if you pause scrolling for less than this delay time, no action will be taken. On the other hand, with throttling, the scroll event listener triggers at regular intervals, regardless of whether or not you're scrolling.
+
+Let's say we implement debouncing with a delay time of 500 milliseconds on our search bar. Now, when you type something in the search bar, you have to pause typing for half a second before an API call is made. But if you continue typing before this delay time has elapsed, another half-second wait period will occur before another API call is made.
+
+Now, if we use throttling instead of debouncing on our search bar with an interval of 500 milliseconds, then an API call will be triggered every half-second, no matter how often or quickly you type.
+
+So, there you have it - debouncing and throttling in a nutshell!
+
+## Conclusion
+
+Debouncing and throttling are two techniques that can improve the performance of your web applications by reducing the frequency of certain events.
+
+When you use debouncing, your code waits until an event has stopped before executing. Throttling, on the other hand, executes code at regular intervals regardless of whether or not an event is still happening.
+
+Both techniques are useful in different situations, so it's important to choose the one that best fits your use case. By using these techniques, you can optimize the performance of your web applications and provide a better user experience.
