@@ -1,0 +1,39 @@
+---
+category: React
+created: '2023-09-01'
+description: The differences between ReactNode and ReactElement in React
+openGraphCover: /og/this-vs-that/react-node-vs-element.png
+title: ReactNode vs ReactElement
+---
+
+[React](https://react.dev) is a widely used JavaScript library for building user interfaces. It offers developers an easy and efficient way to create reusable UI components. As you delve into React, you may encounter two terms: `ReactNode` and `ReactElement`. In this post, we'll explore the distinctions between these two concepts.
+
+## ReactNode
+
+A `ReactNode` is a versatile type that can represent any node in a React component tree. It can be a `ReactElement`, a string, a number, a boolean, `null`, or `undefined`. In simpler terms, a `ReactNode` can be any value that can be displayed as a child of a React component.
+
+Here's an example of a `ReactNode`:
+
+```tsx
+const node: React.ReactNode = <p>Hello, world!</p>;
+```
+
+In this example, `node` is a `ReactNode` that represents a `ReactElement` containing the phrase `Hello, world!`.
+
+## ReactElement
+
+On the other hand, a `ReactElement` is a type of `ReactNode` that represents a single UI element in a React component tree. It's created using either a React component or a JSX expression.
+
+To give you an idea, here's an example of a `ReactElement`:
+
+```tsx
+const element: React.ReactElement = <button>Click me</button>;
+```
+
+In this example, `element` refers to a `ReactElement` that represents a button with the text `Click me`.
+
+## Differences
+
+The difference between `ReactNode` and `ReactElement` is that `ReactNode` is a value that can be rendered as a child of a React component, while `ReactElement` represents a single UI element.
+
+Another distinction is that `ReactElement` is created using a React component or a JSX expression, whereas `ReactNode` can be any value that can be rendered.
