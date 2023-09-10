@@ -1,0 +1,162 @@
+---
+category: JavaScript
+created: '2023-09-02'
+description: The differences between cookie, localStorage and sessionStorage in JavaScript
+openGraphCover: /og/this-vs-that/cookie-vs-local-storage.png
+title: cookie vs localStorage vs sessionStorage
+---
+
+When it comes to storing data in a web browser, you've got three main options: `cookies`, `localStorage`, and `sessionStorage`. At first glance, they may seem pretty similar, but there are some key differences you should know about. Let's dive in.
+
+## Cookies
+
+Cookies are small text files that websites store on your computer. They're handy because they remember your preferences and login information. Cookies have been around since the early days of the web and are supported by all modern web browsers.
+
+One of the best things about cookies is that they can store data that persists even after you close your web browser. This means you don't have to log in every time you visit a website. For example, when you check "Remember me" on a login page, that's a cookie doing its job.
+
+There are many ways cookies can be used, such as storing your language or theme preference, or tracking your behavior on a website for analytics purposes.
+
+However, cookies have some downsides. They're limited in size (usually around 4KB) and the data they contain is sent back to the server with every request, which can slow down your browsing experience. Additionally, cookies can be vulnerable to attacks like cross-site scripting (XSS) and cross-site request forgery (CSRF).
+
+## localStorage
+
+If you're a web developer, you've probably heard of `localStorage`. It's a newer storage mechanism introduced in HTML5 that lets you store up to 5-10MB of data on a user's computer. And get this: the data persists even after the user closes their web browser.
+
+So, why would you want to use `localStorage`? Here are some common examples:
+
+-   Speeding up load times by caching frequently used data
+-   Saving data that needs to stick around, like game progress or form data
+-   Adding offline functionality by storing data that can be accessed without an internet connection
+
+One of the best things about `localStorage` is that it's more secure than cookies. Because the data is stored on the user's computer and not sent back to the server with every request, it's less vulnerable to attacks.
+
+Of course, there are some downsides to using `localStorage`. Since the data persists even after the user closes their browser, it can take up valuable space and be tricky to manage. Plus, since it's a newer technology, it might not work on older web browsers.
+
+## sessionStorage
+
+`sessionStorage` is a useful tool for web developers to store data on a user's computer during their session. Unlike `localStorage`, `sessionStorage` data is deleted once the user closes their web browser.
+
+Some common uses of `sessionStorage` include storing temporary data like a shopping cart or search history, saving data from previous steps in a multi-step form, and maintaining user interface consistency in single-page applications.
+
+One of the biggest benefits of `sessionStorage` is that it's more secure than cookies and `localStorage`. Since the data is only available for the duration of the session, it's less vulnerable to attacks like XSS and CSRF.
+
+However, there is a downside to `sessionStorage`: the data is only available for the duration of the session. This means that if a user closes their web browser or navigates away from the page, any data stored in `sessionStorage` will be lost.
+
+## Data expiration
+
+One of the key differences between `cookies`, `localStorage`, and `sessionStorage` is how they handle data expiration and deletion.
+
+To set an expiration for a cookie in JavaScript, simply add the `expires` attribute to the cookie string. The `expires` attribute should be a UTC timestamp indicating when the cookie should expire.
+
+For instance, let's say you want to create a cookie that expires in 30 days. You can do this by including the following code:
+
+```js
+const now = new Date();
+const thirtyDaysFromNow = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+document.cookie = `myCookie=myValue;expires=${thirtyDaysFromNow.toUTCString()};path=/`;
+```
+
+Here's what's happening: We're creating a new `Date` object that represents the current time. Then, we're adding 30 days to it using some simple math. After that, we convert that date to a UTC timestamp using the `toUTCString()` method and set it as the value of the `expires` attribute in our cookie string.
+
+As we've learned, `localStorage` data sticks around even after the user shuts down their web browser. However, there's a catch: `localStorage` doesn't have a built-in way to expire stored data. This can cause issues if a website stores lots of data in `localStorage`, taking up valuable storage space on the user's computer.
+
+But don't worry, there's a solution! We can create our own expiration logic for `localStorage`. One approach is to add a timestamp to the data when we save it to `localStorage`. Then, when we retrieve the data, we can check the timestamp to see if it's expired. If it is, we'll delete the data from `localStorage`.
+
+To help you get started, here's an example of how you can implement expiration logic for `localStorage` by creating a wrapper function.
+
+```js
+const localStorageWrapper = {
+    setData: (key, value, ttl) => {
+        const now = new Date().getTime();
+        const item = {
+            value: value,
+            expiry: now + ttl
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+    },
+    getData: (key) => {
+        const item = JSON.parse(localStorage.getItem(key));
+        const now = new Date().getTime();
+        if (!item || item.expiry < now) {
+            localStorage.removeItem(key);
+            return null;
+        }
+        return item.value;
+    },
+};
+```
+
+Let's talk about two functions: `setData` and `getData`.
+
+`setData` stores data in `localStorage` using a key, value, and time-to-live (TTL) value in milliseconds. It calculates the current timestamp with `new Date().getTime()` and adds the TTL to get an expiry timestamp. Then, it creates an object with the original value and the expiry timestamp, converts it to a JSON string with `JSON.stringify`, and stores it in `localStorage` with `localStorage.setItem`.
+
+`getData` retrieves stored data from `localStorage` using a key. It gets the stored JSON string with `localStorage.getItem`, converts it back to an object using `JSON.parse`, and checks if the expiry timestamp is in the past. If it is, it removes the item with `localStorage.removeItem` and returns `null`. Otherwise, it returns the original value.
+
+Now, you can use these functions to store data in `localStorage` with an expiration time. For example:
+
+```js
+// Store a value that will expire in 1 hour
+localStorageWrapper.setData('myData', { foo: 'bar' }, 60 * 60 * 1000);
+
+// Retrieve the value (will return null after 1 hour)
+localStorageWrapper.getData('myData');
+```
+
+## Data deletion
+
+As I mentioned earlier, cookies can stick around on a user's computer for a while - unless they're set to expire or manually deleted. If a website sets a cookie to expire in the future, it'll still be there when the user reopens their browser. But if a cookie has no expiration date or is set to expire in the past, it'll disappear as soon as the user closes their browser.
+
+To delete a cookie with JavaScript, just set its value to an empty string and give it an expiration date in the past. Here's an example:
+
+```js
+const deleteCookie = (name) => {
+  document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+};
+```
+
+Here we have an example of a function called `deleteCookie`. It's pretty straightforward: you give it the name of the cookie you want to delete, and it takes care of the rest. Inside the function, we set the value of the cookie to an empty string (`name + '='`) and then set its expiration date to January 1st, 1970 (`expires=Thu, 01 Jan 1970 00:00:01 GMT;`). This basically erases the cookie from the user's computer.
+
+To remove all cookies with JavaScript, you can loop through all the cookies and set their expiration date to a time in the past. Here's an example function that does just that:
+
+```js
+const clearAllCookies = () => {
+    const cookies = document.cookie.split(';');
+    cookies.forEach((cookie) => {
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        deleteCookie(name);
+    });
+};
+```
+
+This is a function called `clearAllCookies`. First, it gets all the cookies as a string separated by semicolons using `document.cookie`. Then, it loops through each cookie and uses the `deleteCookie` function (which you can find above) to remove the cookie by its given name
+
+Removing data from `localStorage` in JavaScript is a breeze. You can use the `removeItem` method to remove an item from `localStorage`. Here's an example to illustrate:
+
+```js
+localStorage.removeItem('myItem');
+```
+
+Here's an example of how to remove an item called `myItem` from `localStorage`. Don't forget to replace `myItem` with the actual name of the item you want to remove.
+
+If you're looking to delete all the items stored in `localStorage` for your website, there's a simple way to do it. Simply use the `clear` method. But be careful, as this will wipe out data for all users who have stored information on your site. So, use it wisely.
+
+```js
+localStorage.clear();
+```
+
+If you prefer to only remove specific items or clear all data stored for a user's session, you can use the similar APIs provided by `sessionStorage`.
+
+```js
+sessionStorage.removeItem('myItem');
+sessionStorage.clear();
+```
+
+## Conclusion
+
+To sum up, `cookies`, `localStorage`, and `sessionStorage` each have their own strengths and weaknesses. It's up to web developers to choose the storage mechanism that fits their specific use case best.
+
+## See also
+
+-   [Clear all cookies](https://phuoc.ng/collection/1-loc/clear-all-cookies)
+-   [Get the value of a cookie](https://phuoc.ng/collection/1-loc/get-the-value-of-a-cookie)
