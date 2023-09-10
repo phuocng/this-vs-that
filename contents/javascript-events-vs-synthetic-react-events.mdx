@@ -1,0 +1,133 @@
+---
+category: React
+created: '2023-09-01'
+description: The differences between JavaScript events and synthetic React events
+openGraphCover: /og/this-vs-that/javascript-vs-synthetic-react-events.png
+title: JavaScript events vs synthetic React events
+---
+
+JavaScript and React are two popular technologies for building web applications. They differ in how they handle events. This post will explain the difference between JavaScript events and synthetic React events. Let's dive in!
+
+## JavaScript events
+
+JavaScript events are actions that happen when a user interacts with a web page. These interactions can include clicking a button, submitting a form, or scrolling down a page. When an event occurs, JavaScript code can be executed to respond to it.
+
+You don't need any additional libraries or frameworks to use JavaScript events because they are native to the browser. To manage an event, you can use the `addEventListener()` method. This method allows you to specify the event type, the function to be executed when the event occurs, and whether the event should be captured or bubbled.
+
+Here's an example of how to use the `addEventListener()` method to handle a click event:
+
+```js
+const button = document.getElementById('submitButton');
+
+button.addEventListener('click', function(e) {
+    // This code is executed when the button is clicked
+});
+```
+
+The event handler is a function that takes the native JavaScript event as a parameter.
+
+> When it comes to attaching events to elements in JavaScript, you have two options: `addEventListener` and the `on` prefix. But which one should you choose? Confused? Check out this [addEventListener vs on](https://phuoc.ng/collection/this-vs-that/add-event-listener-function-vs-on-property) post for a detailed breakdown of the differences between the two.
+
+## Synthetic React events
+
+In React applications, Synthetic React events work like JavaScript events, but they're specifically designed for React. They're called synthetic because they're not native to the browser – React creates them itself.
+
+When an event happens in a React component, React captures it and turns it into a synthetic event object. This object has information about the event and can be passed to event handlers you define in the component.
+
+You use Synthetic events to handle user interactions with React components. To create them, you add the `on` prefix, followed by the name of the event. For example, to handle a click event, you'd use the `onClick` event handler.
+
+Here's an example of how to use the `onClick` event handler in React:
+
+```tsx
+const Button = () => {
+    const handleClick = (e) => {
+        // This code is executed when the button is clicked
+    };
+    return (
+        <button onClick={handleClick}>Click me</button>
+    );
+};
+```
+
+The `e` parameter in React's event handler is a synthetic event, not the same as JavaScript's native event object.
+
+Using synthetic events has a couple of advantages. First, they're cross-browser compatible. React normalizes the event handling code, so you don't have to worry about differences between browsers. Second, you can use synthetic events to handle events on custom components.
+
+## Event bubbling and capturing
+
+Event bubbling and capturing are two ways events are propagated through the DOM tree in JavaScript. When an event occurs on an element, it first triggers on that element and then propagates up through its parents until it reaches the root of the document. This is called event bubbling.
+
+On the other hand, event capturing works in the opposite direction. When an event occurs on an element, it starts at the root of the document and moves down through its children until it reaches the target element. This is called event capturing.
+
+JavaScript provides both options for handling events, depending on whether you want to handle an event as soon as possible (**capturing**) or wait until it has bubbled up to a parent element (**bubbling**).
+
+It's important to note that in JavaScript, events propagate up through the DOM tree until they reach the `document` object. This means that if you click on a button inside a div, both the button's click event and the div's click event will be triggered. However, you can prevent an event from bubbling up by using `event.stopPropagation()`.
+
+In React, only one phase is used: event bubbling. When a synthetic React event occurs on a component, it will propagate up through its parents until it reaches the root node of the React tree, instead of the `document` object. This simplifies event handling in React components compared to traditional JavaScript events.
+
+> **Good to know**
+>
+> In earlier versions of React (up to v16), event handlers were attached to the `document` level. However, as of [React v17](https://legacy.reactjs.org/blog/2020/10/20/react-v17.html), events are only attached to the element where the React tree is rendered.
+>
+> To illustrate, in this example, all event handlers within your application are managed through the `rootElement`.
+>
+> ```tsx
+> const rootElement = document.getElementById('root');
+> const rootNode = createRoot(domNode);
+> rootNode.render(<App />);
+> ```
+>
+> Whenever you add an event listener to your component, React takes care of attaching it to the `rootElement`:
+>
+> ```js
+> rootElement.addEventListener(...);
+> ```
+
+## Removing event listeners
+
+When you add an event listener to an element in JavaScript or React, it's super important to remove it when you're done with it. This can help prevent memory leaks and improve your application's performance.
+
+In JavaScript, you can remove an event listener using the `removeEventListener()` method. This method takes two arguments: the type of event you want to remove (like `click` or `submit`) and the function that was used as the listener.
+
+Let me show you an example of how to remove a click event listener in JavaScript:
+
+```js
+const button = document.getElementById('submitButton');
+const handleClick = (e) => {
+    // This code is executed when the button is clicked
+};
+
+button.addEventListener('click', handleClick);
+
+// Later on...
+button.removeEventListener('click', handleClick);
+```
+
+In React, you don't have to worry about removing event listeners if you use the `on` prefix syntax. React takes care of this for you automatically when the component is removed from the React DOM tree.
+
+However, if you attach an event listener to a special node like `document` or `window`, then removing them becomes necessary. This is where the `useEffect()` hook comes in handy.
+
+```tsx
+const Component = () => {
+    React.useEffect(() => {
+        const handleClick = (e) => {
+            // Do something when window is resized
+        };
+
+        window.addEventListener('click', handleClick);
+        return () => {
+            window.removeEventListener('click', handleClick);
+        };
+    }, []);
+
+    return (
+        <div>...</div>
+    );
+};
+```
+
+In this example, let's say we want to manage the `resize` event of the window. Inside the `useEffect()` hook, we register a handler to take care of this. Then, when the component unmounts, the hook returns a function that removes the handler for us. It's that simple!
+
+## Conclusion
+
+To sum it up, there are two types of events: JavaScript events and Synthetic React events. JavaScript events are built into the browser and don't require any extra tools. Synthetic React events, on the other hand, are unique to React and are created by React itself. While both can be used to respond to user actions, Synthetic React events are more versatile and work across different browsers. They're also perfect for controlling custom components.
