@@ -1,0 +1,103 @@
+---
+category: JavaScript
+created: '2023-08-31'
+description: The differences between eval() and new Function() in JavaScript
+openGraphCover: /og/this-vs-that/eval-vs-new-function.png
+title: eval() vs new Function()
+---
+
+If you're looking to create functions on-the-go in JavaScript, you have two main options: `eval()` and `new Function()`. Both of these methods allow you to create new functions dynamically, but they have some differences in terms of how they function and what they can accomplish.
+
+## Using `eval()`
+
+JavaScript offers various ways to create new functions, and one of them is by using the `eval()` function. This particular function takes a string as input and then executes it as JavaScript code. Let me show you an example:
+
+```js
+const hello = eval("function() { console.log('Hello, world!'); }");
+hello();    // logs `Hello, world!`
+```
+
+In this example, we're using `eval()` to create a new function that logs `Hello, world!` to the console. We then store this function in a variable called `hello` and call it.
+
+However, there are a few things to keep in mind when using `eval()`. First, it can be dangerous if the string you're evaluating comes from an untrusted source. This is because `eval()` can execute any JavaScript code, including malicious code that could harm your application or steal user data.
+
+Second, `eval()` is not very efficient. Every time you call `eval()`, the JavaScript engine has to parse and compile the string you're evaluating, which can slow down your code if you're doing it repeatedly.
+
+## Using `new Function()`
+
+You can also create a new function in JavaScript by using the `new Function()` constructor. This function can take any number of string arguments, which will be treated as the function parameters and body. Check out this example:
+
+```js
+var hello = new Function("console.log('Hello, world!');");
+hello();    // logs `Hello, world!`
+```
+
+In this example, we're creating a new function that logs `Hello, world!` to the console using `new Function()`. We save this function in a variable called `hello` and then call it.
+
+Using `new Function()` has an advantage over `eval()`: it can be more efficient. When you create a new function with `new Function()`, the JavaScript engine only has to parse and compile the function body once. With `eval()`, it has to do it every time you call the function.
+
+But be careful! Just like `eval()`, `new Function()` can be risky if you're using it with untrusted input. If a hacker can control the function body, they could execute harmful code.
+
+## Scope and variable access with `eval()` and `new Function()`
+
+One significant difference between `eval()` and `new Function()` is how they handle scope and variable access. When you use `eval()`, the evaluated code can read and modify variables defined outside of the evaluated string because it has access to the current scope. Here's an example to illustrate this concept:
+
+```js
+let x = 42;
+eval('x = 24;');
+console.log(x);     // 24
+```
+
+In this example, we're using `eval()` to set the value of `x` to 24, even though `x` was defined outside of the evaluated string. However, with `new Function()`, the code you create has its own separate scope, which means it can't read or modify variables defined outside of its body. Let me show you an example to better illustrate this concept:
+
+```js
+let x = 42;
+const log = new Function('console.log(x);');
+log();      // undefined
+```
+
+In this example, we're using `new Function()` to create a function that logs the value of `x`. However, when we call this function, it logs `undefined` because it doesn't have access to the value of `x` in the outer scope.
+
+Despite the scope limitations, global variables and functions can still be accessed using the `window`. Let's take another look at the example above and use the `window` to access the global variables.
+
+```js
+let x = 42;
+const log = new Function('console.log(window.x);');
+log();      // 42
+```
+
+This difference in scope and variable access can be important depending on what you're trying to accomplish with your dynamically created functions. If you want your function to use variables defined outside of its body, then `eval()` may be a better choice. However, if you want your function to be self-contained and not interfere with other parts of your code, then `new Function()` may be more appropriate.
+
+## Passing parameters
+
+It's also important to note that both methods allow you to pass arguments into your dynamically created functions. With `eval()`, you can define parameters as part of the evaluated string, while with `new Function()`, you can define them as separate arguments to the constructor.
+
+Using `eval()` allows you to define parameters within the evaluated string. For instance:
+
+```js
+const sum = eval('function(x, y) { console.log(x + y); }');
+sum(2, 3);  // 5
+```
+
+In this example, we're using `eval()` to create a new function that takes two parameters and logs their sum to the console. Then, we call this function with arguments 2 and 3.
+
+On the other hand, by using `new Function()`, you can define parameters as separate arguments to the constructor. For example:
+
+```js
+const sum = new Function('x', 'y', 'console.log(x + y);');
+sum(2, 3);  // 5
+```
+
+In this example, we're creating a new function using `new Function()`. This function takes two parameters and logs their sum to the console. To test it out, we call the function with arguments 2 and 3.
+
+## Security risks
+
+Both `eval()` and `new Function()` can create functions dynamically, but they also come with serious security risks. The problem is that both methods execute arbitrary strings of code, which means untrusted input can lead to malicious code execution.
+
+Using `eval()` or `new Function()` can give attackers access to your application and all its variables and functions. If attackers control the input passed to either method, they could execute any code they want on your users' computers.
+
+To avoid these risks, be careful when using either method. Never use them with untrusted input, and always sanitize user input before passing it to either function. It's best to avoid them altogether if possible and rely on safer alternatives.
+
+## Conclusion
+
+In general, it's best to steer clear of `eval()` and `new Function()` as much as possible, especially when dealing with untrusted input. If you need to create a new function on-the-fly, there are usually better ways to achieve your objectives using standard JavaScript functions and techniques.
