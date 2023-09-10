@@ -1,0 +1,58 @@
+---
+category: JavaScript
+created: '2023-08-28'
+description: The differences between Object.freeze() and Object.seal() in JavaScript
+openGraphCover: /og/this-vs-that/freeze-vs-seal.png
+title: Object.freeze() vs Object.seal()
+---
+
+JavaScript has two methods that can help prevent the modification of objects: `Object.freeze()` and `Object.seal()`. While their purpose is the same, they have some differences. Let's dive in and explore those differences!
+
+## Object.freeze()
+
+The `Object.freeze()` method is super useful when you want to make an object unchangeable. Once an object is frozen, its properties can't be modified or deleted, making it read-only. If you try to change an object that's been frozen, you'll get an error.
+
+```js
+const subscriber = {
+    fullName: 'John Smith',
+    emailAddress: 'john@smith.com',
+};
+
+Object.freeze(subscriber);
+
+// Throws an error in strict mode
+// Or it doesn't work at all
+subscriber.fullName = 'Jonathan Smith';
+subscriber.age = 42;
+```
+
+In the above example, we have defined an object `subscriber` with two properties - `fullName` and `emailAddress`. We then use the `Object.freeze()` method to freeze the object. When we try to modify the `fullName` property or add a new `age` property, an error is thrown.
+
+## Object.seal()
+
+The `Object.seal()` method is a way to lock down an object so that you can't add or delete properties from it. But you can still change the values of its existing properties. Once an object is sealed, you can't add or delete any properties without getting an error. So, it's a good way to make sure your object stays the way you want it to be.
+
+```js
+const subscriber = {
+    fullName: 'John Smith',
+    emailAddress: 'john@smith.com',
+};
+
+Object.seal(subscriber);
+
+// Works fine
+subscriber.fullName = 'Jonathan Smith';
+
+// Throws an error in strict mode
+// Or it doesn't work at all
+subscriber.age = 42;
+delete subscriber.emailAddress;
+```
+
+We've created an object called `subscriber` with two properties: `fullName` and `emailAddress`, just like in the previous example.
+
+But this time, we've used the `Object.seal()` method to seal the object. When we try to add a new `age` property or delete the `emailAddress` property, an error is thrown because the object is sealed. However, we can still modify the value of the `fullName` property.
+
+## Conclusion
+
+Simply put, in JavaScript, you can use `Object.freeze()` and `Object.seal()` methods to stop objects from being modified. Both methods prevent changes to object properties, but `freeze()` makes an object entirely read-only, while `seal()` allows you to modify existing property values but not add or remove properties.
