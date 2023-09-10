@@ -1,0 +1,149 @@
+---
+category: DOM
+created: '2023-09-09'
+description: The differences between NodeIterator and TreeWalker in JavaScript DOM
+openGraphCover: /og/this-vs-that/node-iterator-vs-tree-walker.png
+title: NodeIterator vs TreeWalker
+---
+
+In JavaScript, we have two main tools for navigating the DOM: the `NodeIterator` and the `TreeWalker`. Although they serve similar purposes, they have some key differences that make each better suited for different tasks. Let's take a closer look.
+
+## NodeIterator
+
+The `NodeIterator` object is a handy tool for iterating over a specific set of nodes that meet certain criteria. This criteria is defined by a filter function that you pass to the `NodeIterator` constructor. As the iteration progresses, the filter function is called for each node. If it returns `true`, the node is included in the iteration.
+
+Creating a `NodeIterator` object is easy. You simply use the `document.createNodeIterator()` method and pass it three arguments: the root node of the iteration, the type of nodes to include in the iteration, and the filter function.
+
+To create a custom filter function for use with a `NodeIterator`, just define a function that takes a single argument (the node being evaluated) and returns either `NodeFilter.FILTER_ACCEPT` to include the node in the iteration, or `NodeFilter.FILTER_SKIP` to exclude it.
+
+Here's an example to help you understand it better:
+
+```js
+const root = document.body;
+const nodeIterator = document.createNodeIterator(root, NodeFilter.SHOW_ELEMENT, {
+    acceptNode(node) {
+        if (node.classList.contains('highlighted')) {
+            return NodeFilter.FILTER_ACCEPT;
+        } else {
+            return NodeFilter.FILTER_SKIP;
+        }
+    }
+});
+
+let currentNode;
+while ((currentNode = nodeIterator.nextNode())) {
+    console.log(currentNode);
+}
+```
+
+In this example, we're using a `NodeIterator` to loop through all the element nodes in a document (`NodeFilter.SHOW_ELEMENT`). We've also set up a custom filter function that checks whether each node has the class name `highlighted`. If it does, we include it in the iteration by returning `NodeFilter.FILTER_ACCEPT`. If it doesn't, we skip it by returning `NodeFilter.FILTER_SKIP`.
+
+## TreeWalker
+
+The `TreeWalker` object is a powerful tool for traversing a DOM tree and filtering nodes as you go. It's similar to the `NodeIterator` in that it helps you move up and down a tree by keeping track of a current node pointer. But, it's even more versatile. With the `TreeWalker`, you can smoothly move to the previous or next sibling, making it an even more powerful tool for navigating between nodes.
+
+To create a `TreeWalker`, use the `document.createTreeWalker()` method, which takes four arguments: the root node of the traversal, the type of nodes to include, a filter function, and a boolean indicating whether or not to show the actual root node in the traversal.
+
+Let's use a `TreeWalker` to achieve the same thing we did in the previous section. We'll create a new instance of `TreeWalker` using `document.createTreeWalker()`, passing it the root node and the node type to include. We'll also define a filter function that accepts or rejects nodes based on whether they have the class name `highlighted`.
+
+```js
+const root = document.body;
+const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, {
+    acceptNode(node) {
+        if (node.classList.contains('highlighted')) {
+            return NodeFilter.FILTER_ACCEPT;
+        } else {
+            return NodeFilter.FILTER_SKIP;
+        }
+    }
+});
+
+let currentNode = treeWalker.currentNode;
+while ((currentNode = treeWalker.nextNode())) {
+    console.log(currentNode);
+}
+```
+
+In this example, we're using a `TreeWalker` to loop through all the element nodes in a document, specifically those with the `NodeFilter.SHOW_ELEMENT` attribute. We've set up a custom filter function to check each node for the "highlighted" class. If it has it, we include it in the iteration by returning `NodeFilter.FILTER_ACCEPT`. If it doesn't, we skip it by returning `NodeFilter.FILTER_SKIP`.
+
+To traverse the nodes, we use the `currentNode` property to get the current node and the `nextNode()` method to move to the next one.
+
+## Using with Shadow DOM
+
+Shadow DOM is a powerful tool that lets you keep your markup and styles separate from the rest of your document. When you use Shadow DOM, you're creating a whole new DOM tree inside the main one, and you can access it using the `shadowRoot` property of an element.
+
+If you want to go through the Shadow DOM tree using `NodeIterator` or `TreeWalker`, you'll need to use the shadow root as the root node argument.
+
+```javascript
+const shadowRoot = document.querySelector('#my-element').shadowRoot;
+const nodeIterator = document.createNodeIterator(shadowRoot, NodeFilter.SHOW_ELEMENT, {
+    acceptNode(node) {
+        ...
+    }
+});
+
+let currentNode;
+while ((currentNode = nodeIterator.nextNode())) {
+    console.log(currentNode);
+}
+```
+
+Likewise, when you're making a `TreeWalker`, make sure you pass in the shadow root as the first argument.
+
+```js
+const shadowRoot = document.querySelector('#my-element').shadowRoot;
+const treeWalker = document.createTreeWalker(shadowRoot, NodeFilter.SHOW_ELEMENT, {
+    acceptNode(node) {
+        ...
+    }
+}, true);
+
+let currentNode = treeWalker.currentNode;
+while ((currentNode = treeWalker.nextNode())) {
+    console.log(currentNode);
+}
+```
+
+By passing in the shadow root as the first argument, you'll be able to traverse all elements within it just like any other DOM element.
+
+## Excluding the root node
+
+While creating a `TreeWalker`, we can pass an optional fourth argument that specifies whether or not to include the root node itself in the traversal. This boolean value defaults to `false`, meaning that the root node is not included in the iteration.
+
+If you pass `true` as the fourth argument, then the root node will be included in traversal, and you'll get back all of its descendants as well.
+
+Let's visit the example we created earlier. The fourth argument is set to `true`, which means that we want to include the root node (`document.body`) itself in our traversal. Therefore, we'll get back all of its descendants as well.
+
+```javascript
+const root = document.body;
+const treeWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, {
+    acceptNode(node) {
+        ...
+    }
+}, true);
+
+let currentNode = treeWalker.currentNode;
+while ((currentNode = treeWalker.nextNode())) {
+    console.log(currentNode);
+}
+```
+
+However, with the `NodeIterator`, you don't have the flexibility to choose whether or not to include the root node in your iteration. The iteration always begins at the root node you specify and includes all of its descendants. If you only want to iterate over a specific group of nodes, you can use a filter function to skip nodes that don't meet your criteria.
+
+## Behavior with invalid or malformed HTML
+
+When working with invalid or malformed HTML, you might notice some differences in the behavior of `NodeIterator` and `TreeWalker`.
+
+`NodeIterator` relies on the browser's built-in parsing engine to generate a DOM tree, so if the engine encounters an error in the HTML, it may skip over any nodes that it cannot parse. This can be a problem if you need to work with all of the nodes in the document.
+
+`TreeWalker`, on the other hand, is more flexible. It allows you to define a custom filter function that can handle errors in a way that makes sense for your application. For example, you could choose to skip over nodes that are missing required attributes or contain invalid content.
+
+So if you're working with HTML that might not be perfectly formed, `TreeWalker` might be a better choice for you.
+
+## Conclusion
+
+To sum up, both `NodeIterator` and `TreeWalker` objects are handy when it comes to traversing the DOM in JavaScript. If you want to iterate over a specific set of nodes, use `NodeIterator`. If you want to filter nodes while traversing a DOM tree, use `TreeWalker`.
+
+## See also
+
+-   [Dynamic vs static NodeList](https://phuoc.ng/collection/this-vs-that/dynamic-vs-static-node-list)
