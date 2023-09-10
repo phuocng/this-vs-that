@@ -1,0 +1,26 @@
+---
+category: JavaScript
+created: '2023-09-01'
+description: The differences between ceil vs floor vs round functions in JavaScript
+openGraphCover: /og/this-vs-that/ceil-vs-floor-vs-round.png
+title: ceil vs floor vs round
+---
+
+JavaScript provides three methods for rounding numbers: `Math.ceil()`, `Math.floor()`, and `Math.round()`. Each of these methods rounds numbers in a unique way. Let's explore them!
+
+## Math.ceil()
+
+The `Math.ceil()` method is used to round up a number to the nearest whole integer.
+
+For instance, if you have the number `4.2`, `Math.ceil(4.2)` will return `5`. Similarly, `Math.ceil(-4.2)` will return `-4` because `-4` is the smallest integer that is greater than `-4.2`.
+
+## Math.floor()
+
+The `Math.floor()` method is used to round a number down to the nearest whole integer.
+Here's how it works: If you have the number `4.2`, `Math.floor(4.2)` will return `4`. `Math.floor(-4.2)` will return `-5`, because `-5` is the largest integer that is less than `-4.2`.
+
+## Math.round()
+
+The `Math.round()` method helps you round a number to the nearest whole integer. If the number has a fractional part that's less than `0.5`, it's rounded down; if it's `0.5` or greater, it's rounded up.
+
+For example, if you have the number `4.2`, `Math.round(4.2)` will give you `4`.  Similarly, `Math.round(4.5)` will give you `5`. While `Math.round(-4.5)` will give you `-4`.
