@@ -1,0 +1,125 @@
+---
+category: JavaScript
+created: '2023-09-05'
+description: The differences between anonymous and closure functions in JavaScript
+openGraphCover: /og/this-vs-that/anonymous-vs-closure.png
+title: Anonymous vs closure functions
+---
+
+Functions are a critical component of programming in JavaScript. They help group code together, encapsulate functionality, and create reusable code. There are two types of functions that are commonly used: **anonymous functions** and **closure functions.**
+
+In this post, we'll dive into what these functions are and explore the key differences between them.
+
+## Anonymous functions
+
+An anonymous function is simply a function without a name. You define it using the `function` keyword and a set of parentheses and curly braces that contain the function's code. These functions can be assigned to a variable, passed as an argument to another function, or used as a callback function.
+
+```js
+// Example of an anonymous function assigned to a variable
+let add = function (a, b) {
+    return a + b;
+};
+
+// Example of an anonymous function
+// passed as an argument to another function
+const numbers = [1, 2, 3, 4, 5];
+const filteredNumbers = numbers.filter(function(number) {
+    return number > 3;
+});
+```
+
+Anonymous functions are useful when you need to define a function that is only used once. They can help to keep your code concise and easy to read. However, they can be difficult to debug because they have no name.
+
+> **Good practice**
+>
+> To make it easier to debug anonymous functions, it's a good practice to give them a name that reflects their purpose. There is a couple of way to do that.
+>
+> You can either use descriptive names that reflect the function's purpose. For example, instead of using `function(a, b) {...}`, you could use `function calculateSum(a, b) {...}`.
+>
+> ```js
+> let add = function calculateSum(a, b) {
+>    return a + b;
+> };
+> ```
+>
+> The other way is to assign the function to a variable or by using the `name` property of the function object. For example:
+>
+> ```javascript
+> let add = function(a, b) {
+>    return a + b;
+> };
+>
+> add.name = 'calculateSum';
+> ```
+>
+> It's also recommended to use `camelCase` naming conventions for consistency with other JavaScript code, and avoid using reserved keywords as function names.
+>
+> By giving your anonymous function a name, you'll be able to see its name in stack traces and debugging tools.
+
+## Closure functions
+
+A closure function is a special type of function that can access variables in its outer scope, even after the outer function has finished running. This is because the closure function "closes over" the variables in its outer scope, creating a "closure". It's like a little bubble that keeps those variables safe and accessible to the closure function. Pretty cool, right?
+
+JavaScript closure functions have a great benefit: they can create private variables and methods. These private variables and methods are only accessible within the function, which helps to organize code and avoid naming conflicts.
+
+Creating a private variable or method in a closure function is easy. Simply define it within the outer function's scope, and the inner function will have access to it due to the closure that's created.
+
+Here's a cool example: you can create a function that only runs once by defining it inside another function and then immediately invoking it. This can come in handy when you only need to run a function once.
+
+```js
+function initialize() {
+    let isInitialized = false;
+
+    return function() {
+        if (!isInitialized) {
+            isInitialized = true;
+            console.log('Initializing...');
+            // Do something ...
+        }
+    };
+};
+
+let init = initialize();
+init();     // Output: "Initializing..."
+init();     // Nothing happens
+```
+
+In this example, the `initialize` function returns an anonymous closure function that can access the `isInitialized` variable from its outer scope. The first time the closure function is called with `init()`, it logs `Initializing...` to the console and sets the `isInitialized` variable to `true`, indicating that the initialization task is done.
+
+Any subsequent calls to `init()` will not do anything because the `isInitialized` variable has already been set to `true`. This allows us to ensure that certain code runs only once, even if the closure function is called multiple times. In other words, we can prevent unnecessary repetition of code.
+
+## Using anonymous and closure functions together
+
+Anonymous and closure functions can be combined to create powerful and flexible code in JavaScript. Let's take a look at an example:
+
+```javascript
+function counter() {
+    // Private variable
+    let count = 0;
+
+    return {
+        // Public methods
+        increase: function () {
+            count++;
+            console.log(count);
+        },
+        decrease: function () {
+            count--;
+            console.log(count);
+        },
+    };
+};
+
+let myCounter = counter();
+myCounter.increase();   // Logs 1
+myCounter.increase();   // Logs 2
+myCounter.decrease();   // Logs 1
+```
+
+In this example, we define a closure function that creates a private `count` variable and two public methods, `increase` and `decrease`, that operate on it.
+
+The `increase` and `decrease` methods are anonymous functions that have access to the private `count` variable in their outer scope. By defining these methods as anonymous functions within the closure, we can keep our code organized and avoid naming conflicts with other code outside of the closure.
+
+## Conclusion
+
+In JavaScript programming, both anonymous and closure functions are important. Anonymous functions are handy when you need to create a function that's only used once. On the other hand, closure functions are useful when you want to create functions that can access variables in their outer scope.
