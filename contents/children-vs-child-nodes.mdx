@@ -1,0 +1,56 @@
+---
+category: DOM
+created: '2023-09-04'
+description: The differences between children and childNodes properties
+openGraphCover: /og/this-vs-that/children-vs-child-nodes.png
+title: children vs childNodes
+---
+
+If you're using the JavaScript Document Object Model (DOM) to access an element's child nodes, you have two options: `children` and `childNodes`. Although these properties may seem similar at first glance, they actually work a bit differently. Let's dive in!
+
+To show the contrast between two properties, let's imagine you have an unordered list (`ul`) with a comment node (wrapped inside `<!-- and -->`), and three list items (`li`).
+
+```html
+<ul>
+    <!-- Here are some sample items -->
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+</ul>
+```
+
+### The children property
+
+The `children` property is pretty handy. It lets you grab all of the child elements of an element, but not any non-element nodes like text or comment nodes.
+
+Here's an example:
+
+```js
+const parent = document.querySelector('ul');
+const children = parent.children;
+
+console.log(children.length);   // 3
+```
+
+You can use the `querySelector` method to grab the list element, and then use the `children` property to get all of its child elements. Easy-peasy!
+
+### The childNodes property
+
+On the other hand, the `childNodes` property returns all of the child nodes of an element, including non-element nodes like text or comment nodes.
+
+To help you understand this concept better, here's an example:
+
+```js
+const parent = document.querySelector('ul');
+const childNodes = parent.childNodes;
+
+console.log(childNodes.length); // 4
+```
+
+In this example, we use the `querySelector` method to select the list element. Then, we retrieve a collection of all the child nodes of the parent element using the `childNodes` property.
+
+It's important to note that, unlike the `children` property, the `childNodes` property includes the comment node `<!-- Here are some sample items -->`. This is why the `childNodes.length` returns the number 4.
+
+> **Good to know**
+>
+> Both `children` and `childNodes` return a collection of nodes that is constantly updated. To learn more, check out the [Dynamic vs static NodeList](https://phuoc.ng/collection/this-vs-that/dynamic-vs-static-node-list) post.
