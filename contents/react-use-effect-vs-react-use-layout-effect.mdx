@@ -1,0 +1,88 @@
+---
+category: React
+created: '2023-09-10'
+description: The differences between useEffect and useLayoutEffect hooks in React
+openGraphCover: /og/this-vs-that/use-effect-vs-use-layout-effect.png
+title: React.useEffect() vs React.useLayoutEffect()
+---
+
+React is a widely used JavaScript library for creating user interfaces. One of its standout features is the use of hooks, with two popular ones being `useEffect` and `useLayoutEffect`. In this post, we'll explore the main differences between these two hooks.
+
+## useEffect
+
+The `useEffect` hook is a tool for managing side-effects in functional components. A side-effect is any action that affects something outside of the component, like fetching data from an API or manipulating the DOM.
+
+To use `useEffect`, you need to provide a function and an array of dependencies. The function will be called after every render, and the dependencies determine when the function should be called. If the dependencies are empty, the function will only run once, after the initial render.
+
+Here's an example of using `useEffect` to fetch data from an API:
+
+```js
+import * as React from 'react';
+
+const MyComponent = () => {
+    const [data, setData] = React.useState(null);
+
+    React.useEffect(() => {
+        fetch('https://api.example.com/data')
+            .then(response => response.json())
+            .then(data => setData(data));
+    }, []);
+
+    return (
+        <div>{data ? data : 'Loading...'}</div>
+    );
+};
+```
+
+## useLayoutEffect
+
+The `useLayoutEffect` hook is like `useEffect`, but it runs **synchronously** after all DOM changes. This means that any changes made by `useLayoutEffect` will be visible to the user before the browser has a chance to paint.
+
+Use `useLayoutEffect` to measure the size or position of DOM elements, because it ensures that the measurements are accurate. Here's an example of how to use `useLayoutEffect` to measure the size of a DOM element:
+
+```js
+import * as React from 'react';
+
+const MyComponent = () => {
+    const [width, setWidth] = useState(null);
+    const ref = useRef(null);
+
+    useLayoutEffect(() => {
+        setWidth(ref.current.offsetWidth);
+    }, []);
+
+    return (
+        <div ref={ref}>The width of this element is {width}px.</div>
+    );
+};
+```
+
+## Timing
+
+The key difference between `useEffect` and `useLayoutEffect` is their timing. `useEffect` runs after the component has rendered, while `useLayoutEffect` runs before the browser paints.
+
+This timing difference can affect how your application works. For instance, if you're fetching data with `useEffect` and then displaying it in your component, there might be a slight delay before the data appears on the screen. That's because `useEffect` has to wait for the data to be fetched before it can update the component.
+
+However, if you use `useLayoutEffect` to measure the size or position of a DOM element and then immediately display something based on that measurement, there will be no delay. The user will see the updated content right away.
+
+> **Good to know**
+>
+> The issue with `useLayoutEffect` is that it can block the rendering process on the server, which causes differences between the server-rendered HTML and the client-rendered HTML. To solve this problem, we have `useIsomorphicLayoutEffect`. This hook uses `useEffect` on the server and `useLayoutEffect` on the client, ensuring that your component behaves consistently across both environments. Here's what the `useIsomorphicLayoutEffect` hook looks like:
+>
+> ```js
+> import * as React from 'react';
+>
+> export const useIsomorphicLayoutEffect = typeof document !== 'undefined'
+>    ? React.useLayoutEffect
+>    : React.useEffect;
+> ```
+>
+> With `useIsomorphicLayoutEffect`, you can rest easy knowing that your component will work the same way on the server and the client.
+
+## Conclusion
+
+In conclusion, both `useEffect` and `useLayoutEffect` are crucial hooks in React, but they serve different purposes. Use `useEffect` to handle side-effects and use `useLayoutEffect` to measure the size or position of DOM elements.
+
+It's worth noting that `useLayoutEffect` runs synchronously, which means it can potentially slow down rendering if it takes too long to execute. In general, only use `useLayoutEffect` when you need to measure or modify something in the DOM before rendering. For all other side-effects, `useEffect` is usually sufficient and less likely to cause performance issues.
+
+Choosing the right hook for your specific use case is important for optimal performance and user experience.
