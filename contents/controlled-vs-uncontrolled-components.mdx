@@ -1,0 +1,121 @@
+---
+category: React
+created: '2023-09-11'
+description: The differences between controlled and uncontrolled components in React
+openGraphCover: /og/this-vs-that/controlled-vs-uncontrolled-components.png
+title: Controlled vs uncontrolled components
+---
+
+React is a widely-used JavaScript library that helps developers build user interfaces. One of the most important concepts in React is the use of **controlled** and **uncontrolled** components. These two techniques are used to manage a component's state, and knowing the difference between them can make your React code more efficient and effective.
+
+## Controlled component
+
+In React, a controlled component refers to a component whose state is managed by React. When a user interacts with the component, React updates its state and re-renders it with the new state. This means that the component's state is **controlled** by React.
+
+One common example of a controlled component is a form input element. As the user types into the input field, React updates the component's state with the new value. This makes it easy to access the current value of the input field by simply reading the component's state.
+
+Here's an example of a controlled input component:
+
+```tsx
+import * as React from 'react';
+
+const ControlledInput = () => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event) => {
+        // Update state with new value
+        setValue(event.target.value);
+    };
+
+    return (
+        <input type="text" value={value} onChange={handleChange} />
+    );
+}
+```
+
+In this code example, we use the `useState` hook to create a state variable called `value` and a function called `setValue` to update the state. When the user types something in the input field, the `handleChange` function is called to update the state with the new value. Finally, we use the `value` variable to set the `value` prop of the input field.
+
+## Uncontrolled component
+
+In React, an uncontrolled component is one where the component's state is managed by the DOM. Simply put, when a user interacts with the component, the DOM updates the state directly, bypassing React. This is what we mean by an **uncontrolled** component.
+
+A classic example of an uncontrolled component is a form input element with a `defaultValue` prop. Whenever a user types something into the input field, the DOM updates the value of the input directly, without going through React.
+
+To give you a better idea, here's an example of an uncontrolled input component:
+
+```tsx
+const UncontrolledInput = () => {
+    return (
+        <input type="text" defaultValue="Hello World!" />
+    );
+};
+```
+
+In this example, the `defaultValue` prop sets the input field's initial value. As the user types in the input field, the DOM updates the value directly, bypassing React.
+
+## When to use controlled vs uncontrolled components
+
+Controlled components have several advantages over uncontrolled components in React. One of the main benefits is that they provide a single source of truth for the component's state. This makes it easy to access and manipulate the state from your code.
+
+Another advantage of using controlled components is that they help with form validation. Since you have full control over the state, you can easily check whether the input is valid and display error messages accordingly.
+
+However, controlled components can be more verbose than uncontrolled components, especially for large forms with many input fields. And if you're updating the state too frequently, it can lead to performance issues.
+
+There are some cases where uncontrolled components may be more appropriate. Here are a few examples:
+
+-   **Large Forms**
+
+When you have a form with many input fields, managing the state for each field in React can be a hassle. To simplify and streamline your code, you can use uncontrolled components with a `ref`. Check out the next section for an example of how to use a `ref` with an uncontrolled component.
+
+-   **Third-Party Libraries**
+
+At times, you may need to use a third-party library that demands an uncontrolled component. Let's say you're using a date picker library, which needs an uncontrolled input field with a specific format for the date value.
+
+-   **Performance Optimization**
+
+Sometimes, using an uncontrolled component can actually boost performance. This is because the state of an uncontrolled component is managed by the DOM instead of React, which means there's less overhead involved in updating the state.
+
+## Using uncontrolled components with a Ref
+
+Although uncontrolled components are generally not recommended in React, there may be situations where you want to use them. In these cases, you can use an uncontrolled component with a `ref`.
+
+Using a `ref` allows you to directly access the value of an uncontrolled component from the DOM without going through React. This can be useful when you need to perform specific operations on the input field that are not possible with controlled components.
+
+Here's an example of how you can use an uncontrolled input component with a `ref`:
+
+```tsx
+import * as React from 'react';
+
+const UncontrolledInputWithRef = () => {
+    const inputRef = useRef(null);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Log the current value of the input field
+        console.log(inputRef.current.value);
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="text" defaultValue="Hello World!" ref={inputRef} />
+            <button type="submit">Submit</button>
+        </form>
+    );
+};
+```
+
+In this code example, we use the `useRef` hook to create a reference to the input field's `ref` prop. We also define a function called `handleSubmit` that logs the current value of the input field when the form is submitted.
+
+Since we're using an uncontrolled component, we don't need to create or update any state variables. Instead, we can directly access the current value of the input field using our `ref`. This makes things simpler and more efficient.
+
+## Conclusion
+
+When it comes to form inputs in React, you have two options: controlled and uncontrolled components. Controlled components give you more control and make form validation easier, while uncontrolled components can be simpler to use and offer a performance boost.
+
+But beware: uncontrolled components are generally not recommended in React, except in situations where they're necessary. For example, when working with certain third-party libraries.
+
+While uncontrolled components have their advantages, it's best to use them sparingly and only when necessary. In most cases, controlled components are the way to go. They offer better control and flexibility, making your React codebase clearer and more predictable.
+
+## See also
+
+-   [Controlled vs uncontrolled modes](https://phuoc.ng/collection/this-vs-that/controlled-vs-uncontrolled-modes)
