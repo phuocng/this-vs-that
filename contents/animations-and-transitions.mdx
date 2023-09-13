@@ -1,0 +1,182 @@
+---
+category: CSS
+created: '2023-09-08'
+description: The differences between CSS animations and transitions
+openGraphCover: /og/this-vs-that/animations-vs-transitions.png
+title: Animations vs transitions
+---
+
+Cascading Style Sheets (CSS) is a powerful tool for adding visual effects to web pages. Animations and transitions are two popular ways to add these effects, but they're not quite the same thing. Let's explore the key differences between the two.
+
+## Transitions
+
+Transitions are a cool way to animate changes in CSS properties smoothly and gradually. They allow for a seamless transition between two states of an element. For instance, you can use a transition to change the color of a button when a user hovers over it.
+
+To define a transition in CSS, you'll use the `transition` property. This property specifies the CSS properties to transition, the duration of the transition, and the easing function to use. Here's an example of how a transition looks like:
+
+```css
+button {
+    background-color: blue;
+    transition: background-color 0.5s ease;
+}
+
+button:hover {
+    background-color: red;
+}
+```
+
+In the example above, we have a button that transitions its `background-color` property over half a second using an `ease` function. When a user hovers their mouse over the button, the `background-color` changes from blue to red, and the transition between colors is smooth.
+
+## Animations
+
+Animations are a step up from transitions, giving you more control over the animation sequence. With animations, you can create multiple keyframes, each with its own set of CSS properties. This allows for more complex and intricate animations, like moving objects across the screen or rotating elements around a point.
+
+To define an animation, use the `@keyframes` rule in CSS. This rule specifies the CSS properties at different points in the animation sequence. Here's an example of how it works:
+
+```css
+@keyframes move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100px);
+    }
+}
+
+button {
+    animation: move 1s ease infinite;
+}
+```
+
+In the previous example, the `@keyframes` rule defines an animation named `move` that shifts the button 100 pixels to the right. We then use the `animation` property to animate the `button` element. The animation lasts for `1s` and uses an `ease` function, with the animation looping infinitely.
+
+## Triggering
+
+When it comes to transitions, they can't start on their own. They need a trigger to get going. This trigger can be an event from the previous section or JavaScript, but something outside of the transition itself has to kick it off.
+
+```css
+div {
+    background-color: yellow;
+    transition: background-color 0.5s ease;
+}
+
+div:hover {
+    background-color: green;
+}
+```
+
+In the example above, when a user hovers over the `div` element, its `background-color` property changes smoothly from yellow to green. The hover event acts as a trigger for the transition to begin. It's crucial to note that without this trigger, the transition wouldn't happen and the `div` element would stay yellow.
+
+Unlike transitions, CSS animations don't require a trigger to start. They can run automatically as soon as the page loads, which makes them perfect for creating elements that change or move automatically. In fact, animations are your only option if you want this type of automatic movement.
+
+For instance, let's say you want to create an animation that rotates an element continuously on a webpage. Here's how you can define and apply this animation:
+
+```css
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    animation: rotate 2s linear infinite;
+}
+```
+
+In the example above, we've created an animation called `rotate` using the `transform` property to spin an image from `0deg` to `360deg`. We've set the animation to last for `2s`, with a smooth, linear movement, and to repeat indefinitely.
+
+By adding this animation to a `<div>` element on our webpage, we can make it spin non-stop without any interaction from the user or the need for external triggers.
+
+## States
+
+Transitions only have two states: the beginning and the end. But animations are different. They can have as many intermediate states (or `keyframes`) as you want between the start and end points.
+
+Let me show you an example of how animations can include multiple keyframes:
+
+```css
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+div {
+    animation: bounce 1s ease infinite;
+}
+```
+
+In the example above, we use the `@keyframes` rule to create an animation called `bounce` that makes a `div` element bounce up and down. The animation is made up of three keyframes, each with its own set of CSS properties. To animate the `div` element, we use the `animation` property, which has a duration of `1s`, an `ease` function, and an infinite loop.
+
+## Direction
+
+CSS transitions run forwards when triggered, and in reverse when the trigger is removed. Let's take a look at the example from earlier: when a user moves their mouse out of the button, the background color will smoothly transition back to its original color.
+
+CSS animations can run in various directions. By default, they run forward from the starting point to the ending point. However, by tweaking the `animation-direction` property, you can make them run backward, alternate between forward and backward, or even alternate between forward and backward while repeating.
+
+Here's an example of how to make an animation run both forward and backward:
+
+```css
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(100px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+div {
+    animation: slide 2s ease infinite alternate;
+}
+```
+
+In this example, we've created an animation called `slide` that moves a `div` element horizontally. The animation has three keyframes that define the starting, midpoint, and ending positions of the movement. We've set the `animation-direction` property to `alternate`, which makes the animation play in reverse after it reaches its final position.
+
+## Looping
+
+Transitions only run when triggered and then go backward when the trigger is removed. Animations, on the other hand, can loop as many times as you want them to.
+
+To specify the number of times an animation should run before stopping, we use the `animation-iteration-count` property. By default, animations run only once and then stop. However, you can set this property to a specific number or to `infinite` to make the animation loop indefinitely.
+
+```css
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
+}
+
+button {
+    animation: pulse 0.5s ease;
+    animation-iteration-count: 3;
+}
+```
+
+In this example, we define an animation called `pulse` that scales a button up and down repeatedly. We set the `animation-iteration-count` property to `3`, which makes the animation play three times before stopping.
+
+By adjusting the value of `animation-iteration-count`, you can control how many times your animations repeat before stopping. This gives you greater control over your CSS animations and allows you to create more complex effects on your web pages.
+
+## Conclusion
+
+To sum it up, transitions are simpler and more straightforward than animations, but they have limitations. Animations, on the other hand, are more complex, but offer greater control over the animation sequence. Knowing the differences between the two can help you choose the best option for adding visual effects to your web pages.
