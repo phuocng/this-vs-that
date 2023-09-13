@@ -1,0 +1,75 @@
+---
+category: JavaScript
+created: '2023-09-02'
+description: The differences between Deep compare and shallow compare in JavaScript
+openGraphCover: /og/this-vs-that/deep-shallow-compare.png
+title: Deep compare vs shallow compare
+---
+
+When it comes to comparing objects in JavaScript, there are two ways to do it: **deep compare** and **shallow compare**. While both methods compare two objects, they differ in how they approach the comparison. In this post, we'll explore the differences between the two. Get ready to learn!
+
+## Shallow compare
+
+When we use shallow compare to compare two objects, we only check if they have the same reference in memory. If they do, we consider them equal. This means that even if the two objects have the same properties and values, they will not be considered equal if they are not the same instance.
+
+Here's an example:
+
+```js
+const person1 = {
+    name: 'John',
+    age: 42,
+};
+const person2 = {
+    name: 'John',
+    age: 42,
+};
+const person3 = person1;
+
+console.log(person1 === person2);   // false
+console.log(person1 === person3);   // true
+```
+
+In this example, `person1` and `person2` may have the same properties and values, but they are not the same thing, so they are not equal. However, `person3` is the same thing as `person1`, so it is considered equal.
+
+## Deep compare
+
+On the other hand, deep compare compares two objects by examining their properties and values. If both objects have identical properties and values, they are considered equal. This means that even if the two objects are not the same instance, they will be considered equal if they have the same properties and values.
+
+Let me give you an example:
+
+```javascript
+const person1 = {
+    address: {
+        country: 'US',
+        city: 'New York',
+    },
+    name: 'John',
+    age: 42,
+};
+const person2 = {
+    address: {
+        country: 'US',
+        city: 'New York',
+    },
+    name: 'John',
+    age: 42,
+};
+const person3 = person1;
+
+console.log(person1 === person2);   // false
+console.log(person1 === person3);   // true
+
+console.log(JSON.stringify(person1) === JSON.stringify(person2));   // true
+```
+
+In this example, `person1` and `person2` have the same properties and values, so they are considered equal even though they are not the same instance. On the other hand, `person3` is still the same instance as `person1`, so it is considered equal too.
+
+> It's worth noting that the sample code above is only meant to demonstrate the concept of deep compare using `JSON.parse(JSON.stringify())`. This method may not be suitable for large or complex objects.
+
+## Conclusion
+
+To sum things up, shallow compare checks if two objects are the same instance in memory, while deep compare checks if two objects have the same properties and values. When comparing objects in JavaScript, it's important to choose the right method of comparison based on your specific needs.
+
+## See also
+
+-   [Deep copy vs shallow copy](https://phuoc.ng/collection/this-vs-that/deep-copy-vs-shallow-copy)
