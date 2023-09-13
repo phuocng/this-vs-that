@@ -1,0 +1,45 @@
+---
+category: JavaScript
+created: '2023-09-08'
+description: The differences between JavaScript microtasks and macrotasks
+openGraphCover: /og/this-vs-that/microtasks-vs-macrotasks.png
+title: Microtasks vs macrotasks
+---
+
+JavaScript is a single-threaded language, which means that it can only do one thing at a time. But, it can handle multiple tasks by using a queue of tasks that are waiting to be executed. These tasks are divided into two categories: **microtasks** and **macrotasks**.
+
+## Macrotasks
+
+Macrotasks, also known as tasks or jobs, are tasks that take longer to complete and are added to the end of a queue. Examples of macrotasks include:
+
+-   `setTimeout` and `setInterval` callbacks
+-   DOM manipulation
+-   I/O operations (like reading or writing to a file)
+-   `requestAnimationFrame`
+
+When a macrotask is added to the queue, it won't execute until all previously added tasks have been processed. This means that if a macrotask takes a long time to complete, it can prevent other tasks from executing.
+
+## Microtasks
+
+Microtasks are small tasks that take less time to complete and are given priority in the task queue. Examples of microtasks include:
+
+-   `Promises` callbacks (resolve and reject)
+-   `MutationObserver` callbacks
+-   `process.nextTick` in Node.js
+
+When a microtask is added to the queue, it takes precedence over any macrotasks waiting in the queue. This means that if there are a large number of microtasks waiting, they will be executed before any macrotasks, regardless of when they were added to the queue.
+
+## Priority of microtasks over macrotasks
+
+The priority of microtasks over macrotasks is important to understand when working with JavaScript. This is because if there are a lot of microtasks waiting in the queue, they can hold up the execution of macrotasks, which can lead to slow performance or even a frozen UI.
+
+In general, it is a good practice to use microtasks whenever possible, especially when dealing with asynchronous operations. This can help ensure that your application remains responsive and performs well.
+
+## Conclusion
+
+In summary, microtasks and macrotasks are two types of tasks that are used to manage the execution of JavaScript code. Macrotasks are larger, longer-running tasks that are added to the end of the queue, while microtasks are smaller, faster-running tasks that are added to the front of the queue. It is important to understand the priority of microtasks over macrotasks and to use microtasks whenever possible to ensure that your application remains responsive and performs well.
+
+## See also
+
+-   [Call stack vs task queue](https://phuoc.ng/collection/this-vs-that/call-stack-vs-task-queue)
+-   [setInterval() vs setTimeout() vs setTimeout(0)](https://phuoc.ng/collection/this-vs-that/set-interval-vs-set-timeout-vs-set-timeout-zero)
