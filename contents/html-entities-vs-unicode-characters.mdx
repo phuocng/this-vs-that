@@ -1,0 +1,49 @@
+---
+category: HTML
+created: '2023-09-04'
+description: The differences between HTML entities and Unicode characters
+openGraphCover: /og/this-vs-that/entities-vs-unicode.png
+title: HTML entities vs Unicode characters
+---
+
+When it comes to displaying characters on the web, you have two major options: HTML entities and Unicode characters. Although they both do the same thing, there are some differences between them that may make one option better than the other depending on your needs.
+
+## HTML entities
+
+HTML entities are special character sequences that represent symbols or characters. They're used to display characters that could be mistaken for HTML code, like the less-than symbol (`<`) or the ampersand (`&`).
+
+Here are some examples of common HTML entities:
+
+-   `&lt;` represents the less-than symbol (`<`)
+-   `&gt;` represents the greater-than symbol (`>`)
+-   `&amp;` represents the ampersand (`&`)
+-   `&quot;` represents the double-quote symbol (`"`)
+-   `&apos;` or `&#39;` represent the single-quote symbol (`'`)
+
+Using HTML entities has a few advantages. For one, they're easier to type than Unicode characters, which require a specific code to be entered (like `U+00A9` for the copyright symbol). With HTML entities, you can use simple character sequences that are easier to remember.
+
+Another advantage is that HTML entities are more widely supported by different web browsers and platforms. Unicode characters might not display correctly on older browsers or operating systems, but HTML entities are more likely to work correctly.
+
+## Unicode characters
+
+Unicode characters are specific codes that represent a character or symbol. They're used to display characters that may not be available in the standard character set, like non-Latin alphabets or special symbols.
+
+Check out these examples of Unicode characters you might see every day:
+
+-   `\u00A9` represents the copyright symbol (©)
+-   `\u2192` represents a right arrow (→)
+-   `\u2615` represents a coffee cup (☕)
+-   `\u1F60E` represents a smiling face with sunglasses (😎)
+-   `\u2764` represents a red heart (❤)
+
+One advantage of using Unicode characters is that they're more efficient than HTML entities. Since each Unicode character has a specific code, it can be displayed directly without needing a special sequence of characters.
+
+Another advantage of using Unicode characters is that they're more flexible than HTML entities. While HTML entities are limited to a specific set of characters, Unicode can represent any character or symbol in any language.
+
+However, one potential drawback of using Unicode characters is that they may not be supported by all web browsers or platforms. While most modern web browsers support Unicode characters, older browsers or operating systems may not display them correctly.
+
+## Conclusion
+
+In conclusion, whether to choose HTML entities or Unicode characters depends on your specific needs. If you're displaying symbols that might be mistaken for HTML code, or if you need wider compatibility across different platforms and browsers, then HTML entities may be the better choice. However, if you need to display non-standard characters or symbols, or if efficiency is a priority, then Unicode characters are likely the way to go.
+
+But keep in mind, not all web browsers and platforms will support them equally. It's always a good idea to test your website's character displays across different devices and browsers to ensure they're appearing as intended. So choose wisely and test often!
