@@ -1,0 +1,89 @@
+---
+category: DOM
+created: '2023-09-04'
+description: The differences between dynamic and static NodeList
+openGraphCover: /og/this-vs-that/dynamic-vs-static-node-list.png
+title: Dynamic vs static NodeList
+---
+
+When working with JavaScript and the Document Object Model (DOM), you may encounter two types of `NodeList`s: dynamic and static. In this post, we'll explore the differences between these two types and when you might want to use one over the other. So, let's dive in!
+
+## Static NodeLists
+
+When you use methods like `document.querySelectorAll()`, a static `NodeList` is created. This `NodeList` represents a snapshot of the matching elements at the time the method was called.
+
+For example, let's say we have an unordered list (`ul`) with three list items (`li`):
+
+```html
+<ul>
+    <li>A</li>
+    <li>B</li>
+    <li>C</li>
+</ul>
+```
+
+We're going to add a new item to the list by appending it.
+
+```js
+const listItems = document.querySelectorAll('li');
+console.log(listItems.length);  // 3
+
+// Append a new item
+const list = document.querySelector('ul');
+const li = document.createElement('li');
+li.innerHTML = 'D';
+list.appendChild(li);
+
+console.log(listItems.length);  // still 3
+```
+
+In the example above, we make a static `NodeList` containing all the `li` elements on the page. Then, we add a new `li` element to the `ul` element. However, even after the addition, the length of the `listItems` `NodeList` remains 3. This is because the `NodeList` is static and doesn't update when the DOM changes.
+
+## Dynamic NodeLists
+
+When you use the `element.childNodes` or `element.children` property, or call the `element.getElementsByTagName()` function, a dynamic `NodeList` is created. This type of `NodeList` reflects the current state of the DOM, and is updated whenever the DOM changes.
+
+Let's take a look at an example using these different ways to select nodes.
+
+```js
+const list = document.querySelector('ul');
+const listItems = list.childNodes;
+console.log(listItems.length);  // 3
+
+// Append a new item
+const li = document.createElement('li');
+li.innerHTML = 'D';
+list.appendChild(li);
+
+console.log(listItems.length);  // now 4
+```
+
+In this example, we create a dynamic `NodeList` of all the child nodes of the `ul` element. Then, we append a new `li` element to the `ul` element. When we log the length of the `listItems` `NodeList` again, it returns 4. This is because the `NodeList` is dynamic and updates when the DOM changes.
+
+You'll encounter the same thing when using the `getElementsByTagName()` function.
+
+```js
+const list = document.querySelector('ul');
+const listItems = list.getElementsByTagName('li');
+console.log(listItems.length);  // 3
+
+// Append a new item
+const li = document.createElement('li');
+li.innerHTML = 'D';
+list.appendChild(li);
+
+console.log(listItems.length);  // now 4
+```
+
+## When to use dynamic vs static NodeLists
+
+When it comes to choosing between a dynamic or static `NodeList`, it really depends on your specific needs.
+
+If you only need to work with a specific set of elements at a certain point in time (like when the page first loads), then a static `NodeList` is usually good enough. Plus, using a static `NodeList` is often faster since the browser doesn't have to keep track of changes to the DOM.
+
+However, if you're working with elements that might change frequently (like if you're animating things on the page), then a dynamic `NodeList` is the way to go. This type of `NodeList` automatically updates as changes are made to the DOM, so you don't have to worry about updating it yourself. Just be aware that dynamic `NodeList`s can be slower than static ones, especially if the DOM is large.
+
+## See also
+
+-   [children vs childNodes](https://phuoc.ng/collection/this-vs-that/children-vs-child-nodes)
+-   [NodeIterator vs TreeWalker](https://phuoc.ng/collection/this-vs-that/node-iterator-vs-tree-walker)
