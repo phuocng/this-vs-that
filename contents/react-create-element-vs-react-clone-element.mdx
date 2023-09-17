@@ -1,0 +1,116 @@
+---
+category: React
+created: '2023-09-10'
+description: The differences between createElement() and cloneElement() in React
+openGraphCover: /og/this-vs-that/create-element-vs-clone-element.png
+title: React.createElement() vs React.cloneElement()
+---
+
+React is a widely used JavaScript library for building user interfaces. Two methods that you're likely to encounter when working with React are `React.createElement` and `React.cloneElement`. Both methods are used for creating React elements, but they have different purposes.
+
+## React.createElement
+
+`React.createElement` is a method used to create a new React element. It takes three arguments:
+
+-   **The type of the element**:
+
+This can be a string representing an HTML tag (like `div`, `span`, or `p`), a reference to a React component (like `MyComponent`), or a functional component (like `() => <div>Hello World!</div>`).
+
+-   **The element's properties** (or **props**):
+
+This is an object that contains any properties that should be passed to the element. For example:
+
+```jsx
+{
+    className: 'my-class',
+    onClick: () => console.log('clicked'),
+}
+```
+
+-   **The element's children**: This can be any valid JavaScript expression, including other React elements.
+
+Here's an example of how to create a new React element using `React.createElement`:
+
+```jsx
+const element = React.createElement(
+    'div',
+    {
+        className: 'my-class',
+    },
+    'Hello World!'
+);
+```
+
+## React.cloneElement
+
+`React.cloneElement` is a handy tool for creating a new React element that's a lot like an existing one, but with some differences. You can use it to modify certain properties or children of the cloned element. To use `React.cloneElement`, you need to provide two things:
+
+-   **The element you want to clone**: This is the element you're starting with.
+
+-   **The new properties you want to add (or change)**: This is an object that contains any new properties you want to add or any existing properties you want to change.
+
+For example, you might use `{ className: 'new-class' }` to add a new CSS class to the cloned element.
+
+Here's an example of how to use `React.cloneElement` to clone a React element:
+
+```jsx
+const originalElement = React.createElement(
+    'div',
+    {
+        className: 'my-class',
+    },
+    'Hello World!'
+);
+const clonedElement = React.cloneElement(
+    originalElement,
+    {
+        className: 'new-class',
+    }
+);
+```
+
+In this example, `clonedElement` is a fresh React element copied from `originalElement`, but with the `className` property set to `new-class`.
+
+## Limitations
+
+While `React.createElement` and `React.cloneElement` are both powerful tools, they do have some limitations and edge cases to be aware of.
+
+### React.createElement
+
+While `React.createElement` is a powerful tool for creating components, it can become unwieldy when dealing with complex hierarchies. Let me show you an example of how we can pass down children elements using the third argument of `React.createElement`:
+
+```jsx
+const nestedElement = React.createElement(
+    'div',
+    {
+        className: 'outer-box',
+    },
+    React.createElement(
+        'p',
+        null,
+        'This is a nested paragraph.'
+    ),
+    React.createElement(
+        'ul',
+        null,
+        React.createElement('li', null, 'List item 1'),
+        React.createElement('li', null, 'List item 2')
+    )
+);
+```
+
+In this example, we're creating a new `<div>` element that has two child elements: a `<p>` element and an unordered list (`<ul>`) that has two list items (`<li>`). We used multiple arguments as the third argument to `React.createElement`, which allowed us to create a complex hierarchy of nested components.
+
+When nesting multiple elements, the resulting code can be hard to read and maintain. Plus, if you need to make changes to a deeply nested element, you may have to modify multiple components.
+
+Another tricky aspect of `React.createElement` is passing properties down multiple levels of components. Although React's props system is designed to pass data from parent components to children, passing props up the hierarchy requires more effort and can lead to errors.
+
+### React.cloneElement
+
+While `React.cloneElement` is a handy tool, it does have its limitations. For instance, it only clones one element at a time. If you need to clone an entire component hierarchy, you'll need to use additional tools like recursion or higher-order components.
+
+Also, be aware of an edge case with `React.cloneElement`: it can sometimes produce unexpected results when used with certain types of children. For instance, if you clone an element with a string or number child, it will result in a new element with the same child value — not a new string or number instance. This can cause issues when trying to compare values or perform other operations on cloned elements.
+
+## Conclusion
+
+In short, `React.createElement` creates a brand new React element, while `React.cloneElement` duplicates an existing element with some modifications. These are crucial tools for React developers and are frequently used when building React applications.
