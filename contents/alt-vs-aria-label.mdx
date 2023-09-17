@@ -1,0 +1,86 @@
+---
+category: HTML
+created: '2023-09-16'
+description: The differences between alt and aria-label attributes
+openGraphCover: /og/this-vs-that/alt-vs-aria-label.png
+tags: Accessibility
+title: alt vs aria-label
+---
+
+When making web content accessible, it's crucial to provide alternative text for non-text elements, like images and icons. Two commonly used attributes for this are `aria-label` and `alt`. Although both serve the same purpose, there are some differences between them.
+
+## The alt attribute
+
+The `alt` attribute is a text description used for images and other non-text content. The purpose of this attribute is to provide a way for screen readers and assistive technologies to understand what the image is about. The `img` element requires the `alt` attribute, but it's a good idea to include it for other non-text content too.
+
+Here's an example of how you can use the `alt` attribute to describe an image:
+
+```html
+<img src="image.jpg" alt="A red apple on a white background">
+```
+
+## The aria-label attribute
+
+The `aria-label` attribute helps to label the current element. It's handy when you have an element that doesn't have a visible label. This attribute can be used on any element, but it's especially useful for accessibility because it gives a textual representation of the element that can be understood by screen readers and other assistive technologies.
+
+Here's an example of how to use the `aria-label` attribute to describe a button:
+
+```html
+<button aria-label="Close">X</button>
+```
+
+## Differences between alt and aria-label
+
+Although both `aria-label` and `alt` serve the same purpose of providing alternative text for non-text content, there are some differences between them.
+
+`alt` is specifically designed for images and other non-text content, and it's a required attribute for the `img` element. In contrast, `aria-label` can be used on any element and is optional.
+
+Another difference is that `alt` provides a textual representation of the image, while `aria-label` provides a textual label for an element that doesn't have a visible label.
+
+## Using alt and aria-label together
+
+To make sure that non-text content is accessible to everyone, it's a good idea to use both the `alt` and `aria-label` attributes. This way, everyone can understand the content, regardless of their abilities.
+
+For instance, let's say you use an image as a link. In this case, both the `alt` attribute and the `aria-label` attribute can be used to provide alternative text for the image and a label for the link. This makes it easier for everyone to use and understand your website.
+
+```html
+<a href="/page.html">
+    <img
+        src="image.jpg"
+        alt="A red apple on a white background"
+        aria-label="Link to page about apples"
+    >
+</a>
+```
+
+In this example, we're making our web content more accessible by using the `alt` attribute to provide alternative text for images and the `aria-label` attribute to describe links for screen readers and other assistive technologies. By using both attributes together, we're ensuring that everyone can easily understand and interact with our web content.
+
+## Best practices for writing effective alt and aria-label attributes
+
+When writing descriptions for images and other non-text content, it's important to follow some best practices. Here are a few tips for creating effective `alt` and `aria-label` attributes:
+
+-   **Be descriptive but concise**
+
+Alternative text should describe an image or element well enough to convey its meaning, but it should also be concise enough to avoid overwhelming the user with too much information. Aim for a balance between providing enough detail and keeping the text short and to the point.
+
+-   **Provide alternative text for icons and images**
+
+Icons and images can add context and visual appeal to forms. But to ensure they are accessible to everyone, it's crucial to provide alternative text using the `alt` or `aria-label` attribute. This allows screen readers and other assistive technologies to understand and convey the meaning of these elements.
+
+-   **Don't repeat surrounding content**
+
+To avoid redundancy, don't duplicate information that's already in the surrounding content. For instance, if you have an image of a button labeled _Click me_ there's no need to include _Click me_ in the alternative text since it's already on the button.
+
+-   **Use keywords**
+
+Including relevant keywords in your alternative text can help users understand the context of the image or element. For instance, if your image shows a red apple on a white background, including the word _apple_ in your alternative text can help users who are searching for information about apples. This simple step can make a big difference in improving the accessibility and searchability of your content.
+
+-   **Test with screen readers**
+
+It's important to test your alternative text using screen readers and other assistive technologies to ensure that they accurately convey the meaning of the image or element. Doing so will help you identify any issues or areas where your alternative text could be improved.
+
+By following these best practices, you can make your web content more accessible to all users by creating effective `alt` and `aria-label` attributes.
+
+## Conclusion
+
+To sum it up, the `alt` attribute gives alternative text for non-text content, while the `aria-label` attribute gives a textual label for an element without a visible label. Both attributes make web content more accessible, but they are used in different contexts.
