@@ -1,0 +1,215 @@
+---
+category: React
+created: '2023-09-11'
+description: The differences between controlled and uncontrolled modes in React
+openGraphCover: /og/this-vs-that/controlled-vs-uncontrolled-modes.png
+title: Controlled vs uncontrolled modes
+---
+
+React is a popular JavaScript library used to create user interfaces. When it comes to managing a component's state in React, there are two modes: **controlled** and **uncontrolled**. In this post, we'll explore these modes and their differences by building a tab component. So, let's dive in and get started!
+
+## What is uncontrolled mode?
+
+Uncontrolled mode means that the component itself controls its own state, and its internal states cannot be changed from outside the component.
+
+Let's take our Tab component as an example. In uncontrolled mode, the Tab component manages its own active tab and handles the event of selecting a new tab to update the active tab accordingly. If we use the Tab component inside another component, the parent component has no control over the state of the tab.
+
+Here's an example of how to create the Tab component in uncontrolled mode:
+
+```tsx Tab.tsx
+import * as React from 'react';
+
+type TabProp = {
+    label: string;
+    content: React.ReactNode;
+};
+
+export const Tab: React.FC<{
+    tabs: TabProp[];
+}> = ({ tabs }) => {
+    const [activeTab, setActiveTab] = React.useState(0);
+
+    return (
+        <div className="tab">
+            <div className="tab__header">
+                {tabs.map((tab, index) => (
+                    <div
+                        key={index}
+                        className={`tab__item ${index === activeTab ? "tab__item--active" : ""}`}
+                        onClick={() => setActiveTab(index)}
+                    >
+                        {tab.label}
+                    </div>
+                ))}
+            </div>
+
+            <div className="tab__content">
+                {tabs[activeTab].content}
+            </div>
+        </div>
+    );
+};
+```
+
+Let's take a closer look at this code. We define our `Tab` component and pass in a `tabs` prop. This prop is an array of objects with `label` and `content` properties. The `label` will be used as the tab title, and the `content` will be used as the tab content.
+
+Inside our component, we set up a state variable called `activeTab` and set its initial value to `0`. This variable will keep track of which tab is currently active.
+
+Next, we render the tab header using the `map` function to loop through the `tabs` prop. For each tab, we create a new `div` element with a `tab__item` class. We also check if the current index is equal to the `activeTab` state variable. If it is, we add an `tab__item--active` class to the `div`. Finally, we add an `onClick` event handler that sets the `activeTab` state variable to the current index.
+
+In the tab content section, we simply render the `content` property of the currently active tab. That's it! With this code, we can easily create and switch between multiple tabs.
+
+The Tab component is easy to use without any restrictions. Simply pass the tabs array as a prop.
+
+```tsx App.tsx
+import Tab from "./Tab";
+
+export const App = () => {
+    const tabs = [
+        {
+            label: "Tab 1",
+            content: "This is the content for tab 1",
+        },
+        {
+            label: "Tab 2",
+            content: "This is the content for tab 2",
+        },
+        {
+            label: "Tab 3",
+            content: "This is the content for tab 3",
+        },
+    ];
+
+    return (
+        <Tab tabs={tabs} />
+    );
+};
+```
+
+As you can see, the child Tab components take care of tab change events and keep track of the selected tab's state. However, the parent component, `App`, doesn't manage the state inside the Tab component. Therefore, it's not possible to change the selected tab from the `App` component.
+
+## What is controlled mode?
+
+Let's talk about controlled modes. In this mode, the parent component manages the state of the child component.
+
+When Tab component is being used in controlled mode, the parent component is responsible for selecting the tab and handling any tab change events. Essentially, this means that the child component has no control over the tab's state.
+
+To create a controlled tab in React, we need to receive the currently active tab index from the parent component via props instead of keeping track of it internally using the `useState` hook. We'll also need to add two new props to our `Tab` component: `activeTabIndex` and `onTabChange`. The `activeTabIndex` prop contains the index of the currently active tab, and the `onTabChange` prop is a function that gets called whenever a new tab is selected.
+
+Here's an updated implementation of our `Tab` component:
+
+```tsx Tab.tsx
+import * as React from 'react';
+
+type TabProp = {
+    label: string;
+    content: React.ReactNode;
+};
+
+export const Tab: React.FC<{
+    activeTabIndex: number;
+    tabs: TabProp[];
+    onTabChange: (index: number) => void;
+}> = ({ activeTabIndex, tabs, onTabChange }) => {
+    return (
+        <div className="tab">
+            <div className="tab__header">
+                {tabs.map((tab, index) => (
+                    <div
+                        key={index}
+                        className={`tab__item ${index === activeTabIndex ? "tab__item--active" : ""}`}
+                        onClick={() => onTabChange(index)}
+                    >
+                        {tab.label}
+                    </div>
+                ))}
+            </div>
+
+            <div className="tab__content">
+                {tabs[activeTabIndex].content}
+            </div>
+        </div>
+    );
+};
+```
+
+As you can see, we've made some changes to our code. We removed the `useState` hook and replaced it with references to the new props. This way, we use the `activeTabIndex` prop instead of our internal state variable to determine which tab is currently active. Additionally, we now call the `onTabChange` function instead of setting our internal state when a new tab is selected.
+
+Now, let's update our `App.js` file to use the new version of the `Tab` component.
+
+```tsx App.tsx
+import * as React from "react";
+import Tab from "./Tab";
+
+export const App = () => {
+    const tabs = [
+        {
+            label: "Tab 1",
+            content: "This is the content for tab 1",
+        },
+        {
+            label: "Tab 2",
+            content: "This is the content for tab 2",
+        },
+        {
+            label: "Tab 3",
+            content: "This is the content for tab 3",
+        },
+    ];
+
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const handleTabChange = (index: number) => {
+        setActiveTabIndex(index);
+    };
+
+    return (
+        <Tab
+            activeTabIndex={activeTabIndex}
+            tabs={tabs}
+            onTabChange={handleTabChange}
+        />
+    );
+};
+```
+
+In our updated code, we've added a new state variable called `activeTabIndex` and set it to `0`. We've also created a function called `handleTabChange` that updates the `activeTabIndex` state variable when it's called.
+
+To make our `Tab` component a controlled component, we pass these two values as props. This means that instead of keeping track of its own state, the `Tab` component relies on its parent component to provide this information through props.
+
+## Conclusion
+
+To sum it up, we use controlled mode when the parent component needs to control the state of the child component, and uncontrolled mode when the child component needs to control its own state.
+
+Each option has its own set of advantages and disadvantages. Let's take a look at the pros and cons for each one:
+
+### Uncontrolled mode
+
+**Pros:**
+
+-   Uncontrolled components are easier to set up and use.
+-   They can be less wordy than controlled components, requiring fewer lines of code.
+-   They're often faster since they don't need as many re-renders.
+
+**Cons:**
+
+-   The child component has full control over its own state, which can make it more challenging to manage from the parent component.
+-   Implementing certain complex UI requirements can be more difficult.
+
+### Controlled mode
+
+**Pros:**
+
+-   With the parent component having full control over the child component's state, managing state becomes simpler.
+-   Implementing complex UI requirements that involve multiple components is easier.
+-   Debugging is easier as data flow is more explicit.
+
+**Cons:**
+
+-   Controlled components may require more code to set up, as they tend to be more verbose.
+-   Passing props through several levels of nesting can become cumbersome and difficult to manage.
+
+When it comes to choosing between controlled or uncontrolled components, there's no one-size-fits-all approach. You need to select the approach that best fits your specific use case. In reality, I've seen many use cases where a component needs to support both modes.
+
+## See also
+
+-   [Controlled vs uncontrolled components](https://phuoc.ng/collection/this-vs-that/controlled-vs-uncontrolled-components)
