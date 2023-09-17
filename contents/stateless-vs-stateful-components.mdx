@@ -1,0 +1,119 @@
+---
+category: React
+created: '2023-09-10'
+description: The differences between stateless and stateful components in React
+openGraphCover: /og/this-vs-that/stateless-vs-stateful.png
+title: Stateless vs stateful components
+---
+
+React is a widely-used JavaScript library for creating user interfaces. It has two types of components: **stateless** and **stateful**. In this post, we'll cover the fundamental concepts and the distinctions between them.
+
+## Stateless components
+
+Stateless components, as the name implies, are components that do not have any state. They are also referred to as presentational or dumb components. Their main job is to render the UI based on the props passed to them.
+
+The beauty of stateless components is that they are easy to write and test because they do not have any side-effects. They are also very versatile and can be reused throughout your application without worrying about their internal state.
+
+For instance, here is a simple example of a stateless component:
+
+```tsx Greeting.tsx
+export const Greeting = ({ name }) => {
+    return <h1>Hello, {name}!</h1>;
+};
+```
+
+Here's an example: `Greeting` is a component that doesn't store any state. It simply takes a `name` prop and uses it to display a greeting message in a straightforward manner.
+
+There are several benefits to using stateless components in React:
+
+-   **Simplicity**
+
+Stateless components are simple to understand because they only rely on the props passed to them. This makes it easier to comprehend what a component does and how it behaves.
+
+-   **Reusability**
+
+Since stateless components do not have any internal state, they can be easily reused throughout your application. This means you can use the same component multiple times without worrying about any side-effects.
+
+-   **Faster performance**
+
+Stateless components are faster than stateful components because they do not have any lifecycle methods or internal state to manage. This means that React can optimize the rendering process and improve the overall performance of your application.
+
+-   **Easy testing**
+
+Testing stateless components is easier because they do not have any side-effects or internal state to manage. You can simply pass in props and test the output of the component without worrying about its internal behavior.
+
+Employing stateless components can result in a codebase that is easier to maintain, reuse, and perform better overall.
+
+## Stateful components
+
+Stateful components are the opposite of stateless components. They have state and are responsible for managing and updating that state. They are also known as container or smart components.
+
+Stateful components are useful when you need to keep track of data that changes over time, such as form inputs, user authentication, or data fetching. They are also great for handling user events, like button clicks or form submissions.
+
+Here's a simple example of a stateful component:
+
+```tsx Counter.tsx
+import * as React from 'react';
+
+export const Counter = () => {
+    const [count, setCount] = React.useState(0);
+
+    const increment = () => {
+        setCount((c) => c + 1);
+    };
+
+    return (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={increment}>Increment</button>
+        </div>
+    );
+};
+```
+
+In this example, `Counter` is a component that keeps track of a `count` state and displays a counter UI. Additionally, it has an `increment` method that updates the state when the button is clicked.
+
+## Container-presentational pattern
+
+In the previous section, we talked about stateful components, which are also called container components. This name comes from the **container-presentational pattern**.
+
+Basically, this pattern splits a component's logic into two parts: a presentational component, which handles the UI, and a container component, which manages the state and passes data to the presentational component.
+
+The presentational component is usually a simple component that receives props and uses them to render the UI. It doesn't have any internal state or side-effects, which makes it easy to test and understand.
+
+The container component, on the other hand, is usually a component that handles state and passes data to the presentational component as props. It may also handle events or fetch data from an API.
+
+By separating the concerns of these two components, you can create reusable presentational components that can be used across multiple container components. This makes your code more modular and easier to maintain over time.
+
+Here's an example to help you understand how the container-presentational pattern works:
+
+```tsx
+// Presentational component
+const Greeting = ({ name }) => {
+    return <h1>Hello, {name}!</h1>;
+};
+
+// Container component
+const GreetingContainer = () => {
+    const [name, setName] = React.useState('World');
+
+    const handleChange = (event) => {
+        setName(event.target.value);
+    };
+
+    return (
+        <div>
+            <input type="text" value={name} onChange={handleChange} />
+            <Greeting name={name} />
+        </div>
+    );
+};
+```
+
+Let's take a look at two important parts: `Greeting` and `GreetingContainer`. The `Greeting` component shows a personalized greeting message based on the `name` prop it receives. The `GreetingContainer` component handles the `name` state and passes it down to the `Greeting` component as a prop. It also includes an event handler function called `handleChange` that updates the `name` state when the input field is changed.
+
+Using the container-presentational pattern has a lot of benefits. For one, we can make a reusable `Greeting` component that can be used in many different container components. Plus, it's easy to test the `Greeting` component since it doesn't have any side-effects or internal state to manage.
+
+## Conclusion
+
+In React, there are two key concepts you need to know: stateless and stateful components. Stateless components are easy to use and can be reused in different parts of your app. Stateful components are more complex and are used to manage state and handle user events. By mastering these concepts, you'll be able to write better, more maintainable React apps.
