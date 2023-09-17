@@ -1,0 +1,121 @@
+---
+category: DOM
+created: '2023-09-14'
+description: The differences between resize event and ResizeObserver in JavaScript
+openGraphCover: /og/this-vs-that/resize-event-vs-resize-observer.png
+title: resize event vs ResizeObserver
+---
+
+When it comes to detecting changes in the size of an element, there are two commonly used methods: `resize` event and `ResizeObserver`. Although they serve the same purpose, they work differently and have their own advantages and limitations. In this post, we'll explore the differences between these two methods.
+
+## resize event
+
+The `resize` event is a nifty feature in JavaScript that automatically triggers when an element's size changes. You can easily attach it to any element by using the `addEventListener()` method.
+
+It's worth noting that previously, you could register `resize` event handlers on any HTML element, but now they only work on the `window` object. This means only handlers registered on the `window` object will receive `resize` events.
+
+For example, check out this code snippet that adds a `resize` event listener to the `window` object:
+
+```js
+window.addEventListener('resize', (event) => {
+    console.log('Window size changed');
+});
+```
+
+## ResizeObserver
+
+The `ResizeObserver` API is a powerful tool for detecting changes in the size of **any element**, not just the `window`. With `ResizeObserver`, you can keep track of changes to an element's content or border box, and get detailed information about what specifically has changed.
+
+Here's an example of how to use `ResizeObserver`:
+
+```js
+const resizeObserver = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+        const { target } = entry;
+        console.log(`Element size changed: ${target.clientWidth}x${target.clientHeight}`);
+    }
+});
+
+const trackedEle = document.getElementById('list-element');
+resizeObserver.observe(trackedEle);
+```
+
+In this example, we're using `ResizeObserver` to keep track of changes to the size of an element. `ResizeObserver` is initialized with a callback function that receives an array of `ResizeObserverEntry` objects. These entries contain information about the observed element and its new size.
+
+One of the greatest features of `ResizeObserver` is that it allows you to observe changes to multiple elements simultaneously. This can help reduce the number of event listeners you need to add to your page, making your code more efficient.
+
+For instance, here's an example of how you can use `ResizeObserver` to observe changes to multiple elements at the same time.
+
+```javascript
+const resizeObserver = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+        const { target } = entry;
+        console.log(`Element size changed: ${target.clientWidth}x${target.clientHeight}`);
+    }
+});
+
+const items = document.querySelectorAll('.list-item');
+items.forEach((element) => {
+    resizeObserver.observe(element);
+});
+```
+
+In this example, we're selecting all the elements that have the class of `.list-item` and using the `forEach()` method to loop through them. We then call `resizeObserver.observe()` on each element, which adds them to our observer.
+
+Now, whenever any of these observed elements change size, the callback function will be called with an array of entries that contain information about each element's new size. This is a great way to keep track of changes in multiple elements using just one observer. It's a simple and efficient method for monitoring size changes in web development.
+
+## Best practices for using ResizeObserver
+
+Although `ResizeObserver` is a powerful tool for detecting size changes in an element, it's crucial to use it correctly to prevent memory leaks and performance problems. To help you make the most of it, here are some best practices to keep in mind:
+
+-   **Limit the number of observed elements**
+
+As I mentioned earlier, `ResizeObserver` can observe changes to multiple elements at the same time. But, keep in mind that observing too many elements can slow down your website, particularly if those elements frequently change size. So, try to limit the number of observed elements as much as possible to ensure optimal performance.
+
+-   **debounce the callback function**
+
+When a `resize` event occurs, the callback function that's executed can be quite expensive. This is especially true if it performs complex calculations or updates the user interface. To prevent the function from being called too frequently and causing performance issues, it's important to debounce it.
+
+To achieve this, we're using [lodash's `debounce`](https://lodash.com/docs/#debounce) in the following example. This will limit how often the `handleResize()` function is called.
+
+```js
+const handleResize = () => {
+    // ...
+};
+
+const debouncedHandleResize = _.debounce(handleResize, 100);
+
+const resizeObserver = new ResizeObserver((entries) => {
+    debouncedHandleResize();
+});
+```
+
+-   **Avoid observing hidden elements**
+
+Using `ResizeObserver` to observe hidden elements can slow down your website and cause unexpected issues. To prevent this, avoid observing elements that are hidden with CSS (`display: none`, `visibility: hidden`, etc.) or that are not yet visible on the page.
+
+-   **Optimize your CSS**
+
+When you change the size of an element, it can cause a reflow that hurts your page's performance. To avoid this, it's important to optimize your CSS and avoid unnecessary reflows. One way to do this is by using transitions or animations for element positions instead of directly setting them. By doing so, you can minimize the impact of `ResizeObserver` on your page's performance.
+
+-   **Clean up after yourself**
+
+After using `ResizeObserver` to observe an element, don't forget to disconnect it by calling its `disconnect()` method. Otherwise, you risk creating memory leaks that can slow down your page and even crash your browser.
+
+```js
+// When you don't want to track the size of the element
+resizeObserver.unobserve(trackedEle);
+resizeObserver.disconnect();
+```
+
+By following these best practices, you can effectively use `ResizeObserver` without putting your page's performance or stability at risk.
+
+## Conclusion
+
+To track changes in the size of elements on a web page, you have two options: the `resize` event or `ResizeObserver`. Keep in mind that the `resize` event only works for changes to the `window` object, whereas `ResizeObserver` can detect changes in any element. Additionally, `ResizeObserver` provides more detailed information about the specific changes within an element.
+
+To use `ResizeObserver` effectively, it's important to follow the best practices mentioned in the previous section.
+
+## See also
+
+-   [Debouncing vs throttling](https://phuoc.ng/collection/this-vs-that/debouncing-vs-throttling)
