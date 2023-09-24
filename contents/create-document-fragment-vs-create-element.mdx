@@ -1,0 +1,61 @@
+---
+category: DOM
+created: '2023-09-22'
+description: The differences between createDocumentFragment and createElement functions
+openGraphCover: /og/this-vs-that/create-document-fragment.png
+title: createDocumentFragment vs createElement
+---
+
+When you're creating new elements in the DOM, there are two methods that come in handy: `createDocumentFragment` and `createElement`. Although both methods have their place in web development, they serve different purposes.
+
+### createElement
+
+To create a new element node, you can use the `createElement` method. Simply pass in the name of the element you want to create as an argument. For example, to create a new `div` element, you would use `createElement('div')`.
+
+Once you've created the element, you can add it to the DOM using methods like `appendChild` or `insertBefore`. These methods make it easy to add your new element exactly where you want it to go.
+
+### createDocumentFragment
+
+The `createDocumentFragment` method creates a new document fragment node. This type of node is lightweight and can hold other nodes. It's perfect when you need to create a group of nodes that isn't part of the main DOM tree.
+
+Here's an example of how to use `createDocumentFragment` to insert multiple nodes:
+
+```js
+// Create a new document fragment
+const fragment = document.createDocumentFragment();
+
+// Create three new paragraph elements
+const p1 = document.createElement('p');
+const p2 = document.createElement('p');
+const p3 = document.createElement('p');
+
+// Add some text to the paragraphs
+p1.textContent = 'This is the first paragraph.';
+p2.textContent = 'This is the second paragraph.';
+p3.textContent = 'This is the third paragraph.';
+
+// Append the paragraphs to the fragment
+fragment.appendChild(p1);
+fragment.appendChild(p2);
+fragment.appendChild(p3);
+
+// Get a reference to the parent element you want to add the paragraphs to
+const parentElement = document.getElementById('my-container');
+
+// Add the fragment to the parent element
+parentElement.appendChild(fragment);
+```
+
+In this example, we create a new `documentFragment` and three new `paragraph` elements. We then add some text content to each of these paragraphs and append them all to our `documentFragment`. Finally, we get a reference to our parent element and append our `documentFragment` containing all three paragraphs at once.
+
+Using document fragments is a great way to boost performance when adding multiple nodes to the DOM. Instead of adding each node one by one, you can group them together in a document fragment, and then add the fragment to the DOM. This can be faster because it only triggers one reflow instead of many.
+
+Check out this [tip](https://phuoc.ng/collection/tips/use-documentfragments-when-adding-a-big-list-of-elements) for more details.
+
+## The distinction
+
+When you add a document fragment to the DOM, it's like it disappears. The child nodes of the document fragment are inserted into the DOM where you put the fragment, but the fragment itself is not inserted. It still exists, but it has no children.
+
+On the other hand, when you create an element and append it to the DOM, both the element and its children are appended.
+
+To put it simply, when using a document fragment, only the children are added to the DOM.
