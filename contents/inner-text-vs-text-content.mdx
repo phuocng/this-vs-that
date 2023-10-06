@@ -1,0 +1,41 @@
+---
+category: DOM
+created: '2023-10-02'
+description: The differences between innerText and textContent properties
+openGraphCover: /og/this-vs-that/inner-text-vs-text-content.png
+title: innerText vs textContent
+---
+
+When working with HTML elements, you may come across two properties that seem to do the same thing: `innerText` and `textContent`. However, there are crucial differences between these properties that can affect how you use them in your code. In this post, we’ll dig into the dissimilarities between these properties.
+
+## innerText
+
+`innerText` is a property that returns the text that you can see within an element. This includes any styling that has been applied to the element, so it takes into account how the text is actually displayed.
+
+To help illustrate this, let's take a look at some HTML:
+
+```html
+<div id="example">
+    This is <span style="display: none">hidden</span> text
+</div>
+```
+
+If we use `document.getElementById('example').innerText`, we would get the text "This is text" returned. Notice that the text inside the `<span>` tag is not visible, so it won't be included in the result.
+
+## textContent
+
+While `innerText` only returns the visible text within an element, `textContent` returns all of the text within an element, including any text within `<script>` and `<style>` elements. The key difference is that `textContent` doesn't take into account any styling or formatting applied to the element.
+
+For example, if we use `document.getElementById('example').textContent` on the same HTML as before, we'll get the text "This is hidden text", including the text inside the `<span>` tag.
+
+## Availability of textContent and innerText
+
+If you're working with text nodes, your only option is to use `textContent`. On the other hand, both `textContent` and `innerText` are available for `HTMLElement` objects.
+
+Here's some sample code to help illustrate the difference.
+
+```js
+const textNode = document.createTextNode('This is sample text');
+console.log(textNode.textContent);  //  This is sample text
+console.log(textNode.innerText);    //  undefined
+```
